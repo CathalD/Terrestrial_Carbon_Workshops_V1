@@ -1,6 +1,6 @@
 # Forest Carbon Workshop — Plan (revised after asset ingest)
 
-*Supersedes the Forests section of [`../BUILD_PLAN.md`](../BUILD_PLAN.md). Written after
+*Supersedes the Forests section of [`BUILD_PLAN.md`](../../BUILD_PLAN.md). Written after
 reading every uploaded asset plus the LiDAR supplement.*
 
 ---
