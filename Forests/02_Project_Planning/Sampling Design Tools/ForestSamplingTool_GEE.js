@@ -1,16 +1,26 @@
 // =================================================================================
-// BLUE CARBON SAMPLING DESIGN TOOL — 2026
-// WWF-Canada · Coastal Blue Carbon Hub
+// FOREST SAMPLING DESIGN TOOL — 2026
+// WWF-Canada · Terrestrial Carbon Workshops
 //
-// Companion to Part 2 (Project Planning) of the Blue Carbon Eelgrass Workshop.
-// Every number this tool reports also appears in the workshop's Sample Allocation
-// Calculator; Section 4 below proves they agree.
+// Companion to Part 2 (Project Planning) of the Forest Carbon Workshop.
 //
 //   SECTION 0   Configuration and resource links
 //   SECTION 1   Statistics core          (BCStats)
 //   SECTION 2   Geometry and feasibility (BCGeom)
 //   SECTION 3   Test harness             (BCTest)
 //   SECTION 4   Run the tests
+//
+// ── PORTED FROM THE BLUE CARBON TOOL ─────────────────────────────────────────
+//   The statistics are ecosystem-free and are unchanged: Cochran's finite-population
+//   sample size, proportional allocation, and the achieved-precision check all work
+//   the same on a forest plot as on a sediment core. What changed:
+//
+//     * PLOT SIZE IS NOW PER POOL. A tree plot is 400 m2; a soil plot is 100 m2.
+//       Because N = area / plot size, each pool has its own N and therefore its own
+//       required n. Size the campaign once per pool — see CONFIG.POOLS below.
+//     * PRIORS COME FROM A PUBLISHED MAP, not a core synthesis. Unlike eelgrass,
+//       Canadian forests have national carbon maps (Sothe et al.), so the prior can
+//       be read directly over your own boundary. See SECTION 1, FOREST PRIORS.
 //
 // To run the tests: set RUN_SELF_TEST to true and press Run. Results print to
 // the Console panel. Set it to false for the released app.
@@ -28,30 +38,42 @@ var LOG = (typeof print === 'function') ? print : console.log;
 
 var CONFIG = {
 
-  VERSION: '2026.1',
+  VERSION: '2026.1-forest',
 
   // --- Defaults, matched to the workshop text -----------------------------------
-  PLOT_M2:            100,    // 10 x 10 m plot per core (Appendix A3)
   CONFIDENCE:         0.90,   // Step 4
   MARGIN_OF_ERROR:    0.20,   // Step 4
-  MIN_CORES_PER_ZONE: 5,      // Appendix A7
+  MIN_PLOTS_PER_ZONE: 5,      // Appendix A7
   ALLOCATION:         'proportional',
-  DEFAULT_ECOSYSTEM:  'Eelgrass',
-  DEFAULT_DEPTH_CM:   30,
+  DEFAULT_POOL:       'Trees',
+  DEFAULT_DEPTH_CM:   30,     // soil reporting depth
   SEED:               42,
 
+  // --- Plot size is per POOL, and it changes the answer -------------------------
+  // N = study area / plot size, so each pool has its own population size and its
+  // own required n. Run the sizing once per pool you intend to measure.
+  //   Large  400 m2  circular r = 11.28 m, or 20 x 20 m, or 10 x 40 m  (Trees guide)
+  //   Medium 16 or 100 m2                                    (Vegetation guide)
+  //   Small  1 or 0.25 m2                                    (Vegetation guide)
+  //   Soil   100 m2  the 10 x 10 m plot the depth survey runs over (Non-peat guide)
+  POOLS: {
+    Trees:      { plotM2: 400, label: 'Trees (large plot)' },
+    Soil:       { plotM2: 100, label: 'Soil (10 x 10 m plot)' },
+    Understory: { plotM2: 100, label: 'Understory (medium plot)' }
+  },
+  PLOT_M2: 400,   // default, kept for backwards compatibility with SECTION 2
+
   // --- Resource links shown to the user -----------------------------------------
-  // TODO: replace REPO with the real path once the workshop repo is public.
-  REPO: 'https://github.com/WWF-Canada-SKI/BlueCarbon_Eelgrass_Workshop',
+  REPO: 'https://github.com/CathalD/Terrestrial_Carbon_Workshops_V1',
 
   LINKS: {
-    calculator: '/raw/main/02_Project_Planning/BlueCarbon_SampleAllocation_2026.xlsx',
-    planningGuide: '/blob/main/02_Project_Planning/README.md',
-    appendixA: '/blob/main/02_Project_Planning/README.md#appendix-a--a-brief-lesson-in-sampling-logic',
-    fieldGuide: '/blob/main/Coastal-Blue-Carbon-Field-Guide-FINAL.pdf',
-    // TODO: point these at the real files once uploaded.
-    datasheets: '/blob/main/03_Field_Methods/',
-    workedExample: '/blob/main/Worked_Example/02_Project_Planning.md'
+    calculator:    '/blob/main/Forests/04_Data_Interpretation/calculators/Forest_Carbon_Calculator.xlsx',
+    planningGuide: '/blob/main/Forests/02_Project_Planning/README.md',
+    appendixA:     '/blob/main/Forests/02_Project_Planning/README.md#appendix-a--a-brief-lesson-in-sampling-logic',
+    treesGuide:    '/blob/main/Forests/03_Field_Methods/Trees-FINAL-Eng-2026.pdf',
+    soilGuide:     '/blob/main/_Shared/Non-peat-FINAL-Eng-2026.pdf',
+    datasheets:    '/blob/main/Forests/03_Field_Methods/datasheets/',
+    workedExample: '/blob/main/Forests/Worked_Example/'
   },
 
   linkTo: function (key) { return this.REPO + this.LINKS[key]; }
@@ -157,7 +179,7 @@ var BCStats = {
     }
 
     var allocation = o.allocation || 'proportional';
-    var minPer     = (o.minPerStratum === undefined) ? CONFIG.MIN_CORES_PER_ZONE : o.minPerStratum;
+    var minPer     = (o.minPerStratum === undefined) ? CONFIG.MIN_PLOTS_PER_ZONE : o.minPerStratum;
     var z          = this.z(o.confidence);
     var E          = o.marginOfError;
     var plot       = o.plotM2;
@@ -240,69 +262,116 @@ var BCStats = {
              target: o.target, pass: rme <= o.target };
   },
 
-  // --- Priors, Janousek et al. (2025) -------------------------------------------
-  // One figure per ecosystem, pooled across the Pacific Northwest: Alaska,
-  // British Columbia, Washington and Oregon. California and south are excluded —
-  // stocks there behave differently and the region is not comparable.
+  // --- FOREST PRIORS ------------------------------------------------------------
+  // Unlike coastal ecosystems, Canadian forests have a PUBLISHED CARBON MAP. So the
+  // prior does not have to be borrowed from a synthesis of other people's plots — it
+  // can be read directly over your own boundary.
   //
-  // Computed from core-level values in the published dataset, not by averaging
-  // published regional means, so the SD is the real spread between cores.
+  //   Sothe, C. et al. — forest carbon and soil carbon for Canada, 250 m, kg C/m2,
+  //   with matching uncertainty layers. Available in Earth Engine as:
   //
-  // Mangrove is absent: it does not occur north of California.
+  //     ee.ImageCollection('projects/sat-io/open-datasets/carbon_stocks_ca/fc')  // forest
+  //     ee.ImageCollection('projects/sat-io/open-datasets/carbon_stocks_ca/sc')  // soil
   //
-  // Janousek, C.N., Krause, J.R., Drexler, J.Z., Buffington, K.J., Poppe, K.L.,
-  // Peck, E., et al. (2025). Blue carbon stocks along the Pacific coast of North
-  // America are mainly driven by local rather than regional factors.
-  // Global Biogeochemical Cycles, 39, e2024GB008239.
+  // The companion script PriorCarbonScoping_GEE.js pulls these over an AOI, along
+  // with SoilGrids and available soil profile data, and reports the statistics you
+  // need here.
+  //
+  // ── THE ONE THING TO GET RIGHT ───────────────────────────────────────────────
+  //   Take the MAP'S MEAN at face value. Do NOT take its CV at face value.
+  //
+  //   The SD between 250 m pixels of a smoothed statistical model is NOT the SD
+  //   between 400 m2 plots in real forest. Model predictions are pulled toward the
+  //   mean, and a single 250 m pixel already averages over roughly 156 tree plots.
+  //   Using the map's CV directly UNDER-SIZES the campaign, and the cost of that
+  //   error is another field season.
+  //
+  //   inflateMapCV() below applies a deliberate, visible multiplier. Prefer a pilot
+  //   survey over any of this where you can get one.
 
-  //                    0             1      2     3      4      5     6
-  //                 ecosystem      m30   sd30  n30   m100  sd100  n100
-  PNW_PRIORS: [
-    ['Eelgrass',                    24.8, 16.8, 175,  86.5,  41.7,  42],
-    ['Salt marsh',                  88.4, 36.9, 351, 229.4,  89.4, 157],
-    ['Tidal swamp',                112.5, 39.3,  62, 356.9, 104.9,  39],
-    ['Tideflat',                    26.1, 13.8,  55,  null,  null,   9]
-  ],
+  // Multiplier applied to a CV read off a modelled raster. 1.5 is a rule of thumb,
+  // not a derived constant — it is here to be argued with, not trusted.
+  MAP_CV_INFLATION: 1.5,
+
+  inflateMapCV: function (mapCV) {
+    if (!isFinite(mapCV) || mapCV <= 0) return NaN;
+    return mapCV * this.MAP_CV_INFLATION;
+  },
+
+  // Build a prior from statistics you read off the Sothe layers over YOUR aoi.
+  // meanKgM2 / sdKgM2 come from a reduceRegion over the boundary.
+  priorFromMap: function (o) {
+    var mean = o.meanKgM2, sd = o.sdKgM2;
+    if (!isFinite(mean) || mean <= 0 || !isFinite(sd) || sd <= 0) {
+      return { ok: false, reason: 'Map statistics missing or non-positive.' };
+    }
+    var rawCV = sd / mean;
+    var cv    = (o.inflate === false) ? rawCV : this.inflateMapCV(rawCV);
+    return {
+      ok: true, pool: o.pool, mean: mean, sd: mean * cv,
+      cv: cv, rawCV: rawCV, inflated: (o.inflate !== false),
+      source: 'Sothe et al., read over the AOI at 250 m',
+      note: (o.inflate === false)
+        ? 'RAW map CV — this will under-size the campaign. See MAP_CV_INFLATION.'
+        : 'Map CV of ' + rawCV.toFixed(2) + ' inflated by ' +
+          this.MAP_CV_INFLATION + ' to ' + cv.toFixed(2) + ' for plot-scale variability.',
+      highVariability: cv > this.HIGH_CV
+    };
+  },
+
+  // Build a prior from a PILOT SURVEY. Always preferable: this is real plot-to-plot
+  // variability at the scale you will actually sample.
+  priorFromPilot: function (o) {
+    if (!isFinite(o.mean) || o.mean <= 0 || !isFinite(o.sd) || o.sd <= 0) {
+      return { ok: false, reason: 'Pilot mean and SD are required.' };
+    }
+    if (o.n !== undefined && o.n < 5) {
+      return { ok: true, pool: o.pool, mean: o.mean, sd: o.sd, cv: o.sd / o.mean,
+               source: 'Pilot survey, n = ' + o.n, indicative: true,
+               note: 'Fewer than 5 pilot plots: the SD is itself poorly estimated. Treat as indicative.',
+               highVariability: (o.sd / o.mean) > this.HIGH_CV };
+    }
+    return { ok: true, pool: o.pool, mean: o.mean, sd: o.sd, cv: o.sd / o.mean,
+             source: 'Pilot survey, n = ' + (o.n === undefined ? 'unstated' : o.n),
+             indicative: false, highVariability: (o.sd / o.mean) > this.HIGH_CV };
+  },
 
   // Priors above this CV get a warning: the campaign will be unusually large.
   HIGH_CV: 0.80,
 
-  // Below this the formula's answer is not usable in practice. One core has no
-  // standard deviation, so the achieved precision in Appendix A8 cannot be
-  // computed at all, and the estimate can never be checked. Surfaced to the user
-  // rather than applied silently — the earlier tools floored at 10 with no notice.
-  MIN_USABLE_CORES: 5,
+  // Below this the formula's answer is not usable in practice. One plot has no
+  // standard deviation, so the achieved precision in Appendix A8 cannot be computed
+  // at all, and the estimate can never be checked.
+  MIN_USABLE_PLOTS: 5,
 
-  // Fewer cores than this behind a prior makes it indicative only.
-  THIN_EVIDENCE: 20,
+  // ⚠ INDICATIVE FALLBACK ONLY — NOT DERIVED, NOT FOR REPORTING.
+  // These order-of-magnitude figures exist so the tool returns something when no AOI
+  // statistics and no pilot are available. They are NOT a substitute for reading the
+  // Sothe layers over your own boundary, and any campaign sized from them should say
+  // so. Replace them with values derived for your region.
+  //                 pool          mean kg C/m2   CV     basis
+  FALLBACK_PRIORS: [
+    ['Trees',              4.5,  0.45, 'INDICATIVE — replace with AOI statistics'],
+    ['Soil',              10.0,  0.35, 'INDICATIVE — soil to 30 cm; replace with AOI statistics'],
+    ['Understory',         0.2,  0.60, 'INDICATIVE — replace with AOI statistics']
+  ],
 
-  regionalPrior: function (ecosystem, depthCm) {
-    var deep = (depthCm === 100);
-    for (var i = 0; i < this.PNW_PRIORS.length; i++) {
-      var p = this.PNW_PRIORS[i];
-      if (p[0] !== ecosystem) continue;
-      var mean  = deep ? p[4] : p[1];
-      var sd    = deep ? p[5] : p[2];
-      var cores = deep ? p[6] : p[3];
-      if (mean === null || sd === null || cores < 3) {
-        return { ok: false, ecosystem: ecosystem, depthCm: depthCm, cores: cores,
-                 reason: 'Only ' + cores + ' published cores reach ' + depthCm +
-                         ' cm in ' + ecosystem.toLowerCase() + ' here — not enough to ' +
-                         'size a campaign. Use the top 30 cm, or your own pilot data.' };
-      }
-      return { ok: true, ecosystem: ecosystem, depthCm: depthCm,
-               mean: mean, sd: sd, cv: sd / mean, cores: cores,
-               source: 'Pacific Northwest average, Janousek et al. (2025)',
-               indicative: cores < this.THIN_EVIDENCE,
-               highVariability: (sd / mean) > this.HIGH_CV };
+  fallbackPrior: function (pool) {
+    for (var i = 0; i < this.FALLBACK_PRIORS.length; i++) {
+      var p = this.FALLBACK_PRIORS[i];
+      if (p[0] !== pool) continue;
+      return { ok: true, pool: pool, mean: p[1], cv: p[2], sd: p[1] * p[2],
+               source: p[3], indicative: true,
+               note: 'FALLBACK VALUE. Derive a real prior from the Sothe layers over ' +
+                     'your AOI, or from a pilot, before committing a field season.',
+               highVariability: p[2] > this.HIGH_CV };
     }
-    return { ok: false, reason: 'No published data for ' + ecosystem + '.' };
+    return { ok: false, reason: 'No fallback prior for pool "' + pool + '".' };
   },
 
-  // Only ecosystems that occur north of California.
-  ecosystems: function () {
+  pools: function () {
     var out = [];
-    for (var i = 0; i < this.PNW_PRIORS.length; i++) out.push(this.PNW_PRIORS[i][0]);
+    for (var k in CONFIG.POOLS) { if (CONFIG.POOLS.hasOwnProperty(k)) out.push(k); }
     return out;
   }
 };
@@ -424,7 +493,7 @@ var BCGeom = {
 
   feasibility: function (o) {
     var plot   = o.plotM2;
-    var minPer = (o.minPerStratum === undefined) ? CONFIG.MIN_CORES_PER_ZONE : o.minPerStratum;
+    var minPer = (o.minPerStratum === undefined) ? CONFIG.MIN_PLOTS_PER_ZONE : o.minPerStratum;
     var strata = o.strata || [{ name: 'Whole site', areaM2: o.areaM2, cores: o.cores }];
     var problems = [], warnings = [], j;
 
@@ -502,6 +571,8 @@ var BCTest = {
 
   // ---- helpers -----------------------------------------------------------------
   say:  function (t) { this.lines.push(t); },
+  pad: function (v, w) { var x = String(v); while (x.length < w) x += ' '; return x; },
+
   head: function (t) { this.say(''); this.say('=== ' + t + ' ==='); },
   pad:  function (s, n, right) {
     s = String(s);
@@ -548,23 +619,56 @@ var BCTest = {
 
   // ---- 3.2 one uniform area ----------------------------------------------------
   testSRS: function () {
-    this.head('3.2  One uniform area, against workbook sheet 1');
-    this.say('  Workbook case: CV 0.5, 5 ha inlet, 90% confidence, +/-20%');
-    var r = BCStats.srsSampleSize({ areaM2: 50000, plotM2: 100, mean: 100, sd: 50,
+    this.head('3.2  One uniform area — the worked example from Part 2');
+    this.say('  Moose Ridge: 12 ha block, tree plots at 400 m2, CV 0.45, 90%, +/-20%');
+    var r = BCStats.srsSampleSize({ areaM2: 120000, plotM2: CONFIG.POOLS.Trees.plotM2,
+                                    mean: 4.5, sd: 4.5 * 0.45,
                                     confidence: 0.90, marginOfError: 0.20 });
-    this.eq  ('possible plot locations N', r.N, 500);
-    this.near('coefficient of variation',  r.cv, 0.50);
-    this.eq  ('cores required',            r.n, 17);
+    this.eq  ('possible plot locations N', r.N, 300);
+    this.near('coefficient of variation',  r.cv, 0.45);
+    this.eq  ('tree plots required',       r.n, 14);
 
-    // and the same site with the prior the tool now offers
-    var eg = BCStats.regionalPrior('Eelgrass', 30);
-    var live = BCStats.srsSampleSize({ areaM2: 50000, plotM2: 100, mean: eg.mean, sd: eg.sd,
+    // The same block sized for SOIL. Plot size differs four-fold, so N does too --
+    // and the answer barely moves. That is the plateau from Appendix A4, and it is
+    // the reason the workshop can run one campaign for both pools.
+    var soil = BCStats.srsSampleSize({ areaM2: 120000, plotM2: CONFIG.POOLS.Soil.plotM2,
+                                       mean: 10.0, sd: 10.0 * 0.45,
                                        confidence: 0.90, marginOfError: 0.20 });
-    this.say('  Same site on the PNW eelgrass prior (CV ' + eg.cv.toFixed(2) + '): ' +
-             live.n + ' cores');
+    this.eq('possible soil plot locations N', soil.N, 1200);
+    this.eq('soil plots required',            soil.n, 14);
+    this.say('  Trees N=' + r.N + ' -> n=' + r.n +
+             ' ; Soil N=' + soil.N + ' -> n=' + soil.n +
+             '  (four-fold N difference, same answer)');
   },
 
-  // ---- 3.3 sensitivity grid ----------------------------------------------------
+  testPriors: function () {
+    this.head('3.3  Forest priors');
+
+    // A map CV must be inflated before it is used to size a campaign.
+    var raw = BCStats.priorFromMap({ pool: 'Trees', meanKgM2: 4.5, sdKgM2: 1.26,
+                                     inflate: false });
+    var inf = BCStats.priorFromMap({ pool: 'Trees', meanKgM2: 4.5, sdKgM2: 1.26 });
+    this.near('raw map CV',      raw.cv, 0.28);
+    this.near('inflated map CV', inf.cv, 0.28 * BCStats.MAP_CV_INFLATION);
+    this.say('  Raw map CV ' + raw.cv.toFixed(2) + ' -> inflated ' + inf.cv.toFixed(2));
+
+    // and what that does to the campaign
+    var nRaw = BCStats.srsSampleSize({ areaM2: 120000, plotM2: 400, mean: raw.mean,
+                                       sd: raw.sd, confidence: 0.90, marginOfError: 0.20 });
+    var nInf = BCStats.srsSampleSize({ areaM2: 120000, plotM2: 400, mean: inf.mean,
+                                       sd: inf.sd, confidence: 0.90, marginOfError: 0.20 });
+    this.say('  Sizing on the RAW map CV asks for ' + nRaw.n + ' plots; on the inflated CV, ' +
+             nInf.n + '. Under-sizing by ' + (nInf.n - nRaw.n) + ' plots is how you lose a season.');
+
+    // a pilot with too few plots is flagged, not silently trusted
+    var thin = BCStats.priorFromPilot({ pool: 'Trees', mean: 4.5, sd: 2.0, n: 3 });
+    this.eq('thin pilot flagged indicative', thin.indicative, true);
+
+    // fallbacks announce themselves
+    var fb = BCStats.fallbackPrior('Soil');
+    this.eq('fallback flagged indicative', fb.indicative, true);
+  },
+
   testSensitivityGrid: function () {
     this.head('3.3  Sensitivity grid, against workbook sheet 5 (48 cells)');
     var Es  = [0.05, 0.10, 0.15, 0.20, 0.25, 0.30];
@@ -592,8 +696,8 @@ var BCTest = {
   // ---- 3.4 stratified ----------------------------------------------------------
   testStratified: function () {
     this.head('3.4  Stratified, against workbook sheet 2');
-    var strata = [{ name: 'Dense meadow',  areaM2: 30000, mean: 20.6, sd: 11.9 },
-                  { name: 'Sparse fringe', areaM2: 20000, mean: 17.1, sd:  6.9 }];
+    var strata = [{ name: 'Upland stand',  areaM2: 30000, mean: 20.6, sd: 11.9 },
+                  { name: 'Lowland stand', areaM2: 20000, mean: 17.1, sd:  6.9 }];
 
     var p = BCStats.stratifiedSampleSize({ strata: strata, plotM2: 100, confidence: 0.90,
                                            marginOfError: 0.20, allocation: 'proportional',
@@ -602,8 +706,8 @@ var BCTest = {
     this.near('pooled variance',            p.pooledVariance, 104.01, 1e-9);
     this.near('V (variance / mean^2)',      p.V, 0.2821452);
     this.eq  ('cores before allocation',    p.n, 19);
-    this.eq  ('dense meadow cores',         p.strata[0].cores, 12);
-    this.eq  ('sparse fringe cores',        p.strata[1].cores, 8);
+    this.eq  ('upland stand plots',         p.strata[0].cores, 12);
+    this.eq  ('lowland stand cores',        p.strata[1].cores, 8);
     this.eq  ('total after the minimum',    p.nAllocated, 20);
 
     this.say('');
@@ -637,53 +741,24 @@ var BCTest = {
   },
 
   // ---- 3.6 priors --------------------------------------------------------------
-  testPriors: function () {
-    this.head('3.6  Priors — Pacific Northwest pooled, Janousek et al. (2025)');
-    this.say('  Alaska + British Columbia + Washington + Oregon. Mangrove excluded:');
-    this.say('  it does not occur north of California.');
-    this.say('');
-    this.say('    ecosystem        depth      mean      SD      CV    cores');
-
-    var ecos = BCStats.ecosystems(), bad = 0, i, d, depths = [30, 100];
-    for (i = 0; i < ecos.length; i++) {
-      for (d = 0; d < depths.length; d++) {
-        var p = BCStats.regionalPrior(ecos[i], depths[d]);
-        if (p.ok) {
-          this.say('    ' + this.pad(ecos[i], 16) + this.pad(depths[d] + ' cm', 10) +
-                   this.pad(p.mean.toFixed(1), 9, true) + this.pad(p.sd.toFixed(1), 8, true) +
-                   this.pad(p.cv.toFixed(2), 8, true) + this.pad(p.cores, 8, true) +
-                   (p.indicative ? '  [indicative]' : '') +
-                   (p.highVariability ? '  [high variability]' : ''));
-          // a shifted column or a swapped field shows up here
-          if (!(p.cv > 0.10 && p.cv < 2.0) || !(p.mean > 5) ||
-              !(p.cores >= 3) || !(p.sd < p.mean * 2)) bad++;
-        } else {
-          this.say('    ' + this.pad(ecos[i], 16) + this.pad(depths[d] + ' cm', 10) +
-                   '  not enough published cores (' + p.cores + ')');
-        }
-      }
+  testPriorTable: function () {
+    this.head('3.9  Prior sources, side by side');
+    this.say('    pool          mean kg/m2     CV     plots   source');
+    var pools = BCStats.pools(), i, bad = 0;
+    for (i = 0; i < pools.length; i++) {
+      var p = BCStats.fallbackPrior(pools[i]);
+      if (!p.ok) { this.say('    ' + pools[i] + '  (no fallback)'); continue; }
+      var n = BCStats.srsSampleSize({
+        areaM2: 120000, plotM2: CONFIG.POOLS[pools[i]].plotM2,
+        mean: p.mean, sd: p.sd, confidence: 0.90, marginOfError: 0.20 });
+      this.say('    ' + this.pad(pools[i], 13) + this.pad(p.mean.toFixed(2), 14) +
+               this.pad(p.cv.toFixed(2), 8) + this.pad(String(n.n), 8) +
+               (p.indicative ? 'INDICATIVE' : p.source));
+      if (!p.indicative) bad++;
     }
-    this.eq('every prior has a plausible mean, SD, CV and core count', bad, 0);
-
-    var eg = BCStats.regionalPrior('Eelgrass', 30);
-    this.eq('eelgrass mean is 24.8',  eg.mean, 24.8);
-    this.eq('eelgrass SD is 16.8',    eg.sd,   16.8);
-    this.eq('eelgrass CV is 0.68',    eg.cv.toFixed(2), '0.68');
-    this.eq('eelgrass pools 175 cores', eg.cores, 175);
-
-    var deep = BCStats.regionalPrior('Eelgrass', 100);
-    this.eq('eelgrass at 100 cm, mean is 86.5', deep.mean, 86.5);
-    this.eq('eelgrass at 100 cm, SD is 41.7',   deep.sd,   41.7);
-    this.eq('mean rises with depth, as it must', deep.mean > eg.mean, true);
-
-    var flat = BCStats.regionalPrior('Tideflat', 100);
-    this.eq('tideflat at 100 cm refuses rather than guessing', flat.ok, false);
-    this.say('    ' + flat.reason);
-
-    this.eq('mangrove is not offered',
-            BCStats.ecosystems().join(',').indexOf('Mangrove'), -1);
-    this.eq('four ecosystems offered', BCStats.ecosystems().length, 4);
+    this.eq('every fallback is marked indicative', bad, 0);
   },
+
 
   // ---- 3.7 analysis scale ------------------------------------------------------
   testScale: function () {
@@ -705,7 +780,7 @@ var BCTest = {
 
   // ---- 3.8 stratification availability -----------------------------------------
   testStratificationOptions: function () {
-    this.head('3.8  Which stratification methods suit a 5 ha meadow');
+    this.head('3.8  Which stratification methods suit a 5 ha block');
     var opts = BCGeom.stratificationOptions(50000);
     for (var i = 0; i < opts.length; i++) {
       this.say('    ' + (opts[i].available ? 'offer  ' : 'hide   ') +
@@ -726,8 +801,8 @@ var BCTest = {
   // ---- 3.9 edge buffer ---------------------------------------------------------
   testBuffer: function () {
     this.head('3.9  Edge buffer (the fixed-50 m failure)');
-    var cases = [[50000, 22, 'whole 5 ha inlet'], [30000, 12, 'dense meadow, 3 ha'],
-                 [20000,  8, 'sparse fringe, 2 ha'], [2000,  5, 'small zone, 0.2 ha']];
+    var cases = [[50000, 22, 'whole 5 ha block'], [30000, 12, 'upland stand, 3 ha'],
+                 [20000,  8, 'lowland stand, 2 ha'], [2000,  5, 'small zone, 0.2 ha']];
     for (var i = 0; i < cases.length; i++) {
       var b = BCGeom.chooseBuffer(cases[i][0], cases[i][1], 100);
       this.say('    ' + this.pad(cases[i][2], 22) + ' -> ' + b.note);
@@ -735,8 +810,8 @@ var BCTest = {
     this.say('');
     this.say('    A fixed 50 m buffer would leave ' +
              Math.round(100 * BCGeom.retainedAfterBuffer(30000, 50) / 30000) +
-             '% of the dense meadow.');
-    this.eq('dense meadow steps down to 10 m', BCGeom.chooseBuffer(30000, 12, 100).buffer, 10);
+             '% of the upland stand.');
+    this.eq('upland stand steps down to 10 m', BCGeom.chooseBuffer(30000, 12, 100).buffer, 10);
     this.eq('5 ha inlet uses 25 m',            BCGeom.chooseBuffer(50000, 22, 100).buffer, 25);
   },
 
@@ -744,8 +819,8 @@ var BCTest = {
   testFeasibility: function () {
     this.head('3.10  Feasibility checks');
 
-    var strata = [{ name: 'Dense meadow',  areaM2: 30000, mean: 20.6, sd: 11.9 },
-                  { name: 'Sparse fringe', areaM2: 20000, mean: 17.1, sd:  6.9 }];
+    var strata = [{ name: 'Upland stand',  areaM2: 30000, mean: 20.6, sd: 11.9 },
+                  { name: 'Lowland stand', areaM2: 20000, mean: 17.1, sd:  6.9 }];
     var alloc = BCStats.stratifiedSampleSize({ strata: strata, plotM2: 100, confidence: 0.90,
                                                marginOfError: 0.20, allocation: 'proportional',
                                                minPerStratum: 5 });
@@ -786,7 +861,7 @@ var BCTest = {
     // 5 ha, near-square: the shape of the worked example
     var square = [[-123.09153,49.00399],[-123.08847,49.00399],
                   [-123.08847,49.00600],[-123.09153,49.00600],[-123.09153,49.00399]];
-    // 5 ha, 400 m by 125 m: the shape of a shore-fringing meadow
+    // 5 ha, 400 m by 125 m: the shape of a riparian strip or a hillside band
     var wide   = [[-123.0927,49.00494],[-123.0873,49.00494],
                   [-123.0873,49.00606],[-123.0927,49.00606],[-123.0927,49.00494]];
 
@@ -871,16 +946,17 @@ var BCTest = {
   run: function () {
     this.lines = []; this.passed = 0; this.failed = 0;
 
-    this.say('BLUE CARBON SAMPLING TOOL — SELF TEST');
+    this.say('FOREST SAMPLING DESIGN TOOL — SELF TEST');
     this.say('version ' + CONFIG.VERSION +
-             '   ·   reference: BlueCarbon_SampleAllocation_2026.xlsx');
+             '   ·   reference: Forest Carbon Workshop, Part 2 Appendix A');
 
     this.testInverseNormal();
     this.testSRS();
+    this.testPriors();
+    this.testPriorTable();
     this.testSensitivityGrid();
     this.testStratified();
     this.testAchievedPrecision();
-    this.testPriors();
     this.testScale();
     this.testStratificationOptions();
     this.testBuffer();
@@ -928,7 +1004,7 @@ var BCEarth = {
   EMBEDDING_SCALE: 10,
 
   // A ~5 ha rectangle off Tsawwassen, BC. A fixture for testing the geometry
-  // path at the size the workshop actually targets — not a real meadow boundary.
+  // path at the size the workshop actually targets — not a real stand boundary.
   TEST_AOI: ee.Geometry.Polygon([[
     [-123.09153, 49.00399], [-123.08847, 49.00399],
     [-123.08847, 49.00600], [-123.09153, 49.00600],
@@ -1013,7 +1089,7 @@ var BCEarth = {
 
   // --- Stratification: unsupervised grouping ------------------------------------
   // Satellite Embeddings are the default for small sites: 64 bands at 10 m, so a
-  // 5 ha meadow still holds ~500 pixels. Tiles are served per UTM zone and a
+  // 5 ha block still holds ~500 pixels. Tiles are served per UTM zone and a
   // mosaic inherits a 1-degree default projection, so the projection is set
   // explicitly — without this the clusterer trains on effectively one pixel.
 
@@ -1046,7 +1122,7 @@ var BCEarth = {
     var img   = (sourceId === 'embeddings') ? this.embeddingImage(aoi) : this.covariateStack(aoi);
     var scale = (sourceId === 'embeddings') ? this.EMBEDDING_SCALE : 30;
 
-    // Training size follows the site, so a small meadow is not asked for more
+    // Training size follows the site, so a small block is not asked for more
     // pixels than it contains.
     var available = Math.floor(areaM2 / (scale * scale));
     var training  = Math.max(200, Math.min(5000, Math.floor(available * 0.5)));
@@ -1282,7 +1358,7 @@ var BCLayout = {
     { id: 'grid',      label: 'Even grid',
       blurb: 'Cores on a regular lattice. Guarantees even coverage.' },
     { id: 'transect',  label: 'Shore-parallel transects',
-      blurb: 'Lines following the long axis of the zone. Recommended for eelgrass.' },
+      blurb: 'Lines following the long axis of the zone. Useful along a slope or drainage gradient.' },
     { id: 'composite', label: 'Composite plots',
       blurb: 'Clusters of subsamples combined into one sample. Fewer lab analyses.' }
   ],
@@ -1393,7 +1469,7 @@ var BCLayout = {
   },
 
   // --- principal axis -----------------------------------------------------------
-  // The long axis of an eelgrass meadow generally follows the shore, so transects
+  // A forest stratum's long axis often follows a slope or drainage gradient, so transects
   // laid along it are shore-parallel in practice. This is a proxy for a real
   // coastline, and the tool says so rather than implying otherwise.
 
@@ -1653,7 +1729,7 @@ var UI = {
 
 var State = {
   aoi: null, areaM2: null, scale: null,
-  ecosystem: CONFIG.DEFAULT_ECOSYSTEM, depth: CONFIG.DEFAULT_DEPTH_CM, prior: null,
+  pool: CONFIG.DEFAULT_POOL, depth: CONFIG.DEFAULT_DEPTH_CM, prior: null,
   zoneMode: 'none', zoneImage: null, zones: null, zoneAreas: null,
   zoneKeep: {}, zoneGeoms: null, drawnZones: [], draft: null, classWidgets: [],
   design: null, cores: null, layout: 'random', transectCount: 4, bearing: null,
@@ -1678,9 +1754,9 @@ map.setOptions('SATELLITE');
 function label(t, s)  { return ui.Label(t, s); }
 function clearPanel(p) { p.clear(); }
 
-panel.add(label('Blue Carbon Sampling Design', UI.TITLE));
+panel.add(label('Forest Sampling Design', UI.TITLE));
 panel.add(label('Turn a boundary and a precision target into a list of core locations. ' +
-                'Companion to Part 2 of the eelgrass workshop.', UI.SUB));
+                'Companion to Part 2 of the Forest Carbon Workshop.', UI.SUB));
 
 // --- STEP 1 · boundary ----------------------------------------------------------
 
@@ -1716,7 +1792,7 @@ var zoneCountRow = ui.Panel([label('How many groups should it look for?', UI.HIN
                             null, { shown: false });
 
 // drawing zones by hand
-var zoneNameBox = ui.Textbox({ placeholder: 'Name this zone, e.g. Dense meadow', style: UI.WIDE });
+var zoneNameBox = ui.Textbox({ placeholder: 'Name this zone, e.g. Upland mixedwood', style: UI.WIDE });
 var drawnList   = ui.Panel();
 var drawRow = ui.Panel([
   label('Name the zone, draw it on the map, then add it. Repeat for each zone.', UI.HINT),
@@ -1749,13 +1825,13 @@ panel.add(zoneChoices);
 // --- STEP 3 · what is being measured, and how variable it is --------------------
 
 panel.add(label('Step 3 · What are you measuring?', UI.STEP));
-panel.add(label('Sediment carbon, in the site and zones you just defined. How variable ' +
+panel.add(label('Carbon in the site and zones you just defined. How variable ' +
                 'that carbon is drives the number of cores more than anything else you ' +
                 'choose here.', UI.ASK));
 
 var ecoSelect = ui.Select({
-  items: BCStats.ecosystems(), value: CONFIG.DEFAULT_ECOSYSTEM, style: UI.WIDE,
-  onChange: function (v) { State.ecosystem = v; refreshPriors(); }
+  items: BCStats.pools(), value: CONFIG.DEFAULT_POOL, style: UI.WIDE,
+  onChange: function (v) { State.pool = v; refreshPriors(); }
 });
 var depthSelect = ui.Select({
   items: [{ label: 'Top 30 cm', value: 30 }, { label: 'Full metre', value: 100 }],
@@ -1963,7 +2039,7 @@ function choosePrior(mode) {
         priorOut.add(label('Using your figures: carbon varies by ' +
                            Math.round(100 * sd / m) + '% between cores.', UI.OK));
         if (sd / m < 0.15) {
-          priorOut.add(label('That is unusually even for coastal sediment. Check the ' +
+          priorOut.add(label('That is unusually even for a forest stand. Check the ' +
                              'standard deviation is between cores, not a standard error.', UI.WARN));
         }
         recompute();
@@ -1972,7 +2048,9 @@ function choosePrior(mode) {
     return;
   }
 
-  var p = BCStats.regionalPrior(State.ecosystem, State.depth);
+  // Fallback until AOI statistics are read from the Sothe layers — see
+  // PriorCarbonScoping_GEE.js, and the warning on BCStats.inflateMapCV.
+  var p = BCStats.fallbackPrior(State.pool);
   if (!p.ok) {
     State.prior = null;
     priorOut.add(label(p.reason, UI.ERROR));
@@ -2269,7 +2347,7 @@ function recompute() {
     }
     result = BCStats.stratifiedSampleSize({
       strata: strata, plotM2: CONFIG.PLOT_M2, confidence: conf, marginOfError: E,
-      allocation: allocSelect.getValue(), minPerStratum: CONFIG.MIN_CORES_PER_ZONE });
+      allocation: allocSelect.getValue(), minPerStratum: CONFIG.MIN_PLOTS_PER_ZONE });
   } else {
     // one zone kept, or none defined: sample that area alone
     var area = (kept && kept.length === 1) ? kept[0].areaM2 : State.areaM2;
@@ -2282,23 +2360,23 @@ function recompute() {
   State.design = result;
 
   var formula = result.nAllocated || result.n;
-  var total   = Math.max(formula, BCStats.MIN_USABLE_CORES);
+  var total   = Math.max(formula, BCStats.MIN_USABLE_PLOTS);
   State.cores = total;
 
   designOut.add(label(total + ' cores', UI.RESULT));
   designOut.add(label('to know the mean within ' + Math.round(E * 100) + '%, ' +
                       Math.round(conf * 100) + '% of the time.', UI.NOTE));
 
-  if (formula < BCStats.MIN_USABLE_CORES) {
+  if (formula < BCStats.MIN_USABLE_PLOTS) {
     designOut.add(label('The formula asks for only ' + formula + '. Collect at least ' +
-                        BCStats.MIN_USABLE_CORES + ' regardless — with fewer you cannot ' +
+                        BCStats.MIN_USABLE_PLOTS + ' regardless — with fewer you cannot ' +
                         'measure how variable the site is, so the precision you actually ' +
                         'achieved can never be checked.', UI.WARN));
     if (State.prior && State.prior.cv < 0.15) {
       designOut.add(label('The variability behind this is very low (CV ' +
                           State.prior.cv.toFixed(2) + '). Check you picked the right ' +
-                          'ecosystem and depth — a figure this low is unusual for ' +
-                          'coastal sediment.', UI.WARN));
+                          'pool and depth — a figure this low is unusual for ' +
+                          'a forest stand.', UI.WARN));
     }
   }
 
@@ -2306,7 +2384,7 @@ function recompute() {
     for (i = 0; i < result.strata.length; i++) {
       designOut.add(label('   ' + result.strata[i].name + ': ' + result.strata[i].cores +
                           ' cores' + (result.strata[i].flooredToMinimum
-                            ? '  (raised to the ' + CONFIG.MIN_CORES_PER_ZONE + '-core minimum)' : ''),
+                            ? '  (raised to the ' + CONFIG.MIN_PLOTS_PER_ZONE + '-core minimum)' : ''),
                           UI.NOTE));
     }
   }
@@ -2316,7 +2394,7 @@ function recompute() {
     ? result.strata.map(function (s) { return { name: s.name, areaM2: s.areaM2, cores: s.cores }; })
     : [{ name: 'Whole site', areaM2: State.areaM2, cores: result.n }];
   var f = BCGeom.feasibility({ plotM2: CONFIG.PLOT_M2,
-                               minPerStratum: CONFIG.MIN_CORES_PER_ZONE, strata: forGeom });
+                               minPerStratum: CONFIG.MIN_PLOTS_PER_ZONE, strata: forGeom });
   for (i = 0; i < f.problems.length; i++) designOut.add(label(f.problems[i], UI.ERROR));
   for (i = 0; i < f.warnings.length; i++) designOut.add(label(f.warnings[i], UI.WARN));
 
@@ -2339,7 +2417,7 @@ function recompute() {
                       'site area divided by that.', UI.HINT));
   if (result.allocation) {
     mathPanel.add(label('Allocation: ' + result.allocation + '. Cores are rounded up per zone ' +
-                        'and floored at ' + CONFIG.MIN_CORES_PER_ZONE +
+                        'and floored at ' + CONFIG.MIN_PLOTS_PER_ZONE +
                         ', so the total runs slightly above the formula.', UI.HINT));
   }
   var a1 = ui.Label('Full derivation — Appendix A', UI.LINK);
@@ -2486,9 +2564,9 @@ function writeMethods() {
   }
 
   var text =
-    'Sediment cores (n = ' + State.placed.placed + ') were located across ' +
+    'Plots (n = ' + State.placed.placed + ') were located across ' +
     ((d.totalAreaM2 || State.areaM2) / 10000).toFixed(1) + ' ha of ' +
-    State.ecosystem.toLowerCase() +
+    State.pool.toLowerCase() +
     ' using a ' + layoutName + ' layout' +
     (d.strata ? ', allocated across ' + d.strata.length + ' zones by ' + d.allocation +
                 ' allocation' : '') +
