@@ -110,6 +110,12 @@ resolution.
 - [ ] ✍️ Slide deck for Part 4.
 - [ ] 🛠 **R analysis pipeline for stocks** — *deferred by agreement.* The workshop stops at the
   spreadsheet. When it lands it should read the same workbook and reproduce the same numbers.
+- [ ] 🗺 **Community led carbon mapping** — an R-based analysis turning plot measurements into a
+  carbon map with uncertainty, as a baseline communities can hold and re-map against.
+  **Series-wide**, not wetland-specific; a placeholder sits in
+  [Part 4](04_Data_Interpretation/README.md). The workflow is to be supplied and then documented
+  the way [Part 5](05_Chronology_Supplement/) documents `SedimentChronologies_R` — read
+  file-by-file and verified against its current head, not its README.
 
 ## Part 5 — Chronology Supplement (`05_Chronology_Supplement/`)
 

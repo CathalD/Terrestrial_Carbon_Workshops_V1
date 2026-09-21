@@ -111,3 +111,9 @@ Legend: 📸 image · 🔗 link · ✍️ writing · 📊 data · 📄 asset · 
 - [ ] 🔴 **R analysis pipeline** — the forest counterpart to the eelgrass
   `DataAnalysisWorkflow/`: stratified design-based estimation, depth harmonisation, and a
   rendered report. Deferred by agreement; the workbook covers the arithmetic in the meantime.
+- [ ] 🗺 **Community led carbon mapping** — an R-based analysis turning plot measurements into a
+  carbon map with uncertainty, as a baseline communities can hold and re-map against.
+  **Series-wide**, not forest-specific; a placeholder sits in
+  [Part 4](04_Data_Interpretation/README.md). The workflow is to be supplied and then documented
+  here, the way [Part 5](05_LiDAR_Supplement/) documents the LiDAR pipeline — read file-by-file
+  and verified against its head, not its README.

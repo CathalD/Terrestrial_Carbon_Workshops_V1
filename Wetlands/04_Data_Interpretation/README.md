@@ -455,9 +455,18 @@ Three translations that land, and one to avoid:
 > from two or three Canadian labs, **including which bulk-density basis each one reports**. This
 > is the number teams ask for first and the one this workshop cannot currently answer.
 >
-> 📊 **[R PIPELINE — DEFERRED]** — an R workflow for stocks, reading the same workbook and
-> producing the same numbers with reproducible code. Agreed to be out of scope for this build;
-> the workshop stops at the spreadsheet.
+> 🗺 **[COMMUNITY LED CARBON MAPPING — PLACEHOLDER]** — an **R-based analysis** that takes the
+> plot measurements from this workshop and turns them into a **carbon map with uncertainty**: a
+> baseline layer a community can hold, and re-map against later. Applies across all three
+> workshops in this series, not just this one, and will be added here when the workflow lands.
+>
+> Until then, the scaling in Part 4 stops at the **area-weighted study-area total** — a number,
+> not a map. That number is complete and defensible on its own; it just cannot tell you *where*
+> in the study area the carbon is.
+>
+> 📊 **[R PIPELINE FOR STOCKS — DEFERRED]** — a reproducible R workflow reading the same workbook
+> and producing the same numbers. Out of scope by agreement; the workshop stops at the
+> spreadsheet.
 
 ---
 

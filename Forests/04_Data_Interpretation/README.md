@@ -401,3 +401,16 @@ would contain the true mean. It says nothing about measurement error in any sing
 - [`calculators/Forest_Carbon_Calculator.xlsx`](calculators/Forest_Carbon_Calculator.xlsx) — the workbook.
 - [Lab Guide](../../_Shared/Lab-Guide-Eng-2026.pdf) — laboratory procedures.
 - [`Worked_Example/`](../Worked_Example/) — the same workbook, filled in.
+
+> 🗺 **[COMMUNITY LED CARBON MAPPING — PLACEHOLDER]** — an **R-based analysis** that takes the
+> plot measurements from this workshop and turns them into a **carbon map with uncertainty**: a
+> baseline layer a community can hold, and re-map against later. Applies across all three
+> workshops in this series, and will be added here when the workflow lands.
+>
+> Until then, the scaling above stops at the **area-weighted study-area total** — a number, not a
+> map. For forests with LiDAR coverage, [Part 5](../05_LiDAR_Supplement/) is the existing route to
+> a wall-to-wall map; community carbon mapping is the route for everywhere else.
+>
+> 📊 **[R PIPELINE FOR STOCKS — DEFERRED]** — a reproducible R workflow reading the same workbook
+> and producing the same numbers. Out of scope by agreement; the workshop stops at the
+> spreadsheet.
