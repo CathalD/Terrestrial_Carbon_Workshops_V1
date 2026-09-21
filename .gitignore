@@ -1,0 +1,6 @@
+# Python bytecode from the workbook and banner builders in */_source/
+__pycache__/
+*.py[cod]
+
+# LibreOffice lock files, created during headless recalculation
+.~lock.*#
