@@ -9,7 +9,7 @@ never need to read the wetland material.
 | | Workshop | Pools measured | Status |
 |---|---|---|---|
 | 🌲 | [**Forests**](Forests/) | Trees · soil · understory *(+ optional LiDAR)* | **Complete** |
-| 🌾 | [**Grasslands**](Grasslands/) | Soil · shrubs · herbaceous vegetation | Planned |
+| 🌾 | [**Grasslands**](Grasslands/) | Soil · **roots** · shrubs · herbaceous vegetation *(+ optional monitoring)* | In progress |
 | 💧 | [**Wetlands**](Wetlands/) | Peat · vegetation *(+ optional peat chronology)* | **Complete** |
 
 ---
@@ -79,6 +79,8 @@ The field methods follow WWF-Canada's protocol guides:
 - [`Forests/TODO.md`](Forests/TODO.md) — what the Forests workshop still needs.
 - [`Wetlands/TODO.md`](Wetlands/TODO.md) — what the Wetlands workshop still needs, and a record of
   what has already been verified.
+- [`Grasslands/TODO.md`](Grasslands/TODO.md) — what the Grasslands workshop still needs. It opens
+  with a short list of the four things that would help most.
 
-Both TODOs are mostly **field photos, lab quotes and decisions** rather than writing — the kind of
-thing only the people who ran the fieldwork can supply.
+These TODOs are mostly **references, field photos, lab quotes and decisions** rather than writing
+— the kind of thing only the people who ran the fieldwork can supply.
