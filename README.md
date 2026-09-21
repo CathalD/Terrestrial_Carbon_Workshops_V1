@@ -10,7 +10,7 @@ never need to read the wetland material.
 |---|---|---|---|
 | 🌲 | [**Forests**](Forests/) | Trees · soil · understory *(+ optional LiDAR)* | **Complete** |
 | 🌾 | [**Grasslands**](Grasslands/) | Soil · shrubs · herbaceous vegetation | Planned |
-| 💧 | [**Wetlands**](Wetlands/) | Peat · vegetation | Planned |
+| 💧 | [**Wetlands**](Wetlands/) | Peat · vegetation *(+ optional peat chronology)* | **Complete** |
 
 ---
 
@@ -26,15 +26,19 @@ around another:
 | 3 | **Field Methods** | *Collecting the data* — one page per carbon pool |
 | 4 | **Data Interpretation** | Lab work, the carbon calculator, scaling and reporting |
 
-The Forests workshop adds an optional **[5 — LiDAR Supplement](Forests/05_LiDAR_Supplement/)**
-for areas with LiDAR coverage.
+Two workshops add an optional **Part 5**, where the ecosystem makes something extra possible:
+
+| Workshop | Part 5 | What it adds |
+|---|---|---|
+| 🌲 Forests | **[LiDAR Supplement](Forests/05_LiDAR_Supplement/)** | Carries a plot-based estimate across a whole block as a **map**, where LiDAR coverage exists |
+| 💧 Wetlands | **[Chronology Supplement](Wetlands/05_Chronology_Supplement/)** | Turns a stock into a **rate** — peat is its own dated archive, so one visit can answer how fast carbon accumulated |
 
 ---
 
 ## Shared materials
 
-Assets in [`_Shared/`](_Shared/) are genuinely ecosystem-generic and used by more than one
-workshop:
+Assets in [`_Shared/`](_Shared/) sit outside any one workshop, so a document used by two or three
+of them isn't duplicated:
 
 | File | Used by |
 |---|---|
@@ -42,6 +46,11 @@ workshop:
 | [`Lab-Guide-Eng-2026.pdf`](_Shared/Lab-Guide-Eng-2026.pdf) | All three |
 | [`Non-peat-FINAL-Eng-2026.pdf`](_Shared/Non-peat-FINAL-Eng-2026.pdf) | Forests · Grasslands |
 | [`Vegetation-FINAL-Eng-2026.pdf`](_Shared/Vegetation-FINAL-Eng-2026.pdf) | All three |
+| [`s13157-023-01722-2.pdf`](_Shared/s13157-023-01722-2.pdf) — Bansal et al. (2023), *Practical Guide to Measuring Wetland Carbon Pools and Fluxes* | Wetlands |
+
+Each workshop keeps its own primary protocol beside its field methods rather than here —
+*Measuring Carbon in Trees* in [`Forests/03_Field_Methods/`](Forests/03_Field_Methods/), and
+*Measuring Carbon in Peat Soils* in [`Wetlands/03_Field_Methods/`](Wetlands/03_Field_Methods/).
 
 ---
 
@@ -68,3 +77,8 @@ The field methods follow WWF-Canada's protocol guides:
 - [`BUILD_PLAN.md`](BUILD_PLAN.md) — how all three workshops get built, what transfers from the
   eelgrass workshop and what has to be rebuilt.
 - [`Forests/TODO.md`](Forests/TODO.md) — what the Forests workshop still needs.
+- [`Wetlands/TODO.md`](Wetlands/TODO.md) — what the Wetlands workshop still needs, and a record of
+  what has already been verified.
+
+Both TODOs are mostly **field photos, lab quotes and decisions** rather than writing — the kind of
+thing only the people who ran the fieldwork can supply.
