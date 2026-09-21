@@ -138,20 +138,50 @@ finest roots.
 
 ## Part 5 — Monitoring (`05_Monitoring/`)
 
-- [ ] 📚 **FAO LEAP (2019)** guidelines — sampling design and **equivalent soil mass**, which is
-  the correction that makes repeat sampling defensible when bulk density has changed.
+*Written. Every figure on the page was computed and is asserted by a re-runnable check — the gaps
+below are references and real data, not arithmetic.*
+
+- [ ] 📊 **A Canadian grassland carbon accrual rate** — ⭐ **the most valuable single number missing
+  from this workshop.** The years-to-detectability table in
+  [Step 2](05_Monitoring/README.md#step-2--minimum-detectable-difference) scales directly off it,
+  and it currently uses 0.3 / 0.5 / 1.0 t C/ha/yr as **brackets, not measurements**. A defensible
+  rate for prairie restoration or grazing management turns that table from an illustration into
+  planning guidance.
+- [ ] 📚 **FAO LEAP (2019)** guidelines — sampling design and **equivalent soil mass**. The ESM
+  procedure in [Step 4](05_Monitoring/README.md#step-4--equivalent-soil-mass) is written from first
+  principles, with worked arithmetic that is independently checkable, and is **not yet cited**.
 - [ ] 📚 **Herrick et al.**, *Monitoring Manual for Grassland, Shrubland and Savanna Ecosystems*
   (Jornada) — core indicator method sheets and the soil aggregate stability test. This is the
-  bridge to your partners' soil-health indicator work.
+  bridge to your partners' soil-health indicator work, and
+  [Step 6](05_Monitoring/README.md#step-6--soil-health-indicators-and-carbon-stocks)'s indicator
+  table needs it.
 - [ ] 📚 **FAO SOC Mapping Cookbook (2nd ed.)** — validation and uncertainty chapters.
-- [ ] 📊 **A real repeat-measurement dataset**, if a partner has one. Detecting change is much
-  easier to teach from a case where it was actually attempted.
+- [ ] 📚 **ESM method literature** — spline-based alternatives to the linear interpolation used
+  here, and the debate over how to choose the reference mass.
+- [ ] 📊 **A real repeat-measurement dataset**, if a partner has one. Detecting change is far easier
+  to teach from a case where it was actually attempted, ESM included.
+- [ ] 🛠 **Two-visit ESM comparison** — not built, and it does not belong in the workbook: it needs
+  two workbooks side by side, per-plot matching and interpolation within increments. Fully specified
+  in [Step 4](05_Monitoring/README.md#step-4--equivalent-soil-mass), with worked figures
+  (+8% bulk density → a spurious **+3.5%** carbon "gain"; −7% → a spurious **−5.0%** "loss"; ESM
+  returns exactly zero for both) to test any implementation against. Belongs with the R pipeline.
+- [ ] ✍️ Slide deck for Part 5.
+- [ ] 📸 A figure for the **paired-versus-independent** argument — 113 plots against 13–24 is the
+  most consequential number in the supplement and is currently a table.
 
 ## Worked Example (`Worked_Example/`)
 
-- [ ] 📊 Real data from a partner site, or keep the constructed dataset clearly labelled.
+*Written, with every figure asserted against the recalculated workbook.*
+
+- [ ] 📊 Real data from a partner site, or keep the constructed dataset clearly labelled *(it is
+  currently labelled clearly)*.
 - [ ] 📸 A plot of **root mass by depth**, showing how slowly it declines — the figure that makes
-  the "30 cm is a floor" argument land.
+  the "30 cm is a floor" argument land. **24.2%** of the root carbon found to 60 cm sits below
+  30 cm, and root density at 30–60 cm is still **19%** of the surface value.
+- [ ] 📸 The three sites side by side: grazed sward, exclosure, oak savannah.
+- [ ] 📊 **Two paths the constructed dataset does not exercise** — **dead roots** (every fraction is
+  recorded Live) and a **`ROOTS_REMOVED_BEFORE_SOIL_C = No`** case, where the double-counting flag
+  fires. Both are built; neither is demonstrated. A revised dataset could cover both.
 
 ---
 

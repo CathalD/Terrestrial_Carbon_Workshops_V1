@@ -9,7 +9,7 @@ never need to read the wetland material.
 | | Workshop | Pools measured | Status |
 |---|---|---|---|
 | 🌲 | [**Forests**](Forests/) | Trees · soil · understory *(+ optional LiDAR)* | **Complete** |
-| 🌾 | [**Grasslands**](Grasslands/) | Soil · **roots** · shrubs · herbaceous vegetation *(+ optional monitoring)* | In progress |
+| 🌾 | [**Grasslands**](Grasslands/) | Soil · **roots** · shrubs · herbaceous vegetation *(+ optional monitoring)* | **Complete** |
 | 💧 | [**Wetlands**](Wetlands/) | Peat · vegetation *(+ optional peat chronology)* | **Complete** |
 
 ---
@@ -26,11 +26,13 @@ around another:
 | 3 | **Field Methods** | *Collecting the data* — one page per carbon pool |
 | 4 | **Data Interpretation** | Lab work, the carbon calculator, scaling and reporting |
 
-Two workshops add an optional **Part 5**, where the ecosystem makes something extra possible:
+Each workshop adds an optional **Part 5**, where the ecosystem — or the question being asked of it
+— makes something extra possible:
 
 | Workshop | Part 5 | What it adds |
 |---|---|---|
 | 🌲 Forests | **[LiDAR Supplement](Forests/05_LiDAR_Supplement/)** | Carries a plot-based estimate across a whole block as a **map**, where LiDAR coverage exists |
+| 🌾 Grasslands | **[Monitoring Supplement](Grasslands/05_Monitoring/)** | Turns a stock into a **baseline** — what it takes to detect **change** on a second visit, and what to measure instead when the stock will take decades to move |
 | 💧 Wetlands | **[Chronology Supplement](Wetlands/05_Chronology_Supplement/)** | Turns a stock into a **rate** — peat is its own dated archive, so one visit can answer how fast carbon accumulated |
 
 ---

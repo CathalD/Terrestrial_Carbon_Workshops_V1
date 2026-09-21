@@ -161,9 +161,11 @@ repository. All verified directly against its current head.
 
 ## Series-level
 
-- [ ] 📄 **Grasslands** — the third ecosystem in
-  [`BUILD_PLAN.md`](../BUILD_PLAN.md), not yet started.
-- [ ] ✍️ A **series landing page** at the repository root tying Forests, Wetlands and Grasslands
+- [x] ✅ **Grasslands** — the third ecosystem in
+  [`BUILD_PLAN.md`](../BUILD_PLAN.md). **Written**, including an optional
+  [Part 5 on monitoring](../Grasslands/05_Monitoring/). Its own gaps are in
+  [`Grasslands/TODO.md`](../Grasslands/TODO.md).
+- [x] ✅ **Series landing page** at the repository root, tying Forests, Wetlands and Grasslands
   together.
 - [ ] 🔗 WWF video playlist URLs, across all workshops.
 - [ ] 📊 Verify the two Forests root:shoot equations against Paré (2013) / Addo-Danso (2016) —
