@@ -9,6 +9,7 @@ And change the background image so there are more plants above the place where t
 [← Back to main guide](../README.md) · Next: [2 — Project Planning →](../02_Project_Planning/)
 
 ---
+(For claude consider the changes made already, ingest the articles and draw form them - Redo this section. I think we can elimiante most of the words and revert the to the side by side tables for orgnization where we right a quick summary and attach images or ppt slides to briefly communicate our ideas)
 
 # Part 1 — Background
 
