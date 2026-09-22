@@ -2,6 +2,7 @@
   <img src="01_Background/images/banner_grassland.svg" alt="Grassland Carbon Workshop banner" width="100%">
 </p>
 
+(For claude - Change the banner sub header to "Roots - Shoots - Soils - Carbon Stocks and Monitoring")
 ---
 
 # Grassland Carbon Workshop
