@@ -1,7 +1,9 @@
 <p align="center">
   <img src="images/banner_background.svg" alt="Background — Grassland Carbon Workshop banner" width="100%">
 </p>
+(For Claude Change banner subtitle "Carbon pools in grasslands - Roots and shoots - Digging deep for below ground carbon"
 
+And change the background image so there are more plants above the place where there are also roots, right now there are a bunch of roots from no plants")
 ---
 
 [← Back to main guide](../README.md) · Next: [2 — Project Planning →](../02_Project_Planning/)
@@ -10,7 +12,7 @@
 
 # Part 1 — Background
 
-*Intro to grassland carbon in Canada, and why almost none of it is visible from standing height.*
+*Intro to grassland carbon in Canada, and why almost none of it is in a visual line of sight.*
 
 **Quick links:** [Measuring Carbon in Vegetation (Non-Tree)](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Measuring Carbon in Non-Peat Soils](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Laboratory Analysis](../../_Shared/Lab-Guide-Eng-2026.pdf)
 
@@ -18,30 +20,41 @@
 
 ## What is grassland carbon?
 
-**Grassland carbon** is the organic carbon held by a grassland — in its soil, in the living and
+**Grassland carbon** is the organic carbon held within a grassland at a point in time. The carbon is in its soil, in the living and
 dead roots threading through that soil, and in the shoots, forbs and shrubs above it.
 
-The mechanism is the same photosynthesis that builds a forest. What differs is **where the carbon
+In each pool, the carbon derived from photosynthesis. What differs is **where the carbon
 goes afterwards**, and it differs in two ways that together define this workshop:
 
-1. **Grasses put a large share of what they fix into roots**, not stems. There is no trunk. The
-   structural investment goes downward.
-2. **Those roots die and are replaced constantly**, feeding organic matter directly into the soil
-   at depth — rather than dropping it on the surface as litter and letting it work down.
+1. **Native grasses especially put a large share of what they fix into roots**
 
-The result is a soil carbon store built from the inside out. In a forest, soil carbon largely
-arrives from above. In a grassland, much of it **starts underground**.
+(For claude insert this image - <img width="1600" height="1011" alt="image" src="https://github.com/user-attachments/assets/8f2a5bdf-234f-4930-838b-89f45ff1b607" />)
+and this - <img width="600" height="481" alt="image" src="https://github.com/user-attachments/assets/db57f784-882d-4a10-aa1f-53ef5441117a" />
 
-Two words for the two halves of the story, as in every workshop in this series:
+Here is another image - <img width="451" height="678" alt="image" src="https://github.com/user-attachments/assets/066e676e-28c7-4a2b-9979-82279e79b416" />
+
+
+2. **Those roots** input organic matter directly into the soil
+   at depth, throughout the entire soil profile
+
+The result is a soil carbon store built from the inside out.
+
+There are two words that describe soil carbon proccesses that you will see throughout, these are:
 
 1. **Sequestration** — the *process*: plants pulling CO₂ from the atmosphere. A **rate**, per year.
 2. **Storage** — the *amount* held now. A **stock**, at a point in time.
 
-Parts 2 to 4 measure **storage**. [Part 5](../05_Monitoring/) is about measuring it **twice**,
+Parts 2 to 4 measure **storage**. [Part 5](../05_Monitoring/) is about measuring it over time,
 which is how you get at change.
 
 > 📸 **[SLIDE NEEDED]** — a grassland carbon-cycle diagram: atmosphere, shoots, roots, soil, with
 > the root→soil pathway drawn thick, because that is the distinguishing feature.
+
+Image here - <img width="300" height="185" alt="image" src="https://github.com/user-attachments/assets/8a23fedc-782b-4bbe-bcd2-805622839f4d" />
+
+Here is another good article to pick and choose from as well - https://www.sciencedirect.com/science/article/pii/S0341816224005459?via%3Dihub
+
+Actually I've pasted the full PDF, this should be a go to source for carbon measurment and planning in grasslands: Grasslands/1-s2.0-S0341816224005459-main.pdf
 
 ---
 
@@ -51,16 +64,26 @@ which is how you get at change.
 <tr>
 <td width="55%">
 
-Three pools, and they are wildly unequal:
+Carbon within grasslands exist in three "pools":
 
 | Pool | Share of the total | How fast it changes |
 |---|---|---|
-| **Soil** | The overwhelming majority | Slowly — decades to centuries |
-| **Roots** | Small share of total carbon, but **most of the living biomass** | Fast — much of it turns over yearly |
+| **Soil** | The majority | Slowly, decades to centuries |
+| **Roots** | Small share of total carbon, but **most of the living biomass** | Fast, much of it turns over yearly |
 | **Shoots** | Smallest | **Within a single season** |
 
 The soil-dominance is not surprising — it is true in forests too. What *is* distinctive is the
 second row.
+
+More photo - 
+<img width="350" height="372" alt="image" src="https://github.com/user-attachments/assets/c9570cc0-11be-496d-9bd8-01765a50f7e4" />
+
+
+and here - 
+<img width="685" height="542" alt="image" src="https://github.com/user-attachments/assets/45ee7f9b-c0c0-4953-9746-606df9750f36" />
+With this article attached - https://www.nature.com/articles/s43247-024-01795-9
+
+
 
 **In a grassland, root biomass commonly exceeds shoot biomass several times over.** That is the
 reverse of a forest, where roots are a fraction of above-ground mass. A crew measuring only what
