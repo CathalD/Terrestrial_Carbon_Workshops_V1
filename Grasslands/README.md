@@ -6,8 +6,7 @@
 
 # Grassland Carbon Workshop
 
-*Measuring carbon in Canadian grasslands — where almost all of it is underground, and most of the
-living biomass is root.*
+*Measuring carbon in grasslands type ecosystems, covering above-ground plant biomass, below-ground plant biomass, and soil carbon*
 
 ---
 
@@ -15,11 +14,11 @@ living biomass is root.*
 
 | # | Section | What it covers |
 |---|---------|----------------|
-| 1 | [**Background**](01_Background/) | Where grassland carbon actually sits; the four grassland types; why roots, not shoots, are the biomass story. |
-| 2 | [**Project Planning**](02_Project_Planning/) | How many cores and where: stratifying on **grazing, management and fire**, and sizing separately for soil and for roots. |
-| 3 | [**Field Methods**](03_Field_Methods/) | [Soil coring with root separation](03_Field_Methods/3A_Soil.md), and [clip-and-weigh plus shrubs](03_Field_Methods/3B_Vegetation.md). |
+| 1 | [**Background**](01_Background/) | The carbon pools of grasslands; the four grassland types; measuring roots and shoots and soils. |
+| 2 | [**Project Planning**](02_Project_Planning/) | How many cores and where: stratifying on **management and restoration types**, and permanent vs single-use plots |
+| 3 | [**Field Methods**](03_Field_Methods/) | [Soil coring](03_Field_Methods/3A_Soil.md), and [clip-and-weigh methods](03_Field_Methods/3B_Vegetation.md). |
 | 4 | [**Data Interpretation**](04_Data_Interpretation/) | Lab results, root processing, the carbon calculator, scaling and reporting. |
-| 5 | [**Monitoring Supplement**](05_Monitoring/) *(optional)* | Detecting **change**, not just measuring a stock — for restoration, fire management and soil-health baselines. |
+| 5 | [**Monitoring Supplement**](05_Monitoring/) *(optional)* | Detecting **change**, not just measuring a stock for restoration, management and soil-health baselines. |
 
 ### Useful links
 
@@ -28,44 +27,43 @@ living biomass is root.*
 - **Measuring Carbon in Non-Peat Soils** — [PDF](../_Shared/Non-peat-FINAL-Eng-2026.pdf)
 - **Carbon Measurement: Sampling Design** — [PDF](../_Shared/Sampling-Design-Eng-2026.pdf)
 - **Laboratory Analysis guide** — [PDF](../_Shared/Lab-Guide-Eng-2026.pdf)
-- **Trees** — the [Forests workshop](../Forests/), for savannah and parkland with tree cover
+- **Trees** — the [Forests workshop](../Forests/), for savannah and other areas with tree cover
 
 ---
 
 ## Objectives
 
-1. **Learn where grassland carbon is** — and why the part you can see is the smallest part.
-2. **Learn field methods for measuring it** — soil coring, separating roots from soil, and
+1. **Learn about grassland carbon** above and below-ground
+2. **Learn field methods for measuring it** for soil coring, separating roots from soil, and
    clip-and-weigh at peak season.
-3. **Turn measurements into outputs** — carbon stocks with honest intervals, and a baseline you
+3. **Turn measurements into outputs** measure carbon stocks for baselines you
    can re-measure against.
 
 ---
 
 ## How to think about this workshop
 
-Same spine as the rest of the series: **start from the data sheet and work backwards.**
+This workshop is both for learning about, and implementing a carbon measurement project. To implement a project, its sometimes useful to begin at the end product you are looking for, and work backwards from there, therefore, here we **start from the data sheet we will fill-in and work backwards.**
 
 [**Section 1 — Background**](01_Background/) is *why this matters*.
 [**Section 2 — Project Planning**](02_Project_Planning/) is *making the data useful*.
 [**Section 3 — Field Methods**](03_Field_Methods/) is *collecting the data*.
 [**Section 4 — Data Interpretation**](04_Data_Interpretation/) turns the completed sheet into
 carbon estimates.
-[**Section 5 — Monitoring**](05_Monitoring/) is optional, and is about measuring the same place
-twice.
+[**Section 5 — Monitoring**](05_Monitoring/) is optional, and is about measuring the same place over time
 
 ---
 
 ## Four grasslands, one method
 
-Canada's grasslands are not one thing, and partners working in this series span at least three of
-these. They differ in water, fire and management — which changes what you measure alongside the
-soil, and which corrections matter.
+Canada's grasslands are diverse, differing types of plants, climates, soils, hydrology, management types, and more, which changes what you measure alongside the
+soil
 
 <table>
 <tr>
 <td width="56%">
 
+(NOTE to claude - remove the last column, just have a table with "some" types of grasslands in Canada, There are a couple more across canada, I liked the list here from Canada Grasslands - https://canadasgrasslands.ca/explore-grasslands and the Grasslands inventory - https://www.canadianfga.ca/en/conservation/grassland-inventory/) - Find a map for Canada or North aMerica we can add in here too.
 | | Character | What changes in the method |
 |---|---|---|
 | 🌾 **Prairie**<br>mixed-grass, fescue | Deep dark soils; **grazing is the dominant management variable**; native vs tame/seeded pasture | The baseline case. Stratify on grazing first |
@@ -76,12 +74,6 @@ soil, and which corrections matter.
 </td>
 <td width="44%">
 
-> 📸 **[FIGURE NEEDED]** — the four types side by side, so a crew can place their own site before
-> reading further.
-
-**The method is the same in all four.** You stratify, core the soil, separate roots from the
-sample, clip the standing vegetation at peak season, and send it all for carbon analysis. What
-changes is what *else* you measure, and which corrections you cannot skip.
 
 </td>
 </tr>
@@ -97,9 +89,27 @@ changes is what *else* you measure, and which corrections you cannot skip.
 > **Savannah sits right on that boundary by definition**, so this matters more here than anywhere
 > else. Set it in the calculator's `Fill Me In` tab.
 
+(NOTE for Claude - Remove this - We can measure the Carbon in Any tree over 2 meters in height with the forest plot and Carbon calculator spreadsheet)
+
 ---
 
 ## Why this workshop is mostly about what you cannot see
+
+(Note to claude here are some images you can add in to this table - and here is a good intor article to reference https://cid-inc.com/blog/monitoring-soil-carbon-formation-during-afforestation/)
+
+<img width="1000" height="632" alt="image" src="https://github.com/user-attachments/assets/ef253a75-2323-4505-b272-72ed680fcdc8" />
+
+and
+
+
+<img width="800" height="694" alt="image" src="https://github.com/user-attachments/assets/2f56be3a-eabc-420d-8632-2666be078ecf" />
+
+and
+
+<img width="960" height="350" alt="image" src="https://github.com/user-attachments/assets/88da08ec-3e1d-44b8-a0d0-918ce14fca57" />
+
+
+
 
 <table>
 <tr>
@@ -107,17 +117,13 @@ changes is what *else* you measure, and which corrections you cannot skip.
 
 Walk into a grassland and essentially none of the carbon is visible.
 
-- **The soil holds the overwhelming majority.** As in a forest, but more so — there is no trunk
-  to compete with it.
-- **Of the living biomass, most is root.** Grassland root biomass commonly exceeds shoot biomass
-  **several times over**. The relationship is the reverse of a forest, where roots are a fraction
-  of the above-ground mass.
-- **The standing crop you can see turns over every year.** It is not a stock in the way soil
-  carbon is a stock.
+- **The soil holds the majority of the carbon.** Soil grows slowly over long periods
 
-So a grassland survey that leads with clip-and-weigh has the emphasis backwards. **Lead with the
-soil, measure the roots properly, and treat the shoots as the small, seasonal component they
-are.**
+- **Of the living biomass, most is found in the plant root.** Grassland root biomass commonly exceeds shoot biomass
+  **several times over**.
+- **Plants grow quickly, but decompose quickly as well**
+
+So a grassland carbon project should consider which pools they are most interested in, which will result in how different stewardship techniques might impact the different pools.
 
 </td>
 <td width="45%">
@@ -133,19 +139,20 @@ are.**
 </tr>
 </table>
 
-### We measure roots. We don't model them.
+### 
 
-Most carbon accounting estimates below-ground biomass by multiplying above-ground biomass by a
-published **root:shoot ratio**. This workshop does not.
+Here we will show two methods for measuring plant biomass. The first is direct measurement, the second is using allometric relationships to model the plant biomass. This means we take 1 measurement of the plant that we know is correlated to another, such as the mass of the roots compared to the shoots. So once you know 1 you can estiamte the other.
 
 > **When you core the soil, you already have the roots.** Separating and weighing them is a
 > *measurement*. A ratio is someone else's measurement, from somewhere else, applied to your site.
 
-That decision runs through the whole workshop: root separation is built into
-[the coring protocol](03_Field_Methods/3A_Soil.md), root processing has its own lab chain in
+You can learn more about directly measuring root biomass via soil separation in:
+[the coring protocol](03_Field_Methods/3A_Soil.md), root processing has its own lab guide in
 [Part 4](04_Data_Interpretation/), and the calculator has a **`Root Biomass`** tab holding
-measured mass — not a multiplier.
+measured mass.
 
+
+(Note to claude remove this here and add it to the post-field work part)
 > [!WARNING]
 > **It also creates a trap, and the workshop is explicit about it.** Soil carbon analysis
 > conventionally removes visible roots — but fine roots stay in the sample. Add measured root
@@ -156,6 +163,7 @@ measured mass — not a multiplier.
 
 ---
 
+(For claude we can remove this below - it is not relevant)
 ## 30 cm is a floor, not an answer
 
 <table>
@@ -193,6 +201,7 @@ scientific one — so report it as such.*
 
 ---
 
+(For claud add in a link to the spreadsheet and a placeholder that I can paste a screenshot of it into)
 ## The data sheet we're building toward
 
 Everything in Parts 3 and 4 feeds one workbook:
@@ -210,19 +219,6 @@ Everything in Parts 3 and 4 feeds one workbook:
 > only you can provide — a regional prior, your lab's bulk-density basis, the sieve mesh you used.
 > Every one has a working default so the workbook computes from the moment you open it, and a
 > flag that stays lit until you replace it.
-
----
-
-# TLDR
-
-```
-        soil carbon  =  depth × bulk density × carbon %        ← the overwhelming majority
-        root carbon  =  measured root mass × carbon %          ← MEASURED, not a ratio
-       shoot carbon  =  clipped dry mass × carbon %            ← small, and seasonal
-```
-
-**Stratify on management. Core deep. Sieve the roots out and weigh them. Clip at peak season.
-Report 30 cm and deeper. Say what you left out.**
 
 ---
 
