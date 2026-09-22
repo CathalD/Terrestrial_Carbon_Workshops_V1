@@ -4,6 +4,14 @@
 
 ---
 
+(For Claude - Combine Root and soil and Plants into 1 readme file for now)
+
+(Go back to the communication with table - On the left is a placeholder where I can add an image or a ppt slide, on teh right is a short blurb communicating the idea - These should be sectioned preciesly to the protocol we are following )
+
+(We have permamanent and single use plot descripters in our guides - pull the onfo from there and I'll screenshot for it)
+
+
+
 [← 2 — Project Planning](../02_Project_Planning/) · [Back to main guide](../README.md) · Next: [4 — Data Interpretation →](../04_Data_Interpretation/)
 
 ---
