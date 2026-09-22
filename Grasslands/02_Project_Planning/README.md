@@ -4,6 +4,10 @@
 
 ---
 
+(For Claude - Expand this section so the default is that we are simply answering the question  of how many cores we need to get a statistically defined threshold value, and this can be used to answer a variety of question, then as a consequence of this, we can apply to it measuring differences between our stewardship areas, restoration areas, etc. Stratification is just a way of saying dividing up into meaningfully distinct areas. Some examples are restoration years, so comparing sites that may have been restored 20 years, to those 10 years, and to those restoreed within the past year or two.)
+
+Redo this section to align with this - Also I'll paste more details here about an example we used in an oak savannah - dont copy verbatum as its private but draw as inspiration - Ask me to paste this info in our chat if I forget)
+
 [← 1 — Background](../01_Background/) · [Back to main guide](../README.md) · Next: [3 — Field Methods →](../03_Field_Methods/)
 
 ---
