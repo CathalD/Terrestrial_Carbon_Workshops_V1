@@ -4,6 +4,8 @@
 
 ---
 
+For claude - As a general note, you are being witty - It should be more straightforward - Section 1 - What is carbon - Section 2 How to meausure it - Section 3 - etc. Be a bit more clear and straightforward with the sections.
+
 [← Back to main guide](../README.md) · Next: [2 — Project Planning →](../02_Project_Planning/)
 
 ---
@@ -15,6 +17,22 @@
 **Quick links:** [Measuring Carbon in Vegetation (Non-Tree)](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Measuring Carbon in Non-Peat Soils](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Laboratory Analysis](../../_Shared/Lab-Guide-Eng-2026.pdf)
 
 ---
+(For claude - Make this first section - Should be 1 sentence intros then a table shoiwng ppt slide or image on the left and a brief description on the right
+
+##What is ecosystem carbon?
+
+ppt slide 1 - <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/d09b171f-f56b-42d9-8096-e8b460e65f85" />
+Text: Carbon is both the building block of life and a key regulator of earth climate system
+
+
+ppt slide 2 - <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/5ac111cd-1dd3-4e07-bdd7-6bf50defa96c" />
+text: When we talk about ecosystem carbon specifically, we are refering to total amount of carbon stored in the plants and soils of an ecosystem
+
+
+ppt slide 3 - <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/688f43f7-ddba-4c3a-86bb-ccdf66e1a4d2" />
+test: There are many reasons to measure carbon, depending on your project and community goals. In part 2 "Project Planning" we will work towards aligning your carbon measuremnt project to these goals
+
+
 
 ## What is grassland carbon?
 
@@ -27,36 +45,36 @@
 </td>
 <td width="45%">
 
-**Grassland carbon** is the organic carbon held in a grassland at a point in time — in the soil, in
+**Grassland carbon** is the organic carbon held in a grassland at a point in time, including in the soil, in
 the living and dead roots threading through it, and in the shoots, forbs and shrubs above.
 
-In every pool the carbon came from photosynthesis. What differs between a grassland and a forest
-is **where it goes afterwards**.
 
 </td>
 </tr>
 <tr>
 <td width="55%">
+
+For claude - Make this image smaller
 
 <img width="600" alt="Root systems of native grassland species" src="https://github.com/user-attachments/assets/db57f784-882d-4a10-aa1f-53ef5441117a" />
 
 </td>
 <td width="45%">
 
-**1 · Native grasses especially put a large share of what they fix into roots.** There is no
-trunk; the structural investment goes downward.
+Native grasses especially put a large share of what they fix into roots.** 
 
 </td>
 </tr>
 <tr>
 <td width="55%">
 
+for claude - similarly make this image smaller
 <img width="451" alt="Depth of grassland root systems" src="https://github.com/user-attachments/assets/066e676e-28c7-4a2b-9979-82279e79b416" />
 
 </td>
 <td width="45%">
 
-**2 · Those roots input organic matter directly into the soil at depth**, throughout the whole
+Those roots input organic matter directly into the soil at depth**, throughout the whole
 profile — rather than dropping it on the surface and letting it work down.
 
 The result is a soil carbon store built from the inside out.
@@ -67,45 +85,57 @@ The result is a soil carbon store built from the inside out.
 
 ### Two words you will see throughout
 
-| | | |
+Fro claude - take these out of a table and just make them text
 |---|---|---|
 | **Sequestration** | the *process* — plants pulling CO₂ from the atmosphere | a **rate**, per year |
 | **Storage** | the *amount* held now | a **stock**, at a point in time |
 
-Parts 2 to 4 measure **storage**. [Part 5](../05_Monitoring/) is about measuring it over time,
-which is how you get at change.
 
 <table>
 <tr>
 <td width="55%">
 
+For claude - this is an image of the grassland carbon cycle - make it a bit bigger
 <img width="300" alt="Grassland carbon cycle" src="https://github.com/user-attachments/assets/8a23fedc-782b-4bbe-bcd2-805622839f4d" />
 
 </td>
 <td width="45%">
 
-> 📸 **[SLIDE NEEDED]** — a grassland carbon-cycle diagram: atmosphere, shoots, roots, soil, with
-> the root→soil pathway drawn thick, because that is the distinguishing feature.
+Text: - We we see a simplified daigram of how carbon moves within a grassland - The plants absorb CO2 from the atmosphere and use it to grow its shoots, and its root downward - The plant remains then are decomposed by the soil microbobial necromass (Fun word for microbial biomass in soil) - So the soils helps feed the plants and the plant in turn help feed teh soil
+
 
 </td>
 </tr>
 </table>
 
----
+For claude - Combine the slide above with the two below - We are just describing and showing where Grassland carbon is and why?
 
 ## Where the carbon actually is
+
+For claude - Were doing full rewrite of this section here
+1. Pull out the two images and show them side - by side
+2. Pull out the tabel for the carbon pools - add in a bar chart showing the relative carbon stock of each pool next to the description
+3. Below the images insert this text - In a grassland, root biomass commonly exceeds shoot biomass several times over — the reverse of a forest, where roots are a fraction of above-ground mass.
+
+A crew measuring only what they can see is measuring the smallest of three pools, and the least of the living biomass.
+
+Add this after words - See also Global patterns of grassland carbon (Communications Earth & Environment, 2024).
 
 <table>
 <tr>
 <td width="55%">
-
+For claude - make thsi image bigger
+  
 <img width="350" alt="Relative size of the shoot, root and soil carbon pools" src="https://github.com/user-attachments/assets/c9570cc0-11be-496d-9bd8-01765a50f7e4" />
 
 </td>
 <td width="45%">
 
+For claude - Thsi texxt should be - "
+
 Carbon in a grassland sits in three **pools**, and they are very unequal:
 
+For claude - Pull this table out and put it at the bottom of the slide here - 
 | Pool | Share of total | How fast it changes |
 |---|---|---|
 | **Soil** | The majority | Slowly — decades to centuries |
@@ -143,6 +173,8 @@ See also [*Global patterns of grassland carbon*](https://www.nature.com/articles
 
 ---
 
+For claude - remove this entire section:
+
 ## Why this workshop measures roots
 
 <table>
@@ -179,6 +211,8 @@ studying.
 </td>
 </tr>
 </table>
+
+You can keep this in but add it to the "After the field methods section, in Data Analysis and lab analysis part"
 
 ### The double-counting trap
 
@@ -218,7 +252,16 @@ convention a field crew can apply with a sieve — not a biological boundary.
 
 ---
 
-## A standing crop is not a stock
+
+## How to measure carbon
+
+For CLAude - Here we will introduce the 3 methods for collecting soil carbon
+- Coring
+- Soil pits
+- dig and fill methods
+
+ppt slide - <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/6fc686c8-8375-4cb0-bbe6-3878de90ab42" />
+
 
 <table>
 <tr>
@@ -272,21 +315,6 @@ instead of it.
 </td>
 <td width="45%">
 
-> [!IMPORTANT]
-> **The shortfall is largest where the grassland is most intact.** Cultivated and tame pasture
-> have shallower, disturbed root systems; **native grassland** has the deep systems a 30 cm core
-> misses most of.
->
-> So the bias runs awkwardly: shallow sampling systematically understates exactly the sites most
-> worth protecting.
->
-> **This applies doubly to roots.** If roots reach metres and the core stops at 30 cm, measured
-> root biomass is a floor in the same way. The calculator flags any root total whose deepest
-> increment is simply the bottom of the core.
-
-The correction for the bulk-density problem is **equivalent soil mass** — compare a fixed *mass*
-of soil rather than a fixed depth. Worked through in
-[Part 5, Step 4](../05_Monitoring/#step-4--equivalent-soil-mass).
 
 </td>
 </tr>
@@ -296,26 +324,13 @@ of soil rather than a fixed depth. Worked through in
 
 ---
 
-## What changes between grassland types
 
-[The landing page](../README.md#some-of-canadas-grasslands) lists some of the types you will meet.
-What matters here is what each one changes about the **method**.
+## Carbon accumulation - 
 
-| Type | What changes |
-|---|---|
-| 🌾 **Prairie** — mixed-grass, fescue | The reference case the workshop is written against. Divide on management and history first; distinguish **native** from **tame or seeded**, because they differ in rooting depth |
-| 🌳 **Aspen parkland** | The shrub/medium plot carries more weight. You are near the boundary with the [Forests workshop](../../Forests/) — say which side you chose |
-| 🌰 **Black Oak savannah** | **Trees are part of the system**, so the [Forests tree protocol](../../Forests/03_Field_Methods/3A_Trees.md) applies to anything over 2 m. Fire history is a **stratum**, not context. Sandy soils mean lower carbon per unit volume and a different bulk-density range |
-| 🏜 **Interior BC** — bunchgrass, sagebrush steppe | The one where the standard method breaks without adjustment. **Coarse fragments are common**, so that correction stops being optional. Soils are often shallow to bedrock, so depth to refusal is a recorded variable, not an assumption |
+For CLaude - Here we will copy from the carbon accumulation visualizer from the eelgrass - Copy exactly how it is
 
-> [!NOTE]
-> **Record your type on the plot log and stay consistent.** `1. Plot & Site Log` has a
-> `Grassland type` field. It drives nothing automatically — it is there so that when your interval
-> comes out wide, you can post-stratify on it.
+Then after the Disturbance visual - You can paste the table below for "Types of disturbacnes in grasslands and seperate them by "pulse" vs "press", etc
 
----
-
-## Disturbance: what takes the carbon back out
 
 Grassland carbon is old, deep and slow to rebuild. Most of the ways it leaves are fast.
 
@@ -328,14 +343,6 @@ Grassland carbon is old, deep and slow to rebuild. Most of the ways it leaves ar
 | **Fire** | Removes standing biomass; soil carbon is largely protected below the surface | Immediate above ground, small below |
 | **Drought** | Reduces production and shifts allocation. Repeated drought changes composition | Years, compounding |
 | **Invasion** | Shallow-rooted invasives replace deep-rooted natives — a loss of **deep** carbon input a surface survey will not see | Decades |
-
-Two consequences:
-
-1. **Record management history for every site.** Two sites with identical carbon today can be on
-   opposite trajectories, and a stock with no management context cannot tell them apart.
-2. **Fire suppression is a carbon *and* a biodiversity question, and they point different ways.** A
-   savannah closing to woodland may be gaining above-ground carbon while losing the ecosystem. Say
-   both — a carbon number presented without that context will be read as endorsement.
 
 ---
 
