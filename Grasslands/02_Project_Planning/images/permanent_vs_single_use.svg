@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="302" viewBox="0 0 760 302" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif">
+<title id="t">Permanent versus single-use plots</title>
+<desc id="d">Two matched panels. In a single-use plot the core is taken inside the vegetation plot after the survey; in a permanent plot the core is offset outside it and the plot carries a relocatable marker.</desc>
+<text x="24" y="28" font-size="14" fill="#898781" text-anchor="start" font-weight="600">Permanent or single-use?</text>
+<text x="24" y="46" font-size="11.5" fill="#a5a49e" text-anchor="start" font-weight="normal">A planning decision. A campaign designed for a one-off stock is often unusable as a baseline.</text>
+<rect x="24" y="74" width="344" height="206" rx="5" fill="none" stroke="#b9b8b1" stroke-width="1"/>
+<text x="38" y="98" font-size="13.5" fill="#d95926" text-anchor="start" font-weight="600">Single-use</text>
+<rect x="62" y="148" width="88" height="88" fill="#d95926" opacity="0.10" stroke="#d95926" stroke-width="2"/>
+<text x="106" y="138" font-size="10.5" fill="#a5a49e" text-anchor="middle" font-weight="normal">vegetation plot</text>
+<rect x="76" y="180" width="24" height="24" fill="#3987e5" opacity="0.28" stroke="#3987e5" stroke-width="1.5"/>
+<text x="88" y="222" font-size="9.5" fill="#3987e5" text-anchor="middle" font-weight="normal">quadrat</text>
+<circle cx="126" cy="216" r="6" fill="#c98500"/>
+<text x="126" y="238" font-size="10" fill="#c98500" text-anchor="middle" font-weight="normal">core</text>
+<text x="126" y="251" font-size="10" fill="#c98500" text-anchor="middle" font-weight="normal">INSIDE</text>
+<text x="218" y="136" font-size="12" fill="#898781" text-anchor="start" font-weight="normal">Sampled once.</text>
+<text x="218" y="156" font-size="12" fill="#898781" text-anchor="start" font-weight="normal">Destructive work</text>
+<text x="218" y="176" font-size="12" fill="#898781" text-anchor="start" font-weight="normal">inside the plot, after</text>
+<text x="218" y="196" font-size="12" fill="#898781" text-anchor="start" font-weight="normal">the survey is done.</text>
+<text x="218" y="236" font-size="11.5" fill="#d95926" text-anchor="start" font-weight="normal">“How much is here now?”</text>
+<rect x="392" y="74" width="344" height="206" rx="5" fill="none" stroke="#b9b8b1" stroke-width="1"/>
+<text x="406" y="98" font-size="13.5" fill="#199e70" text-anchor="start" font-weight="600">Permanent</text>
+<rect x="430" y="148" width="88" height="88" fill="#199e70" opacity="0.10" stroke="#199e70" stroke-width="2"/>
+<text x="474" y="138" font-size="10.5" fill="#a5a49e" text-anchor="middle" font-weight="normal">vegetation plot</text>
+<rect x="444" y="180" width="24" height="24" fill="#3987e5" opacity="0.28" stroke="#3987e5" stroke-width="1.5"/>
+<text x="456" y="222" font-size="9.5" fill="#3987e5" text-anchor="middle" font-weight="normal">quadrat</text>
+<circle cx="540" cy="210" r="6" fill="#c98500"/>
+<path d="M520 210 h12" stroke="#c98500" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="540" y="232" font-size="10" fill="#c98500" text-anchor="middle" font-weight="normal">core</text>
+<text x="540" y="245" font-size="10" fill="#c98500" text-anchor="middle" font-weight="normal">OUTSIDE</text>
+<circle cx="430" cy="236" r="4.5" fill="#199e70"/>
+<text x="430" y="254" font-size="9.5" fill="#199e70" text-anchor="middle" font-weight="normal">marker</text>
+<text x="586" y="136" font-size="12" fill="#898781" text-anchor="start" font-weight="normal">Re-measured over time.</text>
+<text x="586" y="156" font-size="12" fill="#898781" text-anchor="start" font-weight="normal">Destructive work</text>
+<text x="586" y="176" font-size="12" fill="#898781" text-anchor="start" font-weight="normal">OUTSIDE the plot.</text>
+<text x="586" y="196" font-size="12" fill="#898781" text-anchor="start" font-weight="normal">Offset recorded.</text>
+<text x="586" y="236" font-size="11.5" fill="#199e70" text-anchor="start" font-weight="normal">“Is this changing?”</text>
+</svg>

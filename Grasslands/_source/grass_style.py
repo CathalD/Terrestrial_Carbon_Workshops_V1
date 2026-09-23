@@ -36,6 +36,9 @@ BOX  = Border(left=THIN, right=THIN, top=THIN, bottom=THIN)
 WRAP = Alignment(wrap_text=True, vertical="top")
 CTR  = Alignment(horizontal="center", vertical="center", wrap_text=True)
 
+CULTIVATION = ["Never cultivated", "Cultivated, reseeded", "Cultivated, abandoned",
+               "Long-term tame pasture", "Unknown"]
+
 NROW_PLOT = 60      # rows on 1. Plot & Site Log
 NROW_SOIL = 600     # rows on 2. Soil Data
 NROW_ROOT = 900     # rows on 3. Root Biomass

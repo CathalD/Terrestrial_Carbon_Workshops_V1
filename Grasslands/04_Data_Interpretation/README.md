@@ -140,7 +140,7 @@ a convention a field crew can apply with a sieve — not a biological boundary.
 | **Can you run CHN on a subset?** | Lets you calibrate a loss-on-ignition factor against measured carbon rather than assuming one |
 
 Also ask **cost and turnaround**, because they set how many cores you can afford to wash — which
-[Part 2](../02_Project_Planning/README.md#a10--why-roots-need-more-cores-than-soil) shows is the
+[Part 2](../02_Project_Planning/README.md#a10--why-roots-may-need-more-samples) shows is the
 binding constraint on the root estimate.
 
 ---

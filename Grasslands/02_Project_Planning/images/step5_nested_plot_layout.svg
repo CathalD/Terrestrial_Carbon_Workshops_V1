@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="320" viewBox="0 0 760 320" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif">
+<title id="t">Nested plot layout</title>
+<desc id="d">Plan view of a nested grassland plot: a 400 square metre circular tree plot, a medium shrub plot inside it, a 0.25 square metre clip quadrat, and a soil core offset from the quadrat, with the order of work listed alongside.</desc>
+<text x="24" y="28" font-size="14" fill="#898781" text-anchor="start" font-weight="600">The nested plot, in plan view</text>
+<text x="24" y="46" font-size="11.5" fill="#a5a49e" text-anchor="start" font-weight="normal">One location, several plot sizes. Non-destructive work finishes before anything is cored or clipped.</text>
+<circle cx="240" cy="176" r="112" fill="#199e70" opacity="0.08" stroke="#199e70" stroke-width="2"/>
+<text x="240" y="58" font-size="11.5" fill="#199e70" text-anchor="middle" font-weight="normal">large plot 400 m² — trees &gt; 2 m</text>
+<rect x="184" y="120" width="112" height="112" fill="#3987e5" opacity="0.10" stroke="#3987e5" stroke-width="2"/>
+<text x="304" y="132" font-size="11.5" fill="#3987e5" text-anchor="start" font-weight="normal">medium plot 16–100 m²</text>
+<text x="304" y="147" font-size="10.5" fill="#a5a49e" text-anchor="start" font-weight="normal">shrubs 0.5–2 m</text>
+<rect x="196" y="182" width="34" height="34" fill="#d95926" opacity="0.22" stroke="#d95926" stroke-width="2"/>
+<text x="178" y="252" font-size="11" fill="#d95926" text-anchor="middle" font-weight="normal">0.25 m² quadrat</text>
+<circle cx="274" cy="200" r="6" fill="#c98500"/>
+<text x="288" y="204" font-size="11" fill="#c98500" text-anchor="start" font-weight="normal">soil / root core</text>
+<path d="M213 199 h52" stroke="#c98500" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="244" y="234" font-size="10" fill="#a5a49e" text-anchor="middle" font-weight="normal">offset</text>
+<circle cx="240" cy="176" r="3.5" fill="#898781"/>
+<text x="240" y="166" font-size="10.5" fill="#898781" text-anchor="middle" font-weight="normal">plot centre</text>
+<path d="M96 292 L150 272" stroke="#a5a49e" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="40" y="300" font-size="10.5" fill="#a5a49e" text-anchor="start" font-weight="normal">approach path</text>
+<text x="480" y="92" font-size="13" fill="#898781" text-anchor="start" font-weight="600">Order at the plot</text>
+<text x="480" y="118" font-size="12" fill="#898781" text-anchor="start" font-weight="normal">1. mark centre, GPS, photos</text>
+<text x="480" y="144" font-size="12" fill="#898781" text-anchor="start" font-weight="normal">2. trees &gt; 2 m</text>
+<text x="480" y="170" font-size="12" fill="#898781" text-anchor="start" font-weight="normal">3. shrubs, medium plot</text>
+<text x="480" y="196" font-size="12" fill="#898781" text-anchor="start" font-weight="normal">4. clip the quadrat</text>
+<text x="480" y="222" font-size="12" fill="#d95926" text-anchor="start" font-weight="600">5. THEN core, offset</text>
+<text x="480" y="262" font-size="11.5" fill="#a5a49e" text-anchor="start" font-weight="normal">In a PERMANENT plot the core</text>
+<text x="480" y="278" font-size="11.5" fill="#a5a49e" text-anchor="start" font-weight="normal">goes outside the vegetation area.</text>
+</svg>

@@ -90,7 +90,7 @@ The next visit has to avoid this visit's holes, and to sample soil nobody knelt 
 
 ### Permanent or single-use?
 
-Decided in [Part 2 §5D](../02_Project_Planning/#5d--permanent-or-single-use-plots), executed here.
+Decided in [Part 2 §5D](../02_Project_Planning/#permanent-or-single-use-plots), executed here.
 The [Sampling Design guide](../../_Shared/Sampling-Design-Eng-2026.pdf) (p.7–8) defines the two;
 setup steps are in *Measuring Carbon in Trees*
 ([`Forests/03_Field_Methods/`](../../Forests/03_Field_Methods/Trees-FINAL-Eng-2026.pdf), p.10).
@@ -782,7 +782,7 @@ Add separately-measured root carbon on top and **you have counted it twice**.
 
 ## How many cores you actually wash
 
-From [Part 2, A10](../02_Project_Planning/#a10--why-roots-need-more-cores-than-soil): roots are far
+From [Part 2, A10](../02_Project_Planning/#a10--why-roots-may-need-more-samples): roots are far
 more variable than soil carbon, so at the same precision target they need **four to five times the
 cores**. Most projects should either **set a looser precision target for roots** (±40% rather than
 ±20%) or **wash a random subset** of the cores taken.

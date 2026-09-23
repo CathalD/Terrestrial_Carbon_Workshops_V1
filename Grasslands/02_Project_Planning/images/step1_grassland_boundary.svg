@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif">
+<title id="t">Defining the study area</title>
+<desc id="d">A project boundary polygon with a wetland inclusion, rock outcrop, road corridor and fence line marked as exclusions, beside a form recording gross area, exclusions, net area and the inclusion rule.</desc>
+<text x="24" y="28" font-size="14" fill="#898781" text-anchor="start" font-weight="600">Step 1 — the study area boundary</text>
+<text x="24" y="46" font-size="11.5" fill="#a5a49e" text-anchor="start" font-weight="normal">The boundary turns a carbon density into a carbon total. Exclusions come out of the area.</text>
+<path d="M40 70 L430 62 L470 176 L392 268 L96 262 L36 168 Z" fill="#199e70" opacity="0.16" stroke="#199e70" stroke-width="2.5"/>
+<text x="96" y="92" font-size="11.5" fill="#199e70" text-anchor="start" font-weight="600">PROJECT BOUNDARY</text>
+<path d="M150 120 q30 -22 62 -4 q20 30 -10 44 q-44 10 -52 -40 z" fill="#d95926" opacity="0.30" stroke="#d95926" stroke-width="1.8"/>
+<path d="M330 190 l40 -14 l24 30 l-30 26 l-36 -14 z" fill="#d95926" opacity="0.30" stroke="#d95926" stroke-width="1.8"/>
+<text x="182" y="168" font-size="11" fill="#d95926" text-anchor="middle" font-weight="normal">wetland</text>
+<text x="356" y="236" font-size="11" fill="#d95926" text-anchor="middle" font-weight="normal">rock outcrop</text>
+<path d="M36 214 L470 198" stroke="#d95926" stroke-width="9" opacity="0.30"/>
+<text x="96" y="192" font-size="11" fill="#d95926" text-anchor="start" font-weight="normal">road</text>
+<path d="M58 78 L64 258" stroke="#c98500" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="70" y="256" font-size="11" fill="#c98500" text-anchor="start" font-weight="normal">fence line</text>
+<text x="510" y="92" font-size="13" fill="#898781" text-anchor="start" font-weight="600">Record</text>
+<text x="510" y="118" font-size="12" fill="#a5a49e" text-anchor="start" font-weight="normal">gross area</text>
+<text x="718" y="118" font-size="12" fill="#898781" text-anchor="end" font-weight="normal">— m²</text>
+<line x1="510" y1="125" x2="718" y2="125" stroke="#b9b8b1" stroke-width="0.8"/>
+<text x="510" y="148" font-size="12" fill="#a5a49e" text-anchor="start" font-weight="normal">less exclusions</text>
+<text x="718" y="148" font-size="12" fill="#898781" text-anchor="end" font-weight="normal">— m²</text>
+<line x1="510" y1="155" x2="718" y2="155" stroke="#b9b8b1" stroke-width="0.8"/>
+<text x="510" y="178" font-size="12" fill="#a5a49e" text-anchor="start" font-weight="normal">NET AREA</text>
+<text x="718" y="178" font-size="12" fill="#898781" text-anchor="end" font-weight="600">— m²  /  — ha</text>
+<line x1="510" y1="185" x2="718" y2="185" stroke="#b9b8b1" stroke-width="0.8"/>
+<text x="510" y="208" font-size="12" fill="#a5a49e" text-anchor="start" font-weight="normal">inclusion rule</text>
+<text x="718" y="208" font-size="12" fill="#898781" text-anchor="end" font-weight="normal">one sentence</text>
+<line x1="510" y1="215" x2="718" y2="215" stroke="#b9b8b1" stroke-width="0.8"/>
+</svg>
