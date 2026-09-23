@@ -2,8 +2,6 @@
   <img src="images/banner_planning.svg" alt="Project Planning — Grassland Carbon Workshop banner" width="100%">
 </p>
 
-> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/banner_planning.svg` using the shared workshop banner dimensions, typography, and colour treatment, with a grassland or savannah scene.
-
 ---
 
 [← 1 — Background](../01_Background/) · [Back to main guide](../README.md) · Next: [3 — Field Methods →](../03_Field_Methods/)
