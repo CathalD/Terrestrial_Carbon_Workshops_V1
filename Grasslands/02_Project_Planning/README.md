@@ -240,7 +240,7 @@ alongside the rest of the nested design — see [5B](#5b--how-each-plot-is-laid-
 
 **The default is the full profile: surface to parent material, or to refusal.** Not a fixed 30 cm.
 
-The reasoning is in [Part 1](../README.md#sample-the-full-soil-profile), and it matters most for
+The reasoning is in [Part 1](../README.md#measuring-carbon-stocks-in-grasslands--part-2-soil-organic-carbon), and it matters most for
 exactly the projects this section is aimed at. A fixed depth does not hold a fixed *mass* of soil.
 Compaction — from grazing, from machinery, from a disturbance you are trying to detect — raises
 bulk density in the top 30 cm, which raises the **apparent** stock in that window while the
