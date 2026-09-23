@@ -1,15 +1,12 @@
 <p align="center">
   <img src="images/banner_background.svg" alt="Background — Grassland Carbon Workshop banner" width="100%">
 </p>
-(For Claude Change banner subtitle "Carbon pools in grasslands - Roots and shoots - Digging deep for below ground carbon"
 
-And change the background image so there are more plants above the place where there are also roots, right now there are a bunch of roots from no plants")
 ---
 
 [← Back to main guide](../README.md) · Next: [2 — Project Planning →](../02_Project_Planning/)
 
 ---
-(For claude consider the changes made already, ingest the articles and draw form them - Redo this section. I think we can elimiante most of the words and revert the to the side by side tables for orgnization where we right a quick summary and attach images or ppt slides to briefly communicate our ideas)
 
 # Part 1 — Background
 
@@ -21,41 +18,78 @@ And change the background image so there are more plants above the place where t
 
 ## What is grassland carbon?
 
-**Grassland carbon** is the organic carbon held within a grassland at a point in time. The carbon is in its soil, in the living and
-dead roots threading through that soil, and in the shoots, forbs and shrubs above it.
+<table>
+<tr>
+<td width="55%">
 
-In each pool, the carbon derived from photosynthesis. What differs is **where the carbon
-goes afterwards**, and it differs in two ways that together define this workshop:
+<img width="1600" alt="Grassland carbon pools — plants, roots and soil" src="https://github.com/user-attachments/assets/8f2a5bdf-234f-4930-838b-89f45ff1b607" />
 
-1. **Native grasses especially put a large share of what they fix into roots**
+</td>
+<td width="45%">
 
-(For claude insert this image - <img width="1600" height="1011" alt="image" src="https://github.com/user-attachments/assets/8f2a5bdf-234f-4930-838b-89f45ff1b607" />)
-and this - <img width="600" height="481" alt="image" src="https://github.com/user-attachments/assets/db57f784-882d-4a10-aa1f-53ef5441117a" />
+**Grassland carbon** is the organic carbon held in a grassland at a point in time — in the soil, in
+the living and dead roots threading through it, and in the shoots, forbs and shrubs above.
 
-Here is another image - <img width="451" height="678" alt="image" src="https://github.com/user-attachments/assets/066e676e-28c7-4a2b-9979-82279e79b416" />
+In every pool the carbon came from photosynthesis. What differs between a grassland and a forest
+is **where it goes afterwards**.
 
+</td>
+</tr>
+<tr>
+<td width="55%">
 
-2. **Those roots** input organic matter directly into the soil
-   at depth, throughout the entire soil profile
+<img width="600" alt="Root systems of native grassland species" src="https://github.com/user-attachments/assets/db57f784-882d-4a10-aa1f-53ef5441117a" />
+
+</td>
+<td width="45%">
+
+**1 · Native grasses especially put a large share of what they fix into roots.** There is no
+trunk; the structural investment goes downward.
+
+</td>
+</tr>
+<tr>
+<td width="55%">
+
+<img width="451" alt="Depth of grassland root systems" src="https://github.com/user-attachments/assets/066e676e-28c7-4a2b-9979-82279e79b416" />
+
+</td>
+<td width="45%">
+
+**2 · Those roots input organic matter directly into the soil at depth**, throughout the whole
+profile — rather than dropping it on the surface and letting it work down.
 
 The result is a soil carbon store built from the inside out.
 
-There are two words that describe soil carbon proccesses that you will see throughout, these are:
+</td>
+</tr>
+</table>
 
-1. **Sequestration** — the *process*: plants pulling CO₂ from the atmosphere. A **rate**, per year.
-2. **Storage** — the *amount* held now. A **stock**, at a point in time.
+### Two words you will see throughout
+
+| | | |
+|---|---|---|
+| **Sequestration** | the *process* — plants pulling CO₂ from the atmosphere | a **rate**, per year |
+| **Storage** | the *amount* held now | a **stock**, at a point in time |
 
 Parts 2 to 4 measure **storage**. [Part 5](../05_Monitoring/) is about measuring it over time,
 which is how you get at change.
 
+<table>
+<tr>
+<td width="55%">
+
+<img width="300" alt="Grassland carbon cycle" src="https://github.com/user-attachments/assets/8a23fedc-782b-4bbe-bcd2-805622839f4d" />
+
+</td>
+<td width="45%">
+
 > 📸 **[SLIDE NEEDED]** — a grassland carbon-cycle diagram: atmosphere, shoots, roots, soil, with
 > the root→soil pathway drawn thick, because that is the distinguishing feature.
 
-Image here - <img width="300" height="185" alt="image" src="https://github.com/user-attachments/assets/8a23fedc-782b-4bbe-bcd2-805622839f4d" />
-
-Here is another good article to pick and choose from as well - https://www.sciencedirect.com/science/article/pii/S0341816224005459?via%3Dihub
-
-Actually I've pasted the full PDF, this should be a go to source for carbon measurment and planning in grasslands: Grasslands/1-s2.0-S0341816224005459-main.pdf
+</td>
+</tr>
+</table>
 
 ---
 
@@ -65,42 +99,43 @@ Actually I've pasted the full PDF, this should be a go to source for carbon meas
 <tr>
 <td width="55%">
 
-Carbon within grasslands exist in three "pools":
-
-| Pool | Share of the total | How fast it changes |
-|---|---|---|
-| **Soil** | The majority | Slowly, decades to centuries |
-| **Roots** | Small share of total carbon, but **most of the living biomass** | Fast, much of it turns over yearly |
-| **Shoots** | Smallest | **Within a single season** |
-
-The soil-dominance is not surprising — it is true in forests too. What *is* distinctive is the
-second row.
-
-More photo - 
-<img width="350" height="372" alt="image" src="https://github.com/user-attachments/assets/c9570cc0-11be-496d-9bd8-01765a50f7e4" />
-
-
-and here - 
-<img width="685" height="542" alt="image" src="https://github.com/user-attachments/assets/45ee7f9b-c0c0-4953-9746-606df9750f36" />
-With this article attached - https://www.nature.com/articles/s43247-024-01795-9
-
-
-
-**In a grassland, root biomass commonly exceeds shoot biomass several times over.** That is the
-reverse of a forest, where roots are a fraction of above-ground mass. A crew measuring only what
-they can see is measuring the smallest of three pools, and the least of the living biomass.
+<img width="350" alt="Relative size of the shoot, root and soil carbon pools" src="https://github.com/user-attachments/assets/c9570cc0-11be-496d-9bd8-01765a50f7e4" />
 
 </td>
 <td width="45%">
 
-> 📸 **[FIGURE NEEDED]** — the three pools on one axis. The visual point is that the bar you can
-> see from standing height is the smallest one.
+Carbon in a grassland sits in three **pools**, and they are very unequal:
 
-> 📊 **[FIGURES NEEDED]** — this section is deliberately written without numbers, because the
-> numbers should come from a citable Canadian source rather than from memory. Wanted:
-> the **root:shoot relationship** for Canadian grassland with a range; **grassland soil carbon**
-> per unit area for the prairie, savannah and interior BC cases; and the **area of remaining
-> native grassland** in Canada. Logged in [`TODO.md`](../TODO.md).
+| Pool | Share of total | How fast it changes |
+|---|---|---|
+| **Soil** | The majority | Slowly — decades to centuries |
+| **Roots** | Small share of carbon, but **most of the living biomass** | Fast — much turns over yearly |
+| **Shoots** | Smallest | **Within a single season** |
+
+Soil dominance is not surprising; it is true in forests too. What is distinctive is the second
+row.
+
+</td>
+</tr>
+<tr>
+<td width="55%">
+
+<img width="685" alt="Below-ground carbon allocation in grassland" src="https://github.com/user-attachments/assets/45ee7f9b-c0c0-4953-9746-606df9750f36" />
+
+</td>
+<td width="45%">
+
+**In a grassland, root biomass commonly exceeds shoot biomass several times over** — the reverse
+of a forest, where roots are a fraction of above-ground mass.
+
+A crew measuring only what they can see is measuring the smallest of three pools, and the least of
+the living biomass.
+
+See also [*Global patterns of grassland carbon*](https://www.nature.com/articles/s43247-024-01795-9)
+(Communications Earth & Environment, 2024).
+
+> 📊 **[REFERENCE NEEDED]** — a citable Canadian figure and range for the root:shoot relationship,
+> to replace "several times over" with a number. Logged in [`TODO.md`](../TODO.md).
 
 </td>
 </tr>
@@ -108,38 +143,44 @@ they can see is measuring the smallest of three pools, and the least of the livi
 
 ---
 
-## Roots, not shoots — and we measure them
+## Why this workshop measures roots
 
-### The inversion
+<table>
+<tr>
+<td width="55%">
 
 The [Forests workshop](../../Forests/) predicts below-ground tree biomass from above-ground
-biomass using published **root:shoot ratios** — because you cannot dig up a 30 m spruce, and the
-ratio for trees is both small and reasonably well constrained.
+biomass using published **root:shoot ratios** — you cannot dig up a 30 m spruce, and for trees the
+ratio is small and reasonably well constrained.
 
 **Grassland inverts both halves of that.** The ratio is large rather than small, and far more
-variable — it shifts with species, grazing, drought, soil texture and season. Applying someone
-else's ratio to your site multiplies your largest biomass pool by a number that was measured
-somewhere else, under conditions you cannot check.
+variable: it shifts with species, grazing, drought, soil texture and season.
 
-### So this workshop measures roots instead
+Grassland is also the ecosystem where measuring instead is actually practical. **When you core the
+soil, the roots are already in your hand**, and the equipment is a sieve and a drying oven.
 
-> **When you core the soil, the roots are already in your hand.** Separating them from the soil
-> and weighing them is a **measurement**. A ratio is an estimate of a measurement.
+</td>
+<td width="45%">
 
-Grassland is the ecosystem where this is actually practical. The roots are concentrated shallowly
-enough to recover from a standard soil core, and the equipment is a sieve and a drying oven
-rather than anything exotic.
+**The trade, stated plainly**
 
-**What it costs you:** root washing is **labour-intensive**. A forty-sample campaign is days of
-lab work, not hours. That is a real trade and the workshop says so plainly in
-[Part 2](../02_Project_Planning/) rather than letting a team discover it in February.
+**Costs you:** root washing is labour-intensive. A forty-sample campaign is days of lab work, not
+hours. [Part 2](../02_Project_Planning/) sizes it honestly rather than letting a team discover it
+in February.
 
-**What it buys you:** a below-ground number that is yours, defensible, and specific to the
-management you are actually studying — which is usually the whole point of the project.
+**Buys you:** a below-ground number that is yours, and specific to the management you are actually
+studying.
 
-### ⚠ The double-counting trap
+> [!NOTE]
+> Measuring is also what makes **allometry** possible later — a local root:shoot relationship has
+> to be built from sites where both were measured. See
+> [the landing page](../README.md#two-ways-to-get-plant-biomass--and-one-of-them-is-built-from-the-other).
 
-This is the central design issue of the workshop, and it is easy to walk into.
+</td>
+</tr>
+</table>
+
+### The double-counting trap
 
 <table>
 <tr>
@@ -148,10 +189,12 @@ This is the central design issue of the workshop, and it is easy to walk into.
 **Soil carbon analysis conventionally removes visible roots** — but fine roots inevitably stay in
 the sample. So a standard soil carbon measurement **already includes** fine-root carbon.
 
-If you then add separately-measured root carbon on top, **you have counted the same carbon
-twice.** It is structurally identical to the *Sphagnum* trap in
-[Wetlands Part 3B](../../Wetlands/03_Field_Methods/3B_Vegetation.md): two methods reaching into
-the same material without a boundary between them.
+Add separately-measured root carbon on top and **you have counted the same carbon twice.**
+
+Two answers are defensible: sieve the roots out and analyse root-free soil, or accept fine roots as
+part of the soil pool and report only coarse roots separately. **Being silent about which you did
+is the only wrong answer.** The rule, and the switch that records it, are in
+[Part 4](../04_Data_Interpretation/#13-the-root-chain--and-this-one-is-yours-to-get-right).
 
 </td>
 <td width="45%">
@@ -166,173 +209,109 @@ the same material without a boundary between them.
    ███                            ┘
 ```
 
+The conventional split is **≤ 2 mm fine, > 2 mm coarse**. It is near-universal, and it is a
+convention a field crew can apply with a sieve — not a biological boundary.
+
 </td>
 </tr>
 </table>
-
-> [!IMPORTANT]
-> **The rule: sieve first, analyse root-free soil, report root carbon separately — and state the
-> mesh.**
->
-> The alternative is equally defensible: **accept fine roots as part of the soil pool** and report
-> only coarse roots separately. Both are honest. The calculator supports either through a
-> `ROOTS_REMOVED_BEFORE_SOIL_C` switch.
->
-> **Being silent about which you did is the only wrong answer** — and it is the default outcome if
-> nobody decides in advance. Decide it in [Part 2](../02_Project_Planning/), not at the lab bench.
-
-### Fine and coarse roots
-
-The conventional split is **≤ 2 mm = fine, > 2 mm = coarse**, and it is near-universal.
-
-It is also **functionally arbitrary** — a 2 mm cutoff lumps together absorptive roots that live
-weeks and transport roots that live years. Some root ecologists argue for classifying by branching
-order instead. This workshop keeps the diameter convention because it is what a field crew can
-apply consistently with a sieve, while noting that it is a convention rather than a biological
-boundary.
-
-Why the split matters for carbon at all:
-
-| | **Fine roots (≤ 2 mm)** | **Coarse roots (> 2 mm)** |
-|---|---|---|
-| **Turnover** | Fast — much of it annual | Slow |
-| **Where the carbon goes** | Straight into soil organic matter | Stays as biomass for years |
-| **Recovery from a core** | **Poor** — the finest pass through the sieve and are lost | Good |
-| **Double-counting risk** | **High** — this is the fraction that stays in a soil sample | Low |
-
-> 📚 **[REFERENCES NEEDED]** — the root-methods literature to cite for sieving, live/dead
-> separation and the fine/coarse argument. Candidates are listed in [`TODO.md`](../TODO.md);
-> none could be retrieved in this session, so **nothing here is cited to a specific source yet**
-> and every claim above is stated at a level the method itself supports.
 
 ---
 
 ## A standing crop is not a stock
 
-The second place a grassland workshop can mislead, and it is a subtle one.
-
 <table>
 <tr>
 <td width="55%">
 
-**Soil carbon** is a stock. It accumulated over centuries and it will still be there next year.
+**Soil carbon is a stock.** It accumulated over centuries and will still be there next year.
 
-**Herbaceous above-ground biomass is a standing crop.** It grows from nothing each spring,
-peaks, senesces, and is gone — grazed, decomposed or burned. Measure it in May and again in
-August and you will get numbers that differ several-fold, with **nothing having changed about the
-site**.
+**Herbaceous above-ground biomass is a standing crop.** It grows from nothing each spring, peaks,
+senesces and is gone. Measure it in May and again in August and the numbers differ several-fold
+with **nothing having changed about the site**.
 
-Putting those two numbers in the same column and adding them implies a comparability that does
-not exist.
+Adding the two in one column implies a comparability that does not exist.
 
 </td>
 <td width="45%">
 
 > [!WARNING]
-> **What to do about it:**
->
 > - **Sample at peak growing season.** The
->   [Vegetation guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) says so; the reason is that
->   peak is the only phenological point that is *repeatable* between sites and years.
+>   [Vegetation guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) says so, because peak is the
+>   only phenological point that is *repeatable* between sites and years.
 > - **Record the date**, always. A clip-and-weigh without a date is uninterpretable.
-> - **Report shoot biomass separately** from soil carbon, never buried inside a total.
+> - **Report shoot biomass separately**, never buried inside a total.
 > - **Never compare** a spring harvest with a late-summer one.
+>
+> Root biomass varies seasonally too, though less violently. Record the date for roots as well.
 
 </td>
 </tr>
 </table>
 
-**The same caution applies more weakly to roots.** Root biomass also varies seasonally, though
-less violently than shoots. Record the date for roots too.
-
 ---
 
-## Four grasslands, and what changes between them
-
-Canada's grasslands are not one ecosystem. The differences run: **water and fire → vegetation →
-soil → what you have to measure and correct for.**
-
-| | 🌾 **Prairie** | 🌳 **Aspen parkland** | 🌰 **Black Oak savannah** | 🏜 **Interior BC** |
-|---|---|---|---|---|
-| **Where** | Prairie ecozone — mixed-grass, fescue | Prairie–boreal transition | Southern Ontario, sand plains | Southern interior — Okanagan, Thompson |
-| **Moisture** | Sub-humid to semi-arid | Sub-humid | Sub-humid, but **droughty sandy soils** | **Semi-arid** |
-| **Fire** | Historically frequent | Frequent — maintains the grassland | **Essential** — the system closes to forest without it | Infrequent |
-| **Tree cover** | Effectively none | Aspen groves in a matrix | **Scattered open-grown oaks** | None to scattered |
-| **Soils** | Deep, dark, carbon-rich | Variable; transitional | **Sandy, lower carbon** | **Shallow, often to bedrock; coarse fragments** |
-| **Dominant management** | **Grazing**; conversion to cropland | Grazing; clearing | **Fire management**; encroachment | Grazing; invasion |
-| **What this changes** | The baseline case | Shrub plot matters more | **Tree protocol applies.** Fire history is a stratum | **Coarse-fragment correction is mandatory.** Shallow-soil method |
-
-### What each type demands of you
-
-- **Prairie** — the reference case the rest of the workshop is written against. Stratify on
-  **grazing and management** before anything else, and distinguish **native** from **tame or
-  seeded** pasture: they differ in rooting depth, and therefore in where the carbon is.
-- **Aspen parkland** — the shrub/medium plot carries more weight. Where aspen cover is high enough
-  you are working at the boundary with the [Forests workshop](../../Forests/); say which side you
-  chose and why.
-- **Black Oak savannah** — trees are part of the system by definition, so
-  [Forests Part 3A](../../Forests/03_Field_Methods/3A_Trees.md) applies. **Fire history is a
-  stratification variable**, not context: a recently burned unit and a long-unburned one are
-  different populations. Sandy soils also mean lower carbon per unit volume and a different
-  bulk-density range than prairie.
-- **Interior BC** — the one where the standard method breaks without adjustment. **Coarse
-  fragments are common**, and the correction for them
-  ([Forests Part 3B](../../Forests/03_Field_Methods/3B_Soil.md)) stops being optional. Soils are
-  often **shallow to bedrock**, so a fixed 30 cm core may not exist — the shallow-soil method
-  applies, and "depth to refusal" becomes a recorded variable rather than an assumption.
-
-> [!NOTE]
-> **Pick your type on the plot log and stay consistent.** The calculator's `1. Plot & Site Log`
-> has a `Grassland type` field for exactly this. It drives nothing automatically — it is there so
-> that when your interval comes out wide, you can post-stratify on it.
-
-> 📸 **[FIGURE NEEDED]** — the four types side by side, with a soil profile under each showing
-> how differently the carbon is distributed.
-
----
-
-## 30 cm is a floor, not an answer
+## Sample the full soil profile
 
 <table>
 <tr>
 <td width="55%">
 
-This workshop reports **30 cm as a minimum depth**. That is the IPCC default and what most
-grassland literature uses, so it is what makes your number comparable to anyone else's.
+**The method is to core the whole profile** — surface to parent material, or to refusal.
 
-**It is not where the carbon stops.** Native grassland roots reach **metres** down, and they build
-soil carbon the whole way. A 30 cm figure is a **lower bound on what is actually there**.
+A fixed depth does not hold a fixed *mass* of soil. As bulk density changes, a 30 cm window holds
+a different amount of material from one survey to the next, so you are not comparing like with
+like. Worse, the error runs the wrong way: a disturbance that **compacts** the top 30 cm raises
+bulk density there and so **raises the apparent stock**, at the same time as it releases carbon
+from the profile as a whole.
 
-**So: the deeper you sample, the more accurate your estimate becomes.** Report deeper increments
-alongside the 30 cm figure wherever you can reach them — the same core, the same trip, one extra
-set of lab samples.
+**30 cm and 1 m are reporting conventions** — IPCC defaults and what most of the literature uses,
+so they are how your site is compared with another. Report them alongside the full profile, not
+instead of it.
 
 </td>
 <td width="45%">
 
 > [!IMPORTANT]
 > **The shortfall is largest where the grassland is most intact.** Cultivated and tame pasture
-> soils have shallower, disturbed root systems; **native grassland** has the deep systems that a
-> 30 cm core misses most of.
+> have shallower, disturbed root systems; **native grassland** has the deep systems a 30 cm core
+> misses most of.
 >
-> Which means the bias runs in an awkward direction: **shallow sampling systematically
-> understates exactly the sites most worth protecting.**
+> So the bias runs awkwardly: shallow sampling systematically understates exactly the sites most
+> worth protecting.
+>
+> **This applies doubly to roots.** If roots reach metres and the core stops at 30 cm, measured
+> root biomass is a floor in the same way. The calculator flags any root total whose deepest
+> increment is simply the bottom of the core.
+
+The correction for the bulk-density problem is **equivalent soil mass** — compare a fixed *mass*
+of soil rather than a fixed depth. Worked through in
+[Part 5, Step 4](../05_Monitoring/#step-4--equivalent-soil-mass).
 
 </td>
 </tr>
 </table>
 
-> [!WARNING]
-> **This applies doubly to your root measurement.** If roots reach metres and your core stops at
-> 30 cm, measured root biomass is a floor in the same way — and a more severe one, because root
-> mass declines with depth more slowly than most people expect.
->
-> The calculator flags any root total whose deepest increment is simply **the bottom of the
-> core**. That is a **minimum**, not a total, and it should be reported as one.
+*The [Wetlands workshop](../../Wetlands/01_Background/) makes the same argument about peat.*
 
-*The [Wetlands workshop](../../Wetlands/01_Background/) makes the same argument about peat. The
-series says one consistent thing about depth: **shallow sampling is a budget decision, not a
-scientific one — so report it as one.***
+---
+
+## What changes between grassland types
+
+[The landing page](../README.md#some-of-canadas-grasslands) lists some of the types you will meet.
+What matters here is what each one changes about the **method**.
+
+| Type | What changes |
+|---|---|
+| 🌾 **Prairie** — mixed-grass, fescue | The reference case the workshop is written against. Divide on management and history first; distinguish **native** from **tame or seeded**, because they differ in rooting depth |
+| 🌳 **Aspen parkland** | The shrub/medium plot carries more weight. You are near the boundary with the [Forests workshop](../../Forests/) — say which side you chose |
+| 🌰 **Black Oak savannah** | **Trees are part of the system**, so the [Forests tree protocol](../../Forests/03_Field_Methods/3A_Trees.md) applies to anything over 2 m. Fire history is a **stratum**, not context. Sandy soils mean lower carbon per unit volume and a different bulk-density range |
+| 🏜 **Interior BC** — bunchgrass, sagebrush steppe | The one where the standard method breaks without adjustment. **Coarse fragments are common**, so that correction stops being optional. Soils are often shallow to bedrock, so depth to refusal is a recorded variable, not an assumption |
+
+> [!NOTE]
+> **Record your type on the plot log and stay consistent.** `1. Plot & Site Log` has a
+> `Grassland type` field. It drives nothing automatically — it is there so that when your interval
+> comes out wide, you can post-stratify on it.
 
 ---
 
@@ -342,81 +321,72 @@ Grassland carbon is old, deep and slow to rebuild. Most of the ways it leaves ar
 
 | Disturbance | What it does | Timescale |
 |---|---|---|
-| **Conversion to cropland** | Tillage breaks aggregates and exposes protected organic matter; the deep perennial root system is replaced by a shallow annual one | **Years to decades.** The single largest loss pathway |
-| **Overgrazing** | Reduces root allocation and shoot cover; compacts the surface; can shift composition to shallower-rooted species | Decades |
+| **Conversion to cropland** | Tillage breaks aggregates and exposes protected organic matter; a deep perennial root system is replaced by a shallow annual one | **Years to decades.** The single largest loss pathway |
+| **Overgrazing** | Reduces root allocation and cover, compacts the surface, can shift composition to shallower-rooted species | Decades |
 | **Well-managed grazing** | Can maintain or build carbon. **Grazing is not inherently a loss** — intensity, timing and rest determine the sign | Decades |
-| **Fire suppression** *(savannah, parkland)* | The system closes to woodland. Carbon may rise above ground while the grassland — and its species — are lost | Decades |
-| **Fire** | Removes standing biomass; soil carbon is largely protected below the surface in a moist grassland | Immediate above ground, small below |
-| **Drought** | Reduces production and can shift allocation. Repeated drought changes composition | Years, compounding |
-| **Invasion** *(notably interior BC)* | Shallow-rooted invasives replace deep-rooted natives — a loss of **deep** carbon input that a surface survey will not see | Decades |
+| **Fire suppression** *(savannah, parkland)* | The system closes to woodland. Carbon may rise above ground while the grassland is lost | Decades |
+| **Fire** | Removes standing biomass; soil carbon is largely protected below the surface | Immediate above ground, small below |
+| **Drought** | Reduces production and shifts allocation. Repeated drought changes composition | Years, compounding |
+| **Invasion** | Shallow-rooted invasives replace deep-rooted natives — a loss of **deep** carbon input a surface survey will not see | Decades |
 
-Two consequences for how you work:
+Two consequences:
 
-1. **Record management history for every site.** Grazed, ungrazed, seeded, cultivated, burned and
-   when. Two sites with identical carbon today can be on opposite trajectories, and a stock with
-   no management context cannot tell them apart.
-2. **Fire suppression is a carbon *and* a biodiversity question, and they point different ways.**
-   A savannah closing to woodland may be gaining above-ground carbon while losing the ecosystem.
-   Say both. A carbon number presented without that context will be read as endorsement.
+1. **Record management history for every site.** Two sites with identical carbon today can be on
+   opposite trajectories, and a stock with no management context cannot tell them apart.
+2. **Fire suppression is a carbon *and* a biodiversity question, and they point different ways.** A
+   savannah closing to woodland may be gaining above-ground carbon while losing the ecosystem. Say
+   both — a carbon number presented without that context will be read as endorsement.
 
 ---
 
 ## So how do you measure grassland carbon?
 
-Short chain, and every step has a page:
-
-1. **Stratify on management.** Grazing, fire, cultivation, native vs seeded — before anything
-   else. → [Part 2](../02_Project_Planning/)
-2. **Core the soil**, to 30 cm at minimum and deeper where you can.
-   → [Part 3A](../03_Field_Methods/3A_Soil.md)
-3. **Separate the roots** from the soil sample, by diameter class and depth.
-   → [Part 3A](../03_Field_Methods/3A_Soil.md)
-4. **Clip the standing vegetation at peak season**, and measure shrubs where present.
-   → [Part 3B](../03_Field_Methods/3B_Vegetation.md)
-5. **Measure the trees** if canopy cover warrants it.
-   → [Forests Part 3A](../../Forests/03_Field_Methods/3A_Trees.md)
-6. **Multiply up and add an interval**, and say what you left out.
-   → [Part 4](../04_Data_Interpretation/)
-7. **Optionally, come back and do it again.** → [Part 5](../05_Monitoring/)
+| # | Step | Where |
+|---|---|---|
+| 1 | **Divide the site into meaningfully distinct areas** — restoration age, management, history | [Part 2](../02_Project_Planning/#step-2--divide-the-site-into-meaningfully-distinct-areas) |
+| 2 | **Core the soil**, full profile to refusal, in increments | [Part 3](../03_Field_Methods/#soil) |
+| 3 | **Separate the roots** from the soil sample, by diameter class and depth | [Part 3](../03_Field_Methods/#separate-the-roots) |
+| 4 | **Clip the standing vegetation at peak season**, and measure shrubs 0.5–2 m | [Part 3](../03_Field_Methods/#plants) |
+| 5 | **Measure any tree over 2 m** | [Forests Part 3A](../../Forests/03_Field_Methods/3A_Trees.md) |
+| 6 | **Multiply up, add an interval**, and say what you left out | [Part 4](../04_Data_Interpretation/) |
+| 7 | **Optionally, come back and do it again** | [Part 5](../05_Monitoring/) |
 
 > [!TIP]
-> **Step 7 changes steps 1 and 2.** Detecting *change* in soil carbon is a harder statistical
-> problem than estimating a stock once, and it needs decisions made up front — permanent plots you
-> can relocate, and enough of them. If monitoring is anywhere in your objectives, read
+> **Step 7 changes steps 1 and 2.** Detecting *change* is a harder statistical problem than
+> estimating a stock once, and it needs decisions made up front — permanent plots you can
+> relocate, and enough of them. If monitoring is anywhere in your objectives, read
 > [Part 5](../05_Monitoring/) **before** you finalise Part 2.
 
 ---
 
 ## Know your region before you plan
 
-The four types above are a starting frame, not a substitute for local knowledge. Rooting depth,
-soil texture, coarse-fragment content and the grazing regime all vary within each of them.
+The types above are a starting frame, not a substitute for local knowledge. Two things to establish
+before writing a sampling plan:
+
+- **How deep can you actually core?** Interior BC sites may hit bedrock at 20 cm; prairie sites may
+  take you to a metre. An afternoon with a probe and an auger settles it.
+- **What is the management history, and who knows it?** Usually the landholder. That conversation
+  is part of the sampling design, not a courtesy.
 
 > 🔗 **[REGIONAL PROTOCOL NEEDED]** — the Forests workshop pairs with a regional protocol
 > ([Southern Ontario – St. Lawrence](../../Forests/01_Background/SO-StLawrence-Eng-2026.pdf)).
-> **No grassland equivalent is in this folder.** If one exists in the series it belongs here.
-
-Two things to establish before writing a sampling plan, whatever the region:
-
-- **How deep can you actually core?** Interior BC sites may hit bedrock at 20 cm; prairie sites may
-  take you to a metre without complaint. This sets your reporting depth, and it is an afternoon
-  with a probe and an auger.
-- **What is the management history, and who knows it?** Usually the landholder. That conversation
-  is part of the sampling design, not a courtesy.
+> No grassland equivalent is in this folder. If one exists in the series it belongs here.
 
 ---
 
 ## In the next section
 
-We'll move to **Project Planning**: stratifying on management rather than vegetation, sizing the
-campaign separately for soil and for roots — they need different numbers of cores — and deciding
-the questions that cannot be answered after the field season.
+**Project Planning** — setting the precision threshold that decides how many cores you need,
+dividing the site into meaningfully distinct areas, and the decisions that cannot be made after
+the field season.
 
 ---
 
 ## In this section
 
 - `images/` — section banners.
+- [`_references/`](../_references/) — papers cited by this workshop.
 
 > ✍️ **[SLIDE DECK NEEDED]** — the workshop presentation for Part 1, as `.pptx` and `.pdf`.
 > 🔗 **[VIDEO NEEDED]** — the WWF vegetation video playlist URL.
