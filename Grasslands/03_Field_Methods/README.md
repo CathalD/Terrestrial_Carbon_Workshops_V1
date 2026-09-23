@@ -508,7 +508,7 @@ density actually change, and keeps the sample count manageable.
 > **Core the full profile, to parent material or refusal.** 30 cm and 1 m are *reporting
 > conventions*, not the measurement — a fixed depth does not hold a fixed mass of soil, so
 > compaction can raise the apparent stock in a 30 cm window while the profile is losing carbon.
-> [Part 1](../01_Background/#sample-the-full-soil-profile) makes the full argument, and
+> [Part 1](../01_Background/#5--how-deep-to-sample) makes the full argument, and
 > [Part 5 Step 4](../05_Monitoring/#step-4--equivalent-soil-mass) shows why a core that stopped at
 > exactly 30 cm cannot be corrected afterwards.
 
@@ -672,7 +672,7 @@ under management you cannot check — and grassland root:shoot is both large and
 > a measurement.
 
 Measuring is also what makes a **local** root:shoot relationship possible later — see
-[the landing page](../README.md#two-ways-to-get-plant-biomass--and-one-of-them-is-built-from-the-other).
+[the landing page](../README.md#measuring-carbon-stocks-in-grasslands--part-1-biomass).
 
 </td>
 </tr>

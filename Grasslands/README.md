@@ -44,19 +44,35 @@ plant biomass, and soil carbon.*
 ## How to think about this workshop
 
 This workshop is both for learning about, and implementing, a carbon measurement project. To
-implement a project it is sometimes useful to begin at the end and
-work backwards from there. In this spirit, we will **start from the data sheet**
+implement a project it is sometimes useful to begin at the end and work backwards from there. In
+this spirit, we will **start from the data sheet**:
+**[`Grassland_Carbon_Calculator.xlsx`](04_Data_Interpretation/calculators/Grassland_Carbon_Calculator.xlsx)**
 
-(Insert link the data sheet)
+Every heading on it is something real you measure in the field or get back from the lab. Once the
+sheet is full, those numbers become a carbon stock.
 
-data sheet screenshot page 2 - Soil data - <img width="638" height="212" alt="image" src="https://github.com/user-attachments/assets/beb531e4-aed0-430c-97e9-bc657db6c39d" />
+<table>
+<tr>
+<td width="50%">
 
-and page 4 Vegetation data - <img width="586" height="250" alt="image" src="https://github.com/user-attachments/assets/dc1908fc-4c81-4aa5-aad9-300bda336db8" />
+<img width="100%" alt="Data sheet — Soil Data tab" src="https://github.com/user-attachments/assets/beb531e4-aed0-430c-97e9-bc657db6c39d" />
 
+**Soil Data** — one row per depth increment.
 
+</td>
+<td width="50%">
 
+<img width="100%" alt="Data sheet — Vegetation Data tab" src="https://github.com/user-attachments/assets/dc1908fc-4c81-4aa5-aad9-300bda336db8" />
 
-## A Brief Overview
+**Vegetation Data** — one row per plot.
+
+</td>
+</tr>
+</table>
+
+---
+
+## A brief overview
 
 [**Section 1 — Background**](01_Background/) is *why this matters*.
 [**Section 2 — Project Planning**](02_Project_Planning/) is *making the data useful*.
@@ -68,20 +84,56 @@ over time.
 
 ---
 
-(Make this a drop down link - "The people we send this to live and work in grasslands, they dont need a full list - Just keep this as a fun fact and focus on this map showing the distribution of grasslands and the loss of this ecosystem - along with a bit of info in what has been lost with it (Bird population, prarie species, essential services, etc)
-
-## Some of Canada's grasslands
-
-Canada's grasslands are diverse — differing in plants, climate, soil, hydrology, management and
-more, which changes what you measure alongside the soil.
+## Canada's grasslands, and what has been lost
 
 <table>
 <tr>
-<td width="56%">
+<td width="55%">
 
-These are **some** of the types you will encounter; the list is not exhaustive.
+> 🗺 **[MAP NEEDED]** — distribution of grassland across Canada (or North America), ideally showing
+> historic extent against what remains. Candidate sources:
+> [Canada's Grasslands](https://canadasgrasslands.ca/explore-grasslands), the
+> [CFGA grassland inventory](https://www.canadianfga.ca/en/conservation/grassland-inventory/), the
+> Prairie Ecozone map from the
+> [National Ecological Framework for Canada](https://sis.agr.gc.ca/cansis/nsdb/ecostrat/), or the
+> Grassland Ecosystem Inventory layers. **Check the licence before embedding.**
 
-| | Where it is |
+</td>
+<td width="45%">
+
+Temperate grassland is among the **least protected and most converted** biomes on Earth, and
+Canada's share of it has gone the same way. Most of the native prairie that was here before
+settlement is now cropland or tame pasture.
+
+What went with it is not only carbon:
+
+- **Grassland birds** have fallen further than any other group of North American birds — roughly a
+  **50–60% decline since 1970**, the steepest of any habitat guild.
+- **Prairie species** dependent on intact sod — swift fox, burrowing owl, greater sage-grouse,
+  black-footed ferret — are among Canada's most at-risk.
+- **Services that come with deep-rooted perennial cover**: water infiltration and storage, erosion
+  control, drought resilience, forage, and the carbon this workshop measures.
+
+That is the context a carbon number sits in. It is rarely the only reason a community is measuring.
+
+> 🟠 **[CHECK THESE FIGURES]** — the decline percentages above are from the North American
+> literature (Rosenberg et al. 2019, *Science*, for the bird trend) and the conversion figures vary
+> by source and by how "native grassland" is defined. Replace with the numbers and citations
+> WWF-Canada uses, so the workshop and the organisation agree.
+
+</td>
+</tr>
+</table>
+
+<details>
+<summary><b>🌾 Fun fact — some of the grassland types found across Canada</b></summary>
+
+<br>
+
+Canada's grasslands are diverse, differing in plants, climate, soil, hydrology and management.
+These are some of the types you will meet; the list is not exhaustive.
+
+| Type | Where it is |
 |---|---|
 | 🌾 **Tallgrass prairie** | Red River valley in Manitoba, and remnants in southern Ontario |
 | 🌾 **Mixed-grass prairie** | Southern Alberta, Saskatchewan and Manitoba |
@@ -93,18 +145,10 @@ These are **some** of the types you will encounter; the list is not exhaustive.
 | 🌊 **Garry Oak meadows** | Vancouver Island and the Gulf Islands |
 | 🪨 **Alvar** | Thin soils over limestone pavement — Ontario, Manitoulin, Quebec |
 
+What each type changes about the **method** is in
+[Part 1 — Background](01_Background/).
 
-
-</td>
-<td width="44%">
-
-(REmove this and just have a map on top and below it a table of "Common Grassland ecosystem types across Canada" edit the list to reflect this"
-
-
-
-</td>
-</tr>
-</table>
+</details>
 
 > [!NOTE]
 > **Where there are trees, use the tree protocol.** Any tree over **2 m** tall is measured with
@@ -118,57 +162,56 @@ These are **some** of the types you will encounter; the list is not exhaustive.
 ---
 
 
-(Change this section to TLDR - The workshop in a nutshell)
-## Why this workshop is mostly about what you cannot see
-
-
+## TLDR — the workshop in a nutshell
 
 <table>
 <tr>
 <td width="55%">
 
-
-(For Claude - Swap this image out for the third one - <img width="960" alt="Above-ground grassland vegetation through a growing season" src="https://github.com/user-attachments/assets/88da08ec-3e1d-44b8-a0d0-918ce14fca57" />
-
+<img width="100%" alt="Above-ground grassland vegetation through a growing season" src="https://github.com/user-attachments/assets/88da08ec-3e1d-44b8-a0d0-918ce14fca57" />
 
 </td>
 <td width="45%">
 
-Organic carbon cycles through grasslands starting with photosynthesis, then the deposition of these plant remains, and the decomposition of plant materials. Whatever is left over gets "Sequestered into the soils"
+Organic carbon cycles through grasslands starting with photosynthesis, then the deposition of
+plant remains, and the decomposition of those materials. Whatever is left over gets **sequestered
+into the soils**.
 
 **The soil holds the majority of the carbon**, and it builds slowly, over long periods.
 
-For more info , see [*Monitoring soil carbon formation during afforestation*](https://cid-inc.com/blog/monitoring-soil-carbon-formation-during-afforestation/)
+For more, see [*Monitoring soil carbon formation during afforestation*](https://cid-inc.com/blog/monitoring-soil-carbon-formation-during-afforestation/).
 
 </td>
 </tr>
 <tr>
 <td width="55%">
 
-<img width="800" alt="Root systems of native grassland plants" src="https://github.com/user-attachments/assets/2f56be3a-eabc-420d-8632-2666be078ecf" />
+<img width="100%" alt="Root systems of native grassland plants" src="https://github.com/user-attachments/assets/2f56be3a-eabc-420d-8632-2666be078ecf" />
 
 </td>
 <td width="45%">
 
 **Of the living biomass, most is in the roots.** Grassland root biomass commonly exceeds shoot
-biomass several times over, especially in Native grasses. The roots play a crucial role in soil health, and landscape stability - https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecs2.2582 
-
-
+biomass several times over, especially in native grasses. Those roots also carry much of the
+ecosystem's function — soil health, water infiltration and landscape stability
+([Ecosphere, 2019](https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecs2.2582)).
 
 </td>
 </tr>
 <tr>
 <td width="55%">
 
-** Now add in the first image here - 
+<img width="100%" alt="Soil carbon formation and the below-ground share of grassland carbon" src="https://github.com/user-attachments/assets/ef253a75-2323-4505-b272-72ed680fcdc8" />
+
 </td>
 <td width="45%">
 
-**Plants grow quickly, and decompose quickly as well.** The standing crop you can see turns over
-on a seasonal cycle.
+**Plants grow quickly, and decompose quickly as well.** The standing crop you can see turns over on
+a seasonal cycle.
 
 So a grassland carbon project should decide **which pools it cares about**, because that governs
-how different stewardship techniques will show up in the numbers. Here we see a range of different native grasses and the vast underground networks we dont always see on the surface
+how different stewardship techniques will show up in the numbers. Here we see a range of native
+grasses and the vast underground networks we do not always see on the surface.
 
 </td>
 </tr>
@@ -176,56 +219,64 @@ how different stewardship techniques will show up in the numbers. Here we see a 
 
 ---
 
-## Measuring Carbon stocks in Grasslands - Part 1: Biomass
+## Measuring carbon stocks in grasslands — Part 1: Biomass
+
+There are two ways to get plant biomass, and one of them is built from the other.
 
 <table>
 <tr>
-<td width="55%">
+<td width="50%">
 
-(for Claude - Split this into a 2 by 2 table - On the top left: Method 1 - Direct measurment - Top right - image of the clip and weight method
+**Method 1 · Direct measurement**
 
-Botton left - Allometric relationships - Bottom right - Diagram showing the allometric relationship 
-
-**1 · Direct measurement.** Clip the quadrat, wash the roots out of the core, weigh what you
-have. This is what [Part 3](03_Field_Methods/) covers, and it is what the calculator's
-`3. Root Biomass` and `4. Vegetation Data` tabs hold — measured mass, not a multiplier.
-
-**2 · Allometric relationships.** A measurement you can take easily stands in for one you cannot:
-shrub crown volume for shrub biomass, tree diameter for tree biomass, shoot mass for root mass.
-
-An allometric relationship is *built from* direct measurement —
-someone measured both quantities, on enough plants, to establish the relationship in the first
-place. Root:shoot relationships in particular are often developed on a **regional or study-area
-basis**, where the ratio is compared across sites and against plant relative abundance, then
-modelled out.
+Clip the quadrat, wash the roots out of the core, weigh what you have. This is what
+[Part 3](03_Field_Methods/) covers, and it is what the calculator's `3. Root Biomass` and
+`4. Vegetation Data` tabs hold — measured mass, not a multiplier.
 
 </td>
-<td width="45%">
+<td width="50%">
 
-(For Claude - Add this as text under the table )
+> 📸 **[IMAGE NEEDED]** — the clip-and-weigh method: a quadrat being clipped at ground level, and
+> the bagged sample.
 
-**Why it is worth collecting data towards this**
+</td>
+</tr>
+<tr>
+<td width="50%">
 
-Every campaign that measures both quantities contributes to a local relationship. Once you have
-one, **later surveys can collect less field data for the same answer**, because the relationship
-carries part of the work — and it is the step that makes drone and aerial survey for carbon
-possible at all.
+**Method 2 · Allometric relationships**
 
-> [!IMPORTANT]
-> **This applies to plant biomass only.** There is no equivalent shortcut for **soil carbon**:
-> bulk density and carbon concentration have to be measured. Soil is also the largest pool, so
-> the pool you can least afford to estimate indirectly is the one you cannot.
+A measurement you can take easily stands in for one you cannot: shrub crown volume for shrub
+biomass, tree diameter for tree biomass, shoot mass for root mass.
 
-> 📸 **[FIGURE NEEDED]** — measured vs modelled, side by side: a washed root sample on one side,
-> a fitted root:shoot relationship on the other.
+An allometric relationship is *built from* direct measurement — someone measured both quantities,
+on enough plants, to establish the relationship in the first place. Root:shoot relationships in
+particular are often developed on a **regional or study-area basis**, where the ratio is compared
+across sites and against plant relative abundance, then modelled out.
+
+</td>
+<td width="50%">
+
+> 📸 **[DIAGRAM NEEDED]** — an allometric relationship: measured shoot mass on one axis against
+> measured root mass on the other, with the fitted line that lets one predict the other.
 
 </td>
 </tr>
 </table>
 
+**Why it is worth collecting data towards this.** Every campaign that measures both quantities
+contributes to a local relationship. Once you have one, **later surveys can collect less field data
+for the same answer**, because the relationship carries part of the work — and it is the step that
+makes drone and aerial survey for carbon possible at all.
+
+> [!IMPORTANT]
+> **This applies to plant biomass only.** There is no equivalent shortcut for **soil carbon**: bulk
+> density and carbon concentration have to be measured. Soil is also the largest pool, so the pool
+> you can least afford to estimate indirectly is the one you cannot.
+
 ---
 
-## Measuring Carbon stocks in Grasslands - Part 2: Soil Organic Carbon
+## Measuring carbon stocks in grasslands — Part 2: Soil organic carbon
 
 <table>
 <tr>
@@ -249,7 +300,8 @@ are looking for is frequently below 30 cm.
 </td>
 <td width="45%">
 
-Rmove this and just show an image of Soil carbon sampling (placeholder for now)
+> 📸 **[IMAGE NEEDED]** — soil carbon sampling in the field: a core being driven, or a sectioned
+> core laid out on a depth-marked tray.
 
 </td>
 </tr>
@@ -263,17 +315,8 @@ Rmove this and just show an image of Soil carbon sampling (placeholder for now)
 Everything in Parts 3 and 4 feeds one workbook:
 **[`Grassland_Carbon_Calculator.xlsx`](04_Data_Interpretation/calculators/Grassland_Carbon_Calculator.xlsx)**
 
-<table>
-<tr>
-<td width="52%">
-
-the screenshots for this are added above
-
-> 📸 **[SCREENSHOT NEEDED]** — the calculator open, showing the tab strip and a few filled rows,
-> so a reader can see typed cells against calculated ones before they open it.
-
-</td>
-<td width="48%">
+Screenshots of two of its tabs are at the
+[top of this page](#how-to-think-about-this-workshop).
 
 | Tab | Holds |
 |---|---|
@@ -283,10 +326,6 @@ the screenshots for this are added above
 | `4. Vegetation Data` | Shrubs (medium plot) and clip-and-weigh (small plot) |
 | `5. Plot Summary` · `6. Site Summary` | Calculated — stocks, intervals, whether you hit your target |
 | `Fill Me In` | 🟠 **Every value the workshop cannot supply**, in one list |
-
-</td>
-</tr>
-</table>
 
 ---
 

@@ -81,15 +81,55 @@ corrected root mass  =  oven-dry mass × (1 − ash fraction)
 > the ash correction only when `ASH_CORRECTED` says you did it, and flags every row while it
 > doesn't.
 
-> [!WARNING]
-> **Measuring roots creates a trap, and this is where it springs.** Soil carbon analysis
-> conventionally removes visible roots — but **fine roots stay in the sample**. Add measured root
-> carbon to a soil stock that still contains fine-root carbon and **you have counted it twice**.
+### The double-counting trap
+
+Measuring roots creates a trap, and the lab bench is where it springs.
+
+<table>
+<tr>
+<td width="55%">
+
+**Soil carbon analysis conventionally removes *visible* roots** — but fine roots inevitably stay in
+the sample. So a standard soil carbon number **already includes** fine-root carbon.
+
+Add separately-measured root carbon on top and **you have counted the same carbon twice**.
+
+The conventional diameter split is **≤ 2 mm fine, > 2 mm coarse**. It is near-universal, and it is
+a convention a field crew can apply with a sieve — not a biological boundary.
+
+</td>
+<td width="45%">
+
+```
+   ░░░  shoots (clipped)          ┐ ABOVE GROUND
+   ────────────────────────────── ┤ ← the clip line
+   ▓▓▓  coarse roots  > 2 mm      │
+   ▓▓▓  fine roots   ≤ 2 mm       │ ROOTS — sieved out
+   ────────────────────────────── ┤ ← the sieve mesh
+   ███  root-free soil            │ SOIL — analysed after
+   ███                            ┘
+```
+
+</td>
+</tr>
+</table>
+
+**Two answers are defensible. Pick one, write it down, apply it to every sample.**
+
+| | **Option 1 — Sieve first** ⭐ | **Option 2 — Fine roots stay in the soil** |
+|---|---|---|
+| **What you do** | Wash all roots out, analyse **root-free soil** for carbon, report root carbon separately | Remove only coarse (>2 mm) roots; analyse soil with fine roots still in it |
+| **Report** | Soil C and root C as separate, addable pools | Soil C (includes fine roots) + coarse root C |
+| **Pro** | Clean separation; root carbon is fully measured | Much less lab work |
+| **Con** | The labour | Fine-root carbon is inside the soil number and cannot be broken out |
+
+> 🟠 **[FILL ME IN]** — `ROOTS_REMOVED_BEFORE_SOIL_C` in the calculator's `7. Settings`. **Default
+> is Option 1.** A QC flag fires on every soil row while root carbon is being added to a stock not
+> confirmed root-free.
 >
-> The rule: **sieve the roots out first, analyse root-free soil, report root carbon separately —
-> and say what mesh you used.** [Part 3](../03_Field_Methods/#separate-the-roots) covers the
-> procedure; `ROOTS_REMOVED_BEFORE_SOIL_C` in the calculator's `7. Settings` records whether you
-> did it, and flags the soil rows while it says you did not.
+> **Being silent about which you did is the only wrong answer** — and silence is the default
+> outcome if nobody decides in advance. Decide it in
+> [Part 2](../02_Project_Planning/), not here.
 
 ### 1.4 Ask the lab three questions before the field season
 
