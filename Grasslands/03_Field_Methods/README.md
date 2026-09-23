@@ -2,872 +2,717 @@
   <img src="images/banner_field_methods.svg" alt="Field Methods — Grassland Carbon Workshop banner" width="100%">
 </p>
 
----
-
-[← 2 — Project Planning](../02_Project_Planning/) · [Back to main guide](../README.md) · Next: [4 — Data Interpretation →](../04_Data_Interpretation/)
+> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/banner_field_methods.svg` using the shared workshop banner dimensions, typography, and colour treatment, with a grassland field crew measuring vegetation and collecting a soil core.
 
 ---
 
 # Part 3 — Field Methods
 
-*A day in a grassland, in the order it has to happen.*
+*A field day in a grassland, in the order it needs to happen.*
 
-**Quick links:** [Vegetation (Non-Tree)](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Non-Peat Soils](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Sampling Design](../../_Shared/Sampling-Design-Eng-2026.pdf) · [Datasheets](datasheets/) · [Checklists](checklists/)
+[← 2 — Project Planning](../02_Project_Planning/) · [Back to main guide](../README.md) · Next: [4 — Data Interpretation →](../04_Data_Interpretation/)
 
 ---
 
+**Quick links:** [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Non-Peat Soils Field Guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Sampling Design Guide](../../_Shared/Sampling-Design-Eng-2026.pdf) · [Laboratory Guide](../../_Shared/Lab-Guide-Eng-2026.pdf) · [Datasheets](datasheets/) · [Skill checklists](checklists/)
+
 ## Overview
 
-The sampling design is set ([Part 2](../02_Project_Planning/)); now the crew goes out and fills
-the sheets.
+Once the sampling design is set in [Part 2](../02_Project_Planning/), the field team turns that plan into measurements and labelled samples. This section covers plot setup, vegetation measurements, soil and root coring, depth increments, bulk-density records, root handling, and the field data sheets.
 
-| Section | Covers | Fills |
-|---|---|---|
-| [**Setting up a plot**](#setting-up-a-plot) | Permanent vs single-use, marking, the plot log, photos | `1. Plot & Site Log` |
-| [**Plants**](#plants) | Clip-and-weigh, shrubs, and routing trees to Forests | `4. Vegetation Data` |
-| [**Soil**](#soil) | Coring by depth increment, bulk density, coarse fragments | `2. Soil Data` |
-| [**Separate the roots**](#separate-the-roots) | Getting the roots out of the soil sample | `3. Root Biomass` |
+The work follows five stages:
 
-**Soil and roots are the workshop.** That is where the carbon is, and root separation is the step
-nobody arrives already knowing.
+| # | Stage | Answers | Primary record |
+|---|---|---|---|
+| 1 | **[Set up the plot and record conditions](#1-set-up-the-plot-and-record-conditions)** | *Where are we, what kind of plot is this, and what was here before we touched it?* | `1. Plot & Site Log` |
+| 2 | **[Measure the vegetation](#2-measure-the-vegetation)** | *What is growing above ground?* | `4. Vegetation Data` |
+| 3 | **[Collect the soil and root core](#3-collect-the-soil-and-root-core)** | *How deep did we sample, and what volume did we recover?* | `2. Soil Data` |
+| 4 | **[Section, bag, and label the core](#4-section-bag-and-label-the-core)** | *Which material belongs to each depth interval?* | `2. Soil Data` |
+| 5 | **[Separate the roots and finish the records](#5-separate-the-roots-and-finish-the-records)** | *How will soil and roots be kept distinct and auditable?* | `3. Root Biomass` |
 
 ### Sources for this section
 
 - [*Measuring Carbon in Vegetation (Non-Tree)*](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) (WWF-Canada, 2024)
 - [*Measuring Carbon in Non-Peat Soils*](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) (WWF-Canada, 2026)
-- [*Carbon Measurement: Sampling Design*](../../_Shared/Sampling-Design-Eng-2026.pdf) (WWF-Canada, 2026) — plot types, p.7–8
+- [*Carbon Measurement: Sampling Design*](../../_Shared/Sampling-Design-Eng-2026.pdf) (WWF-Canada, 2026)
 - [*Supplemental Guide: Laboratory Analysis*](../../_Shared/Lab-Guide-Eng-2026.pdf) (WWF-Canada, 2026)
 
-> 📚 **[REFERENCES NEEDED]** — the root-methods literature. Neither WWF guide covers root
-> separation at all, so **everything in [Separate the roots](#separate-the-roots) is written at the
-> level the method itself supports and is not yet cited**. Candidates in [`TODO.md`](../TODO.md).
+> 📚 **[METHOD AND REFERENCES REQUIRED]** The current WWF field guides do not provide the complete root-separation method proposed here. Before publication or field use, the root workflow must be reviewed by a soil/root methods specialist, supported with primary references, tested on the soils expected at the site, and reconciled with the contracted laboratory's preparation method.
 
 ---
 
-## ⚠ The order matters more than anything else on this page
+## ⚠ The order matters
 
 <table>
 <tr>
 <td width="50%">
 
-> 📸 **[IMAGE / SLIDE]** — the working order at a plot, or a photo of a quadrat with the core
-> offset beside it.
+> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/field_workflow_order.svg`: a numbered plot diagram showing the crew moving from plot marking and photographs through vegetation measurements, then to the offset soil/root core.
 
 </td>
 <td width="50%">
 
-> **All vegetation work finishes before any coring.**
+> **Complete non-destructive vegetation measurements before coring or clipping disturbs the plot.**
 
-Coring is **destructive**. A corer hole in a quadrat you have not yet clipped is a lost plot, and
-the trampling around it has already changed what you were about to measure.
+Coring changes the surface and creates traffic around the sampling point. Clipping removes the vegetation another measurement may need. Plan the crew's movement so the unmeasured plot is protected.
 
-And for **permanent plots**:
-
-> **Offset the core from the quadrat, and record the offset.**
-
-The next visit has to avoid this visit's holes, and to sample soil nobody knelt on.
+For a **permanent plot**, keep destructive samples outside the permanent vegetation area and record their direction and distance from the marker.
 
 </td>
 </tr>
 </table>
 
+```text
+ 1. Navigate, mark the plot, and record GPS             ──┐
+ 2. Lay out plot boundaries                               │
+ 3. Photograph the undisturbed plot                       │  non-destructive
+ 4. Record site, management, cover, and conditions        │
+ 5. Measure trees and shrubs                              ──┘
+ 6. Photograph and clip the small quadrat                ──┐
+ 7. Collect the offset soil/root core                      │  destructive
+ 8. Record recovery and section by depth                   │
+ 9. Bag, label, cool, and complete chain of custody       ──┘
 ```
- 1. Navigate, mark the plot, record GPS                ──┐
- 2. Lay out the plot boundaries                          │
- 3. Photo series                                         │  non-destructive
- 4. Record management, grazing, fire, cover              │
- 5. Trees over 2 m           (→ Forests)                 │
- 6. Shrubs — medium plot                                 │
- 7. Clip and weigh — small plot                        ──┘
- 8. Soil core, offset from the quadrat                  ─┐  destructive
- 9. Section by depth increment                           │
-10. Bag for soil AND for roots                         ──┘
-```
-
----
-
-## Setting up a plot
-
-### Permanent or single-use?
-
-Decided in [Part 2 §5D](../02_Project_Planning/#permanent-or-single-use-plots), executed here.
-The [Sampling Design guide](../../_Shared/Sampling-Design-Eng-2026.pdf) (p.7–8) defines the two;
-setup steps are in *Measuring Carbon in Trees*
-([`Forests/03_Field_Methods/`](../../Forests/03_Field_Methods/Trees-FINAL-Eng-2026.pdf), p.10).
-
-<table>
-<tr>
-<td width="50%">
-
-> 📸 **[IMAGE / SLIDE]** — the permanent vs single-use plot pages from the Sampling Design guide
-> (p.7–8), and the setup steps from the Trees guide (p.10).
-
-</td>
-<td width="50%">
-
-**Single-use** — sampled once. Destructive sampling happens **inside** the plot, after all
-non-destructive work is finished.
-
-**Permanent** — sampled repeatedly over time, re-measuring the same vegetation each visit with
-**non-destructive** methods.
 
 > [!IMPORTANT]
-> **In a permanent plot, destructive sampling goes outside the plot.** Coring and clipping destroy
-> exactly what the next visit needs to re-measure. The
-> [Non-Peat Soils guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) says so directly.
-
-</td>
-</tr>
-</table>
-
-### Navigate and mark
-
-<table>
-<tr>
-<td width="50%">
-
-> 📸 **[IMAGE / SLIDE]** — a marked plot centre with the quadrat and medium plot laid out.
-
-</td>
-<td width="50%">
-
-| | |
-|---|---|
-| **Plot sizes** | Medium **16–100 m²** (plants 0.5–2 m) · Small **0.25 m²** (below 0.5 m) · Large **400 m²** where trees over 2 m are present |
-| **Coordinates** | At the **plot centre**, with your **GNSS accuracy** |
-| **Permanent plots** | Grassland has nothing to tag. A driven rod with a recorded depth, a buried magnet findable with a locator, **and** a bearing and distance from something durable. Photograph the setting |
-
-</td>
-</tr>
-</table>
-
-### What goes on the plot log before you touch anything
-
-<table>
-<tr>
-<td width="50%">
-
-> 📸 **[IMAGE / SLIDE]** — the plot log section of the field datasheet, filled in.
-
-</td>
-<td width="50%">
-
-Five fields peculiar to grassland and easy to skip:
-
-| Field | How to record it |
-|---|---|
-| **Grassland type** | Prairie / parkland / savannah / bunchgrass / other |
-| **Management** | Grazed / ungrazed / hayed / cultivated-and-reseeded / never cultivated |
-| **Grazing regime** | None / season-long / rotational / heavy, plus stocking if known |
-| **Years since fire** | Years, or "unknown", or "no recorded fire" |
-| **Native or seeded** | Native sward / tame or introduced |
-
-> 🟠 **Most of this comes from the landholder, not from the site.** Have the conversation before
-> the field day, not during it.
-
-</td>
-</tr>
-</table>
-
-### The photo series
-
-<table>
-<tr>
-<td width="50%">
-
-> 📸 **[IMAGE / SLIDE]** — the 14-photo convention as a diagram.
-
-</td>
-<td width="50%">
-
-From the plot centre, following the same convention as the rest of the series:
-
-| | Photos | Aim |
-|---|---|---|
-| **1** | 1 | **Straight down** — the sward |
-| **2** | 1 | **Straight up** — canopy, or sky |
-| **3–14** | 12 | For **each cardinal direction**: one parallel with the ground, one **45° up**, one **45° down** |
-
-**Plus two specific to this workshop:** the **quadrat before clipping** and the **quadrat after**,
-from the same position. Those two frames are the only record of what the standing crop looked
-like, and they take fifteen seconds.
-
-</td>
-</tr>
-</table>
+> A single-use plot and a permanent plot do not use destructive sampling in the same place. Follow the [permanent-or-single-use design selected in Part 2](../02_Project_Planning/#permanent-or-single-use-plots) and show the destructive-sampling locations on the field map.
 
 ---
 
 ## Equipment
 
+Before leaving, lay out the equipment and test the full workflow with the actual corer, labels, forms, coolers, and laboratory containers. Confirm the laboratory's sample mass, container, preservation, and chain-of-custody requirements before buying or pre-labelling supplies.
+
 <table>
 <tr>
 <td width="33%">
 
-**Plot setup**
+**1 · Plot setup and records**
 
+- GNSS unit and spare power
 - Measuring tapes
-- **0.25 m² quadrat** (or a 0.28 m radius hoop)
-- Medium-plot marking — pin flags, rope
-- GNSS unit
-- Camera
-- Waterproof notebook, pencils
-- Permanent markers
+- 0.25 m² quadrat or documented alternative
+- Medium-plot markers, flags, and rope
+- Permanent-plot marker and locator, if used
+- Camera and photo board
+- Waterproof notebook and pencils
+- Printed datasheets and field map
+- Pre-printed waterproof labels
 
 </td>
 <td width="33%">
 
-**Plants**
+**2 · Vegetation**
 
-- **Clippers or shears**
-- Resealable bags, pre-labelled
-- Paper bags for drying
-- Cooler
-- Calipers and measuring tape — shrubs
-- DBH tape — trees over 2 m
-- Species reference for your region
+- Clippers or shears
+- Collection bags matched to the lab method
+- Cooler and ice packs
+- Portable balance, if field mass is required
+- Calipers and measuring tape
+- DBH tape and height tool for trees
+- Regional species reference
+- Cleaning supplies between plots
 
 </td>
 <td width="33%">
 
-**Soil and roots**
+**3 · Soil and roots**
 
-- **Soil corer** with a known internal diameter, or auger + **bulk-density ring**
-- Spare liners or sleeves
-- Slide hammer
-- Knife, trowel
-- **Depth-marked** core sectioning tray
-- Bags, labels
-- Cooler
+- Corer with known internal diameter and liners
+- Slide hammer or approved driving system
+- Bulk-density rings where needed
+- Soil probe or auger
+- Clean knife, spatula, and trowel
+- Depth-marked sectioning tray
+- Bags/jars specified by the lab
+- Caps, sleeves, cooler, and ice packs
+- Equipment-cleaning and decontamination supplies
 
 </td>
 </tr>
 </table>
 
+> 🧩 **[PLACEHOLDER — IMAGE SET]** Add three locally stored equipment photographs or diagrams: `equipment_plot_setup.webp`, `equipment_vegetation.webp`, and `equipment_soil_roots.webp`. Label every item visible in the photograph.
+
 > [!IMPORTANT]
-> **Record the corer's internal diameter and write it on the corer.** It sets the sample volume
-> and therefore every bulk density and every carbon stock. Out by 10% on the diameter puts every
-> stock out by **21%**. Measure it with calipers once; put it on the sheet for every core.
+> **Measure and record the corer's internal diameter.** Cross-sectional area depends on diameter squared, so a diameter error propagates into the calculated sample volume and any stock derived from it. Measure the inside diameter with calipers at several positions, record the value and units, and identify the corer used for every sample.
+
+### Field-day preflight
+
+| Check | Confirm before departure |
+|---|---|
+| **Design** | Plot coordinates, strata, alternates, permanent/single-use status, and offsets are loaded and printed. |
+| **Identifiers** | Plot, core, depth, and sample identifiers are unique and match the datasheets. |
+| **Laboratory** | Containers, minimum mass, temperature, holding time, root/soil separation, and bulk-density basis are confirmed. |
+| **Safety** | Access permission, weather, fire restrictions, livestock, wildlife, first aid, communications, and emergency plan are reviewed. |
+| **QA/QC** | Duplicates, equipment blanks where relevant, cleaning sequence, and replacement rules are written down. |
+| **Cold chain** | Coolers are cold, labelled, and large enough for the planned sample count. |
 
 ---
 
 ## Timing
 
-Two different constraints, and they do not always point to the same week.
+Vegetation, roots, and soil do not have identical seasonal constraints.
 
-| | When | Why |
-|---|---|---|
-| **Vegetation** | **Peak growing season** | The only phenological point repeatable between sites and years. The [Vegetation guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) specifies it |
-| **Soil** | Fairly insensitive | Avoid saturated or frozen ground; both wreck bulk density |
-| **Roots** | Follows the vegetation | Root biomass varies seasonally too, less violently. **Record the date** |
+| Component | Timing consideration |
+|---|---|
+| **Vegetation** | Sample at the phenological stage specified by the vegetation protocol—commonly peak standing biomass for a standing-crop comparison—and record the date and conditions. |
+| **Roots** | Root biomass can vary seasonally; collect on the same visit as vegetation when the design intends to relate the two. |
+| **Soil carbon** | Usually less seasonally variable, but frozen, saturated, very dry, or structurally unstable soils can compromise coring and bulk-density measurements. |
 
-> [!WARNING]
-> **If you must split the work across visits, split it at the soil.** Clip the vegetation and take
-> the roots on the same trip — they are the two seasonal pools and they should share a date. Soil
-> carbon will wait.
+> 📚 **[REGIONAL GUIDANCE NEEDED]** Replace generic calendar language with ecosystem- and region-specific phenology guidance. “Peak season” should be defined operationally for the project rather than assumed to occur in the same month everywhere.
+
+> [!TIP]
+> If work must be split across visits, document which measurements share a date and why. Never merge measurements from different phenological stages without recording the limitation.
 
 ---
 
-# Plants
+## Field methods, step by step
 
-*Clip-and-weigh, shrubs, and trees where there are any — the small, seasonal, visible pool.*
+### 1. Set up the plot and record conditions
 
-**Source:** [*Measuring Carbon in Vegetation (Non-Tree)*](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · **Fills:** `4. Vegetation Data`
+*Where are we, what kind of plot is this, and what was here before we touched it?*
+
+#### Confirm permanent or single-use status
+
+This decision was made under [Permanent or single-use plots? in Part 2](../02_Project_Planning/#permanent-or-single-use-plots). Confirm it against the field map before laying out the plot.
 
 <table>
 <tr>
-<td width="50%">
+<td width="45%">
 
-> 📸 **[IMAGE / SLIDE]** — the three plot sizes nested, with the height classes labelled.
+> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/permanent_vs_single_use_field.svg`: matched field diagrams showing the plot marker, vegetation area, traffic path, clipped quadrat, and soil-core position for both designs.
 
 </td>
-<td width="50%">
+<td width="55%">
 
-| Plot | Size | Holds | Method |
-|---|---|---|---|
-| **Large** | 400 m² | Trees **over 2 m** | → [Forests Part 3A](../../Forests/03_Field_Methods/3A_Trees.md) |
-| **Medium** | **16–100 m²** | Plants **0.5–2 m** — shrubs, tall grasses | **Measure and predict** (allometric) |
-| **Small** | **0.25 m²** | Ground vegetation **below 0.5 m** | **Clip and weigh** (destructive) |
+**Single-use:** complete non-destructive work first, then place destructive measurements in the documented sampling area.
 
-This is the **smallest** of the three carbon pools — but above-ground biomass responds to
-management faster than anything else you measure, which makes it the most *informative* pool per
-hour spent. That is a reason not to skip it, and a reason not to let it set the schedule.
+**Permanent:** protect the area that will be remeasured. Place clipping and coring outside it, and record bearing and distance from the permanent marker.
 
 </td>
 </tr>
 </table>
 
-## Small plot — clip and weigh
+#### Navigate and mark
 
-<table>
-<tr>
-<td width="50%">
+1. Navigate to the assigned coordinate without selecting a more convenient or “representative-looking” location.
+2. Follow the project's pre-defined rule if the point is unsafe, inaccessible, or outside the mapped stratum.
+3. Mark the centre and record latitude, longitude, coordinate system, GNSS accuracy, time, and crew.
+4. Lay out only the plot sizes required for the selected pools.
+5. If permanent, install the approved marker and record enough redundant information to relocate it.
 
-> 📸 **[IMAGE / SLIDE]** — a quadrat before and after clipping, from the same position.
+| Plot | Draft size | Used for |
+|---|---:|---|
+| **Large** | 400 m² | Trees taller than 2 m, where present. |
+| **Medium** | 16–100 m² | Shrubs and plants approximately 0.5–2 m. |
+| **Small** | 0.25 m², or documented alternative | Ground vegetation and clip-and-weigh measurements. |
 
-</td>
-<td width="50%">
+> 📚 **[PROTOCOL CHECK NEEDED]** Confirm plot dimensions and height-class boundaries against the final vegetation protocol and calculator before publication.
 
-| # | Step |
+#### Complete the plot log before disturbance
+
+Record:
+
+| Field | Guidance |
 |---|---|
-| **1** | Lay the **0.25 m² quadrat**, **offset from where the core will go** |
-| **2** | **Photograph from directly above**, before touching it |
-| **3** | Clip **all** vegetation below 0.5 m **at ground level** |
-| **4** | Separate by species — or at minimum **live vs dead (standing litter)** |
-| **5** | Bag each fraction separately, pre-labelled |
-| **6** | **Photograph the quadrat again**, clipped |
-| **7** | Straight into the cooler |
-| **8** | Oven-dry to constant mass and weigh |
+| **Grassland type** | Use the project's controlled list and definitions. |
+| **Management** | Grazed, ungrazed, hayed, cultivated/reseeded, never cultivated, or other documented category. |
+| **Grazing regime** | Record type and stocking information where known; use `unknown` rather than guessing. |
+| **Fire history** | Years since fire, no recorded fire, or unknown, with source. |
+| **Native/seeded status** | Apply the rule defined in Part 2. |
+| **Restoration history** | Treatment and year, with source. |
+| **Conditions** | Weather, recent rain, soil moisture condition, visible disturbance, and access notes. |
 
-> [!IMPORTANT]
-> **Clip at ground level, and mean it.** "Grazing height" is not a defined datum and will not be
-> repeatable between crews or between visits. Ground level is.
+Management history often comes from landholders or project records. Collect it before the field day and identify its source.
 
-</td>
-</tr>
-</table>
+#### Photograph the undisturbed plot
 
-**Live and dead are different things.** Standing dead material and litter hold carbon, but they
-are not *production* and they behave differently under management. Separate them at the quadrat,
-bag them apart, report them apart. Merging them afterwards is easy; splitting them is not.
+Use one series-wide convention so photographs can be compared among sites and visits. The current draft proposes:
 
-## Peak growing season is a rule, not a preference
-
-<table>
-<tr>
-<td width="50%">
-
-> 📸 **[IMAGE / SLIDE]** — the same quadrat photographed in spring and late summer.
-
-</td>
-<td width="50%">
-
-Herbaceous above-ground biomass is a **standing crop**. It grows from nothing each spring, peaks,
-then senesces or is grazed. Measure the same quadrat in May and in August and you get numbers that
-differ several-fold — with **nothing having changed about the site**.
-
-> [!WARNING]
-> - **Sample at peak.** Mid-to-late summer for most Canadian grassland, but it varies by region,
->   by year, and with drought.
-> - **Record the date. Always.** A clip-and-weigh without a date is uninterpretable.
-> - **Never compare** a spring harvest with a late-summer one, or a drought year with a wet one,
->   without saying so.
-> - **Report shoot biomass separately** from soil carbon — never buried inside a total.
-
-</td>
-</tr>
-</table>
-
-> 🟠 **[FILL ME IN]** — `PEAK_SEASON_SAMPLED` in the calculator. A flag fires while it reads `No`,
-> because a standing crop measured off-peak is not comparable to anything.
-
-**Grazed sites make this sharper still.** On a grazed paddock, clip-and-weigh measures what the
-cattle *have not eaten yet* — a function of stocking rate as much as of production. If your
-question is about production rather than standing crop, you need exclosure cages, and that is a
-different study design.
-
-## Medium plot — shrubs and tall grasses, 0.5–2 m
-
-<table>
-<tr>
-<td width="50%">
-
-> 📸 **[IMAGE / SLIDE]** — measuring crown dimensions on a shrub in the medium plot.
-
-</td>
-<td width="50%">
-
-**Non-destructive** — you measure dimensions and predict biomass rather than cutting.
-
-| | |
+| Sequence | Photographs |
 |---|---|
-| **Measure** | Species, and either **stem diameter at 0.3 m** (short-statured tree forms) or **crown L × W × H** (shrubs) |
-| **Equation** | `Biomass (g) = b × x^a`, then ÷ 1000 for kg |
-| **Coefficients** | Flade et al. (2020), on the Forests calculator's `R2. Understory Coefficients` tab |
-| **Enter into** | `4. Vegetation Data` |
+| 1 | One straight down at the plot centre. |
+| 2 | One straight up for canopy or sky. |
+| 3–14 | For each cardinal direction: horizontal, 45° up, and 45° down. |
+| Additional | Small quadrat directly overhead before and after clipping. |
 
-Species in the coefficient table include **willow**, **shrubby cinquefoil**, **soap berry**,
-**alder**, **bog birch** and a generic **"all shrubs"** fallback.
+> 🧩 **[PLACEHOLDER — DIAGRAM]** Create `images/photo_series.svg` showing camera direction, frame numbering, photo-board placement, and filename convention.
 
-</td>
-</tr>
-</table>
-
-> [!WARNING]
-> **These are ABOVE-ground equations only.** Shrub roots are **not** included, and they are not
-> captured by [coring](#soil) either — a shrub's coarse roots will not come up in a soil core.
->
-> **This is a real and declared gap.** If shrubs are a significant part of your site — encroaching
-> savannah, parkland — say in your reporting that below-ground shrub biomass is excluded.
-
-> [!NOTE]
-> **Check your species before relying on an allometric.** If it is not in the coefficient table,
-> either use the generic "all shrubs" equation and say so, or **clip and weigh** the shrub instead.
-> A species-specific equation applied to the wrong species is worse than a generic one applied
-> honestly.
-
-## Trees over 2 m
+Use a photo board or first frame containing plot ID, date, direction, and photographer. Preserve original files and record filenames on the plot log.
 
 <table>
 <tr>
-<td width="50%">
+<td width="55%">
 
-> 📸 **[IMAGE / SLIDE]** — an open-grown savannah oak, showing the short bole and spreading crown.
+**📋 Record it — `1. Plot & Site Log`**
 
-</td>
-<td width="50%">
-
-**Any tree over 2 m tall** goes through the Forests protocol — a black oak is measured the same way
-wherever it grows. No canopy-cover threshold to decide: the medium plot covers 0.5–2 m, so 2 m is a
-clean handoff.
-
-**👉 [Forests Part 3A — Trees](../../Forests/03_Field_Methods/3A_Trees.md)**
-
-| | |
-|---|---|
-| **Plot** | **400 m²** large plot |
-| **Measure** | Species, **DBH at 1.3 m**, height |
-| **Equations** | Lambert et al. (2005), Ung et al. (2008) |
-| **Enter into** | The [Forests calculator](../../Forests/04_Data_Interpretation/calculators/), then carry the per-m² result across |
+- Plot ID and stratum
+- Date, time, crew, and coordinates
+- GNSS accuracy and coordinate system
+- Permanent/single-use status
+- Marker description and relocation information
+- Grassland, management, grazing, fire, and restoration fields
+- Conditions and disturbances
+- Photograph filenames
 
 </td>
-</tr>
-</table>
+<td width="45%">
 
-**Two things differ from a closed forest:**
-
-1. **Open-grown trees are not forest-grown trees.** A savannah oak has a short bole and a huge
-   spreading crown; a forest oak is tall and narrow. Allometric equations fitted on forest stems
-   may not extrapolate well to open-grown form. **Record that the trees were open-grown**, and
-   treat the biomass figure as more uncertain than the same equation applied in a closed stand.
-2. **Encroachment is a finding.** Young trees and shrubs invading a fire-suppressed grassland are
-   *gaining* above-ground carbon while the grassland is being lost. Report both — a carbon number
-   presented alone will be read as endorsement.
-
-### Where the plant numbers go
-
-```
-Trees over 2 m
-      │
-      ▼
-Forests calculator ──► per-m² tree carbon
-      │
-      ▼
-Grassland calculator ──► 4. Vegetation Data, "Tree carbon (kg C/m²)"
-
-Shrubs (medium plot) ─┐
-Clip-and-weigh (small)─┴──► 4. Vegetation Data, directly
-```
-
-**Match `Plot ID` exactly across both workbooks.** That string is the join, and a mismatch silently
-drops the tree carbon.
-
-> [!NOTE]
-> **Mind the plot areas.** Trees come from a **400 m²** plot, shrubs from **16–100 m²**,
-> clip-and-weigh from **0.25 m²**. Each is divided by **its own** plot area to give kg C/m², which
-> is what makes them addable. Check the units on the cell you copy.
-
----
-
-# Soil
-
-*The main event.*
-
-**Source:** [*Measuring Carbon in Non-Peat Soils*](../../_Shared/Non-peat-FINAL-Eng-2026.pdf), whose coring protocol transfers unchanged · **Fills:** `2. Soil Data`
-
-## Stage 1 — Depth increments
-
-<table>
-<tr>
-<td width="50%">
-
-> 📸 **[IMAGE / SLIDE]** — a sectioned core laid out on a depth-marked tray, increments labelled.
-
-</td>
-<td width="50%">
-
-Settled in [Part 2](../02_Project_Planning/#decide-your-sampling-depth-now-not-later), executed
-here, and getting it wrong is unrecoverable.
-
-| Increment | Why |
-|---|---|
-| **0–10 cm** | Where management effects show first, and root density is highest |
-| **10–20 cm** | |
-| **20–30 cm** | Completes the **0–30 cm** reporting window |
-| **30–60 cm** | The first increment most surveys skip, and the first that separates native from cultivated |
-| **60–100 cm**, then on **to refusal** | Where native grassland keeps going |
-
-**Finer increments near the surface, coarser with depth** — that matches how both carbon and root
-density actually change, and keeps the sample count manageable.
-
-</td>
-</tr>
-</table>
-
-> [!IMPORTANT]
-> **Core the full profile, to parent material or refusal.** 30 cm and 1 m are *reporting
-> conventions*, not the measurement — a fixed depth does not hold a fixed mass of soil, so
-> compaction can raise the apparent stock in a 30 cm window while the profile is losing carbon.
-> [Part 1](../01_Background/#5--how-deep-to-sample) makes the full argument, and
-> [Part 5 Step 4](../05_Monitoring/#step-4--equivalent-soil-mass) shows why a core that stopped at
-> exactly 30 cm cannot be corrected afterwards.
-
-**When the soil is shallower than your plan** — common in interior BC and on thin Shield soils.
-This is **data, not a failure**:
-
-- **Record the depth to refusal**, and what stopped you — bedrock, a cemented layer, a stone.
-- **Record the actual increment depths**, not the ones you intended. A "20–30 cm" increment that
-  was really 20–24 cm before bedrock will otherwise be scaled as though it were 10 cm thick.
-- The calculator uses the **recorded** top and bottom depths for thickness, so a truncated
-  increment is handled correctly — *if* you write down what actually happened.
-
-## Stage 2 — Take the core
-
-<table>
-<tr>
-<td width="33%">
-
-**A · Soil core** *(preferred)*
-
-A corer driven in, recovering an intact column.
-
-✅ Clean depth control
-✅ **Known volume** for bulk density
-✅ Roots come up with the soil
-❌ Hard in stony or very dry ground
-
-</td>
-<td width="33%">
-
-**B · Soil pit**
-
-A pit exposing the profile face, sampled by horizon with a ring.
-
-✅ You can see the horizons
-✅ Works where a corer won't go
-❌ Slow and very destructive
-❌ **Poor for roots** — hard to get a defined volume
-
-</td>
-<td width="33%">
-
-**C · Shallow soils**
-
-A frame of known area excavated to bedrock.
-
-✅ The only option on very thin soils
-❌ Small volumes, higher relative error
+> 🧩 **[PLACEHOLDER — IMAGE]** Add `images/datasheet_plot_log_completed.webp`, using fictional or anonymized data.
 
 </td>
 </tr>
 </table>
 
 > [!TIP]
-> **For roots, method A is strongly preferred.** Root biomass has to be expressed per unit volume
-> or per unit area, which means a **defined volume**. A corer gives you that for free. A pit does
-> not, unless you take a separate ring sample for every increment you want roots from.
-
-### Three grassland-specific cautions
-
-<table>
-<tr>
-<td width="50%">
-
-> 📸 **[IMAGE / SLIDE]** — a compacted grazed surface beside an ungrazed exclosure, same soil.
-
-</td>
-<td width="50%">
-
-**1 · Bulk density is compaction-sensitive, so measure it — don't look it up.**
-
-Grassland surface soils are compacted by trampling and machinery, and the effect is real and
-local. A heavily stocked paddock and an ungrazed exclosure a fence apart can differ measurably.
-Since stock is `depth × bulk density × carbon %`, taking bulk density from a table erases exactly
-the management signal you are trying to measure. **Measure it on every core, for every increment.**
-
-**2 · Do not core a wet or frozen soil.** Both wreck bulk density — wet soil compresses under the
-corer, frozen soil will not take one evenly. Note the moisture condition.
-
-**3 · Coarse fragments are not optional in the dry interior.** Rocks hold no carbon, and **neither
-WWF guide's scaling equations correct for them.** Estimate coarse-fragment volume per cent for each
-increment in the field and record it.
-
-</td>
-</tr>
-</table>
-
-> [!WARNING]
-> **The one way to get this badly wrong is to correct for stones twice.**
->
-> | Lab's bulk-density basis | Meaning | Correction |
-> |---|---|---|
-> | **Fine earth ÷ total volume** | Mass of the <2 mm fraction over the whole sample volume | Stones **already accounted for**. No further correction |
-> | **Fine earth ÷ fine-earth volume** | Mass of the <2 mm fraction over only the volume it occupies | Multiply by `(1 − coarse fragment %)` |
->
-> The calculator has a **`Bulk density basis`** column with exactly these two options and applies
-> the right arithmetic for each. **Ask your lab which they report.** Getting it wrong understates a
-> stony site by as much as a third.
->
-> 🟠 **[FILL ME IN]** — your lab's basis, in the `Fill Me In` tab.
-
-## Stage 3 — Section by depth increment
-
-<table>
-<tr>
-<td width="50%">
-
-> 📸 **[IMAGE / SLIDE]** — cutting a core at an increment boundary on the tray.
-
-</td>
-<td width="50%">
-
-1. Extrude the core onto a **depth-marked tray**, keeping it oriented.
-2. Cut at your planned increment boundaries with a clean blade.
-3. **Measure and record the actual top and bottom depth** of each increment — not the intended ones.
-4. Note anything visible: a horizon change, a stone, an old cultivation layer, an abrupt change in
-   root density.
-5. Bag each increment **separately and labelled** with plot, core, and **top–bottom depth**.
-
-> [!IMPORTANT]
-> **Label with the depth interval, not just an increment number.** `GP-04-C1 · 10–20 cm` survives a
-> smudged marker and a flooded cooler. `#2` does not.
-
-</td>
-</tr>
-</table>
-
-**Compaction during coring.** A driven corer can compress the column. If the recovered length is
-shorter than the depth you drove to, the increments are not where you think they are.
-
-| | |
-|---|---|
-| **Record** | Depth driven, and **length recovered** |
-| **If they differ by more than a few per cent** | Note it. The calculator flags a low recovery ratio |
-| **Do not** | Silently stretch the increments back out. Say what you measured |
+> **✅ Before moving on:** the plot is marked, its location and status are recorded, the undisturbed photo series is complete, and no destructive work has begun.
 
 ---
 
-# Separate the roots
+### 2. Measure the vegetation
 
-*The stage that makes this workshop different. Neither WWF guide covers it, because neither guide
-measures below-ground biomass at all.*
+*What is growing above ground?*
 
-**Fills:** `3. Root Biomass`
+Complete vegetation work from the least destructive measurement to the most destructive: trees, shrubs/tall vegetation, then the small clipped quadrat.
 
 <table>
 <tr>
-<td width="50%">
+<td width="45%">
 
-> 📸 **[IMAGE / SLIDE]** — roots being washed over nested sieves, and a sorted sample by diameter
-> class.
+> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/nested_vegetation_plots.svg`: the large, medium, and small plots nested around the centre, with height classes and the offset soil-core position.
 
 </td>
-<td width="50%">
+<td width="55%">
 
-Most carbon accounting multiplies above-ground biomass by a published **root:shoot ratio**. In a
-grassland that means multiplying your *largest* biomass pool by a number measured somewhere else,
-under management you cannot check — and grassland root:shoot is both large and highly variable.
-
-> **When you core the soil, the roots are already in your hand.** Separating and weighing them is
-> a measurement.
-
-Measuring is also what makes a **local** root:shoot relationship possible later — see
-[the landing page](../README.md#measuring-carbon-stocks-in-grasslands--part-1-biomass).
+| Plot | Vegetation | Draft method |
+|---|---|---|
+| **Large** | Trees >2 m | Species, DBH, height, and approved allometry. |
+| **Medium** | Plants 0.5–2 m | Species and dimensions used by the selected allometry or a documented harvest method. |
+| **Small** | Plants <0.5 m | Photograph, clip, separate required fractions, bag, dry, and weigh. |
 
 </td>
 </tr>
 </table>
 
-## ⚠ Decide the boundary before you start
+#### Small plot — clip and weigh
 
-This is the central decision of the whole workshop, and it has to be made **before** the first
-sample goes to the lab.
+1. Place the small quadrat at its assigned position, offset from the soil core.
+2. Photograph it directly overhead before touching the vegetation.
+3. Apply the protocol's defined cutting height consistently.
+4. Separate the required fractions—for example, species groups and/or live versus standing dead.
+5. Place every fraction in its own pre-labelled bag.
+6. Photograph the quadrat after clipping from the same position.
+7. Record field mass only if required, then protect samples according to the laboratory plan.
+8. Dry and weigh using the documented laboratory method.
+
+> [!IMPORTANT]
+> Define cutting height in the protocol and train crews to apply it consistently. If the chosen method is clipping at ground level, state exactly how basal crowns, mosses, litter, and attached dead material are handled.
+
+> 📚 **[METHOD CHECK NEEDED]** Confirm live/dead, litter, species-separation, storage, and drying requirements with the vegetation guide and laboratory method. The participant should not have to improvise these boundaries in the field.
+
+#### Phenology and grazing
+
+Clip-and-weigh measures standing material at the sampling date. It should not be interpreted as annual production without a design that supports that inference. On grazed sites, the result also reflects removal by animals.
+
+> [!WARNING]
+> - Record the sampling date and phenological stage.
+> - Apply the project's comparable-season rule.
+> - Record recent grazing, mowing, fire, drought, or other events that affect standing material.
+> - If the question is production rather than standing crop, use a design such as exclosures and repeated harvests that directly addresses production.
+
+> 🧩 **[PLACEHOLDER — DATA FIELD]** Add `Phenological stage`, `Recent grazing/removal`, and `Comparable-season criterion met?` to the vegetation record. Do not hide this decision in an undocumented calculator flag.
+
+#### Medium plot — shrubs and tall vegetation
+
+Use a non-destructive allometric method only when its predictor, units, species scope, and size range match the vegetation being measured.
+
+| Record | Examples |
+|---|---|
+| **Identity** | Species or documented group. |
+| **Predictor** | Stem diameter at the defined height, or crown length × width × height, as required by the equation. |
+| **Equation** | Source, equation ID, coefficient set, units, valid size range, and fallback rule. |
+| **Plot area** | Exact medium-plot area used for the per-area calculation. |
+
+> 📚 **[ALLOMETRY REVIEW NEEDED]** Verify every shrub coefficient, including the proposed Flade et al. source and any generic fallback, against the species, region, predictor definition, and calculator implementation. Do not instruct participants to use a generic equation until its limitations are documented.
+
+Coarse shrub roots are not reliably represented by a small soil core. If below-ground shrub biomass is outside scope, state that exclusion in the final report.
+
+#### Trees taller than 2 m
+
+Use the [Forests tree protocol](../../Forests/03_Field_Methods/3A_Trees.md) for trees that meet the agreed handoff rule. Record species, DBH at the protocol height, height, condition, and whether the tree is open-grown.
+
+Open-grown savannah or parkland trees may not match the form of trees used to fit forest allometries. Record equation source and applicability, and carry the additional uncertainty into interpretation.
+
+> 📚 **[ALLOMETRY REVIEW NEEDED]** Confirm the Lambert/Ung equations and their use for open-grown trees before publication. Do not imply that a forest-derived equation transfers without qualification.
+
+#### Where the vegetation numbers go
+
+```text
+Trees >2 m ──► approved tree calculator ──► per-m² tree carbon ─┐
+Shrubs/tall vegetation ──────────────────────────────────────────┤
+Clipped small plot ──────────────────────────────────────────────┴──► 4. Vegetation Data
+```
+
+Match `Plot ID`, units, dry-mass basis, carbon fraction, and plot area exactly. Each vegetation component is divided by **its own** measured plot area before components are combined.
 
 <table>
 <tr>
 <td width="55%">
 
-**The problem.** Soil carbon analysis conventionally removes *visible* roots — but fine roots
-inevitably stay in the sample. So a standard soil carbon number **already includes** fine-root
-carbon.
+**📋 Record it — `4. Vegetation Data`**
 
-Add separately-measured root carbon on top and **you have counted it twice**.
+- Plot ID and plot area
+- Date and phenological stage
+- Species/group and live/dead fraction
+- Measurement or dry mass
+- Allometry source and equation ID where used
+- Tree open-grown status
+- Notes on grazing, mowing, fire, drought, or disturbance
 
 </td>
 <td width="45%">
 
-```
-   ▓▓▓  coarse roots  > 2 mm      │ ROOTS
-   ▓▓▓  fine roots   ≤ 2 mm       │ — sieved out
-   ────────────────────────────── ┤ ← the mesh
-   ███  root-free soil            │ SOIL
-   ███                            │ — analysed after
-```
+> 🧩 **[PLACEHOLDER — IMAGE]** Add `images/datasheet_vegetation_completed.webp`, using fictional or anonymized data.
 
 </td>
 </tr>
 </table>
 
-**Two defensible answers. Pick one, write it down, apply it to every sample.**
-
-| | **Option 1 — Sieve first** ⭐ | **Option 2 — Fine roots stay in the soil** |
-|---|---|---|
-| **What you do** | Wash all roots out, analyse **root-free soil** for carbon, report root carbon separately | Remove only coarse (>2 mm) roots; analyse soil with fine roots still in it |
-| **Report** | Soil C and root C as separate, addable pools | Soil C (includes fine roots) + coarse root C |
-| **Pro** | Clean separation; root carbon is fully measured | Much less lab work |
-| **Con** | The labour | Fine-root carbon is inside the soil number and cannot be broken out |
-
-> 🟠 **[FILL ME IN]** — the calculator's `ROOTS_REMOVED_BEFORE_SOIL_C` setting. **Default is
-> Option 1.** A QC flag fires if root carbon is added to a soil stock not confirmed root-free.
->
-> **Being silent about which you did is the only wrong answer** — and silence is the default
-> outcome if nobody decides in advance.
-
-## The procedure
-
-| # | Step | Detail |
-|---|---|---|
-| **1** | **Weigh the field-moist increment** | Before anything is removed |
-| **2** | **Soak and disperse** | Water; a dispersant helps in clay soils. Long enough to break aggregates, not so long that fine roots start to decay |
-| **3** | **Wash over nested sieves** | **2 mm** for the fine/coarse split, plus a finer mesh — **0.5 mm** or **0.2 mm** — to catch fine roots. **Record the finest mesh you used** |
-| **4** | **Separate live from dead** | Flotation, then by eye: live roots are paler, turgid, elastic, with intact cortex; dead are dark, brittle, and the cortex sloughs |
-| **5** | **Sort by diameter class** | **≤ 2 mm fine · > 2 mm coarse.** Calipers, or a sieve you trust |
-| **6** | **Dry to constant mass at 60–70 °C** | ⚠ **Not 105 °C** — see below |
-| **7** | **Weigh** | |
-| **8** | **Ash-correct** | Combust a subsample and subtract the mineral residue — see below |
-| **9** | **Retain the root-free soil** | This is what goes for bulk density and carbon, under Option 1 |
-
-## Four details that change the number
-
-> [!WARNING]
-> **1 · Drying temperature: 60–70 °C for roots, 105 °C for soil bulk density.**
->
-> Two samples, two ovens, two conventions, and they are easy to confuse. 105 °C can volatilise
-> organic compounds and overstate mass loss in root tissue; 60–70 °C is the biomass convention.
-> **Write the temperature on the sheet.**
->
-> 🟠 **[FILL ME IN]** — `ROOT_DRY_TEMP_C` in the calculator.
-
-> [!WARNING]
-> **2 · Ash correction is not optional.**
->
-> Washed roots **retain adhering mineral soil**, so oven-dry mass overstates root biomass —
-> materially so in clay-rich soils. Combust a subsample and subtract the residue:
->
-> ```
-> corrected root mass = oven-dry mass × (1 − ash fraction)
-> ```
->
-> Skip it and your root biomass is systematically too high, in a way nobody downstream can detect.
->
-> 🟠 **[FILL ME IN]** — `ASH_CORRECTED` in the calculator. A flag fires while it reads `No`.
-
-> [!NOTE]
-> **3 · The finest roots are lost, and that is a known bias.**
->
-> Roots finer than your mesh pass through it. Measured fine-root biomass is therefore a
-> **systematic underestimate**, and the finer the mesh the less you lose — at the cost of more
-> washing time.
->
-> **State the mesh in your reporting.** A fine-root number without a mesh size is uninterpretable.
-
-> [!NOTE]
-> **4 · Live versus dead is a judgement, so make it consistently.**
->
-> Standing root biomass includes necromass. For a **carbon stock** dead roots still hold carbon —
-> but they are arguably already soil organic matter, which loops straight back to the
-> double-counting decision above.
->
-> **Record live and dead separately** and let the analysis decide.
-
-## How many cores you actually wash
-
-From [Part 2, A10](../02_Project_Planning/#a10--why-roots-may-need-more-samples): roots are far
-more variable than soil carbon, so at the same precision target they need **four to five times the
-cores**. Most projects should either **set a looser precision target for roots** (±40% rather than
-±20%) or **wash a random subset** of the cores taken.
-
-**If you are subsampling, choose the subset at random before you look at the cores** — not by which
-ones seemed interesting.
+> [!TIP]
+> **✅ Before moving on:** trees and shrubs are measured, the quadrat is photographed and clipped according to the protocol, every fraction is labelled, and vegetation work is complete.
 
 ---
 
-## What goes on the sheets
+### 3. Collect the soil and root core
+
+*How deep did we sample, and what volume did we recover?*
+
+#### Confirm depth increments
+
+The depth plan was selected in Part 2. The current draft uses finer increments near the surface and wider increments at depth:
+
+| Draft increment | Purpose |
+|---|---|
+| **0–10 cm** | Captures the upper mineral soil and high root-density zone. |
+| **10–20 cm** | Maintains resolution through the upper profile. |
+| **20–30 cm** | Completes the 0–30 cm reporting window. |
+| **30–60 cm** | Extends below the common shallow reporting window. |
+| **60–100 cm** | Supports a deeper reporting window where the profile allows it. |
+| **Below 100 cm to refusal** | Captures deeper material when required by the design and feasible. |
+
+> 📚 **[METHOD REVIEW NEEDED]** Confirm these increments, the full-profile recommendation, and reporting windows against the final project objectives, field equipment, laboratory capacity, and cited grassland methods.
+
+If refusal occurs early, record the actual depth and what caused refusal. Never enter the intended bottom depth when the recovered interval was shorter.
+
+#### Choose the approved collection method
+
+| Method | Strength | Limitation |
+|---|---|---|
+| **Intact core** | Known cross-sectional area and depth control; may support soil and root measurements. | Difficult in stony, very dry, or strongly compacted soil. |
+| **Soil pit plus rings** | Exposes horizons and allows known-volume samples at selected depths. | Slow, destructive, and requires a defined-volume root method if roots are measured. |
+| **Known-area excavation** | May work in very shallow soil over bedrock. | Small volumes and edge losses can increase uncertainty. |
+
+Use the method specified in the sampling plan. If conditions force a change, record the reason and do not mix methods silently.
+
+#### Position the core
 
 <table>
 <tr>
-<td width="50%">
+<td width="45%">
 
-**`2. Soil Data`** — one row per depth increment
-
-| Field | Notes |
-|---|---|
-| `Plot ID`, `Core ID` | Must match the plot log |
-| `Top depth (cm)`, `Bottom depth (cm)` | **Actual**, not intended |
-| `Corer diameter (cm)` | Sets the volume. Record every time |
-| `Depth driven`, `Length recovered` | For the recovery ratio |
-| `Coarse fragments (% vol)` | Field estimate |
-| `Bulk density basis` | Which one your lab reports |
-| `Bulk density (g/cm³)`, `Organic carbon (%)` | Lab |
-| `Notes` | Refusal depth and cause, horizon changes, moisture |
+> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/core_offset_and_traffic.svg`: the clipped quadrat, undisturbed core point, crew approach path, and permanent-plot exclusion area.
 
 </td>
-<td width="50%">
+<td width="55%">
 
-**`3. Root Biomass`** — one row per increment per diameter class
-
-| Field | Notes |
-|---|---|
-| `Plot ID`, `Core ID`, `Top depth`, `Bottom depth` | Join to the soil row |
-| `Diameter class` | `≤2 mm` or `>2 mm` |
-| `Live or dead` | Recorded separately |
-| `Oven-dry mass (g)` | At 60–70 °C |
-| `Ash fraction` | For the correction |
-| `Sieve mesh (mm)` | The finest used |
-| `Notes` | |
+- Use the pre-defined offset and direction.
+- Avoid the clipped quadrat, kneeling areas, wheel tracks, obvious animal burrows, and previous core holes unless the design explicitly targets them.
+- Record the offset and any deviation.
+- Photograph unusual surface conditions before coring.
 
 </td>
 </tr>
 </table>
 
+#### Insert the corer
+
+1. Confirm corer ID, internal diameter, cleanliness, liner, and orientation mark.
+2. Place the corer vertically at the assigned point.
+3. Drive or push it using the approved system while minimizing rocking and surface loss.
+4. Record penetration depth and any refusal.
+5. Recover the core without losing the bottom or mixing the profile.
+6. Keep the core upright and preserve its top/bottom orientation.
+
+> 🧩 **[PLACEHOLDER — VIDEO]** Produce a controlled MP4/WebM demonstration with captions and a static sequence showing corer placement, insertion, extraction, capping, and orientation. Include the specific corer used by this workshop.
+
+#### Measure recovery and possible compression
+
+Record both:
+
+- **Depth driven/penetration:** how far the corer entered the ground.
+- **Recovered core length:** how much material is present in the tube.
+
+```text
+recovery ratio = recovered core length ÷ depth driven
+```
+
+A low recovery ratio signals loss, compression, or both; the ratio alone cannot always distinguish them. Do not silently stretch the core back to the driven length. Follow the project's acceptance, recollection, and depth-assignment rule.
+
+> 📚 **[PROTOCOL DECISION NEEDED]** Define acceptable recovery, when a core must be recollected, and how depth boundaries are assigned when penetration and recovered length differ. “More than a few per cent” is not an adequate field rule.
+
+#### Bulk density and coarse fragments
+
+Bulk density must use a **known bulk volume** and a clearly defined mass fraction. Confirm the laboratory's reporting basis before sampling.
+
+| Record | Why it matters |
+|---|---|
+| Corer/ring internal diameter and sampled thickness | Defines the bulk volume. |
+| Dry-mass basis | Clarifies whether roots and coarse fragments are included or removed. |
+| Coarse-fragment mass or volume and method | Needed when stock is expressed for the fine-earth fraction. |
+| Moisture and structural condition | Helps interpret compression, smearing, and field problems. |
+
+> [!WARNING]
+> Do not apply a coarse-fragment correction twice. The correct calculation depends on whether bulk density is reported over total bulk volume or fine-earth volume and on how the carbon concentration sample was prepared. Record the laboratory definition and make one documented correction in the analysis workflow.
+
+> 🧩 **[PLACEHOLDER — LAB FIELD]** Add a controlled `Bulk-density basis` field linked to a laboratory-method record. Replace the informal `Fill Me In` note with a required pre-field configuration item.
+
 > [!IMPORTANT]
-> **Flag a root total whose deepest increment is simply the bottom of the core.** If roots were
-> still present in your last increment, the profile did not end — your coring did. That total is a
-> **minimum**, and the calculator marks it as one.
+> Washing and sieving alter the soil sample and destroy its original structure. Do not treat washed root-free material as a direct bulk-density sample without a validated mass-balance method. Use the field guide's intact-core/ring procedure or another reviewed method that preserves the known original bulk volume.
+
+<table>
+<tr>
+<td width="55%">
+
+**📋 Record it — core notes**
+
+- Plot ID and Core ID
+- Core offset and method
+- Corer ID and internal diameter
+- Depth driven and recovered length
+- Refusal depth and cause
+- Moisture/condition notes
+- Collection method and any deviation
+
+</td>
+<td width="45%">
+
+> 🧩 **[PLACEHOLDER — IMAGE]** Add `images/datasheet_core_notes_completed.webp`, using fictional or anonymized data.
+
+</td>
+</tr>
+</table>
+
+> [!TIP]
+> **✅ Before moving on:** the core is intact and oriented, penetration and recovery are recorded, the bulk-density method remains valid, and any deviation is documented.
 
 ---
 
-## Safety
+### 4. Section, bag, and label the core
 
-Less hazardous than a peatland, but not nothing:
+*Which material belongs to each depth interval?*
 
-- **Heat and sun exposure.** Open grassland has no shade. This is the main one.
-- **Livestock.** Cattle are curious and bulls are not safe. Know what is in the field before you
-  enter it, and have the landholder's phone number.
-- **Ticks.** Endemic in much of the prairie and interior BC. Check daily.
-- **Rattlesnakes** in the south Okanagan, Thompson and parts of the dry mixedgrass. Watch where you
-  put your hands when clearing a quadrat.
-- **Fire risk** during the season you are most likely to be sampling. Vehicle exhaust in tall dry
-  grass starts fires.
-- **Gates and biosecurity.** Leave gates as you found them; clean boots between properties.
+<table>
+<tr>
+<td width="45%">
+
+> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/core_sectioning_grassland.svg`: an oriented core on a depth-marked tray, with actual increment boundaries, clean tools, pre-labelled containers, and soil/root subsample routing.
+
+</td>
+<td width="55%">
+
+1. Place the core on a clean, depth-marked tray and preserve orientation.
+2. Reconcile recovered length with the project's depth-assignment rule.
+3. Cut at the approved increment boundaries using clean tools.
+4. Record the **actual** top and bottom depth of every recovered interval.
+5. Describe visible horizons, stones, roots, disturbances, or abrupt changes.
+6. Route the required material to soil carbon, bulk density, roots, archive, or other analyses using the written subsampling plan.
+7. Seal, label, cool, and record every container.
+
+</td>
+</tr>
+</table>
+
+#### Use identifiers that survive separation from the datasheet
+
+A label should contain enough information to identify the sample on its own:
+
+```text
+Project · Site/Stratum · Plot · Core · Top–Bottom depth · Fraction · Date
+```
+
+Example:
+
+```text
+GRASS-01 · NorthBurn · P04 · C1 · 10–20 cm · SOIL-C · 2026-07-18
+```
+
+Do not label a container only `#2`. Depths must run continuously, so the bottom of one interval is the top of the next unless a documented gap or loss occurred.
+
+#### Prevent cross-contamination and sample loss
+
+- Clean tools and the tray between intervals and cores using the project's defined sequence.
+- Work from shallow to deep unless the laboratory method specifies otherwise.
+- Keep soil, roots, vegetation, and archive fractions physically separated.
+- Record spills, missing material, broken containers, and insufficient mass immediately.
+- Use waterproof internal and external labels where the container permits.
+- Maintain a cooler/sample inventory and chain-of-custody form.
+
+#### Do not improvise the split among analyses
+
+Before the field day, define how each depth interval is divided among:
+
+- bulk-density determination;
+- soil carbon and other chemistry;
+- root separation;
+- moisture correction;
+- archive or repeat analysis.
+
+The same material cannot be independently used for every destructive analysis. Minimum masses and priorities must be agreed with the laboratory.
+
+<table>
+<tr>
+<td width="55%">
+
+**📋 Record it — `2. Soil Data`**
+
+| Field | Requirement |
+|---|---|
+| `Plot ID`, `Core ID` | Exact match to the plot log. |
+| `Top depth`, `Bottom depth` | Actual assigned interval and units. |
+| `Corer/ring dimensions` | Known-volume record. |
+| `Depth driven`, `Length recovered` | Core-level recovery record. |
+| `Coarse fragments` | Value, units, and method. |
+| `Bulk-density basis` | Laboratory definition. |
+| `Sample IDs` | Soil carbon, bulk density, roots, and archive containers. |
+| `Notes` | Refusal, loss, horizon change, moisture, deviation. |
+
+</td>
+<td width="45%">
+
+> 🧩 **[PLACEHOLDER — IMAGE]** Add `images/datasheet_soil_completed.webp`, showing a complete fictional core with continuous depths and linked container IDs.
+
+</td>
+</tr>
+</table>
+
+> [!TIP]
+> **✅ Before moving on:** every recovered interval has actual depths, every container has a unique durable label, the sample split is recorded, and the cooler inventory matches the datasheet.
 
 ---
 
-## Common failure modes
+### 5. Separate the roots and finish the records
 
-| Symptom | Cause | Do this |
+*How will soil and roots be kept distinct and auditable?*
+
+Root separation is the method component that most clearly distinguishes this workshop from the current WWF soil and vegetation guides. It is also the component most in need of specialist review and a tested standard operating procedure.
+
+<table>
+<tr>
+<td width="45%">
+
+> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/root_processing_workflow.svg`: field-moist increment → recorded subsample → soaking/disaggregation → nested sieves → root sorting → drying → weighing → optional ash correction, with soil and root output streams kept distinct.
+
+</td>
+<td width="55%">
+
+When soil carbon and root carbon will be reported as separate pools, the preparation method must define which roots are removed from the soil-carbon sample and which remain.
+
+The field, laboratory, calculator, and report must use the same boundary. Otherwise root carbon can be omitted or counted twice.
+
+</td>
+</tr>
+</table>
+
+#### Decide the reporting boundary before sampling
+
+Two broad approaches are possible, but neither should be adopted from this page without laboratory agreement:
+
+| Approach | Soil-carbon sample | Root result | Reporting implication |
+|---|---|---|---|
+| **Root-separated soil** | Roots are removed using a defined procedure before soil carbon analysis. | Removed roots are measured separately. | Soil and root pools may be reported separately if recovery and mass-balance limitations are documented. |
+| **Operational soil fraction** | The laboratory removes only roots visible under its standard preparation method; finer roots remain. | Only the separately removed root fraction is measured. | The soil result includes whatever root material remains under that operational definition. Do not add an overlapping root estimate. |
+
+> [!IMPORTANT]
+> Record the operational definition, mesh sizes, root diameter boundary, live/dead treatment, soil-carbon preparation, and which fractions are combined in the final stock. Silence is not a method.
+
+> 🧩 **[PLACEHOLDER — REQUIRED CONFIGURATION]** Add a reviewed `Root/soil reporting boundary` record shared by the datasheet, laboratory submission, calculator, and report. Do not use an unexplained yes/no setting.
+
+#### Draft root-processing sequence
+
+The following is a **development draft**, not a validated SOP:
+
+| # | Draft action | Record needed |
 |---|---|---|
-| **Recovered length well short of depth driven** | Compaction, or a stone deflected the corer | Record both. Do not stretch the increments |
-| **Corer will not penetrate** | Dry, stony, or compacted surface | Pre-wet, or switch to a pit. Record the method change |
-| **Refusal well above the planned depth** | Bedrock or a cemented layer | **This is data.** Record depth and cause |
-| **Root mass implausibly high** | Ash correction skipped, or soil still adhering | Re-wash a subsample and ash-correct |
-| **Almost no fine roots recovered** | Mesh too coarse, or washing too aggressive | Record the mesh. Consider a finer one next time |
-| **Soil carbon higher than expected on a root-free sample** | Fine roots not fully removed | Note it; the two pools are not cleanly separated |
-| **Bulk density varies wildly between adjacent plots** | Real — trampling. Or a volume error | Check the corer diameter first, then believe it |
+| 1 | Record field-moist mass of the defined root-processing subsample. | Subsample ID and mass. |
+| 2 | Soak/disaggregate using the approved water or dispersant method. | Solution, duration, and temperature. |
+| 3 | Wash over the approved nested sieves. | Every mesh size and loss/deviation. |
+| 4 | Recover roots and separate non-root debris. | Sorting rule and operator. |
+| 5 | Apply approved diameter classes. | Boundary and measuring method. |
+| 6 | Apply the approved live/dead or total-root rule. | Operational criteria and QA check. |
+| 7 | Dry to constant mass at the validated temperature. | Temperature, duration, and constant-mass criterion. |
+| 8 | Weigh and, if required, determine ash-free dry mass. | Balance ID, dry mass, subsample, ash mass. |
+| 9 | Preserve or dispose of residual soil according to the laboratory plan. | Destination and linked sample ID. |
+
+> 📚 **[ROOT SOP REQUIRED]** Add primary references and a laboratory-reviewed SOP covering disaggregation, mesh selection, fine-root loss, live/dead classification, diameter classes, drying temperature, ash-free dry mass, carbon conversion, QA/QC, and mass balance. Train with known samples before using the method on project material.
+
+#### Four decisions that can change the result
+
+1. **Mesh size:** roots smaller than the finest retained mesh may be lost. Report every mesh used.
+2. **Diameter class:** define the boundary and how diameter is measured; do not assume `≤2 mm` is self-explanatory for flattened or branched roots.
+3. **Live/dead classification:** visual and mechanical criteria can be operator-dependent and species-dependent. Use reference samples, duplicate sorting, or another QA procedure.
+4. **Mineral contamination:** adhering mineral material can inflate dry mass. If ash-free dry mass is used, validate the combustion method and record the ash subsample.
+
+> [!WARNING]
+> Root drying and soil bulk-density drying may use different temperatures and objectives. Never move a sample between methods based on a generic temperature copied from another study; use the validated SOP and record the actual temperature and constant-mass criterion.
+
+#### How many cores are processed for roots?
+
+Follow the sample count or random subsample selected in [Part 2, A10 — Why roots may need more samples](../02_Project_Planning/#a10--why-roots-may-need-more-samples). If root processing uses a subset, select it using the pre-defined random rule before inspecting the samples. Record both the field core count and root-processing count.
+
+#### Root records
+
+| Field | Requirement |
+|---|---|
+| `Plot ID`, `Core ID`, depths | Exact link to the soil interval. |
+| Root-processing subsample | Original mass or fraction and units. |
+| Mesh sizes | All sieves used. |
+| Diameter class | Operational definition. |
+| Live/dead/total category | Operational definition and sorter. |
+| Dry mass | Temperature and constant-mass rule. |
+| Ash correction | Method, subsample, ash mass/fraction, if used. |
+| Notes | Loss, contamination, uncertain classification, insufficient mass. |
+
+> [!IMPORTANT]
+> If roots are still present in the deepest recovered interval, the sampled profile may not contain the entire rooting depth. Flag the result as truncated at the sampled depth rather than treating it as a complete below-ground total.
+
+<table>
+<tr>
+<td width="55%">
+
+**📋 Record it — `3. Root Biomass`**
+
+Record one row for every depth × operational fraction combination, linked to the original interval and laboratory batch.
+
+The datasheet should also capture the root/soil reporting boundary and whether the root sample was part of the full set or a planned random subset.
+
+</td>
+<td width="45%">
+
+> 🧩 **[PLACEHOLDER — IMAGE]** Add `images/datasheet_roots_completed.webp`, using fictional or anonymized data.
+
+</td>
+</tr>
+</table>
+
+> [!TIP]
+> **✅ Before processing is complete:** every root result links to its original core and depth, every operational boundary is documented, losses and uncertainties are recorded, and the soil and root totals cannot overlap silently.
 
 ---
 
-## Datasheets and skill checklists
+## Field data sheets and chain of custody
+
+The field package should mirror the analysis workbook so transcription does not require reinterpretation.
 
 <table>
 <tr>
@@ -877,7 +722,15 @@ Less hazardous than a peatland, but not nothing:
 
 - [`Grassland-Field-Data-Sheet.docx`](datasheets/Grassland-Field-Data-Sheet.docx)
 
-Mirrors the calculator's tabs field-for-field, so transcription is a straight copy.
+Required sections:
+
+1. Plot & Site Log
+2. Soil Data
+3. Root Biomass
+4. Vegetation Data
+5. Sample/Cooler Inventory and Chain of Custody
+
+> 🧩 **[PLACEHOLDER — FILE REVIEW]** Update the datasheet to include every required field on this page and remove any field the calculator does not define.
 
 </td>
 <td width="50%">
@@ -886,47 +739,126 @@ Mirrors the calculator's tabs field-for-field, so transcription is a straight co
 
 - [`Grassland_Carbon_Skill_Checklist.docx`](checklists/Grassland_Carbon_Skill_Checklist.docx)
 
-Tick the left box when you've practised a skill, the right when your trainer confirms it.
+Separate sign-offs should cover:
 
-**Root separation has its own section** — it is the skill in this workshop nobody arrives with.
+- plot setup and photographs;
+- vegetation plots and clipping;
+- corer volume and recovery measurements;
+- sectioning, labels, and chain of custody;
+- root separation and QA/QC.
+
+> 🧩 **[PLACEHOLDER — FILE REVIEW]** Add trainer criteria, not only task names, so competency is assessed consistently.
 
 </td>
 </tr>
 </table>
 
+### Sample inventory
+
+Before leaving the site and again at handoff, reconcile:
+
+- number of plots visited;
+- number of cores attempted, accepted, and rejected;
+- number of depth intervals expected and present;
+- container IDs by analysis;
+- cooler number and seal, if used;
+- preservation temperature and time;
+- sender and receiver names, dates, and signatures.
+
+> 🧩 **[PLACEHOLDER — TEMPLATE]** Create `datasheets/Grassland-Sample-Inventory-and-Chain-of-Custody.docx` plus a completed fictional example image.
+
+---
+
+## Safety
+
+Complete a site-specific risk assessment and follow organizational requirements. At minimum, address:
+
+- heat, sun, dehydration, smoke, storms, and the absence of shade;
+- fire restrictions, hot vehicle components, and dry vegetation;
+- livestock and landholder access protocols;
+- ticks, venomous snakes where present, and other wildlife;
+- manual handling, sharp tools, slide hammers, pinch points, and unstable soil pits;
+- lone work, communications, check-in procedures, and emergency access;
+- vehicle access, gates, fences, and public-road hazards;
+- biosecurity and cleaning between properties;
+- laboratory hazards for dispersants, ovens, furnaces, and preserved samples.
+
+> 🧩 **[PLACEHOLDER — SAFETY FILE]** Add a project-approved field risk assessment, emergency contact sheet, and tailgate checklist. This page is not a substitute for those documents.
+
+---
+
+## Common failure modes
+
+| Symptom | Possible cause | Field response |
+|---|---|---|
+| Recovered core much shorter than penetration | Compression, loss, bypass, or deflection | Record both values; apply the acceptance/recollection rule. |
+| Corer will not penetrate | Dry, stony, compacted, frozen, or inappropriate tool | Stop before damaging equipment; use the documented alternate method and record the change. |
+| Early refusal | Bedrock, stone, root, or cemented horizon | Record actual depth and cause; do not enter the planned depth. |
+| Depths do not join continuously | Transcription error, loss, or incorrect boundary assignment | Resolve in the field while the core and crew notes are available. |
+| Bulk density appears implausible | Wrong diameter/units, disturbed sample, moisture or fraction error | Recheck dimensions, units, method, and sample integrity before assuming ecological variation. |
+| Root mass appears implausibly high | Mineral contamination, wrong subsample factor, or unit error | Quarantine result; review washing, ash, mass, and scaling records. |
+| Few fine roots recovered | Mesh too coarse, aggressive washing, season, or true low abundance | Record method and conditions; do not infer the cause without evidence. |
+| Soil/root totals overlap | Reporting boundary not aligned with laboratory preparation | Stop calculation and reconstruct the operational fractions before combining pools. |
+| Label cannot stand alone | Identifier design failure | Relabel immediately using plot, core, depth, fraction, and date. |
+| Cooler inventory differs from datasheet | Missing, extra, or mislabelled sample | Reconcile before leaving and document any unresolved discrepancy. |
+
 ---
 
 ## ✅ Before you leave the plot
 
-| | |
-|---|---|
-| ☐ | Plot log complete — **grassland type, management, grazing, fire, native/seeded** |
-| ☐ | **Permanent or single-use** recorded, and markers placed if permanent |
-| ☐ | **14 photos**, plus quadrat before and after |
-| ☐ | Clipped **at ground level**, everything below 0.5 m |
-| ☐ | **Live and dead separated** and bagged apart |
-| ☐ | **Date recorded**, and whether this is peak season |
-| ☐ | Shrubs measured, species checked against the coefficient table |
-| ☐ | Trees over 2 m measured, and **open-grown form noted** |
-| ☐ | All **vegetation work finished** before coring started |
-| ☐ | Core **offset from the quadrat**, and the offset recorded |
-| ☐ | **Corer diameter** on the sheet |
-| ☐ | **Actual** top and bottom depths for every increment |
-| ☐ | **Depth driven and length recovered** |
-| ☐ | **Coarse fragments** estimated per increment |
-| ☐ | Refusal depth and cause, if you hit it |
-| ☐ | Increments bagged and labelled with **plot · core · depth interval** |
-| ☐ | Root/soil boundary decision **written on the sheet**, and the **mesh** you will use |
-| ☐ | Everything in the cooler |
+```text
+☐ Correct plot reached; coordinate system and GNSS accuracy recorded
+☐ Permanent/single-use status and marker/offset information recorded
+☐ Plot/site log and undisturbed photo series complete
+☐ Trees and shrubs measured before clipping or coring
+☐ Quadrat photographed before and after the approved harvest
+☐ Vegetation fractions labelled; date and phenological stage recorded
+☐ Soil/root core collected at the assigned offset
+☐ Corer ID and internal diameter recorded
+☐ Penetration, recovered length, refusal, and collection method recorded
+☐ Actual top and bottom depths recorded for every interval
+☐ Coarse fragments and bulk-density method recorded as required
+☐ Every soil, bulk-density, root, and archive container uniquely labelled
+☐ Root/soil reporting boundary and planned root subset recorded
+☐ Deviations, losses, unusual horizons, and disturbances documented
+☐ Cooler inventory matches the datasheets
+☐ Site left safe; holes/pits managed under the approved restoration rule
+```
+
+## ✅ Before samples leave the field team's control
+
+```text
+☐ Plot, core, interval, and container IDs reconcile
+☐ Cooler/sample inventory complete
+☐ Preservation temperature and times recorded
+☐ Laboratory submission requirements met
+☐ Chain of custody signed by sender and receiver
+☐ Photographs and electronic GNSS files backed up
+☐ Datasheets scanned or photographed before transport
+```
 
 ---
 
 ## In this section
 
-- [`datasheets/`](datasheets/) · [`checklists/`](checklists/)
-- `images/` — banner and field photos.
+| File | Purpose | Status |
+|---|---|---|
+| `README.md` | Part 3 field-methods lesson | This revised draft |
+| `images/banner_field_methods.svg` | Grassland field-methods banner | 🧩 Placeholder |
+| `images/field_workflow_order.svg` | Order-of-operations diagram | 🧩 Placeholder |
+| `images/permanent_vs_single_use_field.svg` | Field layout comparison | 🧩 Placeholder |
+| `images/photo_series.svg` | Photograph convention | 🧩 Placeholder |
+| `images/nested_vegetation_plots.svg` | Nested plot and height classes | 🧩 Placeholder |
+| `images/core_offset_and_traffic.svg` | Core offset and traffic control | 🧩 Placeholder |
+| `images/core_sectioning_grassland.svg` | Depth sectioning and sample routing | 🧩 Placeholder |
+| `images/root_processing_workflow.svg` | Root separation workflow | 🧩 Placeholder pending SOP review |
+| `datasheets/Grassland-Field-Data-Sheet.docx` | Field records | 🧩 Review/update required |
+| `datasheets/Grassland-Sample-Inventory-and-Chain-of-Custody.docx` | Sample handoff | 🧩 Placeholder |
+| `checklists/Grassland_Carbon_Skill_Checklist.docx` | Trainer sign-off | 🧩 Review/update required |
+| `Root-Separation-SOP.md` | Validated root method | 🧩 Required before publication/use |
+| `Safety/Grassland-Field-Risk-Assessment.pdf` | Project safety plan | 🧩 Placeholder |
 
-> ✍️ **[SLIDE DECK NEEDED]** — the workshop presentation for Part 3.
+> ✍️ **[PLACEHOLDER — SLIDE DECK]** Create the Part 3 workshop slide deck from the five-stage sequence. Use the same diagrams and terminology as this page rather than maintaining a separate version of the method.
 
 ---
 
