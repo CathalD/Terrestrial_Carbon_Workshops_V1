@@ -245,12 +245,14 @@ not instead of it.
 > stopped at 30 cm is a minimum, not a total, and the calculator flags any root total whose
 > deepest increment is simply the bottom of the core.
 
-> 🟠 **[TO ADD — Cathal]** — the full-profile / variable-soil-depth modelling approach.
->
-> The established correction for the bulk-density problem above is **equivalent soil mass (ESM)**:
-> compare a fixed *mass* of soil rather than a fixed *depth*, which removes the compaction
-> artefact by construction. See Ellert & Bettany (1995), Wendt & Hauser (2013) and von Haden et
-> al. (2020). The workbook does not do this yet.
+**The established fix for the bulk-density problem is *equivalent soil mass* (ESM)** — compare a
+fixed *mass* of soil rather than a fixed *depth*, which removes the compaction artefact by
+construction. [Part 5, Step 4](05_Monitoring/#step-4--equivalent-soil-mass) works it through on a
+real profile from this workshop, and it is **why cores must go deeper than your reporting depth**:
+the reference mass usually sits below 30 cm, so a core that stopped at 30 cm cannot be corrected
+at all.
+
+> 🟠 **[TO ADD — Cathal]** — full-profile modelling over variable soil depth.
 
 </td>
 </tr>

@@ -13,7 +13,7 @@
 *Measuring the same place twice. What it takes to say a carbon stock has changed — and what to
 measure instead when it will take forty years.*
 
-**Quick links:** [Part 2 §5D — permanent plots](../02_Project_Planning/README.md#5d--if-you-will-re-measure-this-site) · [Appendix A10 — pool variability](../02_Project_Planning/README.md#a10--why-roots-need-more-cores-than-soil) · [Grassland Carbon Calculator](../04_Data_Interpretation/calculators/)
+**Quick links:** [Part 2 §5D — permanent plots](../02_Project_Planning/README.md#5d--permanent-or-single-use-plots) · [Appendix A10 — pool variability](../02_Project_Planning/README.md#a10--why-roots-need-more-cores-than-soil) · [Grassland Carbon Calculator](../04_Data_Interpretation/calculators/)
 
 ---
 
@@ -36,7 +36,7 @@ the design — and sometimes the variable — accordingly.
 | | |
 |---|---|
 | **Comes after** | [Part 4](../04_Data_Interpretation/) — you need a stock with an interval before you can have a *change* in one |
-| **Reaches back into** | [Part 2 §5D](../02_Project_Planning/README.md#5d--if-you-will-re-measure-this-site) and [Part 3A](../03_Field_Methods/3A_Soil.md) — permanent plots and bulk density are decided there, and cannot be retrofitted |
+| **Reaches back into** | [Part 2 §5D](../02_Project_Planning/README.md#5d--permanent-or-single-use-plots) and [Part 3A](../03_Field_Methods/3A_Soil.md) — permanent plots and bulk density are decided there, and cannot be retrofitted |
 | **Parallel to** | [Forests Part 5 — LiDAR](../../Forests/05_LiDAR_Supplement/) and [Wetlands Part 5 — Chronology](../../Wetlands/05_Chronology_Supplement/), the other two optional supplements in this series |
 
 > [!IMPORTANT]
@@ -140,6 +140,13 @@ Same machinery as [A2](../02_Project_Planning/README.md#a2--working-backwards-fr
 with two changes: the $\sqrt{2}$ because it is a difference, and the **second $t$ term**, which is
 the power. Drop it and you have silently designed a 50%-power study.
 
+> [!NOTE]
+> **This is the standard framing, not a local invention.** Bilotto et al. (2024) size a pasture
+> soil-carbon monitoring programme the same way — MDD first, sample size second — and use it to
+> show *where* on a property more intensive sampling is needed to detect a significant change. See
+> [`_references/`](../_references/), including the note on what transfers from New Zealand hill
+> pasture and what does not.
+
 ### Independent resampling, soil carbon at CV = 0.30
 
 | Change to detect | Plots **per visit** |
@@ -189,7 +196,7 @@ monitoring plan should state which one it has chosen:
    re-visit for a decade or more out. This is a legitimate and valuable choice — a well-marked,
    well-documented baseline is a gift to whoever measures next, and it is the only way the long
    answer ever gets known.
-2. **Buy the plots.** More plots, or [stratify harder](../02_Project_Planning/README.md#step-2--stratify-your-site)
+2. **Buy the plots.** More plots, or [stratify harder](../02_Project_Planning/README.md#step-2--divide-the-site-into-meaningfully-distinct-areas)
    so that within-stratum CV falls. Halving the CV quarters the plot count.
 3. **Change the variable.** Monitor something that responds in years rather than decades, and treat
    the carbon stock as a periodic baseline rather than the monitoring signal.
@@ -369,7 +376,8 @@ In the compaction case above, 348.4 kg/m² was reached at **27.78 cm**. In the l
 > recovers it. Go at least 20% deeper than your reporting depth, every time.
 >
 > Which is the same instruction the workshop gives for a different reason —
-> [30 cm is a floor, not an answer](../02_Project_Planning/README.md#decide-your-reporting-depth-now-not-later).
+> [sample the full soil profile](../README.md#sample-the-full-soil-profile), set as the default in
+> [Part 2 Step 3](../02_Project_Planning/README.md#decide-your-sampling-depth-now-not-later).
 > Deeper cores serve the stock *and* make the monitoring possible.
 
 ### What the workbook does and does not do
@@ -527,7 +535,7 @@ subtracts out.
 | **A control that is genuinely comparable** | Same soil type, same landscape position, same climate. A control on a different soil is not a control |
 | **Both baselined** | A control established after the fact cannot be differenced |
 | **More plots again** | A difference of differences has four uncertain numbers in it. Size it on the difference you expect *between* the two changes |
-| **Stratify on what you cannot match** | [Part 2 Step 2](../02_Project_Planning/README.md#step-2--stratify-your-site) |
+| **Stratify on what you cannot match** | [Part 2 Step 2](../02_Project_Planning/README.md#step-2--divide-the-site-into-meaningfully-distinct-areas) |
 
 ### Fire: the soil is the wrong place to look first
 
@@ -542,8 +550,8 @@ and it is the case where **the pool you should monitor is not the soil**.
 | **Soil carbon response to fire is small and slow** | Most of the carbon is below ground and largely unaffected by a grass fire | Treat soil carbon as a **decadal baseline** here, not a fire-response variable |
 
 **What to monitor for fire management instead:** vegetation composition and cover, native-versus-invasive
-balance, woody encroachment, tree canopy cover against the
-`TREE_COVER_THRESHOLD_PCT` rule from [Part 2](../02_Project_Planning/README.md#is-there-enough-tree-cover-to-matter),
+balance, woody encroachment, tree cover — counting stems over 2 m through the
+[Forests protocol](../02_Project_Planning/README.md#are-there-trees) —
 and the soil-health indicators from [Step 6](#step-6--soil-health-indicators-and-carbon-stocks).
 These respond on the timescale fire management actually operates on. **Record fire history at every
 visit regardless** — it is a stratification variable

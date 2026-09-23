@@ -4,10 +4,6 @@
 
 ---
 
-(For Claude - Expand this section so the default is that we are simply answering the question  of how many cores we need to get a statistically defined threshold value, and this can be used to answer a variety of question, then as a consequence of this, we can apply to it measuring differences between our stewardship areas, restoration areas, etc. Stratification is just a way of saying dividing up into meaningfully distinct areas. Some examples are restoration years, so comparing sites that may have been restored 20 years, to those 10 years, and to those restoreed within the past year or two.)
-
-Redo this section to align with this - Also I'll paste more details here about an example we used in an oak savannah - dont copy verbatum as its private but draw as inspiration - Ask me to paste this info in our chat if I forget)
-
 [← 1 — Background](../01_Background/) · [Back to main guide](../README.md) · Next: [3 — Field Methods →](../03_Field_Methods/)
 
 ---
@@ -20,12 +16,38 @@ Redo this section to align with this - Also I'll paste more details here about a
 
 ---
 
-**Before establishing any plots**, four questions:
+## There is only one question on this page
 
-1. **What do I want to know?** A baseline stock? A comparison between grazing regimes? Whether a
+Everything in this section answers one thing:
+
+> **How many cores do we need before the number we report is good enough to act on?**
+
+"Good enough" is not a feeling — it is a **threshold you set in advance**: how close to the truth
+the estimate has to be, and how sure you need to be that it is that close. Fix those two numbers
+and the arithmetic returns a sample size. That is the whole of [Step 4](#step-4--decide-how-many-cores),
+and [Appendix A](#appendix-a--a-brief-lesson-in-sampling-logic) shows the working.
+
+**Almost every question a grassland project asks is downstream of that one.** Once you can
+estimate a carbon stock to a defined precision, you can:
+
+| Because you can do this… | …you can answer this |
+|---|---|
+| Estimate the stock of **one area** to a stated precision | *How much carbon is here, and how confident are we?* |
+| Estimate it separately for **two or more areas** | *Does the stewardship area differ from the one next door?* |
+| Do the same across **restoration ages** | *Is carbon accumulating as the restoration matures?* |
+| Do the same at the **same place, twice** | *Is it changing over time?* — [Part 5](../05_Monitoring/) |
+
+The comparisons are not a different method. They are what you get **as a consequence** of having
+sized the campaign properly in the first place. A design that cannot pin down one number cannot
+tell two numbers apart either — comparing areas needs *more* precision than describing one, not
+less.
+
+**So the four questions to answer before establishing any plots are:**
+
+1. **What do I want to know?** A baseline stock, a comparison between grazing regimes, whether a
    restoration is working?
 2. **Where does that question apply?** The whole property, one pasture, the burned unit?
-3. **How much data do I need?** And can we actually process it?
+3. **What precision do I need, and how many cores does that take?** And can we process them?
 4. **Where should the cores go?**
 
 This section covers the five steps of a sampling design.
@@ -33,9 +55,9 @@ This section covers the five steps of a sampling design.
 | # | Step | Answers |
 |---|------|---------|
 | 1 | **[Define the study area](#step-1--define-your-study-area)** | *Where am I working?* |
-| 2 | **[Stratify](#step-2--stratify-your-site)** | *How does management divide this place up?* |
+| 2 | **[Divide it into meaningfully distinct areas](#step-2--divide-the-site-into-meaningfully-distinct-areas)** | *Is this one place, or several?* |
 | 3 | **[Choose the pools](#step-3--choose-which-pools-to-measure)** | *Soil, roots, shoots, shrubs, trees — which?* |
-| 4 | **[Decide how many cores](#step-4--decide-how-many-cores)** | *How many, and why do roots need more?* |
+| 4 | **[Decide how many cores](#step-4--decide-how-many-cores)** | *How many to reach the threshold — and why do roots need more?* |
 | 5 | **[Decide where they go](#step-5--decide-where-the-cores-go)** | *Exactly where, and how is each plot laid out?* |
 
 ### Three differences from the other two workshops
@@ -44,9 +66,10 @@ If you have worked through [Forests](../../Forests/02_Project_Planning/) or
 [Wetlands](../../Wetlands/02_Project_Planning/), most of this will be familiar. Three things
 genuinely change.
 
-1. **Stratification is about management, not vegetation.** In a forest you stratify on stand type;
-   in a peatland on wetland type and landscape position. In a grassland the dominant variable is
-   **what people have done to it** — grazing, fire, cultivation, seeding.
+1. **You divide the site on management and history, not on vegetation.** In a forest you
+   stratify on stand type; in a peatland on wetland type and landscape position. In a grassland
+   the dominant variable is **what people have done to it** — restoration age, cultivation
+   history, grazing, fire, seeding.
 2. **Roots and soil need different sample sizes**, and the gap is large.
    [Step 4](#step-4--decide-how-many-cores) is mostly about that.
 3. **The cheap-prior trick from Wetlands does not transfer.** There, peat depth predicted carbon
@@ -75,7 +98,7 @@ Three grassland-specific cautions:
 
 - **Management boundaries are usually the real boundaries.** A fence line is often a sharper
   ecological edge than anything in the soil. If your study area crosses one, it is at least two
-  strata — see [Step 2](#step-2--stratify-your-site).
+  strata — see [Step 2](#step-2--divide-the-site-into-meaningfully-distinct-areas).
 - **Exclude what is not grassland.** Wetland inclusions, rock outcrop, roads, dugouts, shelterbelts.
   Averaging them in silently is a real error, and in interior BC and parkland these inclusions can
   be a substantial fraction of a quarter section.
@@ -89,25 +112,67 @@ Three grassland-specific cautions:
 
 ---
 
-## Step 2 — Stratify your site
+## Step 2 — Divide the site into meaningfully distinct areas
 
-*How does management divide this place up?*
+*Is this one place, or several?*
 
-**Stratification** divides the study area into internally similar sub-areas — **strata** — and
-samples each separately. In a grassland it is the single highest-return decision on this page,
-because the variable that drives carbon is usually **mappable from a fence line and a
-conversation with the landholder**.
+**Stratification** is a technical word for something plain: **dividing the study area into parts
+that are meaningfully different from each other, and sampling each part separately.** Each part is
+a **stratum**.
 
-### Stratify on management first
+It is the single highest-return decision on this page, for two reasons.
 
-| Stratify by | Typical strata | Why it works |
+**It buys precision for free.** Cores scattered across a site that is really two sites carry all
+the variation *between* those two places into your interval. Split them first and each estimate
+only has to cope with the variation *within* one place, which is smaller — so the same number of
+cores buys a tighter answer. Bilotto et al. (2024) put a number on this for pasture soil carbon:
+a stratified design needed fewer samples than a random one to detect the same 5% difference
+([`_references/`](../_references/) — and read the note there on what does and does not transfer
+from New Zealand hill pasture).
+
+**It is what makes comparison possible at all.** If you want to say *"the restored area holds more
+carbon than the unrestored one,"* the two areas have to be separate strata **before** you go to the
+field. You cannot recover the comparison afterwards from cores that were scattered across both.
+
+### What counts as meaningfully distinct
+
+Anything that changes how much carbon the ground holds, **and that you can draw on a map**.
+
+| Divide by | Typical strata | Why it works |
 |---|---|---|
-| **Grazing regime** | Ungrazed · season-long · rotational · heavily stocked | The dominant management variable. Changes root allocation, surface cover and compaction |
+| **Restoration age** | Restored 20 years ago · 10 years ago · within the last year or two · never restored | A chronosequence: each age class is its own population, and comparing them is how you see whether carbon is accumulating. **The clearest case for stratifying** |
 | **Land-use history** | Never cultivated · cultivated and reseeded · long-term tame pasture | **The largest single carbon difference you will find.** Cultivation resets the deep root system |
+| **Grazing regime** | Ungrazed · season-long · rotational · heavily stocked | Changes root allocation, surface cover and compaction |
+| **Stewardship or management unit** | Whatever your programme actually manages as a unit | If a boundary means something to the people running the place, it usually means something to the soil |
 | **Fire history** | Years since burn; burned vs unburned units | Essential in savannah and parkland. A recently burned unit is a different population |
 | **Seeded vs native** | Native sward · tame/introduced species | Rooting depth differs, so the depth distribution of carbon differs |
 | **Soil type / texture** | From soil survey polygons | Sets the carbon-holding capacity and the coarse-fragment problem |
-| **Slope position** | Upper · mid · lower slope · depression | Water and eroded material both accumulate downslope |
+| **Slope position** | Upper · mid · lower slope · depression | Water and eroded material both accumulate downslope. Bilotto et al. found slope class worth stratifying on in hill country |
+
+> [!TIP]
+> **The restoration chronosequence is the pattern most projects want.** Three or four age classes,
+> each its own stratum, each with enough cores to stand on its own — then the comparison between
+> them falls out of the same fieldwork that produced the site total. Note that it substitutes
+> *space for time*: you are comparing different places of different ages, not one place watched as
+> it aged, so the age classes must be alike in everything but age. Where they are not, say so.
+> Watching one place age is [Part 5](../05_Monitoring/).
+
+<details>
+<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>dividing up a Black Oak savannah</i></summary>
+
+<br>
+
+> ✍️ **[TO ADD — Cathal]** — the oak savannah example.
+>
+> What this block should carry, to do the same job as the worked examples in the other two
+> workshops: **the question** the project was asked; **how the site was divided** and on what
+> (restoration age, burn history, canopy, soil); **the area of each part**; **how many cores** each
+> got and what precision that was aiming at; and **what the division turned out to buy** — the
+> within-stratum spread against the pooled spread.
+>
+> Written as inspiration rather than reproduced, since the underlying project is private.
+
+</details>
 
 > [!NOTE]
 > **Stratify on something you can map, because you need its area to weight it.** "The part that
@@ -151,35 +216,45 @@ optional — it is the design.
 | **Roots** | Small share of carbon, **most of the living biomass** | Coring is shared with soil; **washing is the cost** | ✅ **Yes** — see the budget discussion in [Step 4](#step-4--decide-how-many-cores) |
 | **Shoots** (clip-and-weigh) | Smallest | Cheap in the field, cheap in the lab | ✅ Usually. But it is a **standing crop**, not a stock |
 | **Shrubs** (medium plot) | Small, larger in parkland and encroaching sites | Non-destructive allometrics | ⬜ Where present |
-| **Trees** | Real in savannah and parkland | One plot visit | ✅ **If canopy cover warrants** — see below |
+| **Trees** | Real in savannah and parkland | One plot visit | ✅ **Any tree over 2 m** — see below |
 | **Litter** | Modest | Separate protocol | ❌ Not covered — a genuine gap, shared with the other two workshops |
 
-### Is there enough tree cover to matter?
+### Are there trees?
 
-Where canopy cover is high enough, use
-[Forests Part 3A](../../Forests/03_Field_Methods/3A_Trees.md) — DBH, species, height, and the
-same allometric equations.
+**Any tree over 2 m tall** is measured with the
+[Forests large plot and calculator](../../Forests/03_Field_Methods/3A_Trees.md) — species, DBH,
+height, and the same allometric equations — and carried across into this workshop's
+`4. Vegetation Data` tab.
 
-> 🟠 **[DECISION NEEDED]** — **at what cover?** The Wetlands workshop uses **≥ 25%** for treed
-> swamps, and reusing that number would keep the series consistent. **Black Oak savannah sits right
-> on that boundary by definition**, so this matters more here than anywhere else in the series.
-> Set it in the calculator's `Fill Me In` tab, apply it consistently, and state it in your
-> reporting.
+There is no cover threshold to decide. The **medium plot** here covers woody stems **0.5–2 m**, so
+2 m is a clean handoff: nothing falls between the two protocols, and nothing is counted twice. In
+a savannah or parkland with scattered open-grown trees, that means running a 400 m² large plot
+alongside the rest of the nested design — see [5B](#5b--how-each-plot-is-laid-out).
 
-### Decide your reporting depth now, not later
+### Decide your sampling depth now, not later
 
-| Basis | What it is | Notes |
+**The default is the full profile: surface to parent material, or to refusal.** Not a fixed 30 cm.
+
+The reasoning is in [Part 1](../README.md#sample-the-full-soil-profile), and it matters most for
+exactly the projects this section is aimed at. A fixed depth does not hold a fixed *mass* of soil.
+Compaction — from grazing, from machinery, from a disturbance you are trying to detect — raises
+bulk density in the top 30 cm, which raises the **apparent** stock in that window while the
+profile as a whole is losing carbon. A comparison between two management units, or between two
+visits, can therefore point the wrong way.
+
+| Basis | What it is | Role |
 |---|---|---|
-| **30 cm** *(the minimum)* | Surface to 30 cm | The IPCC default and what most grassland literature uses. **This is what makes your number comparable** |
-| **Deeper increments** | 30–60, 60–100 cm, deeper | **Report alongside.** Same core, same trip, more lab samples |
-| **To refusal** | Wherever the corer stops | Necessary in shallow interior BC soils. Record the depth as data, not as a failure |
+| **Full profile** | Surface to parent material, or to refusal | ✅ **The measurement.** Record the depth reached as data — it is a result, not a failure |
+| **0–30 cm** | A fixed window within it | A **reporting convention.** The IPCC default and what most grassland literature uses, so it is how your number is compared with someone else's |
+| **0–1 m** | A deeper fixed window | The other common convention, used for comparison across larger spatial scales |
 
-**Report 30 cm as a floor and go deeper where you can** — the argument is in
-[Part 1](../01_Background/). The calculator computes both from the same increments.
+Sample in increments so that all three come out of the same core: **0–10, 10–20, 20–30, then
+30–60, 60–100, and on to refusal.** The calculator sums whichever window you ask for, and reports
+the full profile alongside it.
 
 > [!TIP]
 > **✅ Before moving on:** a pool list with a reason for each inclusion *and* exclusion; a yes/no
-> on trees and the cover threshold you used; and a reporting depth written down.
+> on trees; and your depth increments written down, with the intended depth of refusal.
 
 ---
 
@@ -329,23 +404,61 @@ Record the offset. For **permanent plots** you intend to re-measure — which is
 work — the offset matters more, because the next visit must avoid last visit's holes. See
 [Part 5](../05_Monitoring/).
 
-### 5D — If you will re-measure this site
+### 5D — Permanent or single-use plots?
 
-Detecting **change** is a harder statistical problem than measuring a stock once, and it reaches
-back into this step:
+The [Sampling Design guide](../../_Shared/Sampling-Design-Eng-2026.pdf) (p.7–8) splits plots into
+two kinds, and **this is a design decision, not a field one.** Make it now: a campaign designed for
+a one-off stock is often unusable as a baseline later.
+
+<table>
+<tr>
+<td width="50%">
+
+**Single-use**
+
+Sampled **once**. Destructive sampling — coring, clipping — happens *inside* the plot, after all
+non-destructive work is finished.
+
+Right when the question is *"how much carbon is here now?"* and there is no plan to return.
+
+</td>
+<td width="50%">
+
+**Permanent**
+
+Sampled **repeatedly over time**, re-measuring the same vegetation each visit with
+**non-destructive** methods.
+
+Right when the question is *"is this changing?"* — restoration monitoring, management trials,
+soil-health baselines.
+
+</td>
+</tr>
+</table>
+
+> [!IMPORTANT]
+> **In a permanent plot, destructive sampling goes outside the plot.** Coring and clipping destroy
+> exactly the thing the next visit needs to re-measure. The
+> [Non-Peat Soils guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) is explicit: keep soil cores
+> and other destructive sampling **outside** the areas where non-destructive surveying takes place.
+> Setup steps for both kinds are in *Measuring Carbon in Trees*
+> ([`Forests/03_Field_Methods/`](../../Forests/03_Field_Methods/Trees-FINAL-Eng-2026.pdf), p.10).
+
+If you are going permanent, four things reach back into this step:
 
 | Requirement | Why |
 |---|---|
-| **Permanent, relocatable plots** | Paired resampling is far more powerful than independent resampling — you difference out the between-plot variation that dominates your interval |
-| **Markers you can find in ten years** | Grassland has nothing to tag. Buried magnets, driven rod with GPS, photographs |
-| **More plots than a one-off stock needs** | You are estimating a *difference* between two uncertain numbers |
-| **Bulk density measured every time** | Compaction changes it, and a fixed-depth comparison then compares different masses of soil. See [Part 5](../05_Monitoring/) |
-
-**Decide this now.** A campaign designed for a one-off stock is often unusable as a baseline.
+| **Relocatable markers** | Grassland has nothing to tag. Driven rod with a GPS fix, buried magnet, bearing and distance from two features, photographs |
+| **A recorded core offset** | The next visit must avoid this visit's holes — see [5C](#5c--where-the-core-goes-within-the-plot) |
+| **More plots than a one-off stock needs** | You are estimating a *difference* between two uncertain numbers. [Part 5](../05_Monitoring/) sizes it |
+| **Bulk density measured every time** | Compaction changes it, and a fixed-depth comparison then compares different *masses* of soil — the reason [Step 3](#decide-your-sampling-depth-now-not-later) samples the full profile |
 
 > [!TIP]
 > **✅ Before moving on:** plot coordinates per stratum, plot sizes chosen, the core-offset rule,
-> and a decision on whether these are permanent plots.
+> and **permanent or single-use** written down.
+
+> 📸 **[SCREENSHOT NEEDED]** — the permanent vs single-use plot pages from the Sampling Design
+> guide (p.7–8) and the setup steps from the Trees guide (p.10).
 
 ---
 
