@@ -13,10 +13,11 @@ GRASS = os.path.dirname(HERE)          # .../Grasslands
 sys.path.insert(0, HERE)               # tdist.py lives beside this script
 
 # The workbook must be RECALCULATED first -- openpyxl writes formulas without
-# cached values, so a freshly built workbook reads back as all None.  Do:
-#   soffice --headless --convert-to xlsx:"Calc MS Excel 2007 XML" \
-#           --outdir <dir> Grassland_Carbon_Calculator_WorkedExample.xlsx
-# and point WB at the converted copy (or set GRASS_WEX_XLSX).
+# cached values, so a freshly built workbook reads back as all None.  Run
+#   python3 recalc_grass.py
+# as the last build step; it does the LibreOffice pass in place, so the file
+# committed to the repo already carries its results.  (GRASS_WEX_XLSX still
+# overrides the path if you want to check a copy.)
 WB = os.environ.get('GRASS_WEX_XLSX') or os.path.join(
         GRASS, 'Worked_Example', 'Grassland_Carbon_Calculator_WorkedExample.xlsx')
 MD = os.path.join(GRASS, 'Worked_Example', 'README.md')
@@ -69,7 +70,17 @@ print('\n-- study area --')
 tot=ss.cell(29,2).value; mean=ss.cell(30,2).value; co2=ss.cell(31,2).value; ar=ss.cell(28,2).value
 chk('area ha',ar/10000,94.5,0.001); need('**94.5 ha**')
 need(f'**{tot/1000:,.1f} t C**','total t C')
-need(f'**{f(mean,3)} kg C/m²**','area-weighted mean')
+# The study-area interval, from the STUDY-AREA INTERVAL block below the totals.
+se=ss.cell(34,2).value; dfree=ss.cell(35,2).value; half=ss.cell(36,2).value
+ach=ss.cell(37,2).value; verdict=ss.cell(38,2).value
+need(f'**{f(mean,3)} ± {f(half,3)} kg C/m²**','area-weighted mean with interval')
+need(f'**±{round(100*ach):.0f}% at 90% confidence — MET**','study-area precision')
+need(f'*({int(dfree)} design df)*','design df')
+chk('stratified SE',round(se,4),0.3743,0.0002)
+chk('study-area df',int(dfree),6,0)
+chk('achieved margin <= soil target',1 if ach<=0.20 else 0,1,0)
+ok.append(verdict.startswith('MET'))
+print(('  ok   ' if ok[-1] else ' FAIL ')+f'workbook verdict: {verdict}')
 need(f'**{co2:,.1f} t CO₂e**','t CO2e')
 s1=ss.cell(5,16).value; s2=ss.cell(6,16).value; s3=ss.cell(7,16).value
 need(f'S1 {s1/1000:,.1f} · S2 {s2/1000:,.1f} · S3 {s3/1000:,.1f}','per-site t C')
@@ -130,6 +141,9 @@ for r in range(5,20):
         chk(f'{pid} tree C',vg.cell(r,12).value,tree[pid],1e-9)
         chk(f'{pid} cover',vg.cell(r,11).value,cover[pid],0)
 m=statistics.mean(p['veg'] for p in s3)
+# What the abandoned 25% canopy-cover rule would have cost: BOS-03 sits at 22%,
+# so a strict cover gate drops its measured tree carbon. The workshop now counts
+# any tree over 2 m, so 'as recorded' is the correct column.
 strict=statistics.mean(p['veg']-(tree[p['id']] if cover[p['id']]<25 else 0) for p in s3)
 need(f'| **{f(m,3)}** |','S3 veg as recorded'); need(f'| **{f(strict,3)}** |','S3 veg strict')
 need(f'**{f(m-strict,3)} — {f(100*(m-strict)/m,1)}% of the pool**','threshold delta')

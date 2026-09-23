@@ -128,9 +128,6 @@ CARBON_FACTORS = [
 # Every orange cell in the workbook, for the Fill Me In tab.
 # (setting name, tab, what it is, default, what happens if left alone)
 FILL_ME_IN = [
-    ("TREE_COVER_THRESHOLD_PCT", "7. Settings",
-     "Canopy cover at or above which the Forests tree protocol applies.",
-     "25", "Savannah plots sit right on this boundary, so the choice changes whether trees are counted at all."),
     ("CARBON_FRACTION_BIOMASS", "7. Settings",
      "Fraction of dry above-ground plant biomass that is carbon.",
      "0.5", "A generic default. Fine for most purposes; calibrate if you have CHN on plant tissue."),

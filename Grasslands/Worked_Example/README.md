@@ -88,15 +88,27 @@ per [Appendix A10](../02_Project_Planning/README.md#a10--why-roots-need-more-cor
 |---|---|
 | Total area | **94.5 ha** |
 | Total carbon | **9,814.6 t C** *(S1 7,382.4 · S2 1,190.8 · S3 1,241.4)* |
-| Area-weighted mean | **10.386 kg C/m²** |
+| Area-weighted mean | **10.386 ± 0.727 kg C/m²** |
+| Achieved precision | **±7% at 90% confidence — MET** *(6 design df)* |
 | CO₂ equivalent | **36,019.5 t CO₂e** |
 
 > [!IMPORTANT]
 > **Read the basis, not just the number.** That total is **soil to 30 cm plus measured root
 > carbon**. It excludes soil below 30 cm — which for these plots is roughly *another 43%* again —
-> and it excludes vegetation entirely, because a standing crop is not a stock. It also has **no
-> interval**, because area-weighting sites does not propagate their uncertainties; that needs the
-> stratified estimator. All of this is stated on the `6. Site Summary` tab itself.
+> and it excludes vegetation entirely, because a standing crop is not a stock. All of this is
+> stated on the `6. Site Summary` tab itself.
+
+> [!NOTE]
+> **Two of three sites missed their own precision targets, and the study area still meets its.**
+> That is not a contradiction — it is what dividing the site up buys you. The study-area figure is
+> a **stratified** estimate: each site is a stratum, weighted by area, and the interval combines
+> their spreads as `Var = Σ W_h²·s_h²/n_h` on `Σ(n_h − 1) = 6` degrees of freedom. Pooling across
+> strata recovers precision that no single site had on its own.
+>
+> It does **not** rescue the site-level comparisons. S2 against S1 is still undetectable — see
+> [point 6](#6--one-target-met-out-of-six-and-every-failure-is-diagnosable) and
+> [Part 5](../05_Monitoring/). A tight study-area total and an undetectable difference between two
+> of its parts are perfectly consistent, and reporting only the first would be misleading.
 
 ---
 
@@ -163,11 +175,12 @@ only 60 cm — the bottom of the core, not the bottom of the roots. Report it as
 The same argument applies to soil: full-profile soil carbon to 60 cm averages **43% more** than the
 30 cm figure for the seven plots that got there. The 30 cm number is comparable; it is not complete.
 
-### 5 · The tree-cover threshold is a real decision, and it moves the answer by 23%
+### 5 · Why trees are counted by height, not by canopy cover
 
-The savannah plots have **22%, 28% and 31%** canopy cover. `TREE_COVER_THRESHOLD_PCT` is set to
-**25%**, so `BOS-03` at 22% falls *below* the threshold — yet its sheet records **1.42 kg C/m²** of
-tree carbon, because there were visibly trees on it.
+The savannah plots have **22%, 28% and 31%** canopy cover. An earlier draft of this workshop
+gated the tree protocol on a **25% canopy-cover threshold**, which would have put `BOS-03` at 22%
+*below* the line. The crew recorded **1.42 kg C/m²** of tree carbon on it anyway, because there
+were visibly trees standing on the plot.
 
 | S3 vegetation mean | kg C/m² |
 |---|---|
@@ -175,10 +188,15 @@ tree carbon, because there were visibly trees on it.
 | Applying the 25% rule strictly (no tree carbon on `BOS-03`) | **1.553** |
 | Difference | **0.473 — 23.4% of the pool** |
 
-**A threshold nobody has confirmed is moving a carbon pool by a quarter.** That is why it sits on the
-[`8. Fill Me In`](../04_Data_Interpretation/README.md) tab with a default rather than being buried in
-a formula. Savannah sits on this boundary *by definition*, so this is the one workshop in the series
-where the rule genuinely matters.
+**The threshold would have discarded a quarter of the pool, and the carbon was measured.** That is
+why the workshop now counts **any tree over 2 m**, with no cover threshold to set: the medium plot
+covers 0.5–2 m, so the two protocols meet exactly and a tree either is over 2 m or is not. Savannah
+sits on a canopy-cover boundary *by definition*, which is precisely why a canopy-cover rule was the
+wrong instrument here.
+
+Canopy cover is still recorded on the sheet — it is useful context, and
+[Part 5](../05_Monitoring/) uses it to track woody encroachment. It just no longer decides whether
+carbon gets counted.
 
 ### 6 · One target met out of six, and every failure is diagnosable
 
