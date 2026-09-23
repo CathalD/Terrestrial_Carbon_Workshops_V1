@@ -21,8 +21,9 @@ COLS = ["Plot ID", "Site ID", "Increments", "Soil C to reporting depth (kg C/m²
         "Soil C, full profile (kg C/m²)", "Deepest increment (cm)",
         "Root C (kg C/m²)", "Vegetation C (kg C/m²)",
         "TOTAL to reporting depth (kg C/m²)", "TOTAL, full profile (kg C/m²)",
-        "QC flags", "_soil", "_root", "_inc", "_cores", "_rootcores", "_soil2", "_root2"]
-W = [12, 10, 11, 16, 16, 13, 14, 15, 17, 17, 52, 9, 9, 7, 8, 8, 9, 9]
+        "QC flags", "_soil", "_root", "_inc", "_cores", "_rootcores", "_soil2", "_root2",
+        "_sr", "_sr2"]
+W = [12, 10, 11, 16, 16, 13, 14, 15, 17, 17, 52, 9, 9, 7, 8, 8, 9, 9, 9, 9]
 title(ps, "PLOT SUMMARY",
       "One row per plot, calculated for you. Soil carbon is reported on two bases — to the "
       "reporting depth, and to the full depth you actually cored. Root carbon is measured, not "
@@ -84,7 +85,13 @@ for r in range(R0, R1 + 1):
     # squares, so the Site Summary can compute SD without an array formula
     ps.cell(r, 17, f'=IF(ISNUMBER($D{r}),$D{r}^2,"")')
     ps.cell(r, 18, f'=IF(ISNUMBER($G{r}),$G{r}^2,"")')
-for col in (12, 13, 14, 15, 16, 17, 18):
+    # soil + root per plot, and its square. This is the quantity the study-area
+    # total is built from, and the stratified interval needs its WITHIN-site
+    # spread -- which is not recoverable from the soil and root SDs separately,
+    # because the two are correlated within a plot.
+    ps.cell(r, 19, f'=IF($A{r}="","",IF(ISNUMBER($D{r}),$D{r},0)+IF(ISNUMBER($G{r}),$G{r},0))')
+    ps.cell(r, 20, f'=IF(ISNUMBER($S{r}),$S{r}^2,"")')
+for col in (12, 13, 14, 15, 16, 17, 18, 19, 20):
     ps.column_dimensions[openpyxl.utils.get_column_letter(col)].hidden = True
 
 # ── 6. Site Summary ──────────────────────────────────────────────────────────
@@ -94,20 +101,23 @@ COLS = ["Site ID", "Site area (m²)", "Plots",
         "SOIL target", "SOIL precision",
         "ROOT mean (kg C/m²)", "ROOT SD", "ROOT ± half-width", "ROOT achieved",
         "ROOT target", "ROOT precision",
-        "Total carbon (kg C)", "Total (t CO₂e)", "QC flags"]
-W = [10, 13, 8, 14, 11, 14, 12, 11, 30, 14, 11, 14, 12, 11, 30, 15, 14, 48]
+        "Total carbon (kg C)", "Total (t CO₂e)", "QC flags",
+        "_srmean", "_srsd", "_varpart", "_dfpart"]
+W = [10, 13, 8, 14, 11, 14, 12, 11, 30, 14, 11, 14, 12, 11, 30, 15, 14, 48, 9, 9, 9, 9]
 title(ss, "SITE SUMMARY",
       "Type a Site ID and its area; everything else calculates. Soil is summarised on the "
       "REPORTING-DEPTH basis, so cores of different depths stay comparable. SOIL and ROOTS are "
       "checked against SEPARATE targets, because roots are far more variable and holding both "
       "to the same precision would need four to five times the cores. See Part 2, Appendix A10.",
       len(COLS))
-header_row(ss, 4, COLS, W, ["y", "y"] + ["s"] * 16)
+header_row(ss, 4, COLS, W, ["y", "y"] + ["s"] * 20)
 R0, R1 = 5, 4 + NROW_SITE
 paint(ss, R0, R1, 1, "y"); paint(ss, R0, R1, 2, "y")
-for col in range(3, len(COLS)):
+for col in range(3, 18):
     paint(ss, R0, R1, col, "s")
-paint(ss, R0, R1, len(COLS), "r")
+paint(ss, R0, R1, 18, "r")
+for col in (19, 20, 21, 22):
+    paint(ss, R0, R1, col, "g")
 
 PS_LAST = 4 + NROW_PLOT
 for r in range(R0, R1 + 1):
@@ -166,6 +176,24 @@ for r in range(R0, R1 + 1):
             f'&IF(AND(ISNUMBER($M{r}),ISNUMBER($N{r}),$M{r}>$N{r}),'
             f'"Root precision target missed. Roots are genuinely patchy; a wider honest interval '
             f'is better than a tight unearned one. ",""))')
+    # ---- hidden: the pieces of the stratified study-area interval ----
+    # mean and SD of (soil + root) per plot, within this site
+    ss.cell(r, 19, f'=IF(OR($A{r}="",$C{r}=0),"",'
+                   f'AVERAGEIFS(\'5. Plot Summary\'!$S$5:$S${PS_LAST},'
+                   f'\'5. Plot Summary\'!$B$5:$B${PS_LAST},$A{r}))')
+    ss.cell(r, 20, f'=IF(OR($A{r}="",NOT(ISNUMBER($C{r})),$C{r}<2,NOT(ISNUMBER($S{r}))),"",'
+                   f'SQRT(MAX(0,(SUMIFS(\'5. Plot Summary\'!$T$5:$T${PS_LAST},'
+                   f'\'5. Plot Summary\'!$B$5:$B${PS_LAST},$A{r})'
+                   f'-$C{r}*$S{r}^2)/($C{r}-1))))')
+    # this site's contribution to Var(stratified mean) = W_h^2 * s_h^2 / n_h
+    ss.cell(r, 21, f'=IF(OR(NOT(ISNUMBER($T{r})),NOT(ISNUMBER($B{r})),'
+                   f'SUM($B${R0}:$B${R1})=0,NOT(ISNUMBER($C{r})),$C{r}<2),0,'
+                   f'($B{r}/SUM($B${R0}:$B${R1}))^2*$T{r}^2/$C{r})')
+    # and to the degrees of freedom, sum(n_h - 1)
+    ss.cell(r, 22, f'=IF(OR(NOT(ISNUMBER($C{r})),$C{r}<2),0,$C{r}-1)')
+
+for col in (19, 20, 21, 22):
+    ss.column_dimensions[openpyxl.utils.get_column_letter(col)].hidden = True
 
 r = R1 + 3
 band(ss, r, len(COLS), "  STUDY AREA — all sites combined, weighted by area")
@@ -182,6 +210,52 @@ ss.cell(r, 2, f'=IF(OR(NOT(ISNUMBER($B${r-1})),NOT(ISNUMBER($B${r-2})),$B${r-2}=
 r += 1
 ss.cell(r, 1, "Total (t CO₂e)").font = F_SUB
 ss.cell(r, 2, f'=IF(NOT(ISNUMBER($B${r-2})),"",$B${r-2}*CO2E_FACTOR/1000)')
+R_MEAN = r - 1          # the area-weighted mean row
+R_TOTAL = r - 2         # total carbon
+R_AREA = r - 3          # total area
+
+# ── The study-area interval ──────────────────────────────────────────────────
+# The area-weighted mean above is a STRATIFIED estimate: each site is a stratum,
+# weighted by its area. Its variance is the standard one (Cochran 1977, ch. 5):
+#     Var = sum_h ( W_h^2 * s_h^2 / n_h ),     W_h = area_h / total area
+# with sum_h (n_h - 1) degrees of freedom. Both pieces are accumulated in the
+# hidden columns U and V above. Without this the workbook reported a total with
+# no interval at all, which is the one thing Part 2 tells you never to do.
+r += 2
+band(ss, r, len(COLS), "  STUDY-AREA INTERVAL — the sites combined as strata")
+r += 1
+ss.cell(r, 1, "Standard error (kg C/m²)").font = F_SUB
+ss.cell(r, 2, f'=IF(SUM($U${R0}:$U${R1})=0,"",SQRT(SUM($U${R0}:$U${R1})))')
+R_SE = r
+r += 1
+ss.cell(r, 1, "Degrees of freedom").font = F_SUB
+ss.cell(r, 2, f'=IF(SUM($V${R0}:$V${R1})=0,"",SUM($V${R0}:$V${R1}))')
+R_DF = r
+r += 1
+ss.cell(r, 1, "± half-width (kg C/m²)").font = F_SUB
+ss.cell(r, 2, f'=IF(OR(NOT(ISNUMBER($B${R_SE})),NOT(ISNUMBER($B${R_DF})),$B${R_DF}<1),"",'
+              f'TINV(1-TARGET_CONFIDENCE,$B${R_DF})*$B${R_SE})')
+R_HALF = r
+r += 1
+ss.cell(r, 1, "Achieved margin").font = F_SUB
+ss.cell(r, 2, f'=IF(OR(NOT(ISNUMBER($B${R_HALF})),NOT(ISNUMBER($B${R_MEAN})),$B${R_MEAN}=0),"",'
+              f'$B${R_HALF}/$B${R_MEAN})')
+R_ACH = r
+r += 1
+ss.cell(r, 1, "Study-area precision").font = F_SUB
+ss.cell(r, 2, f'=IF(NOT(ISNUMBER($B${R_ACH})),"",'
+              f'IF(COUNTIFS($A${R0}:$A${R1},"<>",$C${R0}:$C${R1},"<2")>0,'
+              f'"INCOMPLETE — a site with fewer than 2 plots contributes no variance. ","")'
+              f'&IF($B${R_ACH}<=TARGET_MARGIN_SOIL,'
+              f'"MET: ±"&TEXT($B${R_ACH},"0%")&" at "&TEXT(TARGET_CONFIDENCE,"0%")'
+              f'&" confidence",'
+              f'"NOT MET: ±"&TEXT($B${R_ACH},"0%")&" against a ±"'
+              f'&TEXT(TARGET_MARGIN_SOIL,"0%")&" target"))')
+r += 1
+ss.cell(r, 1, "Total carbon, ± (kg C)").font = F_SUB
+ss.cell(r, 2, f'=IF(OR(NOT(ISNUMBER($B${R_HALF})),NOT(ISNUMBER($B${R_AREA}))),"",'
+              f'$B${R_HALF}*$B${R_AREA})')
+
 r += 2
 note(ss, r, len(COLS),
      "Basis: soil to the REPORTING DEPTH, plus measured root carbon. The site mean uses the "
@@ -190,9 +264,12 @@ note(ss, r, len(COLS),
      "variability rather than a shorter core. Full-profile figures are on the Plot Summary. "
      "Vegetation is reported "
      "separately on the Plot Summary and is deliberately NOT rolled into this total — it is a "
-     "standing crop, not a stock. The study-area mean weights each site by its area, which is "
-     "right when sites differ in size; it does NOT propagate the per-site uncertainties into a "
-     "study-area interval.")
+     "standing crop, not a stock. "
+     "The study-area mean weights each site by its AREA, not by how many plots landed in it, "
+     "and the interval above propagates the per-site spreads through that same weighting: "
+     "Var = sum of W_h² · s_h² / n_h, on sum(n_h − 1) degrees of freedom. Note that individual "
+     "sites can miss their own targets while the study-area figure meets its, because "
+     "combining strata pools the information — that is what stratifying buys.")
 
 # ── R1. Reference ────────────────────────────────────────────────────────────
 rf = wb.create_sheet("R1. Reference")

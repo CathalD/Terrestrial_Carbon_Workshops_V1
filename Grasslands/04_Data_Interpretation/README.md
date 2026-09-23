@@ -63,7 +63,7 @@ Standard, and identical to [Forests](../../Forests/04_Data_Interpretation/):
 ### 1.3 The root chain — and this one is yours to get right
 
 No WWF guide covers it, so the procedure in
-[Part 3A](../03_Field_Methods/3A_Soil.md#stage-4--separate-the-roots) is the reference. The four
+[Part 3](../03_Field_Methods/#separate-the-roots) is the reference. The four
 steps that change the number:
 
 | Step | Get it wrong and… |
@@ -80,6 +80,16 @@ corrected root mass  =  oven-dry mass × (1 − ash fraction)
 > 🟠 **[FILL ME IN]** — `ROOT_SIEVE_MM`, `ASH_CORRECTED`, `ROOT_DRY_TEMP_C`. The calculator applies
 > the ash correction only when `ASH_CORRECTED` says you did it, and flags every row while it
 > doesn't.
+
+> [!WARNING]
+> **Measuring roots creates a trap, and this is where it springs.** Soil carbon analysis
+> conventionally removes visible roots — but **fine roots stay in the sample**. Add measured root
+> carbon to a soil stock that still contains fine-root carbon and **you have counted it twice**.
+>
+> The rule: **sieve the roots out first, analyse root-free soil, report root carbon separately —
+> and say what mesh you used.** [Part 3](../03_Field_Methods/#separate-the-roots) covers the
+> procedure; `ROOTS_REMOVED_BEFORE_SOIL_C` in the calculator's `7. Settings` records whether you
+> did it, and flags the soil rows while it says you did not.
 
 ### 1.4 Ask the lab three questions before the field season
 
@@ -98,6 +108,14 @@ binding constraint on the root estimate.
 ## Step 2 — Run the numbers
 
 Everything below is computed by the workbook. This section is so you can explain it.
+
+**One line per pool, before the detail:**
+
+```
+        soil carbon  =  depth × bulk density × carbon %        ← the majority of the stock
+        root carbon  =  measured root mass × carbon %          ← MEASURED, not a ratio
+       shoot carbon  =  clipped dry mass × carbon %            ← small, and seasonal
+```
 
 ### The chain
 

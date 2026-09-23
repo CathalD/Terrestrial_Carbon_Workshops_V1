@@ -114,9 +114,6 @@ SETTINGS = [
     ("PEAK_SEASON_SAMPLED", "No", "o",
      "Was above-ground vegetation clipped at peak growing season? Off-peak, a standing crop is "
      "not comparable to anything."),
-    ("TREE_COVER_THRESHOLD_PCT", 25, "o",
-     "Canopy cover at or above which the Forests tree protocol applies. 25% matches the "
-     "Wetlands treed-swamp rule. Savannah sits on this boundary by definition."),
     ("SMALL_PLOT_AREA_M2", 0.25, "g",
      "Default clip-and-weigh quadrat area. 0.25 m², or a circle of radius 0.28 m."),
     ("MEDIUM_PLOT_AREA_M2", 100, "g", "Default medium (shrub) plot area. 16–100 m²."),

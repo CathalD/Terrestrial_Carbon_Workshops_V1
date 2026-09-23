@@ -193,9 +193,9 @@ for r in range(R0, R1 + 1):
             f'&"comparable to anything, including your own next visit. ","")'
             f'&IF($B{r}="","No sampling date. A clip-and-weigh without a date cannot be '
             f'interpreted. ","")'
-            f'&IF(AND(ISNUMBER($K{r}),$K{r}>=TREE_COVER_THRESHOLD_PCT,NOT(ISNUMBER($L{r}))),'
-            f'"Canopy cover is at or above the threshold but no tree carbon is entered — "'
-            f'&"measure trees with the Forests protocol. ","")'
+            f'&IF(AND(ISNUMBER($K{r}),$K{r}>0,NOT(ISNUMBER($L{r}))),'
+            f'"Canopy cover is recorded but no tree carbon is entered — any tree over 2 m "'
+            f'&"goes through the Forests protocol. ","")'
             f'&IF(AND(ISNUMBER($I{r}),$I{r}>0),'
             f'"Shrub figures are ABOVE-ground only; shrub roots are in neither this pool nor "'
             f'&"the soil core. Declare the gap. ",""))')

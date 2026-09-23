@@ -135,17 +135,29 @@ def banner(path, title, subtitle, tagtext, accent, extra="", tagfill="#3a2c18",
     for x in (40, 1158):
         art.append(sage(x, groundy + 4, 40, 22, "#8d9679", 0.8))
 
-    # the sward: bunchgrass tussocks, skipping the centre for the title
+    # The sward. Full-height tussocks everywhere except the centre, which is
+    # reserved for the title; the centre instead gets a short row, so that no
+    # stretch of soil carries roots with nothing growing above it.
+    sward_x = []
     for x in range(-10, 1230, 38):
         if 300 < x < 900:
             continue
         art.append(tussock(x, groundy + 6, random.randint(30, 60),
                            GRASS[random.randrange(3)], 0.9))
+        sward_x.append(x)
     for x in range(8, 1220, 52):
         if 310 < x < 890:
             continue
         art.append(tussock(x, groundy + 2, random.randint(20, 38),
                            GREENS[random.randrange(3)], 0.75, blades=5))
+        sward_x.append(x)
+    # the centre row: short enough to clear the subtitle baseline at y=220
+    for x in range(306, 900, 33):
+        art.append(tussock(x, groundy + 6, random.randint(14, 21),
+                           GRASS[random.randrange(3)], 0.85, blades=5))
+        art.append(tussock(x + 16, groundy + 2, random.randint(11, 17),
+                           GREENS[random.randrange(3)], 0.7, blades=4))
+        sward_x.append(x)
     # forbs
     for x in range(26, 1200, 67):
         if 300 < x < 900:
@@ -154,11 +166,21 @@ def banner(path, title, subtitle, tagtext, accent, extra="", tagfill="#3a2c18",
                         random.choice(["#e0b23f", "#d98b5a", "#b98bb0", "#e8d98a"]), 0.85))
 
     # ROOTS -- the point of the whole thing. Deep, reaching most of the band.
+    # Every root system descends from a tussock that is actually drawn above it:
+    # root density tracks plant density, which is the claim the banner is making.
+    sward_x = sorted(set(sward_x))
+    anchors, last = [], -999
+    for x in sward_x:                      # thin to ~one root system per 96 px
+        if x - last >= 90 and 0 <= x <= 1190:
+            anchors.append(x)
+            last = x
     root_svg = "".join(roots(x, groundy + 6, random.randint(70, 104), ROOTC, 0.55, 100 + i)
-                       for i, x in enumerate(range(60, 1200, 96)))
-    # a few that go right to the bottom, to make "metres deep" visible
+                       for i, x in enumerate(anchors))
+    # a few that go right to the bottom, to make "metres deep" visible --
+    # also anchored, to the plants nearest thirds of the way across
+    deep = [min(sward_x, key=lambda s, t=t: abs(s - t)) for t in (210, 640, 1010)]
     root_svg += "".join(roots(x, groundy + 6, 360 - groundy - 8, ROOTC, 0.42, 200 + i)
-                        for i, x in enumerate((210, 640, 1010)))
+                        for i, x in enumerate(deep))
 
     # faint horizon bands in the soil -- horizons, not stratigraphy
     lines, y, step = [], groundy + 26, 22
@@ -170,7 +192,7 @@ def banner(path, title, subtitle, tagtext, accent, extra="", tagfill="#3a2c18",
     pill_w = max(168, 11 * len(tagtext) + 44)
     svg = f"""<svg width="1200" height="360" viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg" role="img">
 <title>{title} — Grassland Carbon Workshop</title>
-<desc>Illustration of a Canadian grassland — bunchgrass tussocks, forbs, sagebrush and scattered open-grown oaks above a deep soil profile threaded with roots — headed "{title}".</desc>
+<desc>Illustration of a Canadian grassland — bunchgrass tussocks, forbs, sagebrush and scattered open-grown oaks above a deep soil profile threaded with roots, each root system descending from a plant above it — headed "{title}".</desc>
 {DEFS.format(sky0=sky[0], sky1=sky[1], air0=air[0], air1=air[1], air2=air[2])}
 <rect x="0" y="0" width="1200" height="120" fill="url(#sky)"/>
 <rect x="0" y="120" width="1200" height="{groundy-120}" fill="url(#air)"/>
@@ -198,11 +220,11 @@ def banner(path, title, subtitle, tagtext, accent, extra="", tagfill="#3a2c18",
 PALE = "#f4eed8"
 
 banner(f"{OUT}/01_Background/images/banner_grassland.svg", "Grassland Carbon Workshop",
-       "PRAIRIE &#8226; PARKLAND &#8226; SAVANNAH &#8226; BUNCHGRASS &#8226; THE CARBON IS UNDERGROUND",
+       "ROOTS &#8226; SHOOTS &#8226; SOILS &#8226; CARBON STOCKS AND MONITORING",
        "WWF-CANADA CARBON MEASUREMENT", PALE, seed=3)
 
 banner(f"{OUT}/01_Background/images/banner_background.svg", "Background",
-       "WHERE GRASSLAND CARBON SITS &#8226; ROOTS, NOT SHOOTS &#8226; WHY 30 CM IS A FLOOR",
+       "CARBON POOLS IN GRASSLANDS &#8226; ROOTS AND SHOOTS &#8226; DIGGING DEEP FOR BELOW-GROUND CARBON",
        "SECTION 1 OF 5", PALE, seed=11)
 
 # Planning: stratification blocks across the sward
