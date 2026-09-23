@@ -12,25 +12,15 @@
 
 *What ecosystem carbon is, where it sits in a grassland, and how it is measured.*
 
-**Quick links:** [Measuring Carbon in Vegetation (Non-Tree)](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Measuring Carbon in Non-Peat Soils](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Laboratory Analysis](../../_Shared/Lab-Guide-Eng-2026.pdf)
+**Quick links:** 🧩 **[Workshop Presentation Slides — placeholder]** · [Measuring Carbon in Vegetation (Non-Tree)](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Measuring Carbon in Non-Peat Soils](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Laboratory Analysis](../../_Shared/Lab-Guide-Eng-2026.pdf)
 
-| # | Section |
-|---|---|
-| 1 | [What is ecosystem carbon?](#1--what-is-ecosystem-carbon) |
-| 2 | [What is grassland carbon?](#2--what-is-grassland-carbon) |
-| 3 | [Where the carbon is, and why](#3--where-the-carbon-is-and-why) |
-| 4 | [How carbon is measured](#4--how-carbon-is-measured) |
-| 5 | [How deep to sample](#5--how-deep-to-sample) |
-| 6 | [A standing crop is not a stock](#6--a-standing-crop-is-not-a-stock) |
-| 7 | [Carbon accumulation and disturbance](#7--carbon-accumulation-and-disturbance) |
-| 8 | [The measurement, step by step](#8--the-measurement-step-by-step) |
+> 🧩 **[PLACEHOLDER — SLIDE DECK]** Add the Part 1 `.pptx` and `.pdf` links here after the files are uploaded.
 
 ---
 
-## 1 · What is ecosystem carbon?
+## What is ecosystem carbon?
 
-Carbon is the element living things are built from, and its movement between the land, the ocean
-and the atmosphere is what sets the Earth's climate.
+Carbon is the element living things are built from, and its movement among the land, ocean, and atmosphere is one of the processes that shapes Earth's climate.
 
 <table>
 <tr>
@@ -41,8 +31,7 @@ and the atmosphere is what sets the Earth's climate.
 </td>
 <td width="42%">
 
-Carbon is both the **building block of life** and a **key regulator of the Earth's climate
-system**.
+Carbon is both a **building block of life** and a **key part of the Earth's climate system**.
 
 </td>
 </tr>
@@ -54,8 +43,9 @@ system**.
 </td>
 <td width="42%">
 
-When we talk about **ecosystem carbon** specifically, we mean the total amount of carbon stored in
-the **plants and soils** of an ecosystem.
+When we talk about **ecosystem carbon**, we mean the carbon stored in the living and dead material and soils of an ecosystem at a defined time.
+
+This workshop focuses on the pools that can be measured consistently in grasslands: soil, roots, shoots, shrubs, and trees where they occur.
 
 </td>
 </tr>
@@ -67,9 +57,9 @@ the **plants and soils** of an ecosystem.
 </td>
 <td width="42%">
 
-There are many reasons to measure carbon, depending on your project and community goals. In
-[Part 2 — Project Planning](../02_Project_Planning/) we work towards aligning your carbon
-measurement project with those goals.
+Projects measure carbon for different reasons: to establish a baseline, compare management or restoration treatments, document change, or support a wider ecological assessment.
+
+In [Part 2 — Project Planning](../02_Project_Planning/), the sampling design is aligned with those project and community goals.
 
 </td>
 </tr>
@@ -77,17 +67,17 @@ measurement project with those goals.
 
 ### Two words you will see throughout
 
-**Sequestration** is the *process* — plants pulling CO₂ from the atmosphere. It is a **rate**,
-measured per year.
+**Sequestration** is a **process and rate**: carbon entering an ecosystem over time, commonly reported per year.
 
-**Storage** is the *amount* held now. It is a **stock**, measured at a point in time.
+**Storage** is an **amount or stock**: carbon held in an ecosystem at a defined time.
 
-Parts 2 to 4 measure **storage**. [Part 5](../05_Monitoring/) is about measuring it over time,
-which is how you get at change.
+Parts 2–4 focus on measuring **stocks**. [Part 5 — Monitoring](../05_Monitoring/) compares measurements over time to estimate change. A change in stock can inform—but is not automatically identical to—a sequestration rate unless the design accounts for the relevant inputs, outputs, and time interval.
 
 ---
 
-## 2 · What is grassland carbon?
+## Grasslands and their carbon pools
+
+Grassland carbon is distributed among the soil, roots, shoots, forbs, shrubs, standing dead material, litter, and—in savannah or parkland—trees. This workshop measures a defined subset of those pools and reports exclusions explicitly.
 
 <table>
 <tr>
@@ -98,8 +88,9 @@ which is how you get at change.
 </td>
 <td width="42%">
 
-**Grassland carbon** is the organic carbon held in a grassland at a point in time, including in the
-soil, in the living and dead roots threading through it, and in the shoots, forbs and shrubs above.
+**Grassland carbon** is the organic carbon held in the ecosystem at a point in time, including carbon in soil, living and dead roots, and above-ground vegetation.
+
+The boundaries of the reported stock depend on the methods selected in [Part 2](../02_Project_Planning/) and must remain consistent through fieldwork and analysis.
 
 </td>
 </tr>
@@ -111,7 +102,9 @@ soil, in the living and dead roots threading through it, and in the shoots, forb
 </td>
 <td width="42%">
 
-Native grasses especially put a large share of what they fix into **roots**.
+Many perennial grassland plants allocate a substantial share of production below ground. Their root systems place living biomass and organic inputs directly through the soil profile.
+
+Root amount and distribution vary among species, sites, seasons, and management histories, so a single root:shoot ratio should not be treated as universal.
 
 </td>
 </tr>
@@ -123,18 +116,15 @@ Native grasses especially put a large share of what they fix into **roots**.
 </td>
 <td width="42%">
 
-Those roots input organic matter directly into the soil **at depth**, throughout the whole profile,
-rather than dropping it on the surface and letting it work down.
+Roots can deliver organic material below the surface rather than relying only on litter moving downward from above.
 
-The result is a soil carbon store built from the inside out.
+That is one reason a shallow soil sample may miss part of the carbon distribution and why actual rooting depth matters when the project chooses sampling depths.
 
 </td>
 </tr>
 </table>
 
----
-
-## 3 · Where the carbon is, and why
+### Where the carbon is, and why
 
 <table>
 <tr>
@@ -151,21 +141,13 @@ The result is a soil carbon store built from the inside out.
 </tr>
 </table>
 
-A simplified picture of how carbon moves through a grassland: the plants absorb CO₂ from the
-atmosphere and use it to grow shoots above and roots below. Those plant remains are then broken
-down by **soil microbes**. Some of that carbon returns to the atmosphere; the rest stays, and a
-large share of what stays is the microbes' own remains — **microbial necromass**, which is a major
-building block of stable soil organic matter. So the soil helps feed the plants, and the plants in
-turn feed the soil.
+Plants take up carbon dioxide and use it to build shoots and roots. Plant material and root-derived compounds enter the soil, where decomposers transform them. Some carbon returns to the atmosphere; some remains in living organisms, particulate material, mineral-associated organic matter, and other soil fractions.
 
-In a grassland, root biomass commonly exceeds shoot biomass several times over — the reverse of a
-forest, where roots are a fraction of above-ground mass.
+Microbial products and remains can make an important contribution to persistent soil organic matter. The amount retained depends on climate, soil properties, vegetation, disturbance, management, and time.
 
-A crew measuring only what they can see is measuring the smallest of three pools, and the least of
-the living biomass.
+In many grasslands, below-ground living biomass exceeds the shoots visible above ground. A crew measuring only above-ground vegetation therefore measures only part of the living biomass and a small part of the total ecosystem carbon considered by this workshop.
 
-See also [*Global patterns of grassland carbon*](https://www.nature.com/articles/s43247-024-01795-9)
-(Communications Earth & Environment, 2024).
+See also [*Global patterns of grassland carbon*](https://www.nature.com/articles/s43247-024-01795-9) (*Communications Earth & Environment*, 2024).
 
 <table>
 <tr>
@@ -176,12 +158,9 @@ See also [*Global patterns of grassland carbon*](https://www.nature.com/articles
 </td>
 <td width="45%">
 
-Carbon in a grassland sits in three **pools**, and they are very unequal. The chart below is the
-mean of the six prairie plots in this workshop's [worked example](../Worked_Example/): the soil
-holds about **66 times** the carbon of the shoots you can see.
+The teaching example used by this workshop contains three measured pools: soil, roots, and shoots. In those illustrative plots, soil is the largest pool, roots are a smaller share of total carbon but most of the measured living biomass, and shoots are the smallest and most seasonal pool.
 
-Soil dominance is not surprising — it is true in forests too. What is distinctive is the middle
-row: roots are a small share of total carbon but **most of the living biomass**.
+The values are a worked-example dataset—not a regional default and not a claim about every grassland.
 
 </td>
 </tr>
@@ -191,126 +170,52 @@ row: roots are a small share of total carbon but **most of the living biomass**.
   <img src="images/carbon_pools.svg" alt="Bar chart: soil 10.97, roots 1.06, shoots 0.17 kg C per square metre — soil is 89.9% of the three-pool total" width="100%">
 </p>
 
-| Pool | Share of total | How fast it changes |
+| Pool | Role in this workshop | How quickly it may vary |
 |---|---|---|
-| **Soil** | The majority | Slowly — decades to centuries |
-| **Roots** | Small share of carbon, but **most of the living biomass** | Fast — much turns over yearly |
-| **Shoots** | Smallest | **Within a single season** |
+| **Soil** | Usually the largest measured stock | Often changes slowly relative to seasonal biomass, but rates vary by depth, site, and disturbance. |
+| **Roots** | A smaller carbon pool but potentially a large share of living biomass | Can vary seasonally and spatially. |
+| **Shoots** | A standing crop measured at the sampling date | Can change within a season through growth, senescence, grazing, mowing, or fire. |
 
-> 📊 **[REFERENCE NEEDED]** — a citable Canadian figure and range for the root:shoot relationship,
-> to replace "several times over" with a published number. The chart above is this workshop's own
-> constructed teaching data, not a literature value. Logged in [`TODO.md`](../TODO.md).
+> 📚 **[REFERENCE NEEDED]** Add a citable Canadian range for grassland root:shoot relationships and pool sizes. Keep `images/carbon_pools.svg` identified as constructed teaching data from the workshop's worked example.
 
----
-
-## 4 · How carbon is measured
-
-Vegetation is clipped, weighed and dried. Soil carbon needs a sample of known **volume**, and there
-are three ways to get one.
-
-<table>
-<tr>
-<td width="58%">
-
-<img width="100%" alt="Three methods for collecting soil carbon samples" src="https://github.com/user-attachments/assets/6fc686c8-8375-4cb0-bbe6-3878de90ab42" />
-
-</td>
-<td width="42%">
-
-**1 · Coring** — a tube driven into the ground, recovering an intact column. The usual choice:
-clean depth control, a known volume, and the roots come up with the soil.
-
-**2 · Soil pits** — a pit dug to expose the profile face, sampled horizon by horizon with a ring.
-Slower and more destructive, but it works where a corer will not go, and you can see the horizons.
-
-**3 · Dig and fill** — a frame of known area excavated to bedrock, then the hole refilled. The
-option for very thin soils, where there is no column to core.
-
-</td>
-</tr>
-</table>
-
-All three are covered step by step in [Part 3 — Field Methods](../03_Field_Methods/#soil).
-
----
-
-## 5 · How deep to sample
+### A standing crop is not the same as a long-lived stock
 
 <table>
 <tr>
 <td width="55%">
 
-**Sample the whole profile** — from the surface down to the parent material, or to refusal. Not a
-fixed 30 cm window.
+**Soil carbon is measured as a stock** within a defined area and depth or equivalent soil mass.
 
-A fixed depth does not hold a fixed *mass* of soil. As bulk density changes, a 30 cm window holds a
-different amount of material from one survey to the next, so you are not comparing like with like.
-The error also runs the wrong way: a disturbance that **compacts** the top 30 cm raises bulk
-density there and so **raises the apparent stock**, at the same time as it releases carbon from the
-profile as a whole.
+**Herbaceous above-ground biomass is a standing crop** at the sampling date. It grows, is grazed or cut, senesces, and decomposes. A spring measurement and a late-summer measurement can differ greatly even when the site's long-term condition has not changed.
 
-**30 cm and 1 m are reporting conventions** — IPCC defaults and what most of the literature uses,
-so they are how your site gets compared with another. Report them alongside the full profile, not
-instead of it.
-
-</td>
-<td width="45%">
-
-> 📸 **[IMAGE / SLIDE]** — a full soil profile beside a 30 cm core, showing how much sits below the
-> conventional reporting depth.
-
-The correction for the bulk-density problem is **equivalent soil mass** — comparing a fixed *mass*
-of soil rather than a fixed depth. It is worked through on a real profile in
-[Part 5, Step 4](../05_Monitoring/#step-4--equivalent-soil-mass), and it is why cores have to go
-deeper than your reporting depth: the reference mass usually sits below 30 cm.
-
-</td>
-</tr>
-</table>
-
----
-
-## 6 · A standing crop is not a stock
-
-<table>
-<tr>
-<td width="55%">
-
-**Soil carbon is a stock.** It accumulated over centuries and will still be there next year.
-
-**Herbaceous above-ground biomass is a standing crop.** It grows from nothing each spring, peaks,
-senesces and is gone. Measure it in May and again in August and the numbers differ several-fold
-with **nothing having changed about the site**.
-
-Adding the two in one column implies a comparability that does not exist.
+Report these pools separately before deciding whether and how they can be combined for a specific purpose.
 
 </td>
 <td width="45%">
 
 > [!WARNING]
-> - **Sample at peak growing season.** The
->   [Vegetation guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) says so, because peak is the
->   only phenological point that is *repeatable* between sites and years.
-> - **Record the date**, always. A clip-and-weigh without a date is uninterpretable.
-> - **Report shoot biomass separately**, never buried inside a total.
-> - **Never compare** a spring harvest with a late-summer one.
+> - Sample vegetation at the project-defined comparable phenological stage.
+> - Record the date, recent grazing, mowing, fire, drought, and other events affecting standing biomass.
+> - Do not interpret a single harvest as annual production.
+> - Do not compare different seasons without explaining the limitation.
 >
-> Root biomass varies seasonally too, though less violently. Record the date for roots as well.
+> Root biomass may also vary seasonally. Record its collection date and method.
 
 </td>
 </tr>
 </table>
 
+> 📚 **[REGIONAL GUIDANCE NEEDED]** Define “peak” or the comparable-season rule for the ecosystems and regions covered by the workshop. Avoid assuming one calendar window applies everywhere.
+
 ---
 
-## 7 · Carbon accumulation and disturbance
+## Carbon accumulation and equilibrium
 
-Carbon entering an ecosystem is countered by decomposition and by material carried out of it. The
-more that accumulates, the more is lost each year, until the two converge and the ecosystem reaches
-a balance — its **carbon equilibrium state**, or **net ecosystem carbon balance**.
+Carbon stocks change through the balance of inputs and outputs. Plants add carbon through production and transfers to the soil. Respiration, decomposition, erosion, harvest, fire, and other processes can remove or redistribute it.
 
-We can show this as a graph: carbon entering the ecosystem (green), carbon lost (red), and the net
-balance of the two (black).
+As a simplified teaching model, an ecosystem may approach a relatively stable long-term stock when average inputs and outputs become similar. This is an **equilibrium concept**, not a claim that the ecosystem stops changing. **Net ecosystem carbon balance** describes the net change over a defined period and system boundary.
+
+The graphs below preserve the accumulation sequence used in the workshop presentation: carbon entering the ecosystem in green, carbon leaving in red, and the resulting stock or balance in black.
 
 <table>
 <tr>
@@ -321,8 +226,7 @@ balance of the two (black).
 </td>
 <td width="40%">
 
-A baseline ecosystem carbon curve. As sequestration (carbon in) and loss (carbon out) converge, the
-amount stored levels off at a peak, or equilibrium — the dashed line.
+A simplified baseline curve. As annual inputs and losses approach one another, the stored amount levels toward the dashed equilibrium line.
 
 </td>
 </tr>
@@ -334,7 +238,7 @@ amount stored levels off at a peak, or equilibrium — the dashed line.
 </td>
 <td width="40%">
 
-The same ecosystem, with a disturbance that causes a loss of carbon and then a recovery.
+The same teaching model with a disturbance that causes a carbon loss followed by recovery.
 
 </td>
 </tr>
@@ -346,83 +250,158 @@ The same ecosystem, with a disturbance that causes a loss of carbon and then a r
 </td>
 <td width="40%">
 
-Where multiple overlapping disturbances occur, the ecosystem can keep degrading, becoming a net
-emitter and losing the carbon it had stored.
+Overlapping disturbances can prevent recovery and move the ecosystem toward a lower carbon state.
 
-**Pulse** disturbances, such as fire or breaking sod, hit abruptly. **Press** disturbances, such as
-sustained heavy grazing or an invasion, act slowly over long periods. Acting together, they can
-collapse the ecosystem.
+**Pulse disturbances** act abruptly. **Press disturbances** act continuously or repeatedly over longer periods. Some real disturbances contain both components.
 
 </td>
 </tr>
 </table>
 
-**👉 Explore it interactively:** [cathald.github.io/CarbonAccumulationVisualizer](https://cathald.github.io/CarbonAccumulationVisualizer/)
+### Disturbance in grasslands
 
-### Disturbances in grasslands
+The direction and size of a carbon response depend on ecosystem, soil, climate, intensity, duration, recovery, and the carbon pool being measured. Use the table as a set of hypotheses to test—not as a universal ranking.
 
-Grassland carbon is old, deep and slow to rebuild. Most of the ways it leaves are fast.
-
-| Disturbance | Pulse or press | What it does | Timescale |
+| Disturbance or management change | Pulse/press framing | Potential pathway | Timescale to consider |
 |---|---|---|---|
-| **Conversion to cropland** | **Pulse, then press** | Breaking sod is the pulse; continued cultivation is the press. Tillage breaks aggregates and exposes protected organic matter, and a deep perennial root system is replaced by a shallow annual one | **Years to decades.** The single largest loss pathway |
-| **Overgrazing** | **Press** | Reduces root allocation and cover, compacts the surface, can shift composition to shallower-rooted species | Decades |
-| **Well-managed grazing** | **Press** | Can maintain or build carbon. **Grazing is not inherently a loss** — intensity, timing and rest determine the sign | Decades |
-| **Fire** | **Pulse** | Removes standing biomass; soil carbon is largely protected below the surface | Immediate above ground, small below |
-| **Fire suppression** *(savannah, parkland)* | **Press** | The system closes to woodland. Carbon may rise above ground while the grassland is lost | Decades |
-| **Drought** | **Pulse**, becoming **press** | One dry year reduces production; repeated drought shifts allocation and composition | Years, compounding |
-| **Invasion** | **Press** | Shallow-rooted invasives replace deep-rooted natives — a loss of **deep** carbon input a surface survey will not see | Decades |
+| **Conversion to cropland** | Initial pulse plus ongoing press | Breaking perennial cover, disturbing aggregates, changing plant inputs and depth distribution. | Years to decades. |
+| **Heavy or poorly timed grazing** | Press or repeated pulses | Reduced cover or root inputs, compaction, erosion, and composition change. | Seasons to decades. |
+| **Managed grazing** | Press with variable direction | Outcomes depend on intensity, timing, recovery, climate, and starting condition. | Years to decades. |
+| **Fire** | Pulse within a fire regime | Removes above-ground material rapidly; below-ground effects depend on severity, frequency, and site. | Immediate to decades. |
+| **Fire exclusion in savannah/parkland** | Press | Woody encroachment changes above- and below-ground pools while altering the grassland ecosystem. | Decades. |
+| **Drought** | Pulse or repeated/long-term press | Reduces production and can shift allocation and species composition. | Seasons to decades. |
+| **Invasion** | Press | Changes species traits, rooting patterns, litter, and disturbance interactions. | Years to decades. |
+
+> 📚 **[REFERENCES NEEDED]** Add grassland- and region-specific sources for every disturbance pathway and timescale before presenting this table as evidence. Avoid unsupported claims such as a single “largest” loss pathway across all grasslands.
 
 ---
 
-## 8 · The measurement, step by step
+## Interactive: Ecosystem Carbon Accumulation Visualizer
+
+Explore how the simplified inputs, losses, disturbance, and recovery assumptions affect stored carbon over time:
+
+**👉 [cathald.github.io/CarbonAccumulationVisualizer](https://cathald.github.io/CarbonAccumulationVisualizer/)**
+
+Use the visualizer to ask:
+
+- What changes when a disturbance is brief versus sustained?
+- How does recovery rate affect the time required to return toward the earlier stock?
+- What happens when pulse and press disturbances overlap?
+- Which parts of the graph represent assumptions rather than field measurements?
+
+> [!NOTE]
+> The visualizer is a conceptual teaching tool, not a calibrated prediction for a specific grassland. Record the assumptions used in any workshop exercise.
+
+---
+
+## What is soil carbon—and how deep does it go?
+
+Soil organic carbon is carbon in organic compounds found in living organisms, residues, microbial products, and stabilized soil organic matter. A soil carbon **stock** combines carbon concentration with the amount of soil in a defined area and depth or equivalent mass.
+
+Unlike a single sediment layer accumulating from above, grassland soil receives inputs both at the surface and throughout the rooting profile. That makes the selected sampling depth and bulk-density method part of the definition of the reported stock.
+
+### How deep should the project sample?
+
+<table>
+<tr>
+<td width="55%">
+
+The current workshop recommendation is to sample the **full accessible profile** to parent material or refusal, then calculate standard reporting windows from the same profile.
+
+Fixed windows such as **0–30 cm** and **0–1 m** are useful for comparison with studies or inventories that use them, but they should be identified as reporting windows rather than assumed to contain the complete grassland stock.
+
+Bulk density matters because the same depth can contain different masses of soil. Repeated comparisons may require an **equivalent soil mass** approach so that like masses—not only like depths—are compared.
+
+</td>
+<td width="45%">
+
+> 🧩 **[PLACEHOLDER — IMAGE/SLIDE]** Create a full soil profile beside a 30 cm core, showing carbon and roots below the conventional reporting depth. No existing slide currently covers this comparison.
+
+The equivalent-soil-mass concept is developed in [Part 5 — Monitoring](../05_Monitoring/#step-4--equivalent-soil-mass). A core intended for that comparison generally needs material below the reporting depth so the reference mass can be matched.
+
+</td>
+</tr>
+</table>
+
+> 📚 **[METHOD REVIEW NEEDED]** Confirm the full-profile recommendation, reporting depths, and equivalent-soil-mass workflow against the final soil guide, calculator, and cited grassland literature.
+
+---
+
+## So how do you measure grassland carbon?
+
+Grassland carbon measurement combines vegetation measurements with soil samples of known area or volume and laboratory analyses. The exact set of pools depends on the project question.
+
+### Three ways to collect a defined soil sample
+
+<table>
+<tr>
+<td width="58%">
+
+<img width="100%" alt="Three methods for collecting soil carbon samples" src="https://github.com/user-attachments/assets/6fc686c8-8375-4cb0-bbe6-3878de90ab42" />
+
+</td>
+<td width="42%">
+
+**1 · Coring** — a tube collects a column with known internal area and measured depth. It supports depth control and may collect roots with the soil.
+
+**2 · Soil pits and rings** — a pit exposes the profile and known-volume rings sample selected depths or horizons. It is slower and more destructive but useful where coring is unsuitable.
+
+**3 · Known-area excavation** — a frame defines an area excavated to bedrock or another boundary. It may be useful in very shallow soils but requires careful control of volume and losses.
+
+</td>
+</tr>
+</table>
+
+All three require an explicit bulk-volume or sampled-area calculation, actual depths, and a documented treatment of coarse fragments and roots. The field procedures are developed in [Part 3 — Field Methods](../03_Field_Methods/#3-collect-the-soil-and-root-core).
+
+### The project workflow
 
 | # | Step | Where |
 |---|---|---|
-| 1 | **Divide the site into meaningfully distinct areas** — restoration age, management, history | [Part 2](../02_Project_Planning/#step-2--stratify-your-site) |
-| 2 | **Core the soil**, full profile to refusal, in increments | [Part 3](../03_Field_Methods/#soil) |
-| 3 | **Separate the roots** from the soil sample, by diameter class and depth | [Part 3](../03_Field_Methods/#separate-the-roots) |
-| 4 | **Clip the standing vegetation at peak season**, and measure shrubs 0.5–2 m | [Part 3](../03_Field_Methods/#plants) |
-| 5 | **Measure any tree over 2 m** | [Forests Part 3A](../../Forests/03_Field_Methods/3A_Trees.md) |
-| 6 | **Multiply up, add an interval**, and say what you left out | [Part 4](../04_Data_Interpretation/) |
-| 7 | **Optionally, come back and do it again** | [Part 5](../05_Monitoring/) |
+| 1 | Define the question, boundary, strata, pools, precision, and sample count. | [Part 2 — Project Planning](../02_Project_Planning/) |
+| 2 | Set up plots and measure vegetation before destructive work. | [Part 3 — Field Methods](../03_Field_Methods/#2-measure-the-vegetation) |
+| 3 | Collect soil/root samples to the selected depths and record known volumes. | [Part 3 — Field Methods](../03_Field_Methods/#3-collect-the-soil-and-root-core) |
+| 4 | Section, label, preserve, and submit samples using a documented laboratory method. | [Part 3 — Field Methods](../03_Field_Methods/#4-section-bag-and-label-the-core) |
+| 5 | Calculate pool-specific stocks, uncertainty, and exclusions. | [Part 4 — Data Interpretation](../04_Data_Interpretation/) |
+| 6 | Repeat with a monitoring design when the objective is change through time. | [Part 5 — Monitoring](../05_Monitoring/) |
 
 > [!TIP]
-> **Step 7 changes steps 1 and 2.** Detecting *change* is a harder statistical problem than
-> estimating a stock once, and it needs decisions made up front — permanent plots you can relocate,
-> and enough of them. If monitoring is anywhere in your objectives, read
-> [Part 5](../05_Monitoring/) **before** you finalise Part 2.
+> Monitoring changes the design before the first field visit. Permanent plots, relocation, destructive-sample offsets, equivalent-soil-mass requirements, and the number of plots must be planned in advance. If monitoring is an objective, read [Part 5](../05_Monitoring/) before finalizing Part 2.
 
 ### Know your region before you plan
 
-Two things to establish before writing a sampling plan:
+Establish two things early:
 
-- **How deep can you actually core?** Interior BC sites may hit bedrock at 20 cm; prairie sites may
-  take you to a metre. An afternoon with a probe and an auger settles it.
-- **What is the management history, and who knows it?** Usually the landholder. That conversation
-  is part of the sampling design, not a courtesy.
+- **How deep can the team sample with the proposed method?** A short pilot with a probe, corer, or auger can reveal shallow bedrock, stones, compaction, or very deep profiles.
+- **What is the management history, and who can document it?** Landholders, managers, Indigenous knowledge holders, restoration staff, and project records may hold different parts of that history. Follow the project's consent, attribution, and data-governance requirements.
 
-> 🔗 **[REGIONAL PROTOCOL NEEDED]** — the Forests workshop pairs with a regional protocol
-> ([Southern Ontario – St. Lawrence](../../Forests/01_Background/SO-StLawrence-Eng-2026.pdf)).
-> No grassland equivalent is in this folder. If one exists in the series it belongs here.
+> 🔗 **[REGIONAL PROTOCOL NEEDED]** Add the relevant grassland regional protocol here when one is available. The Forests workshop's Southern Ontario–St. Lawrence protocol is not a grassland substitute.
 
 ---
 
 ## In the next section
 
-**Project Planning** — setting the precision threshold that decides how many cores you need,
-dividing the site into meaningfully distinct areas, and the decisions that cannot be made after the
-field season.
+**Part 2 — Project Planning** turns the project question into a sampling plan. It defines the study area and strata, selects carbon pools and depths, sets precision targets, estimates how many samples are needed, and generates the locations the field team will visit.
+
+**Next: [Part 2 — Project Planning →](../02_Project_Planning/)**
 
 ---
 
 ## In this section
 
-- `images/` — section banners, the carbon-pool chart, and the accumulation animations.
-- [`_references/`](../_references/) — papers cited by this workshop.
+- `images/banner_background.svg` — section banner.
+- The existing slide images embedded throughout this page — retained beside their original concepts.
+- `images/carbon_pools.svg` — teaching-data comparison of soil, root, and shoot pools.
+- `images/accumulation_baseline.gif` — baseline accumulation animation.
+- `images/accumulation_pulse.gif` — disturbance-and-recovery animation.
+- `images/accumulation_collapse.gif` — overlapping-disturbance animation.
+- [`_references/`](../_references/) — papers cited by the workshop.
 
-> ✍️ **[SLIDE DECK NEEDED]** — the workshop presentation for Part 1, as `.pptx` and `.pdf`.
-> 🔗 **[VIDEO NEEDED]** — the WWF vegetation video playlist URL.
+> 🧩 **[PLACEHOLDER — SLIDE DECK]** Add the completed Part 1 `.pptx` and `.pdf` here after upload.
+>
+> 🧩 **[PLACEHOLDER — PROFILE VISUAL]** Add the full-profile-versus-30-cm image after it is created.
+>
+> 🔗 **[PLACEHOLDER — VIDEO]** Add the WWF vegetation video playlist when its URL is confirmed.
 
 ---
 
