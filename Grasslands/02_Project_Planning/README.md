@@ -8,6 +8,11 @@
 
 ---
 
+
+For Claude - Here is a list of ppt slides and text description to use -
+
+
+
 # Part 2 — Project Planning
 
 ## From a carbon question to a sampling design
