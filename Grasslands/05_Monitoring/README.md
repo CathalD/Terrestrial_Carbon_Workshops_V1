@@ -36,7 +36,7 @@ the design — and sometimes the variable — accordingly.
 | | |
 |---|---|
 | **Comes after** | [Part 4](../04_Data_Interpretation/) — you need a stock with an interval before you can have a *change* in one |
-| **Reaches back into** | [Part 2 §5D](../02_Project_Planning/README.md#5d--permanent-or-single-use-plots) and [Part 3A](../03_Field_Methods/3A_Soil.md) — permanent plots and bulk density are decided there, and cannot be retrofitted |
+| **Reaches back into** | [Part 2 §5D](../02_Project_Planning/README.md#5d--permanent-or-single-use-plots) and [Part 3](../03_Field_Methods/#soil) — permanent plots and bulk density are decided there, and cannot be retrofitted |
 | **Parallel to** | [Forests Part 5 — LiDAR](../../Forests/05_LiDAR_Supplement/) and [Wetlands Part 5 — Chronology](../../Wetlands/05_Chronology_Supplement/), the other two optional supplements in this series |
 
 > [!IMPORTANT]
@@ -285,7 +285,7 @@ Detecting a **20% change**, power 80%:
 
 > [!IMPORTANT]
 > **Do not promise root-biomass change detection.** Measure roots for the stock — that is what
-> [Part 3A Stage 4](../03_Field_Methods/3A_Soil.md#stage-4--separate-the-roots) is for, and it is a
+> [Part 3A Stage 4](../03_Field_Methods/#separate-the-roots) is for, and it is a
 > genuine measurement of a real pool. But at any realistic plot count, **root biomass change is not
 > detectable**, and a monitoring plan that claims otherwise will fail at the second visit.
 >
@@ -304,7 +304,7 @@ often skipped.**
 
 A fixed-depth stock is $\text{BD} \times \text{depth} \times \%C$. Bulk density is in there, and in
 grassland **bulk density changes** — trampling, machinery, freeze–thaw, the loss or recovery of
-structure, a wet year against a dry one. [Part 3A](../03_Field_Methods/3A_Soil.md) already insists
+structure, a wet year against a dry one. [Part 3](../03_Field_Methods/#soil) already insists
 you *measure* BD rather than take it from a table, for exactly this reason.
 
 So when soil compacts, a fixed 30 cm core contains **more soil** than it did before. More soil means
@@ -414,7 +414,7 @@ you do not have to.**
 | **Depth increments** | Harmonising mismatched increments afterwards costs precision you did not have to spend |
 | **Corer and diameter** | Different diameters have different compaction behaviour and different root-recovery efficiency |
 | **Root sieve mesh** | A finer mesh recovers more roots. Change it and you have measured a different pool. `ROOT_SIEVE_MM` is on the `7. Settings` tab so it travels with the data |
-| **Whether roots were removed before soil C** | The [double-counting switch](../03_Field_Methods/3A_Soil.md#-decide-the-boundary-before-you-start). Flip it between visits and the two stocks are not the same quantity |
+| **Whether roots were removed before soil C** | The [double-counting switch](../03_Field_Methods/#-decide-the-boundary-before-you-start). Flip it between visits and the two stocks are not the same quantity |
 | **Lab and method** | Different labs, different calibrations. LOI and CHN are not interchangeable, and neither are two labs' LOI |
 | **Drying temperatures** | 60–70 °C for roots, 105 °C for bulk density, both times |
 
@@ -495,7 +495,7 @@ them — quantitatively predicting stock change from indicator change — does n
 
 **Above-ground herbaceous biomass is a standing crop.** It turns over annually and varies several-fold
 within a season. [Part 1](../01_Background/) and
-[Part 3B](../03_Field_Methods/3B_Vegetation.md) make this point where the numbers are recorded, and
+[Part 3](../03_Field_Methods/#plants) make this point where the numbers are recorded, and
 it matters twice as much in monitoring: a clip-and-weigh difference between two visits is mostly
 **weather**, and adding it to a soil stock change is meaningless. Sample at peak season, report it
 separately, and label it as production rather than storage.

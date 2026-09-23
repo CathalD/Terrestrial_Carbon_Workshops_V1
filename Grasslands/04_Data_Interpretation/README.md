@@ -63,7 +63,7 @@ Standard, and identical to [Forests](../../Forests/04_Data_Interpretation/):
 ### 1.3 The root chain — and this one is yours to get right
 
 No WWF guide covers it, so the procedure in
-[Part 3A](../03_Field_Methods/3A_Soil.md#stage-4--separate-the-roots) is the reference. The four
+[Part 3](../03_Field_Methods/#separate-the-roots) is the reference. The four
 steps that change the number:
 
 | Step | Get it wrong and… |
