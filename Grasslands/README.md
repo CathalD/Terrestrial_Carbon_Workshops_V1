@@ -15,11 +15,11 @@ plant biomass, and soil carbon.*
 
 | # | Section | What it covers |
 |---|---------|----------------|
-| 1 | [**Background**](01_Background/) | The carbon pools of grasslands; some grassland types found in Canada; measuring roots, shoots and soils. |
-| 2 | [**Project Planning**](02_Project_Planning/) | How many cores, and where: setting a precision threshold, dividing the area into meaningfully distinct parts, and permanent vs single-use plots. |
-| 3 | [**Field Methods**](03_Field_Methods/) | Plot setup, clip-and-weigh, shrubs, soil coring and root separation — [all in one page](03_Field_Methods/). |
+| 1 | [**Background**](01_Background/) | The carbon pools of grasslands; common grassland types found in Canada; measuring roots, shoots and soils. |
+| 2 | [**Project Planning**](02_Project_Planning/) | How many cores, and where: setting a precision threshold, dividing the area into meaningfully distinct zones, and applying permanent vs single-use plots. |
+| 3 | [**Field Methods**](03_Field_Methods/) | Plot setup, clip-and-weigh, shrubs, soil coring and root separation  |
 | 4 | [**Data Interpretation**](04_Data_Interpretation/) | Lab results, root processing, the carbon calculator, scaling and reporting. |
-| 5 | [**Monitoring Supplement**](05_Monitoring/) *(optional)* | Detecting **change**, not just measuring a stock, for restoration, management and soil-health baselines. |
+| 5 | [**Monitoring Supplement**](05_Monitoring/) *(optional)* | Detecting **change**, for restoration, management and soil-health baselines. |
 
 ### Useful links
 
@@ -32,21 +32,31 @@ plant biomass, and soil carbon.*
 
 ---
 
-## Objectives
+## Overall Objectives
 
 1. **Learn about grassland carbon**, above and below ground.
-2. **Learn field methods for measuring it** — soil coring, separating roots from soil, and
-   clip-and-weigh at peak season.
-3. **Turn measurements into outputs** — carbon stocks, and baselines you can re-measure against.
+2. **Learn field methods for measuring it**, including soil coring, separating roots from soil, and
+   clip-and-weigh methods
+3. **Turn measurements into outputs**, carbon stocks, and baselines you can compare against
 
 ---
 
 ## How to think about this workshop
 
 This workshop is both for learning about, and implementing, a carbon measurement project. To
-implement a project it is sometimes useful to begin at the end product you are looking for and
-work backwards from there — so here we **start from the data sheet we will fill in and work
-backwards.**
+implement a project it is sometimes useful to begin at the end and
+work backwards from there. In this spirit, we will **start from the data sheet**
+
+(Insert link the data sheet)
+
+data sheet screenshot page 2 - Soil data - <img width="638" height="212" alt="image" src="https://github.com/user-attachments/assets/beb531e4-aed0-430c-97e9-bc657db6c39d" />
+
+and page 4 Vegetation data - <img width="586" height="250" alt="image" src="https://github.com/user-attachments/assets/dc1908fc-4c81-4aa5-aad9-300bda336db8" />
+
+
+
+
+## A Brief Overview
 
 [**Section 1 — Background**](01_Background/) is *why this matters*.
 [**Section 2 — Project Planning**](02_Project_Planning/) is *making the data useful*.
@@ -57,6 +67,8 @@ carbon estimates.
 over time.
 
 ---
+
+(Make this a drop down link - "The people we send this to live and work in grasslands, they dont need a full list - Just keep this as a fun fact and focus on this map showing the distribution of grasslands and the loss of this ecosystem - along with a bit of info in what has been lost with it (Bird population, prarie species, essential services, etc)
 
 ## Some of Canada's grasslands
 
@@ -81,18 +93,14 @@ These are **some** of the types you will encounter; the list is not exhaustive.
 | 🌊 **Garry Oak meadows** | Vancouver Island and the Gulf Islands |
 | 🪨 **Alvar** | Thin soils over limestone pavement — Ontario, Manitoulin, Quebec |
 
-> 🟠 **[CHECK THIS LIST]** against
-> [Canada's Grasslands — Explore](https://canadasgrasslands.ca/explore-grasslands) and the
-> [Canadian Forage & Grassland Association grassland inventory](https://www.canadianfga.ca/en/conservation/grassland-inventory/),
-> and add or rename to match the terms your partners use.
+
 
 </td>
 <td width="44%">
 
-> 🗺 **[MAP NEEDED]** — a map of Canadian (or North American) grasslands, to place a site before
-> reading further. Candidate sources: the two links opposite, the *Prairie Ecozone* map from the
-> [National Ecological Framework for Canada](https://sis.agr.gc.ca/cansis/nsdb/ecostrat/), or the
-> Grassland Ecosystem Inventory layers. **Check the licence before embedding.**
+(REmove this and just have a map on top and below it a table of "Common Grassland ecosystem types across Canada" edit the list to reflect this"
+
+
 
 </td>
 </tr>
@@ -109,23 +117,28 @@ These are **some** of the types you will encounter; the list is not exhaustive.
 
 ---
 
+
+(Change this section to TLDR - The workshop in a nutshell)
 ## Why this workshop is mostly about what you cannot see
+
+
 
 <table>
 <tr>
 <td width="55%">
 
-<img width="1000" alt="Soil carbon formation and the below-ground share of grassland carbon" src="https://github.com/user-attachments/assets/ef253a75-2323-4505-b272-72ed680fcdc8" />
+
+(For Claude - Swap this image out for the third one - <img width="960" alt="Above-ground grassland vegetation through a growing season" src="https://github.com/user-attachments/assets/88da08ec-3e1d-44b8-a0d0-918ce14fca57" />
+
 
 </td>
 <td width="45%">
 
-Walk into a grassland and essentially none of the carbon is visible.
+Organic carbon cycles through grasslands starting with photosynthesis, then the deposition of these plant remains, and the decomposition of plant materials. Whatever is left over gets "Sequestered into the soils"
 
 **The soil holds the majority of the carbon**, and it builds slowly, over long periods.
 
-See [*Monitoring soil carbon formation during afforestation*](https://cid-inc.com/blog/monitoring-soil-carbon-formation-during-afforestation/)
-for an introduction to how that carbon gets there.
+For more info , see [*Monitoring soil carbon formation during afforestation*](https://cid-inc.com/blog/monitoring-soil-carbon-formation-during-afforestation/)
 
 </td>
 </tr>
@@ -138,19 +151,16 @@ for an introduction to how that carbon gets there.
 <td width="45%">
 
 **Of the living biomass, most is in the roots.** Grassland root biomass commonly exceeds shoot
-biomass several times over — the reverse of a forest, where roots are a fraction of above-ground
-mass.
+biomass several times over, especially in Native grasses. The roots play a crucial role in soil health, and landscape stability - https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecs2.2582 
 
-> 📊 **[REFERENCE NEEDED]** — a citable figure and range for the root:shoot relationship in
-> Canadian grassland, to replace "several times over" with a number. See [`TODO.md`](TODO.md).
+
 
 </td>
 </tr>
 <tr>
 <td width="55%">
 
-<img width="960" alt="Above-ground grassland vegetation through a growing season" src="https://github.com/user-attachments/assets/88da08ec-3e1d-44b8-a0d0-918ce14fca57" />
-
+** Now add in the first image here - 
 </td>
 <td width="45%">
 
@@ -158,7 +168,7 @@ mass.
 on a seasonal cycle.
 
 So a grassland carbon project should decide **which pools it cares about**, because that governs
-how different stewardship techniques will show up in the numbers.
+how different stewardship techniques will show up in the numbers. Here we see a range of different native grasses and the vast underground networks we dont always see on the surface
 
 </td>
 </tr>
@@ -166,11 +176,15 @@ how different stewardship techniques will show up in the numbers.
 
 ---
 
-## Two ways to get plant biomass — and one of them is built from the other
+## Measuring Carbon stocks in Grasslands - Part 1: Biomass
 
 <table>
 <tr>
 <td width="55%">
+
+(for Claude - Split this into a 2 by 2 table - On the top left: Method 1 - Direct measurment - Top right - image of the clip and weight method
+
+Botton left - Allometric relationships - Bottom right - Diagram showing the allometric relationship 
 
 **1 · Direct measurement.** Clip the quadrat, wash the roots out of the core, weigh what you
 have. This is what [Part 3](03_Field_Methods/) covers, and it is what the calculator's
@@ -179,7 +193,7 @@ have. This is what [Part 3](03_Field_Methods/) covers, and it is what the calcul
 **2 · Allometric relationships.** A measurement you can take easily stands in for one you cannot:
 shrub crown volume for shrub biomass, tree diameter for tree biomass, shoot mass for root mass.
 
-**These are not alternatives.** An allometric relationship is *built from* direct measurement —
+An allometric relationship is *built from* direct measurement —
 someone measured both quantities, on enough plants, to establish the relationship in the first
 place. Root:shoot relationships in particular are often developed on a **regional or study-area
 basis**, where the ratio is compared across sites and against plant relative abundance, then
@@ -187,6 +201,8 @@ modelled out.
 
 </td>
 <td width="45%">
+
+(For Claude - Add this as text under the table )
 
 **Why it is worth collecting data towards this**
 
@@ -209,7 +225,7 @@ possible at all.
 
 ---
 
-## Sample the full soil profile
+## Measuring Carbon stocks in Grasslands - Part 2: Soil Organic Carbon
 
 <table>
 <tr>
@@ -233,32 +249,14 @@ are looking for is frequently below 30 cm.
 </td>
 <td width="45%">
 
-**So what are 30 cm and 1 m for?**
-
-They are **reporting conventions**, not the measurement. IPCC defaults and most of the published
-grassland literature report to 30 cm or 1 m, so those depths are how you compare your site with
-someone else's, or with itself across spatial scales. Report them **alongside** the full profile,
-not instead of it.
-
-> [!IMPORTANT]
-> **Roots the same way.** Native grassland roots reach metres down. A root total from a core that
-> stopped at 30 cm is a minimum, not a total, and the calculator flags any root total whose
-> deepest increment is simply the bottom of the core.
-
-**The established fix for the bulk-density problem is *equivalent soil mass* (ESM)** — compare a
-fixed *mass* of soil rather than a fixed *depth*, which removes the compaction artefact by
-construction. [Part 5, Step 4](05_Monitoring/#step-4--equivalent-soil-mass) works it through on a
-real profile from this workshop, and it is **why cores must go deeper than your reporting depth**:
-the reference mass usually sits below 30 cm, so a core that stopped at 30 cm cannot be corrected
-at all.
-
-> 🟠 **[TO ADD — Cathal]** — full-profile modelling over variable soil depth.
+Rmove this and just show an image of Soil carbon sampling (placeholder for now)
 
 </td>
 </tr>
 </table>
 
 ---
+
 
 ## The data sheet we're building toward
 
@@ -268,6 +266,8 @@ Everything in Parts 3 and 4 feeds one workbook:
 <table>
 <tr>
 <td width="52%">
+
+the screenshots for this are added above
 
 > 📸 **[SCREENSHOT NEEDED]** — the calculator open, showing the tab strip and a few filled rows,
 > so a reader can see typed cells against calculated ones before they open it.
@@ -287,11 +287,6 @@ Everything in Parts 3 and 4 feeds one workbook:
 </td>
 </tr>
 </table>
-
-> 🟠 **The `Fill Me In` tab is how this workshop asks you for things.** Orange cells are values
-> only you can provide — a regional prior, your lab's bulk-density basis, the sieve mesh you used.
-> Every one has a working default so the workbook computes from the moment you open it, and a
-> flag that stays lit until you replace it.
 
 ---
 
