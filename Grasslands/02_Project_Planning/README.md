@@ -2,418 +2,556 @@
   <img src="images/banner_planning.svg" alt="Project Planning — Grassland Carbon Workshop banner" width="100%">
 </p>
 
+> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/banner_planning.svg` using the shared workshop banner dimensions, typography, and colour treatment, with a grassland or savannah scene.
+
 ---
 
 [← 1 — Background](../01_Background/) · [Back to main guide](../README.md) · Next: [3 — Field Methods →](../03_Field_Methods/)
 
 ---
 
-
-For Claude - Here is a list of ppt slides and text description to use -
-
-
-
 # Part 2 — Project Planning
 
 ## From a carbon question to a sampling design
 
-**Quick links:** [Sampling Design Guide](../../_Shared/Sampling-Design-Eng-2026.pdf) · [Vegetation (Non-Tree)](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Non-Peat Soils](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Sampling design tools](Sampling%20Design%20Tools/) · [Appendix A](#appendix-a--a-brief-lesson-in-sampling-logic)
+**Quick links:** [Sampling Design Guide](../../_Shared/Sampling-Design-Eng-2026.pdf) · [Grassland Sample Allocation Calculator](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx) · [Grassland Sampling Planner](Sampling%20Design%20Tools/) · [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Non-Peat Soils Field Guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Appendix A — sampling logic](#appendix-a--a-brief-lesson-in-sampling-logic)
+
+> 🧩 **[PLACEHOLDER — LINKS]** Replace the calculator and planner links when those files are complete. Add a Google Sheets copy beside the downloadable workbook if one will be maintained.
 
 ---
 
-## There is only one question on this page
+**Before collecting soil cores**, four questions are worth addressing:
 
-Everything in this section answers one thing:
+1. **What do I want to know?** Am I establishing a baseline, comparing grazing or restoration treatments, tracking recovery, or doing some combination of these?
+2. **Where does that question apply?** The whole property, one pasture, a restoration unit, or the area burned in a particular year?
+3. **How much data do I need?** How precise does the result need to be, how confident do I need to be, and how many samples can the team process?
+4. **Where should the samples be collected?** Which locations will represent the study area without introducing avoidable bias?
 
-> **How many cores do we need before the number we report is good enough to act on?**
+Answering these questions is what a **sampling design** aims to achieve. It turns a carbon question into a field plan: a boundary, a set of strata, a list of carbon pools, a number of samples, and a set of sampling coordinates.
 
-"Good enough" is not a feeling — it is a **threshold you set in advance**: how close to the truth
-the estimate has to be, and how sure you need to be that it is that close. Fix those two numbers
-and the arithmetic returns a sample size. That is the whole of [Step 4](#step-4--decide-how-many-cores),
-and [Appendix A](#appendix-a--a-brief-lesson-in-sampling-logic) shows the working.
-
-**Almost every question a grassland project asks is downstream of that one.** Once you can
-estimate a carbon stock to a defined precision, you can:
-
-| Because you can do this… | …you can answer this |
-|---|---|
-| Estimate the stock of **one area** to a stated precision | *How much carbon is here, and how confident are we?* |
-| Estimate it separately for **two or more areas** | *Does the stewardship area differ from the one next door?* |
-| Do the same across **restoration ages** | *Is carbon accumulating as the restoration matures?* |
-| Do the same at the **same place, twice** | *Is it changing over time?* — [Part 5](../05_Monitoring/) |
-
-The comparisons are not a different method. They are what you get **as a consequence** of having
-sized the campaign properly in the first place. A design that cannot pin down one number cannot
-tell two numbers apart either — comparing areas needs *more* precision than describing one, not
-less.
-
-**So the four questions to answer before establishing any plots are:**
-
-1. **What do I want to know?** A baseline stock, a comparison between grazing regimes, whether a
-   restoration is working?
-2. **Where does that question apply?** The whole property, one pasture, the burned unit?
-3. **What precision do I need, and how many cores does that take?** And can we process them?
-4. **Where should the cores go?**
-
-This section covers the five steps of a sampling design.
+This section covers five steps.
 
 | # | Step | Answers |
-|---|------|---------|
-| 1 | **[Define the study area](#step-1--define-your-study-area)** | *Where am I working?* |
-| 2 | **[Divide it into meaningfully distinct areas](#step-2--divide-the-site-into-meaningfully-distinct-areas)** | *Is this one place, or several?* |
-| 3 | **[Choose the pools](#step-3--choose-which-pools-to-measure)** | *Soil, roots, shoots, shrubs, trees — which?* |
-| 4 | **[Decide how many cores](#step-4--decide-how-many-cores)** | *How many to reach the threshold — and why do roots need more?* |
-| 5 | **[Decide where they go](#step-5--decide-where-the-cores-go)** | *Exactly where, and how is each plot laid out?* |
-
-### Three differences from the other two workshops
-
-If you have worked through [Forests](../../Forests/02_Project_Planning/) or
-[Wetlands](../../Wetlands/02_Project_Planning/), most of this will be familiar. Three things
-genuinely change.
-
-1. **You divide the site on management and history, not on vegetation.** In a forest you
-   stratify on stand type; in a peatland on wetland type and landscape position. In a grassland
-   the dominant variable is **what people have done to it** — restoration age, cultivation
-   history, grazing, fire, seeding.
-2. **Roots and soil need different sample sizes**, and the gap is large.
-   [Step 4](#step-4--decide-how-many-cores) is mostly about that.
-3. **The cheap-prior trick from Wetlands does not transfer.** There, peat depth predicted carbon
-   variability well enough to size a campaign from a probe survey. Grassland soil depth is far
-   less variable, so it carries much less information about carbon. Your prior has to come from a
-   pilot or from published values.
-
-> [!WARNING]
-> **The sampling tool in this folder is a placeholder.** No grassland-specific Earth Engine tool
-> exists yet. The [Forests tool](Sampling%20Design%20Tools/) is copied in because its statistics
-> core is ecosystem-free, but **its priors are forest values and its plot size is 400 m²**, and it
-> has **no concept of sizing two pools separately**. Read
-> [`Sampling Design Tools/README.md`](Sampling%20Design%20Tools/) before opening it.
->
-> You do not need the tool. Everything it computes is set out longhand in
-> [Appendix A](#appendix-a--a-brief-lesson-in-sampling-logic).
-
----
-
-## Step 1 — Define your study area
-
-Draw the boundary your estimate will apply to, and get its **area in m²**. Every scaling step in
-[Part 4](../04_Data_Interpretation/) multiplies by this number.
-
-Three grassland-specific cautions:
-
-- **Management boundaries are usually the real boundaries.** A fence line is often a sharper
-  ecological edge than anything in the soil. If your study area crosses one, it is at least two
-  strata — see [Step 2](#step-2--divide-the-site-into-meaningfully-distinct-areas).
-- **Exclude what is not grassland.** Wetland inclusions, rock outcrop, roads, dugouts, shelterbelts.
-  Averaging them in silently is a real error, and in interior BC and parkland these inclusions can
-  be a substantial fraction of a quarter section.
-- **Say whether you mean native or seeded.** "Grassland" covers intact native prairie and a
-  five-year-old tame pasture, and they differ in exactly the thing this workshop measures — rooting
-  depth. Write down which you mean and how you told them apart.
-
-> [!TIP]
-> **✅ Before moving on:** a boundary you can defend, the **rule** you used to draw it, its area in
-> m², and internal exclusions removed from that area.
-
----
-
-## Step 2 — Divide the site into meaningfully distinct areas
-
-*Is this one place, or several?*
-
-**Stratification** is a technical word for something plain: **dividing the study area into parts
-that are meaningfully different from each other, and sampling each part separately.** Each part is
-a **stratum**.
-
-It is the single highest-return decision on this page, for two reasons.
-
-**It buys precision for free.** Cores scattered across a site that is really two sites carry all
-the variation *between* those two places into your interval. Split them first and each estimate
-only has to cope with the variation *within* one place, which is smaller — so the same number of
-cores buys a tighter answer. Bilotto et al. (2024) put a number on this for pasture soil carbon:
-a stratified design needed fewer samples than a random one to detect the same 5% difference
-([`_references/`](../_references/) — and read the note there on what does and does not transfer
-from New Zealand hill pasture).
-
-**It is what makes comparison possible at all.** If you want to say *"the restored area holds more
-carbon than the unrestored one,"* the two areas have to be separate strata **before** you go to the
-field. You cannot recover the comparison afterwards from cores that were scattered across both.
-
-### What counts as meaningfully distinct
-
-Anything that changes how much carbon the ground holds, **and that you can draw on a map**.
-
-| Divide by | Typical strata | Why it works |
 |---|---|---|
-| **Restoration age** | Restored 20 years ago · 10 years ago · within the last year or two · never restored | A chronosequence: each age class is its own population, and comparing them is how you see whether carbon is accumulating. **The clearest case for stratifying** |
-| **Land-use history** | Never cultivated · cultivated and reseeded · long-term tame pasture | **The largest single carbon difference you will find.** Cultivation resets the deep root system |
-| **Grazing regime** | Ungrazed · season-long · rotational · heavily stocked | Changes root allocation, surface cover and compaction |
-| **Stewardship or management unit** | Whatever your programme actually manages as a unit | If a boundary means something to the people running the place, it usually means something to the soil |
-| **Fire history** | Years since burn; burned vs unburned units | Essential in savannah and parkland. A recently burned unit is a different population |
-| **Seeded vs native** | Native sward · tame/introduced species | Rooting depth differs, so the depth distribution of carbon differs |
-| **Soil type / texture** | From soil survey polygons | Sets the carbon-holding capacity and the coarse-fragment problem |
-| **Slope position** | Upper · mid · lower slope · depression | Water and eroded material both accumulate downslope. Bilotto et al. found slope class worth stratifying on in hill country |
+| 1 | **[Define the study area](#step-1--define-your-study-area)** | *Where, roughly, am I working?* |
+| 2 | **[Stratify the site](#step-2--stratify-your-site)** | *Does it contain distinct management or ecological areas?* |
+| 3 | **[Choose what to measure](#step-3--choose-what-to-measure)** | *Soil, roots, shoots, shrubs, or trees?* |
+| 4 | **[Determine how many samples](#step-4--decide-how-many-samples)** | *How many samples meet each pool's precision target?* |
+| 5 | **[Determine where they go](#step-5--decide-where-the-samples-go)** | *Where are plots placed, and how is each plot laid out?* |
 
-> [!TIP]
-> **The restoration chronosequence is the pattern most projects want.** Three or four age classes,
-> each its own stratum, each with enough cores to stand on its own — then the comparison between
-> them falls out of the same fieldwork that produced the site total. Note that it substitutes
-> *space for time*: you are comparing different places of different ages, not one place watched as
-> it aged, so the age classes must be alike in everything but age. Where they are not, say so.
-> Watching one place age is [Part 5](../05_Monitoring/).
+> The methods here follow WWF-Canada's [Sampling Design Guide](../../_Shared/Sampling-Design-Eng-2026.pdf), [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf), and [Non-Peat Soils Field Guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf). Ecosystem-specific defaults and examples should be confirmed against the sources listed in the project bibliography.
+
+### What changes in grasslands
+
+If you have worked through another workshop in this series, most of the planning process will be familiar. Three decisions need special attention here.
+
+1. **Management and land-use history are often among the strongest practical variables to map.** Restoration age, cultivation, grazing, fire, and seeding may define more useful strata than vegetation appearance alone.
+2. **Soil and roots commonly require different sample sizes at the same relative precision.** Root biomass is often more spatially variable, and root washing can dominate laboratory time.
+3. **A variability prior should come from a pilot or defensible comparable data.** A coarse modelled map may be useful for scoping, but its pixel-to-pixel variation should not be treated as the variation a field crew will encounter between cores.
+
+**Two companion tools** appear throughout:
+
+<table>
+<tr>
+<td width="50%">
+
+**🗺 [Grassland Sampling Planner](Sampling%20Design%20Tools/)**  A spatial tool for drawing a boundary, adding management strata, allocating samples, and exporting coordinates.
+
+*Used in Steps 1, 2, and 5.*
+
+> 🧩 **[PLACEHOLDER — TOOL]** Until a grassland planner is built, include a documented manual GIS workflow and a downloadable boundary/strata template. Do not present the copied Forests tool as field-ready: its priors, plot footprint, and single-pool assumptions do not match this workshop.
+
+</td>
+<td width="50%">
+
+**📄 [Grassland Sample Allocation Calculator](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx)**  A spreadsheet that sizes soil and root sampling separately and records the assumptions used.
+
+*Used in Step 4.*
+
+> 🧩 **[PLACEHOLDER — FILE]** Create the workbook and, if practical, a Google Sheets copy. It should accept separate variability and precision targets for soil and roots and report both the planning estimate and the small-sample adjustment.
+
+</td>
+</tr>
+</table>
+
+If you want to know how the calculator returns its values, [Appendix A](#appendix-a--a-brief-lesson-in-sampling-logic) explains the sampling logic and how to check achieved precision after fieldwork.
+
+---
+
+## Background: What sampling is, and why it works
+
+Measuring every square metre of an ecosystem is rarely feasible. Instead, we measure a **small portion** and use it to estimate the whole. Because an estimate built from a portion will not be exactly right every time, we also report its uncertainty. This is the basis of **probability-based sampling**.
+
+<table>
+<tr>
+<td width="60%">
+
+> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/sampling_explainer.svg`: a grassland carbon surface with a small set of probability-based sample locations and a clear connection between sampled points and the site-wide estimate.
+
+</td>
+<td width="40%">
+
+**Sampling** means taking a small portion of something to make an informed estimate of the whole.
+
+A **sampling design** is the framework for deciding what and where to sample, then combining those measurements into an estimate for the full study area.
+
+</td>
+</tr>
+</table>
+
+The more independent, representative samples you collect, the more precise the estimate will generally become. A carbon result is usually reported in three parts:
+
+| Component | Symbol | What it tells you |
+|---|---|---|
+| **Estimate** | $\bar{x}$ | The average carbon value across sampled plots. |
+| **Confidence level** | $1-\alpha$ | How often intervals built by this procedure would contain the true value over repeated sampling. |
+| **Relative margin of error** | $E$ | The distance from the estimate to the edge of the interval, expressed relative to the mean—for example, ±20%. |
+
+Put together, a result might read: *“Mean soil carbon = 100 ±20 units at 90% confidence.”*
+
+### Seeing it on a map
+
+<table>
+<tr>
+<td width="60%">
+
+> 🧩 **[PLACEHOLDER — INTERACTIVE]** Build `Sampling Design Tools/index.html`: a sample-size explorer that reveals cores on a simulated grassland map while showing the running mean and confidence interval. Include soil, roots, and compare-both modes.
+
+> 🧩 **[PLACEHOLDER — STATIC FALLBACK]** Add `images/sample_size_explorer_static.svg` showing the same idea in three frames: few samples, more samples, and a stabilized estimate.
+
+</td>
+<td width="40%">
+
+Each sample reveals one small part of a simulated carbon surface. With only a few samples, the estimate may be far from the simulated true mean and its interval will be wide.
+
+As samples accumulate, the estimate usually stabilizes and the interval narrows. Switching from soil to roots should show why a more variable pool needs more samples to achieve the same relative precision.
+
+</td>
+</tr>
+</table>
+
+> **Visualization note:** Use an interactive HTML tool or a short MP4/WebM with controls rather than an autoplay GIF as the primary explanation. Provide a poster image, text explanation, and static fallback. The lesson should still work if motion is disabled.
+
+### The takeaway
+
+- Sampling estimates what is impractical to measure completely.
+- A sampling design lets you state how uncertain that estimate is.
+- The calculation also runs **backwards**: set the precision and confidence you need, then estimate how many samples are required. That is Step 4.
+- Comparisons between treatments, restoration ages, or years need each group to be represented deliberately in the design.
+
+---
+
+# Implementing a sampling design
 
 <details>
-<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>dividing up a Black Oak savannah</i></summary>
+<summary><b>📊 Meet the team at the Black Oak savannah</b> &nbsp;·&nbsp; <i>the worked example, in brief</i></summary>
 
 <br>
 
-> ✍️ **[TO ADD — Cathal]** — the oak savannah example.
->
-> What this block should carry, to do the same job as the worked examples in the other two
-> workshops: **the question** the project was asked; **how the site was divided** and on what
-> (restoration age, burn history, canopy, soil); **the area of each part**; **how many cores** each
-> got and what precision that was aiming at; and **what the division turned out to buy** — the
-> within-stratum spread against the pooled spread.
->
-> Written as inspiration rather than reproduced, since the underlying project is private.
+This workshop follows an anonymized or hypothetical team planning a grassland carbon survey in a Black Oak savannah restoration landscape.
+
+They want to answer two questions:
+
+**A)** What is the current soil carbon stock across the project area?
+
+**B)** Do restoration age and fire history correspond to differences that should be monitored over time?
+
+They expect to measure soil, roots, ground vegetation, shrubs, and scattered trees. Because root biomass is more variable and expensive to process, they will set separate soil and root precision targets. They also want the option to revisit the site, so permanent-plot requirements must be decided before fieldwork.
+
+> 🧩 **[PLACEHOLDER — WORKED EXAMPLE]** Create `../Worked_Example/02_Project_Planning.md`. If the underlying project is private, use explicitly illustrative areas, variability values, and sample counts. Do not publish private site coordinates.
 
 </details>
 
-> [!NOTE]
-> **Stratify on something you can map, because you need its area to weight it.** "The part that
-> looks better" is not a stratum. "North of the cross-fence, rotationally grazed since 2015" is —
-> and its area comes off the same map you drew in Step 1.
+## Step 1 — Define your study area
+
+*Where, roughly, am I working?*
+
+Every carbon value derived from a core is first expressed per unit area. The boundary defined here is what turns a carbon **density** into a carbon **total**. It also defines the area to which the estimate applies.
+
+<table>
+<tr>
+<td width="45%">
+
+> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/step1_grassland_boundary.svg`: an aerial-style diagram showing the project boundary, excluded wetland, road, rock outcrop, and shelterbelt polygons, fence lines, and total area in m².
+
+</td>
+<td width="55%">
+
+The boundary may be a polygon drawn on a map or an existing management unit. What matters is that the inclusion rule is explicit and the area can be calculated.
+
+Record the area in **m²** for the planning tools and in **hectares** for reporting.
+
+</td>
+</tr>
+</table>
+
+Three grassland-specific cautions:
+
+- **Management boundaries may be ecological boundaries.** A fence can separate grazing histories, seeding, burns, or restoration treatments. If crossing it would mix meaningfully different populations, treat the areas separately in Step 2.
+- **Exclude what is outside the target ecosystem.** Wetland inclusions, roads, dugouts, rock outcrops, and shelterbelts should not be silently averaged into a grassland estimate.
+- **Define native and seeded grassland explicitly.** Record the rule or evidence used to distinguish them rather than relying on appearance alone.
+
+<details>
+<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>how the Black Oak team defined its area</i></summary>
+
+<br>
+
+> 🧩 **[PLACEHOLDER — EXAMPLE DATA]** Add an illustrative site area, the boundary rule, exclusions, and whether each included unit is native, seeded, or restored. Link to the full worked example.
+
+</details>
+
+### 🛠 Your turn
+
+1. Draw or import the project boundary.
+2. Remove areas that are not part of the target ecosystem.
+3. Record the total area in m² and hectares.
+4. Write one sentence stating the inclusion rule.
+5. Export the boundary as GeoJSON or KML and save a static map for the field package.
+
+> 🧩 **[PLACEHOLDER — TEMPLATE]** Add `templates/grassland-boundary-template.geojson` and a short manual workflow for QGIS, ArcGIS, Google Earth Engine, or the GIS used by the project.
+
+> [!TIP]
+> **✅ Before moving on, you should have:**
+> - A boundary polygon or clearly sketched area
+> - Its total area in m² and hectares
+> - A written inclusion/exclusion rule
+> - Internal exclusions removed from the calculated area
+
+---
+
+## Step 2 — Stratify your site
+
+*Does the site contain distinct management or ecological areas?*
+
+**Stratification** divides the study area into meaningful sub-areas, called **strata**, so that samples from one area are used to describe that area. A uniform site may not need stratification. If the project intends to compare management units, restoration ages, or burn histories, those groups must exist in the design before fieldwork.
+
+<table>
+<tr>
+<td width="45%">
+
+> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/step2_stratification.svg`: the Step 1 boundary split into restoration-age and burn-history polygons, each labelled with its area and a clear legend.
+
+</td>
+<td width="55%">
+
+Stratification can reduce within-group variation and makes planned comparisons possible. A useful stratum is linked to the project question, can be mapped, and has an area that can be used when combining results.
+
+Do not create strata simply because a map layer is available. Each one adds field and analytical requirements.
+
+</td>
+</tr>
+</table>
+
+### What counts as meaningfully distinct?
+
+| Divide by | Possible strata | Why it may matter |
+|---|---|---|
+| **Restoration age** | Recently restored · 10 years · 20 years · unrestored | Creates an explicitly qualified chronosequence comparison. |
+| **Land-use history** | Never cultivated · cultivated and reseeded · long-term pasture | Cultivation and reseeding may change roots, soil structure, and carbon distribution. |
+| **Grazing regime** | Ungrazed · season-long · rotational · heavily stocked | May affect plant allocation, surface cover, and compaction. |
+| **Management unit** | Pasture, stewardship unit, treatment block | Aligns estimates with decisions the project can act on. |
+| **Fire history** | Recently burned · years since burn · long unburned | Important where fire structures savannah or parkland vegetation. |
+| **Seeded/native status** | Native sward · tame or introduced species | May correspond to different root distributions and management histories. |
+| **Soil or texture class** | Mapped soil polygons | May influence carbon storage and coarse-fragment corrections. |
+| **Slope position** | Upper · midslope · lower · depression | May correspond to moisture and material redistribution. |
+
+> 📚 **[CITATIONS NEEDED]** Add full references supporting the expected effects of cultivation, grazing, fire, species composition, soil texture, and slope position. Treat the table as a set of candidate variables, not universal rules.
+
+> [!TIP]
+> A restoration chronosequence substitutes **space for time**. Age classes must be comparable in other important respects, and remaining differences should be documented. Repeated measurement of the same place is covered in [Part 5 — Monitoring](../05_Monitoring/).
 
 ### The conversation is part of the method
 
-Management history is rarely in a dataset. It is in the head of the person who runs the place.
+Management history is often held by the people who work on the land rather than in a spatial dataset. Budget time to record grazing regime and stocking, cultivation and seeding, burn years, restoration treatments, droughts, wildfire, and unusual disturbances.
 
-**Budget time for that conversation and write down what you learn** — grazing regime and stocking,
-burn years, cultivation history and when it stopped, seeding, and anything unusual (a drought
-year, a wildfire, a pipeline right-of-way). A stock measurement with no management context cannot
-distinguish a site that is gaining carbon from one that is losing it.
+> 🧩 **[PLACEHOLDER — TOOL/FIELD]** Add `Management`, `Grazing regime`, `Years since fire`, `Cultivation history`, `Restoration year`, and `Native or seeded` fields to the Plot & Site Log. These fields are descriptive until a documented analysis explicitly uses them.
 
-> 🟠 **[FILL ME IN]** — the calculator's `1. Plot & Site Log` has `Management`, `Grazing regime`,
-> `Years since fire` and `Native or seeded` columns for exactly this. They drive nothing
-> automatically; they are there so that when your interval comes out wide, you can post-stratify.
+### Savannah and parkland: fire may define a stratum
 
-### Savannah and parkland: fire is a stratum, not context
+Where fire is part of the management or restoration question, time since burn should be considered during stratification rather than added as an afterthought. Recently burned and long-unburned units may differ in standing biomass, litter, shrub encroachment, and potentially surface soil properties.
 
-In a fire-maintained system, **time since burn is a first-class stratification variable.** A unit
-burned last year and one unburned for fifteen differ in standing biomass, in litter, in shrub
-encroachment, and possibly in surface soil carbon. Pooling them produces a mean that describes
-neither.
+> 📚 **[CITATION NEEDED]** Add ecosystem-appropriate evidence before making a quantitative claim about the direction or size of fire effects on soil carbon.
 
-If your restoration or fire-management programme is the *reason* for the survey, this is not
-optional — it is the design.
+<details>
+<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>how the Black Oak team divided the site</i></summary>
+
+<br>
+
+> 🧩 **[PLACEHOLDER — EXAMPLE DATA]** For each stratum, add its mapped rule, area in m², restoration and burn history, expected source of variation, and whether it is a reporting unit, comparison unit, or both.
+
+</details>
+
+### 🛠 Your turn
+
+1. Start with the boundary from Step 1.
+2. List only the differences that could answer the project question or materially affect carbon estimates.
+3. Draw those strata and calculate the area of each.
+4. Name each stratum with an objective rule—for example, “north of the cross-fence, rotationally grazed since 2015.”
+5. Record management history and note any important differences that cannot be mapped.
+
+> 🧩 **[PLACEHOLDER — TOOL]** Add strata drawing and area reporting to the Grassland Sampling Planner. Until then, provide a manual GIS workflow.
 
 > [!TIP]
-> **✅ Before moving on:** strata **drawn and named**, the **area of each in m²**, and the
-> management history behind each one written down.
+> **✅ Before moving on, you should have:**
+> - One defensible study area or a set of clearly mapped strata
+> - A name, rule, and area in m² for every stratum
+> - The management history behind each stratum
+> - A note explaining which comparisons the strata are intended to support
 
 ---
 
-## Step 3 — Choose which pools to measure
+## Step 3 — Choose what to measure
 
-| Pool | Share of the total | Cost | Recommendation |
-|---|---|---|---|
-| **Soil** | The overwhelming majority | Coring + lab | ✅ **Always.** This is the project |
-| **Roots** | Small share of carbon, **most of the living biomass** | Coring is shared with soil; **washing is the cost** | ✅ **Yes** — see the budget discussion in [Step 4](#step-4--decide-how-many-cores) |
-| **Shoots** (clip-and-weigh) | Smallest | Cheap in the field, cheap in the lab | ✅ Usually. But it is a **standing crop**, not a stock |
-| **Shrubs** (medium plot) | Small, larger in parkland and encroaching sites | Non-destructive allometrics | ⬜ Where present |
-| **Trees** | Real in savannah and parkland | One plot visit | ✅ **Any tree over 2 m** — see below |
-| **Litter** | Modest | Separate protocol | ❌ Not covered — a genuine gap, shared with the other two workshops |
+*Soil, roots, shoots, shrubs, or trees?*
+
+Carbon is stored in several pools. A **stock** is the amount stored at a defined place and time. **Living biomass** is the mass of living plant material. A clipped above-ground sample is a **standing crop** measured at that moment, not the total long-term carbon stock of the site.
+
+<table>
+<tr>
+<td width="45%">
+
+> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/step3_carbon_pools.svg`: a nested grassland plot showing a tree, shrubs and tall vegetation, clipped quadrat, soil/root core, and labelled depth increments.
+
+</td>
+<td width="55%">
+
+Soil is expected to contain the largest long-lived carbon pool in most grassland projects, but roots, shoots, shrubs, and scattered trees may be required by the project question.
+
+Choose each pool deliberately. Every additional pool adds field, laboratory, and analytical work.
+
+</td>
+</tr>
+</table>
+
+| Pool | Field/lab implication | Planning recommendation |
+|---|---|---|
+| **Soil** | Coring, bulk density, depth increments, laboratory carbon analysis | ✅ Include in a soil-carbon project. |
+| **Roots** | Collected with soil cores; washing and processing can be intensive | ✅ Include when below-ground living biomass is part of the question; set its own precision target. |
+| **Shoots** | Clip-and-weigh or other vegetation method | ✅ Often useful, but report it as a time-specific standing crop. |
+| **Shrubs** | Medium-plot measurements and appropriate allometry | ⬜ Include where present and relevant. |
+| **Trees** | Tree plot, species, DBH, height, and allometric estimates | ✅ Include any tree taller than 2 m that falls within the agreed protocol. |
+| **Litter** | Requires a separate collection and processing protocol | ⬜ Outside the current method unless a documented protocol is added. |
+
+> 📚 **[CITATIONS NEEDED]** Support the relative importance and expected variability of the pools with grassland-appropriate sources. Avoid presenting qualitative rankings as universal across all grasslands.
 
 ### Are there trees?
 
-**Any tree over 2 m tall** is measured with the
-[Forests large plot and calculator](../../Forests/03_Field_Methods/3A_Trees.md) — species, DBH,
-height, and the same allometric equations — and carried across into this workshop's
-`4. Vegetation Data` tab.
+Measure any tree taller than **2 m** using the [Forests large-plot method](../../Forests/03_Field_Methods/3A_Trees.md), then carry the result into this workshop's vegetation data workflow. The medium plot covers woody stems from **0.5–2 m**, so the 2 m handoff prevents gaps and double counting.
 
-There is no cover threshold to decide. The **medium plot** here covers woody stems **0.5–2 m**, so
-2 m is a clean handoff: nothing falls between the two protocols, and nothing is counted twice. In
-a savannah or parkland with scattered open-grown trees, that means running a 400 m² large plot
-alongside the rest of the nested design — see [5B](#5b--how-each-plot-is-laid-out).
+There is no separate tree-cover threshold in this draft method. The decision is whether trees taller than 2 m are present and in scope.
 
 ### Decide your sampling depth now, not later
 
-**The default is the full profile: surface to parent material, or to refusal.** Not a fixed 30 cm.
-
-The reasoning is in [Part 1](../README.md#measuring-carbon-stocks-in-grasslands--part-2-soil-organic-carbon), and it matters most for
-exactly the projects this section is aimed at. A fixed depth does not hold a fixed *mass* of soil.
-Compaction — from grazing, from machinery, from a disturbance you are trying to detect — raises
-bulk density in the top 30 cm, which raises the **apparent** stock in that window while the
-profile as a whole is losing carbon. A comparison between two management units, or between two
-visits, can therefore point the wrong way.
+The working recommendation is to sample the **full profile to parent material or refusal**, then calculate standard reporting windows from the same core. Record depth reached as data.
 
 | Basis | What it is | Role |
 |---|---|---|
-| **Full profile** | Surface to parent material, or to refusal | ✅ **The measurement.** Record the depth reached as data — it is a result, not a failure |
-| **0–30 cm** | A fixed window within it | A **reporting convention.** The IPCC default and what most grassland literature uses, so it is how your number is compared with someone else's |
-| **0–1 m** | A deeper fixed window | The other common convention, used for comparison across larger spatial scales |
+| **Full profile** | Surface to parent material or refusal | Primary measurement in this workshop. |
+| **0–30 cm** | Fixed upper-soil window | Common reporting window for comparison with other studies and inventories. |
+| **0–1 m** | Deeper fixed window | Additional comparison window where the profile and equipment allow it. |
 
-Sample in increments so that all three come out of the same core: **0–10, 10–20, 20–30, then
-30–60, 60–100, and on to refusal.** The calculator sums whichever window you ask for, and reports
-the full profile alongside it.
+A proposed increment sequence is **0–10, 10–20, 20–30, 30–60, and 60–100 cm**, followed by documented deeper increments where possible.
+
+> 📚 **[METHOD REVIEW NEEDED]** Confirm the depth recommendation, reporting windows, increments, and compaction rationale against the final field guides and cited grassland literature before publication.
+
+<details>
+<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>what the Black Oak team chose to measure</i></summary>
+
+<br>
+
+> 🧩 **[PLACEHOLDER — EXAMPLE DATA]** Add the chosen pools, reasons for inclusion and exclusion, tree decision, full-profile target, reporting windows, and depth increments.
+
+</details>
+
+### 🛠 Your turn
+
+Complete the planning table before choosing a sample size:
+
+| Pool | Include? | Field/lab method | Precision target | Reason |
+|---|---|---|---|---|
+| Soil | | | | |
+| Roots | | | | |
+| Shoots | | | | |
+| Shrubs | | | | |
+| Trees >2 m | | | | |
+
+Then record the full-profile target, reporting windows, depth increments, and protocol link for every included pool.
+
+> 🧩 **[PLACEHOLDER — TEMPLATE]** Create `templates/project-planning-worksheet.md` with this table and the outputs required in all five steps.
 
 > [!TIP]
-> **✅ Before moving on:** a pool list with a reason for each inclusion *and* exclusion; a yes/no
-> on trees; and your depth increments written down, with the intended depth of refusal.
+> **✅ Before moving on, you should have:**
+> - A pool list with a reason for every inclusion and exclusion
+> - A yes/no decision on trees taller than 2 m
+> - A target depth, reporting windows, and depth increments
+> - A field and laboratory method for every included pool
 
 ---
 
-## Step 4 — Decide how many cores
+## Step 4 — Decide how many samples
 
-*How many, and why do roots need more?*
+*How many samples meet each pool's precision target?*
 
-You provide four things and the calculation returns a number of cores:
+Too few samples may leave the estimate too uncertain to support a decision. Too many consume field and laboratory resources that could be used elsewhere. The aim is to calculate a defensible starting sample size and record every assumption used.
 
 | You provide | Meaning |
 |---|---|
-| **Area** (m²) | Per stratum, from Step 2 |
-| **Margin of error** ($E$) | How precise the estimate must be |
-| **Confidence level** | How reliable that interval has to be |
-| **A variability prior** | How patchy the thing you are measuring is |
+| **Area** (m²) | The area of each stratum from Step 2. |
+| **Relative margin of error** ($E$) | How precise the estimate needs to be. |
+| **Confidence level** | How reliable the interval-building procedure needs to be. |
+| **Variability prior** | How variable the measured pool is expected to be between samples. |
 
 ### Where the prior comes from
 
-Grassland has no equivalent of the peat-depth trick. Soil depth does not predict carbon
-variability well enough to size a campaign from a probe survey, so the prior has to be measured or
-borrowed.
+The prior should describe the variability the field crew expects to encounter between samples—not only the broad regional pattern.
 
-| | Source | Use when |
+| Preference | Source | Use when |
 |---|---|---|
-| **1** | **A pilot survey** — mean and SD from a handful of your own cores | **The best option.** Local variability is what actually drives sample size |
-| **2** | **Published values for comparable grassland** under comparable management | No field data yet |
-| **3** | **AAFC / CanSIS** soil-landscape carbon data, or **SoilGrids 250 m** as a fallback | Scoping only |
+| **1** | A pilot survey: mean and standard deviation from the site's own samples | Best option when a pilot is feasible. |
+| **2** | Published data from a comparable grassland, management history, depth, and method | No site data are available, but a defensible analogue exists. |
+| **3** | AAFC/CanSIS or another soil map; SoilGrids as a fallback | Early scoping only, with an explicit uncertainty warning. |
 
 > [!WARNING]
-> **A map's variability is not a field crew's variability.** The SD you read off a 250 m modelled
-> map is the spread between **pixels of a smoothed statistical model**. The SD your crew will meet
-> is the spread between **cores in real, patchy grassland**, and it is substantially larger.
->
-> Take the map's mean at face value. **Do not take its CV at face value** — inflate it, or better,
-> run a pilot. The same warning applies in both other workshops.
+> A modelled map's pixel-to-pixel variability is not necessarily the variability between field cores. Model smoothing, resolution, depth definitions, and training data can all narrow the apparent spread. Use mapped values cautiously and replace them with a pilot when possible.
 
-> 🟠 **[FILL ME IN]** — a regional SOC prior (mean and CV) and its source, in the calculator's
-> `Fill Me In` tab. There is a working default so the workbook computes from the moment you open
-> it, and a flag that stays lit until you replace it.
+> 🧩 **[PLACEHOLDER — DATA]** Add a documented regional prior table with source, ecosystem, management context, depth, analytical method, mean, SD, CV, and suitability notes. Do not hide a generic default inside the calculator.
 
-### ⚠ Roots need far more cores than soil does
+### Soil and roots need separate decisions
 
-This is the finding that shapes a grassland campaign, and it falls straight out of the arithmetic.
+Root biomass is often more spatially variable than soil carbon because living roots cluster around individual plants and tussocks. Since planned sample size scales approximately with the square of the coefficient of variation, using one precision target for both pools can make root processing dominate the project.
 
-**Soil carbon is relatively uniform** — typical CV **0.2–0.4**. **Root biomass is not** — typical
-CV **0.5–1.0 or higher** — because roots cluster around individual plants and tussocks rather than
-spreading evenly.
+The values below are **illustrative calculator inputs**, not universal grassland defaults.
 
-Since sample size scales with $CV^2$, that difference is not small. At **90% confidence and a
-±20% target**, with the *t*-correction applied ([A9](#a9--plan-with-z-floor-it-with-t)):
+| Pool | Illustrative CV | Illustrative cores for ±20% at 90% confidence |
+|---|---:|---:|
+| Soil carbon — relatively uniform | 0.20 | 5 |
+| Soil carbon — moderate variation | 0.30 | 9 |
+| Soil carbon — higher variation | 0.40 | 13 |
+| Roots — lower illustrative variation | 0.50 | 19 |
+| Roots — moderate illustrative variation | 0.70 | 36 |
+| Roots — high illustrative variation | 1.00 | 70 |
 
-| Pool | Typical CV | Cores for ±20% |
-|---|---|---|
-| **Soil carbon** — uniform site | 0.20 | **5** |
-| **Soil carbon** — typical | 0.30 | **9** |
-| **Soil carbon** — patchy | 0.40 | **13** |
-| **Roots** — low end | 0.50 | **19** |
-| **Roots** — typical | 0.70 | **36** |
-| **Roots** — high end | 1.00 | **70** |
+> 📚 **[CITATIONS AND CALCULATOR VALIDATION NEEDED]** Replace or qualify these ranges using appropriate grassland studies. Regenerate every number from the final tested calculator.
 
-**At the same target, roots need roughly four to five times the cores soil does.** Soil at CV 0.30
-needs 9; roots at CV 0.70 need 36.
+### Set a target for each pool
 
-Combined with the fact that **root washing is days of lab work, not hours**, sizing both pools at
-±20% will sink most projects.
+Separate precision targets may produce a more realistic design:
 
-### So set a different target for each pool
+| Illustrative design | Soil target | Root target | Approximate field cores |
+|---|---:|---:|---:|
+| Same target for both | ±20% | ±20% | 36 |
+| **Different pool targets** | ±20% | ±40% | 11 |
+| Tighter root estimate | ±20% | ±30% | 17 |
 
-The way out is not to sample less — it is to **stop pretending both pools need the same
-precision.**
+*Illustrative only: soil CV 0.30, root CV 0.70, 90% confidence, with the draft small-sample adjustment. Validate in the final calculator.*
 
-| Design | Soil | Roots | Cores to field |
-|---|---|---|---|
-| Same target for both | ±20% (9) | ±20% (36) | **36** ❌ |
-| **Per-pool targets** | ±20% (9) | **±40%** (11) | **11** ✅ |
-| Tighter roots | ±20% (9) | ±30% (17) | **17** |
-| Looser overall | ±25% (6) | ±50% (8) | **8** |
+A wider root interval is not automatically a failure. It may be an honest description of a variable pool. State the target and the achieved result separately for each pool.
 
-**±40% on a root estimate is not a failure.** It is an honest interval on a pool that is
-genuinely patchy, reported as such — and it is far better than a ±20% claim you did not earn.
+### Consider root subsampling
 
-### The subsample option
+Because soil and roots can come from the same core, the team may analyze soil carbon from every core and wash roots from a random subset. Choose that subset randomly—not according to which samples look interesting—and report the root sample size explicitly.
 
-Because soil and roots come from **the same core**, you have a second lever: run soil carbon on
-every core, and **wash only a subset for roots**.
+<details>
+<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>what the Black Oak team calculated</i></summary>
 
-| Cores taken | Soil precision | Cores washed | Root precision |
-|---|---|---|---|
-| 10 | ±17% | 5 | ±67% |
-| 10 | ±17% | 8 | ±47% |
-| 15 | ±14% | 8 | ±47% |
-| 20 | ±12% | 10 | ±41% |
+<br>
 
-*Soil at CV 0.30, roots at CV 0.70, 90% confidence.*
+> 🧩 **[PLACEHOLDER — EXAMPLE DATA]** Show area per stratum, confidence level, soil and root CV with sources, separate precision targets, calculated sample sizes, the applied minimum/rounding rule, final field count, and root subsample count. Label invented values **illustrative**.
 
-**Choose the washed subset at random**, not by which cores looked interesting. And say plainly in
-your reporting that the root estimate rests on a subsample of *n*, not on the full campaign.
+</details>
+
+### 🛠 Your turn
+
+Use the **[Grassland Sample Allocation Calculator](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx)** or document the same calculation manually.
+
+<table>
+<tr>
+<td width="45%">
+
+> 🧩 **[PLACEHOLDER — SCREENSHOT]** Add `images/step4_calculator_inputs.webp` showing separate soil and root inputs and the assumptions summary.
+
+</td>
+<td width="55%">
+
+Enter each stratum's area, confidence level, per-pool prior, and per-pool precision target. The tool should return:
+
+- planning sample size for each pool;
+- small-sample-adjusted value;
+- per-stratum allocation;
+- optional root subsample implications;
+- a plain-language assumptions statement for the project record.
+
+</td>
+</tr>
+</table>
 
 > [!TIP]
-> **✅ Before moving on:**
-> - A **target margin and confidence level**, **per pool** — they should not be the same
-> - A **variability prior** per stratum per pool, and where it came from
-> - A **core count**, and if you are subsampling for roots, how many and chosen how
-> - A minimum of **3 cores in any stratum**, whatever the formula says — with fewer you cannot
->   estimate variance at all
+> **✅ Before moving on, you should have:**
+> - A relative margin-of-error target and confidence level for each pool
+> - A variability prior for each pool and a record of its source
+> - A calculated sample size for each pool
+> - A final field count after rounding and minimum rules
+> - A random root-subsampling plan, if used
+
+> [!NOTE]
+> The draft statistical minimum is **3 samples per stratum**, with **5 preferred where feasible**. The eelgrass workshop uses a five-sample operational minimum. Resolve and document the series-wide rule before publication; do not imply that the statistical and operational minimums are the same thing.
 
 ---
 
-## Step 5 — Decide where the cores go
+## Step 5 — Decide where the samples go
 
-### 5A — Where the plot centres go
+*Exactly where do I sample?*
 
-| Approach | When |
+<table>
+<tr>
+<td width="45%">
+
+> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/step5_sampling_strategies.svg`: four small panels comparing random, systematic, stratified-random, and paired-across-boundary designs.
+
+</td>
+<td width="55%">
+
+The spatial design should represent the target area while supporting the comparison the project intends to make. Accessibility may constrain fieldwork, but convenience alone should not quietly replace a probability-based design.
+
+</td>
+</tr>
+</table>
+
+| Strategy | When to use it |
 |---|---|
-| **Stratified random** | **Default.** Randomise within each stratum from Step 2 |
-| **Systematic grid** | Large or uniform sites. Check the grid pitch is not aligned with a real periodicity — old cultivation furrows, pipeline corridors |
-| **Paired across a boundary** | When the *question* is the boundary — grazed vs ungrazed across a fence, burned vs unburned. See [Part 5](../05_Monitoring/) |
-| **Purely judgemental** | ❌ Avoid. "Where it looked representative" cannot be defended afterwards |
+| **Random** | A reasonably uniform area with no planned internal comparison. |
+| **Systematic grid** | Large or uniform areas where even coverage is useful; check that grid spacing does not align with furrows, treatment strips, or other periodic features. |
+| **Stratified random** | **Default when strata exist.** Randomize locations within each stratum. |
+| **Paired across a boundary** | The boundary itself is the comparison—for example, grazed versus ungrazed or burned versus unburned. Use an analysis designed for pairing. |
+| **Convenience only** | Avoid for an inferential stock estimate. If unavoidable for a pilot, label the limitation clearly. |
 
-Allocate across strata **proportionally to area**, round each stratum **up**, and raise any
-stratum below 3 to 3 — see [A7](#a7--proportional-allocation-across-strata).
+### How does the total split across strata?
 
-### 5B — How each plot is laid out
+A simple starting allocation gives each stratum a share of the total sample count proportional to its area. Round up and apply the documented minimum. If strata differ greatly in variability or if a small stratum is central to the comparison, proportional allocation may not be adequate; see [Appendix A7](#a7--allocation-across-strata).
 
-The plot sizes come from the
-[Vegetation guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf):
+### For grasslands specifically
+
+- Do not align a systematic grid with cultivation furrows, fence lines, pipeline corridors, or treatment strips.
+- Use paired locations when the project question is specifically about a boundary or treatment contrast.
+- Finish vegetation measurements before coring or clipping disturbs the plot.
+- Keep destructive sampling outside permanent vegetation plots and record the offset from the plot marker.
+
+### How each plot is laid out
+
+The draft nested layout follows the [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf):
 
 | Plot | Size | Holds |
-|---|---|---|
-| **Large** *(savannah, parkland only)* | 400 m² | Trees — [Forests 3A](../../Forests/03_Field_Methods/3A_Trees.md) |
-| **Medium** | **16–100 m²** | Plants **0.5–2 m** — shrubs, tall grasses |
-| **Small** | **0.25 m²** (or 1 m²) | Ground vegetation **below 0.5 m** — clip-and-weigh |
-| **Soil core** | A point within the plot | Soil **and roots**, by depth increment |
+|---|---:|---|
+| **Large** *(savannah/parkland where trees occur)* | 400 m² | Trees taller than 2 m. |
+| **Medium** | 16–100 m² | Shrubs and plants approximately 0.5–2 m. |
+| **Small** | 0.25 m², or a documented alternative | Ground vegetation below 0.5 m and clip-and-weigh sampling. |
+| **Soil/root core** | Point location | Soil and roots by depth increment. |
 
-The guide's small plot is **0.25 m²** — a quadrat, or a circle of radius **0.28 m**.
+> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/step5_nested_plot_layout.svg`: a plan view showing the optional 400 m² tree plot, medium plot, 0.25 m² quadrat, soil/root core, approach path, and destructive-sampling exclusion zone.
 
-**The ordering rule is absolute:** all vegetation work finishes before any coring. Coring is
-destructive, and a corer hole in a quadrat you have not yet clipped is a lost plot.
+### Permanent or single-use plots?
 
-### 5C — Where the core goes within the plot
-
-**Offset the core from the clipped quadrat**, not through it. You need the quadrat intact for the
-above-ground measurement, and you need the core to sample soil that has not been trampled by the
-clipping.
-
-Record the offset. For **permanent plots** you intend to re-measure — which is most monitoring
-work — the offset matters more, because the next visit must avoid last visit's holes. See
-[Part 5](../05_Monitoring/).
-
-### 5D — Permanent or single-use plots?
-
-The [Sampling Design guide](../../_Shared/Sampling-Design-Eng-2026.pdf) (p.7–8) splits plots into
-two kinds, and **this is a design decision, not a field one.** Make it now: a campaign designed for
-a one-off stock is often unusable as a baseline later.
+This is a planning decision, not one to leave to the field crew.
 
 <table>
 <tr>
@@ -421,361 +559,286 @@ a one-off stock is often unusable as a baseline later.
 
 **Single-use**
 
-Sampled **once**. Destructive sampling — coring, clipping — happens *inside* the plot, after all
-non-destructive work is finished.
+Sampled once. Complete non-destructive work first, then destructive coring and clipping in the documented locations.
 
-Right when the question is *"how much carbon is here now?"* and there is no plan to return.
+Appropriate when the question is *“How much carbon is here now?”* and no return visit is planned.
 
 </td>
 <td width="50%">
 
 **Permanent**
 
-Sampled **repeatedly over time**, re-measuring the same vegetation each visit with
-**non-destructive** methods.
+Relocated and measured repeatedly. Keep destructive sampling outside the permanent vegetation area and record each core or clip offset.
 
-Right when the question is *"is this changing?"* — restoration monitoring, management trials,
-soil-health baselines.
+Appropriate when the question is *“Is this changing?”*
 
 </td>
 </tr>
 </table>
 
-> [!IMPORTANT]
-> **In a permanent plot, destructive sampling goes outside the plot.** Coring and clipping destroy
-> exactly the thing the next visit needs to re-measure. The
-> [Non-Peat Soils guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) is explicit: keep soil cores
-> and other destructive sampling **outside** the areas where non-destructive surveying takes place.
-> Setup steps for both kinds are in *Measuring Carbon in Trees*
-> ([`Forests/03_Field_Methods/`](../../Forests/03_Field_Methods/Trees-FINAL-Eng-2026.pdf), p.10).
+> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/permanent_vs_single_use.svg`: matched panels showing plot markers, vegetation measurements, core locations, clipping locations, and the offset/exclusion rule.
 
-If you are going permanent, four things reach back into this step:
+Permanent plots require:
 
-| Requirement | Why |
-|---|---|
-| **Relocatable markers** | Grassland has nothing to tag. Driven rod with a GPS fix, buried magnet, bearing and distance from two features, photographs |
-| **A recorded core offset** | The next visit must avoid this visit's holes — see [5C](#5c--where-the-core-goes-within-the-plot) |
-| **More plots than a one-off stock needs** | You are estimating a *difference* between two uncertain numbers. [Part 5](../05_Monitoring/) sizes it |
-| **Bulk density measured every time** | Compaction changes it, and a fixed-depth comparison then compares different *masses* of soil — the reason [Step 3](#decide-your-sampling-depth-now-not-later) samples the full profile |
+- relocatable markers plus GPS, photographs, and bearings or distances from stable features;
+- recorded destructive-sample offsets;
+- a monitoring design sized to detect change, which may require more plots than a one-time stock estimate;
+- repeated bulk-density measurement where compaction or equivalent-soil-mass comparisons matter.
+
+<details>
+<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>where the Black Oak samples went</i></summary>
+
+<br>
+
+> 🧩 **[PLACEHOLDER — EXAMPLE DATA]** Show the per-stratum allocation, final coordinates or an anonymized map, sampling strategy, plot layout, permanent/single-use decision, and core-offset rule.
+
+</details>
+
+### 🛠 Your turn
+
+1. Choose and justify the sampling strategy.
+2. Allocate the Step 4 sample count across strata.
+3. Generate candidate coordinates and check access and safety constraints without quietly replacing the probability-based design.
+4. Select the plot layout for the chosen pools.
+5. Decide whether plots are permanent or single-use.
+6. Export coordinates, maps, and identifiers in formats the field team can use.
+
+> 🧩 **[PLACEHOLDER — TOOL]** The Grassland Sampling Planner should accept strata and sample counts, generate reproducible locations using a recorded random seed, allow documented replacements, and export CSV plus GeoJSON/KML.
 
 > [!TIP]
-> **✅ Before moving on:** plot coordinates per stratum, plot sizes chosen, the core-offset rule,
-> and **permanent or single-use** written down.
-
-> 📸 **[SCREENSHOT NEEDED]** — the permanent vs single-use plot pages from the Sampling Design
-> guide (p.7–8) and the setup steps from the Trees guide (p.10).
+> **✅ Before moving on, you should have:**
+> - A sampling strategy chosen and justified
+> - A per-stratum allocation
+> - A coordinate list and field map
+> - Plot sizes and layout
+> - A permanent/single-use decision
+> - A destructive-sampling offset rule
 
 ---
 
 ## ✅ Sampling design complete
 
-| | Item |
-|---|---|
-| ☐ | A **boundary**, its area, and the rule used to draw it |
-| ☐ | **Strata** named with areas, and the **management history** behind each |
-| ☐ | A **pool list**, and the tree-cover threshold if trees are in scope |
-| ☐ | A **reporting depth** — 30 cm floor, plus whatever deeper you can reach |
-| ☐ | **Per-pool precision targets** — soil and roots should differ |
-| ☐ | A **variability prior** per pool, and where it came from |
-| ☐ | A **core count**, and the root subsample plan if you are using one |
-| ☐ | **Plot coordinates** and layout |
-| ☐ | A decision on **permanent plots** |
-| ☐ | The **season** you will sample — peak growing season for shoots |
+Before heading into the field, confirm the universal outputs:
 
-Next: [Part 3 — Field Methods](../03_Field_Methods/).
+```text
+☐ Study area boundary and area recorded          → Step 1
+☐ Strata identified or explicitly ruled out      → Step 2
+☐ Carbon pools and depths selected               → Step 3
+☐ Sample size calculated for each pool           → Step 4
+☐ Sampling locations and plot layout generated   → Step 5
+☐ Field sheets, maps, and identifiers prepared   → Part 3
+```
+
+Then confirm the grassland-specific decisions:
+
+| | Readiness item |
+|---|---|
+| ☐ | Management, restoration, cultivation, grazing, and fire history recorded where relevant |
+| ☐ | Trees taller than 2 m confirmed as present/in scope or absent/out of scope |
+| ☐ | Soil and root precision targets recorded separately |
+| ☐ | Root subsampling plan recorded, if used |
+| ☐ | Permanent or single-use plots selected |
+| ☐ | Destructive-sampling offsets documented |
+| ☐ | Sampling season chosen and justified for vegetation measurements |
+
+<details>
+<summary><b>📊 The Black Oak plan at a glance</b></summary>
+
+<br>
+
+| Step | Decision |
+|---|---|
+| 1 — Study area | 🧩 **[PLACEHOLDER]** Area, boundary rule, and exclusions |
+| 2 — Stratify | 🧩 **[PLACEHOLDER]** Restoration and fire-history strata |
+| 3 — Pools | 🧩 **[PLACEHOLDER]** Soil, roots, vegetation, shrubs, and trees in scope |
+| 4 — Sample size | 🧩 **[PLACEHOLDER]** Separate soil/root targets and final field count |
+| 5 — Locations | 🧩 **[PLACEHOLDER]** Allocation, coordinate method, plot layout, and permanent-plot decision |
+
+**→ [Read the full planning walkthrough](../Worked_Example/02_Project_Planning.md)**
+
+</details>
+
+You now have what the field team needs: a boundary, strata or a documented decision not to stratify, selected carbon pools and depths, sample counts, plot coordinates, and a plot layout.
+
+What remains is the fieldwork itself. **Part 3** covers equipment, plot setup, vegetation measurements, soil and root cores, field records, and sample handling.
+
+**Next: [Part 3 — Field Methods →](../03_Field_Methods/)**
 
 ---
 
 # Appendix A — A brief lesson in sampling logic
 
-*and the derivations that drive this work*
+*The calculations behind the planning workflow*
 
-Steps 1–5 don't require any of this. But if you want to know why the numbers come out the way
-they do, or you need to defend a core count to a reviewer, it's here.
+Steps 1–5 do not require the full derivation. Use this appendix when you need to explain or audit a sample-size decision.
 
-| | | Used in |
+| Section | Topic | Used in |
 |---|---|---|
 | [A1](#a1--what-an-estimate-actually-is) | What an estimate actually is | Background |
-| [A2](#a2--working-backwards-from-precision-to-sample-size) | Working backwards: precision to sample size | Step 4 |
-| [A3](#a3--cochrans-correction-why-big-areas-stop-needing-more-plots) | Cochran's correction | Step 4 |
-| [A4](#a4--what-actually-drives-sample-size) | What actually drives sample size | Step 4 |
-| [A5](#a5--the-proportion-form) | The proportion form | Step 4 |
-| [A6](#a6--symbol-crosswalk-to-the-unfccc-a64-tool) | Symbol crosswalk to the UNFCCC A6.4 tool | Step 4 |
-| [A7](#a7--proportional-allocation-across-strata) | Proportional allocation across strata | Step 5 |
-| [A8](#a8--after-the-campaign-did-you-hit-your-target) | After the campaign: did you hit your target? | Step 4 |
-| [A9](#a9--plan-with-z-floor-it-with-t) | Plan with $z$, floor it with $t$ | Step 4 |
-| [**A10**](#a10--why-roots-need-more-cores-than-soil) | **Why roots need more cores than soil** — *new in this workshop* | Step 4 |
+| [A2](#a2--working-backwards-from-precision-to-sample-size) | Working backwards from precision | Step 4 |
+| [A3](#a3--finite-population-correction) | Finite-population correction | Step 4 |
+| [A4](#a4--what-drives-sample-size) | What drives sample size | Step 4 |
+| [A5](#a5--the-proportion-form) | Estimating a proportion | Step 4 |
+| [A6](#a6--symbol-crosswalk) | Symbol crosswalk | Step 4 |
+| [A7](#a7--allocation-across-strata) | Allocation across strata | Step 5 |
+| [A8](#a8--after-the-campaign-did-you-hit-the-target) | Achieved precision | Step 4 |
+| [A9](#a9--normal-planning-and-small-sample-intervals) | Normal planning and small samples | Step 4 |
+| [A10](#a10--why-roots-may-need-more-samples) | Why roots may need more samples | Step 4 |
 
----
+> 📚 **[STATISTICAL REVIEW NEEDED]** Validate the notation, formulas, assumptions, and examples against the final calculator and cited statistical guidance before publication.
 
 ### A1 — What an estimate actually is
 
-You core a subset of plots and average them. That average, $\bar{x}$, estimates the site's true
-mean. How far off might it be? That depends on how much the plots differ from each other (the
-standard deviation, $s$) and how many you took ($n$):
+The sample mean, $\bar{x}$, estimates the study population's mean. Its estimated standard error is:
 
 $$SE = \frac{s}{\sqrt{n}}$$
 
-The $\sqrt{n}$ is the whole story of sampling economics. **Four times the cores buys twice the
-precision** — never four times.
+where $s$ is the sample standard deviation and $n$ is the number of independent samples.
 
-The **margin of error** scales that by a multiplier set by your confidence level:
+The square-root relationship drives sampling economics: under the simple assumptions used here, achieving roughly twice the precision requires about four times as many samples.
 
-$$E \cdot \bar{x} = z\,\frac{s}{\sqrt{n}}$$
+If $E$ is a **relative** margin of error, a normal-approximation planning relationship can be written:
 
-where $z = 1.282$ at 80% confidence, $1.645$ at 90%, and $1.96$ at 95%.
+$$E\bar{x} = z\frac{s}{\sqrt{n}}$$
 
----
+The multiplier $z$ depends on the chosen confidence level.
 
-### A2 — Working backwards: from precision to sample size
+### A2 — Working backwards from precision to sample size
 
-Run A1 in reverse:
+Rearranging the planning relationship gives:
 
-$$n = \left(\frac{z \cdot CV}{E}\right)^{2}, \qquad CV = \frac{s}{\bar{x}}$$
+$$n = \left(\frac{z\,CV}{E}\right)^2, \qquad CV = \frac{s}{\bar{x}}$$
 
-Expressing variability as a **coefficient of variation** makes the result **scale-free** — it no
-longer matters whether carbon is in kg C/m² or t C/ha.
+Using the coefficient of variation makes the relationship scale-free. The result depends on relative variability rather than whether carbon is reported in kg C/m² or Mg C/ha.
 
-**Notice what is squared: $z$, $CV$ and $E$.** That single fact explains
-[A4](#a4--what-actually-drives-sample-size), and it is the whole reason roots are expensive
-([A10](#a10--why-roots-need-more-cores-than-soil)).
+This approximation assumes independent samples, a defensible variability prior, and a design compatible with the intended analysis. It is a planning starting point, not a substitute for a design-specific analysis.
 
----
+### A3 — Finite-population correction
 
-### A3 — Cochran's correction: why big areas stop needing more plots
+When a finite population of possible sampling units is defined, a finite-population correction may be written:
 
-A 10 ha stratum at 100 m² per plot holds 1,000 possible plot locations. Cochran's
-**finite-population correction** gives you credit for covering some of them:
+$$n \geq \frac{z^2 N CV^2}{(N-1)E^2 + z^2 CV^2}$$
 
-$$n \geq \frac{z^2\, N\, CV^2}{(N-1)\,E^2 + z^2\, CV^2}$$
+where $N$ is the number of possible sampling units under the chosen plot footprint.
 
-where $N$ = stratum area ÷ plot footprint.
+For large $N$, the result approaches the simpler expression in A2. The practical importance of this correction depends on how the sampling unit and population are defined.
 
-At grassland plot sizes the correction fades almost immediately. At $CV$ = 0.35, ±20%, 90%:
+> 📚 **[METHOD REVIEW NEEDED]** Confirm that the chosen definition of $N$ is appropriate for point cores and nested grassland plots before using area ÷ plot footprint as a universal population count.
 
-| Stratum area | $N$ | $n$ |
-|---|---|---|
-| 0.5 ha | 50 | 8 |
-| 1 ha | 100 | 8 |
-| **10 ha** | **1,000** | **9** |
-| 100 ha | 10,000 | 9 |
-| infinite | ∞ | 9 |
+### A4 — What drives sample size
 
-**One core of difference across a 200-fold range of area.** Use the simple form from
-[A2](#a2--working-backwards-from-precision-to-sample-size).
+In the simple planning relationship:
 
-**And the corollary worth telling a funder: a bigger pasture is not a more expensive survey.**
-You are estimating a *mean*, and that depends on variability, not on the size of the field.
+- halving relative margin of error increases sample size substantially because $E$ is squared;
+- doubling the CV increases sample size substantially because $CV$ is squared;
+- raising confidence increases $z$ and therefore sample size;
+- increasing area alone may have little effect once the number of possible sampling units is large.
 
----
+**Precision and variability usually matter more than total area.** The project controls the target precision and confidence level, but it does not control the site's true variability. That is why a pilot can be valuable.
 
-### A4 — What actually drives sample size
-
-*If you read one appendix section, read this one.*
-
-Anchored on a **10 ha stratum**, **±20%**, **90% confidence**, $CV$ = 0.35 → **9 cores**. One knob
-turned at a time:
-
-```
-                                              cores needed (from 9)
-  Precision      ±20% → ±10%     ████████████████████████  33
-  Variability    CV 0.35 → 0.70  ████████████████████████  33
-  Confidence     90% → 95%       █████████                 12
-  Study area     10 ha → 100 ha  ██████                     9
-```
-
-| Knob | Turn it… | Effect | Why |
-|---|---|---|---|
-| **Margin of error, $E$** | ±20% → ±10% | **3.7× more** | $E$ is squared |
-| **Variability, $CV$** | 0.35 → 0.70 | **3.7× more** | also squared |
-| **Confidence** | 90% → 95% | **~33% more** | $z$ is squared, but 1.645 → 1.96 is a small step |
-| **Study area** | 10 ha → 100 ha | **none** | see [A3](#a3--cochrans-correction-why-big-areas-stop-needing-more-plots) |
-
-**Precision is expensive; confidence is cheap.** If the budget is fixed, loosening $E$ buys back
-far more cores than dropping confidence — and a wider interval at 95% is usually easier to defend
-than a tight one at 90%.
-
-**And $CV$ is the input you do not control.** Which is exactly why soil and roots cannot share a
-sample size.
-
----
+> 🧩 **[PLACEHOLDER — VISUAL]** Generate a four-row comparison chart from the final calculator, turning one input at a time. Do not maintain the numbers manually in both the chart and the prose.
 
 ### A5 — The proportion form
 
-Some questions are about a **proportion** — what fraction of the pasture is still native sward,
-what percentage of cores reached 30 cm without refusal:
+Some questions concern a proportion—for example, the fraction of plots with a particular condition. One finite-population planning form is:
 
-$$n \geq \frac{z^2\, N\, p\,q}{(N-1)\,E^2 p^2 + z^2\, p\, q}, \qquad q = 1-p$$
+$$n \geq \frac{z^2 Npq}{(N-1)E^2 + z^2pq}, \qquad q = 1-p$$
 
-**Use $p = 0.5$ when you have no prior** — it returns the largest, most conservative $n$.
+When no prior proportion is available, $p=0.5$ is often used because it maximizes $pq$ and produces a conservative starting sample size for an absolute margin-of-error formulation.
 
----
+> 📚 **[METHOD REVIEW NEEDED]** Confirm whether $E$ is absolute or relative in the selected reference and calculator. Do not mix the two formulations.
 
-### A6 — Symbol crosswalk to the UNFCCC A6.4 tool
+### A6 — Symbol crosswalk
 
-| This guide | UNFCCC tool | Meaning |
+| This guide | Common alternative | Meaning |
 |---|---|---|
-| $z$ | $Z_{\alpha/2}$ | multiplier set by confidence level |
-| $E$ | $e_{abs}$ | target **relative** precision |
-| $s$ | $SD$ | expected standard deviation |
-| $CV$ | $CV$ | coefficient of variation |
-| $N$ | $N$ | population size |
-| $n$ | $n$ | plots to establish |
+| $z$ | $Z_{\alpha/2}$ | Normal multiplier set by confidence level. |
+| $E$ | $e$ or $e_{rel}$ | Target margin of error; label absolute versus relative explicitly. |
+| $s$ | $SD$ | Expected or observed standard deviation. |
+| $CV$ | $CV$ | Coefficient of variation. |
+| $N$ | $N$ | Number of possible sampling units. |
+| $n$ | $n$ | Number of samples or plots. |
 
-> The formula is identical. The tools differ only in how $N$ is obtained — area ÷ plot size, versus
-> a population count — and at grassland plot sizes that difference vanishes
-> ([A3](#a3--cochrans-correction-why-big-areas-stop-needing-more-plots)).
->
-> **None of them apply the $t$-correction in [A9](#a9--plan-with-z-floor-it-with-t)**, and none of
-> them size two pools separately.
+> 📚 **[REFERENCE CHECK NEEDED]** Cross-check notation against the exact edition of the UNFCCC A6.4 Sampling and Surveys tool or other referenced calculator before stating that formulas are identical.
 
----
+### A7 — Allocation across strata
 
-### A7 — Proportional allocation across strata
+A simple area-proportional allocation is:
 
-Each stratum gets a share of $n$ proportional to its area:
+$$n_h = \frac{A_h}{A}\,n$$
 
-$$n_h = \frac{g_h}{N}\times n$$
+where $A_h$ is the area of stratum $h$, $A$ is total study area, and $n_h$ is that stratum's allocation.
 
-Then three rules: round each $n_h$ **up**; raise any stratum below **3** to 3; prefer 5 where you
-can afford it.
+Round using a documented rule and apply the chosen minimum per stratum. Area-proportional allocation is not always optimal. When variability and processing cost differ among strata, a design such as Neyman or cost-adjusted allocation may be more appropriate.
 
-> **Proportional allocation is not always right.** It allocates on **area**. Where one stratum is
-> far more variable than another — a heavily grazed unit against an ungrazed exclosure — allocating
-> on $\text{area} \times CV$ (**Neyman allocation**) puts cores where the uncertainty is. Check
-> each stratum's own required $n$, not just its share.
+### A8 — After the campaign: did you hit the target?
 
----
+Planning uses expected variability. After sampling, calculate achieved relative margin of error using the observed mean and standard deviation:
 
-### A8 — After the campaign: did you hit your target?
+$$RME = \frac{t\,SE}{\bar{x}}, \qquad SE = \frac{s}{\sqrt{n}}$$
 
-Planning uses *expected* variability. Check the **achieved** precision against the target:
+Use the multiplier and degrees of freedom appropriate to the actual design and analysis. Report achieved precision separately for soil and roots.
 
-$$\text{RME} = \frac{t \cdot SE}{\bar{x}}, \qquad SE = \frac{s}{\sqrt{n}}$$
+If the target is missed:
 
-With small $n$, use $t$ rather than $z$: at $n$ = 3 and 90% confidence, $t = 2.92$ against
-$z = 1.645$.
+1. Check raw data, units, depths, bulk density, and laboratory records.
+2. Investigate documented sources of heterogeneity without inventing post hoc groups.
+3. Add samples using the observed variability and a pre-defined rule where feasible.
+4. Otherwise report the achieved interval honestly and explain the limitation.
 
-**The calculator's [Site Summary](../04_Data_Interpretation/) does this automatically** and prints
-`MET` or `NOT MET` — **separately for soil and for roots**, against their separate targets.
+### A9 — Normal planning and small-sample intervals
 
-**If you miss:**
+The basic planning equation uses a normal multiplier, $z$. After sampling, when variability is estimated from a small sample, a Student's $t$ multiplier is generally larger. The difference shrinks as sample size increases.
 
-1. **Scrutinise the raw data** — a core that hit refusal early, a root sample that was not
-   ash-corrected, a mis-recorded depth.
-2. **Post-stratify.** Check **management** first — this is what the grazing and fire columns on the
-   plot log are for.
-3. **Add cores**, guided by each pool's own CV rather than evenly.
-4. **As a last resort**, report the conservative bound.
+The draft calculator proposes a small-sample adjustment during planning. If retained, document the algorithm, its convergence rule, and why it is appropriate. In the illustrative CV examples used earlier, the adjustment happened to add two samples; that is a property of those displayed scenarios, not a universal rule.
 
----
+Report the design transparently, for example:
 
-### A9 — Plan with $z$, floor it with $t$
+> “The initial planning value was calculated at 90% confidence and ±20% relative precision using a CV of 0.30 from the pilot. The field target was then increased using the documented small-sample rule.”
 
-Cochran's formula uses $z$, the multiplier for a **known** population standard deviation. You never
-know it — you estimate it from the same cores you are averaging, so the honest multiplier is
-**Student's $t$**. At small $n$ that is a large difference:
+### A10 — Why roots may need more samples
 
-| $n$ | $t$ (90%) | $z$ | $t/z$ |
-|---|---|---|---|
-| 3 | 2.920 | 1.645 | **1.78 ×** |
-| 5 | 2.132 | 1.645 | 1.30 × |
-| 10 | 1.833 | 1.645 | 1.11 × |
-| 20 | 1.729 | 1.645 | 1.05 × |
+Soil carbon integrates inputs and redistribution over time. Living root biomass reflects the current spatial pattern of plants and can vary sharply over short distances. Where the root CV is greater than the soil CV, equal relative precision requires more root samples because:
 
-**At ±20% and 90% confidence:**
+$$\frac{n_{roots}}{n_{soil}} \approx \left(\frac{CV_{roots}}{CV_{soil}}\right)^2$$
 
-| $CV$ | Cochran $n$ | $t$-floor | Extra |
-|---|---|---|---|
-| 0.20 | 3 | **5** | +2 |
-| 0.30 | 7 | **9** | +2 |
-| 0.40 | 11 | **13** | +2 |
-| 0.50 | 17 | **19** | +2 |
-| 0.70 | 34 | **36** | +2 |
-| 1.00 | 68 | **70** | +2 |
+Three planning responses are available:
 
-**The correction costs two cores, at every variability level.** It is not a reason to redesign a
-campaign; it is a reason not to field the bare Cochran minimum.
-
-**Report both:**
-
-> *"Design n = 9 cores per stratum (Cochran, 90% confidence, ±20% target, CV = 0.30 from a pilot).
-> Fielded n = 11 to account for the t-multiplier at small sample size."*
-
-That sentence is auditable against the standard tools and honest about what they omit. The same
-appendix appears in the [Wetlands workshop](../../Wetlands/02_Project_Planning/README.md#a9--plan-with-z-floor-it-with-t).
-
----
-
-### A10 — Why roots need more cores than soil
-
-*New in this workshop, and the reason a grassland campaign is shaped differently from a forest or
-peatland one.*
-
-**The mechanism.** Soil carbon at a site is the integrated product of centuries of inputs, mixed
-and redistributed. It is **spatially smoothed**. Root biomass is the standing mass of individual
-living plants — it is **high under a tussock and near zero between tussocks**, at a scale of
-centimetres.
-
-So the two pools have genuinely different coefficients of variation:
-
-| Pool | Typical CV | Why |
+| Option | Mechanism | Trade-off |
 |---|---|---|
-| **Soil carbon** | **0.2–0.4** | Centuries of mixing |
-| **Root biomass** | **0.5–1.0+** | The plants are discrete objects |
+| **Separate precision targets** | Set a tighter target for soil and a wider target for roots. | Wider but explicit root interval. |
+| **Root subsampling** | Analyze soil from all cores and roots from a random subset. | Root estimate rests on fewer samples. |
+| **Change the sampling unit** | Consider a larger-diameter core or a documented composite. | More material per sample or loss of within-plot information. |
 
-**And $n$ scales with $CV^2$.** Doubling the CV quadruples the cores. From
-[A2](#a2--working-backwards-from-precision-to-sample-size):
-
-$$\frac{n_{\text{roots}}}{n_{\text{soil}}} = \left(\frac{CV_{\text{roots}}}{CV_{\text{soil}}}\right)^{2}$$
-
-At $CV_{\text{soil}} = 0.30$ and $CV_{\text{roots}} = 0.70$, that ratio is $(0.70/0.30)^2 \approx
-5.4$ — and after the $t$-floor, **9 cores against 36**.
-
-#### What to do about it
-
-**Not** field 36 cores and wash them all. Three better options, in the order most projects should
-consider them:
-
-| Option | Mechanism | Trade |
-|---|---|---|
-| **1 · Per-pool targets** ⭐ | Soil ±20%, roots ±40% → **11 cores** | A wider but honest root interval. **The recommended default** |
-| **2 · Subsample for roots** | All cores for soil, a random subset washed | Root estimate rests on fewer samples — say so |
-| **3 · Reduce root CV by design** | Larger-diameter cores, or composite several cores per plot | Compositing loses within-plot variance information |
+Compositing may reduce variation among analytical samples but removes information about variation among the components. Decide whether that trade-off is compatible with future monitoring before adopting it.
 
 > [!IMPORTANT]
-> **A ±40% root interval is not a failure.** It is an honest interval on a genuinely patchy pool.
-> The alternative is not a better number — it is a ±20% claim that the data does not support.
->
-> What matters is that you **state the target and the achievement, per pool.** The calculator does
-> this automatically.
+> State both the target and achieved precision for each pool. A wide, honest interval is more useful than a narrow claim the data do not support.
 
-#### On option 3, briefly
-
-A **larger core diameter** averages over more of the tussock/gap pattern, which genuinely reduces
-CV — and it also increases washing time per core. There is a real optimum here, and it depends on
-your tussock spacing.
-
-**Compositing** several cores per plot into one sample reduces the CV *between plots* but discards
-the variance *within* them. That is fine if you only want a mean, and a problem if you want to
-understand the pattern — or if you later want to use the data for [monitoring](../05_Monitoring/),
-where within-plot variance is what determines whether you can detect change.
+> [!NOTE]
+> Ask a statistician or experienced sampling designer for help with paired/repeated designs, chronosequences, unequal-variance comparisons, spatial autocorrelation, detectable-change studies, or any design in which the final analysis differs from a simple mean.
 
 ---
 
 ## In this section
 
-- [`Sampling Design Tools/`](Sampling%20Design%20Tools/) — **placeholders.** The Forests tool as
-  an interim stand-in, with a README setting out what transfers and what does not.
-
-> 📸 **[SCREENSHOTS NEEDED]** — a stratified grassland in the GEE tool; the sample-size output
-> with two pools sized separately.
->
-> ✍️ **[SLIDE DECK NEEDED]** — the workshop presentation for Part 2.
->
-> 🛠 **[TOOL NEEDED]** — a grassland sampling-design tool: grassland priors, the right plot sizes,
-> stratification on management and fire, **separate sizing for soil and roots**, and the
-> [$t$-floor](#a9--plan-with-z-floor-it-with-t) reported beside the Cochran figure.
+| File | Purpose | Status |
+|---|---|---|
+| `README.md` | Part 2 lesson | This revised draft |
+| `images/banner_planning.svg` | Grassland planning banner | 🧩 Placeholder |
+| `images/sampling_explainer.svg` | Probability-based sampling explainer | 🧩 Placeholder |
+| `images/sample_size_explorer_static.svg` | Static visualization fallback | 🧩 Placeholder |
+| `images/step1_grassland_boundary.svg` | Boundary and exclusions | 🧩 Placeholder |
+| `images/step2_stratification.svg` | Management/restoration strata | 🧩 Placeholder |
+| `images/step3_carbon_pools.svg` | Pools and depth diagram | 🧩 Placeholder |
+| `images/step5_sampling_strategies.svg` | Sampling strategy comparison | 🧩 Placeholder |
+| `images/step5_nested_plot_layout.svg` | Nested plot layout | 🧩 Placeholder |
+| `images/permanent_vs_single_use.svg` | Permanent/single-use comparison | 🧩 Placeholder |
+| `Sampling Design Tools/grassland-sample-allocation.xlsx` | Per-pool sample-size calculator | 🧩 Placeholder |
+| `Sampling Design Tools/index.html` | Sampling planner and visualizer | 🧩 Placeholder |
+| `templates/grassland-boundary-template.geojson` | Boundary/strata template | 🧩 Placeholder |
+| `templates/project-planning-worksheet.md` | Participant decision record | 🧩 Placeholder |
+| `../Worked_Example/02_Project_Planning.md` | Complete Black Oak planning example | 🧩 Placeholder |
 
 ---
 
