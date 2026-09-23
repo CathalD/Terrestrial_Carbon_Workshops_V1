@@ -13,7 +13,7 @@
 *Measuring the same place twice. What it takes to say a carbon stock has changed — and what to
 measure instead when it will take forty years.*
 
-**Quick links:** [Part 2 §5D — permanent plots](../02_Project_Planning/README.md#5d--permanent-or-single-use-plots) · [Appendix A10 — pool variability](../02_Project_Planning/README.md#a10--why-roots-need-more-cores-than-soil) · [Grassland Carbon Calculator](../04_Data_Interpretation/calculators/)
+**Quick links:** [Part 2 §5D — permanent plots](../02_Project_Planning/README.md#permanent-or-single-use-plots) · [Appendix A10 — pool variability](../02_Project_Planning/README.md#a10--why-roots-may-need-more-samples) · [Grassland Carbon Calculator](../04_Data_Interpretation/calculators/)
 
 ---
 
@@ -36,7 +36,7 @@ the design — and sometimes the variable — accordingly.
 | | |
 |---|---|
 | **Comes after** | [Part 4](../04_Data_Interpretation/) — you need a stock with an interval before you can have a *change* in one |
-| **Reaches back into** | [Part 2 §5D](../02_Project_Planning/README.md#5d--permanent-or-single-use-plots) and [Part 3](../03_Field_Methods/#soil) — permanent plots and bulk density are decided there, and cannot be retrofitted |
+| **Reaches back into** | [Part 2 §5D](../02_Project_Planning/README.md#permanent-or-single-use-plots) and [Part 3](../03_Field_Methods/#soil) — permanent plots and bulk density are decided there, and cannot be retrofitted |
 | **Parallel to** | [Forests Part 5 — LiDAR](../../Forests/05_LiDAR_Supplement/) and [Wetlands Part 5 — Chronology](../../Wetlands/05_Chronology_Supplement/), the other two optional supplements in this series |
 
 > [!IMPORTANT]
@@ -121,7 +121,7 @@ quote.**
 > 50%.
 
 *All figures above: pooled two-sample $t$, α = 0.10 two-sided, computed with the same
-$t$-inverse used throughout [Part 2](../02_Project_Planning/README.md#a9--plan-with-z-floor-it-with-t).*
+$t$-inverse used throughout [Part 2](../02_Project_Planning/README.md#a9--normal-planning-and-small-sample-intervals).*
 
 ---
 
@@ -158,7 +158,7 @@ the power. Drop it and you have silently designed a 50%-power study.
 | 30% | **14** |
 
 *α = 0.10 two-sided, power 80%. CV 0.30 is the middle of the soil range from
-[A10](../02_Project_Planning/README.md#a10--why-roots-need-more-cores-than-soil).*
+[A10](../02_Project_Planning/README.md#a10--why-roots-may-need-more-samples).*
 
 > [!NOTE]
 > **Read the top row again.** Detecting a 5% change in soil carbon with independent plots takes
@@ -196,7 +196,7 @@ monitoring plan should state which one it has chosen:
    re-visit for a decade or more out. This is a legitimate and valuable choice — a well-marked,
    well-documented baseline is a gift to whoever measures next, and it is the only way the long
    answer ever gets known.
-2. **Buy the plots.** More plots, or [stratify harder](../02_Project_Planning/README.md#step-2--divide-the-site-into-meaningfully-distinct-areas)
+2. **Buy the plots.** More plots, or [stratify harder](../02_Project_Planning/README.md#step-2--stratify-your-site)
    so that within-stratum CV falls. Halving the CV quarters the plot count.
 3. **Change the variable.** Monitor something that responds in years rather than decades, and treat
    the carbon stock as a periodic baseline rather than the monitoring signal.
@@ -265,7 +265,7 @@ internal heterogeneity, sampled at one point, can have a ρ low enough that pair
 > determines your entire re-visit sample size.
 >
 > This is exactly the information that **compositing destroys**, which
-> [A10 option 3](../02_Project_Planning/README.md#on-option-3-briefly) already warns about. If there
+> [A10, option 3](../02_Project_Planning/README.md#a10--why-roots-may-need-more-samples) already warns about. If there
 > is any chance this site becomes a monitoring site, do not composite.
 
 ### Roots are a different story, and a worse one
@@ -535,7 +535,7 @@ subtracts out.
 | **A control that is genuinely comparable** | Same soil type, same landscape position, same climate. A control on a different soil is not a control |
 | **Both baselined** | A control established after the fact cannot be differenced |
 | **More plots again** | A difference of differences has four uncertain numbers in it. Size it on the difference you expect *between* the two changes |
-| **Stratify on what you cannot match** | [Part 2 Step 2](../02_Project_Planning/README.md#step-2--divide-the-site-into-meaningfully-distinct-areas) |
+| **Stratify on what you cannot match** | [Part 2 Step 2](../02_Project_Planning/README.md#step-2--stratify-your-site) |
 
 ### Fire: the soil is the wrong place to look first
 
@@ -555,7 +555,7 @@ balance, woody encroachment, tree cover — counting stems over 2 m through the
 and the soil-health indicators from [Step 6](#step-6--soil-health-indicators-and-carbon-stocks).
 These respond on the timescale fire management actually operates on. **Record fire history at every
 visit regardless** — it is a stratification variable
-([Part 2](../02_Project_Planning/README.md#savannah-and-parkland-fire-is-a-stratum-not-context)) and
+([Part 2](../02_Project_Planning/README.md#savannah-and-parkland-fire-may-define-a-stratum)) and
 the interpretive context for everything else.
 
 ---

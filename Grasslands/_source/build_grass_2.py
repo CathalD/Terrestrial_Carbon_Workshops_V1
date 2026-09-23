@@ -11,9 +11,9 @@ wb = openpyxl.load_workbook(OUT)
 pl = wb.create_sheet("1. Plot & Site Log", 1)
 COLS = ["Plot ID", "Site ID", "Study area", "Date", "Location", "Latitude", "Longitude",
         "GNSS accuracy (m)", "Datum", "Elevation (m)", "Grassland type", "Management",
-        "Grazing regime", "Years since fire", "Native or seeded", "Canopy cover (%)",
-        "Slope position", "Notes"]
-W = [12, 10, 12, 12, 22, 11, 11, 11, 10, 11, 18, 22, 14, 12, 18, 12, 14, 34]
+        "Grazing regime", "Years since fire", "Cultivation history", "Restoration year",
+        "Native or seeded", "Canopy cover (%)", "Slope position", "Notes"]
+W = [12, 10, 12, 12, 22, 11, 11, 11, 10, 11, 18, 22, 14, 12, 22, 13, 18, 12, 14, 34]
 title(pl, "PLOT & SITE LOG",
       "ONE ROW PER PLOT. Fill this in first — everything joins to it on Plot ID. "
       "Management, grazing and fire are not optional context: they are the stratification "
@@ -25,7 +25,8 @@ for col in range(1, len(COLS) + 1):
 dv(pl, 11, 5, 4 + NROW_PLOT, GRASSLAND_TYPES)
 dv(pl, 12, 5, 4 + NROW_PLOT, MANAGEMENT)
 dv(pl, 13, 5, 4 + NROW_PLOT, GRAZING)
-dv(pl, 15, 5, 4 + NROW_PLOT, NATIVE_SEEDED)
+dv(pl, 15, 5, 4 + NROW_PLOT, CULTIVATION)
+dv(pl, 17, 5, 4 + NROW_PLOT, NATIVE_SEEDED)
 
 # ── 2. Soil Data ─────────────────────────────────────────────────────────────
 sd = wb.create_sheet("2. Soil Data", 2)

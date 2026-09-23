@@ -379,7 +379,7 @@ Grassland carbon is old, deep and slow to rebuild. Most of the ways it leaves ar
 
 | # | Step | Where |
 |---|---|---|
-| 1 | **Divide the site into meaningfully distinct areas** — restoration age, management, history | [Part 2](../02_Project_Planning/#step-2--divide-the-site-into-meaningfully-distinct-areas) |
+| 1 | **Divide the site into meaningfully distinct areas** — restoration age, management, history | [Part 2](../02_Project_Planning/#step-2--stratify-your-site) |
 | 2 | **Core the soil**, full profile to refusal, in increments | [Part 3](../03_Field_Methods/#soil) |
 | 3 | **Separate the roots** from the soil sample, by diameter class and depth | [Part 3](../03_Field_Methods/#separate-the-roots) |
 | 4 | **Clip the standing vegetation at peak season**, and measure shrubs 0.5–2 m | [Part 3](../03_Field_Methods/#plants) |

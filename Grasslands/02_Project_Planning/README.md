@@ -53,24 +53,22 @@ If you have worked through another workshop in this series, most of the planning
 <tr>
 <td width="50%">
 
-**🗺 [Grassland Sampling Planner](Sampling%20Design%20Tools/)**  A spatial tool for drawing a boundary, adding management strata, allocating samples, and exporting coordinates.
+**📄 [Sample Allocation Calculator](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx)**  A spreadsheet that sizes soil and root sampling separately, applies the small-sample adjustment, allocates across strata by area, and writes out the assumptions you used.
 
-*Used in Steps 1, 2, and 5.*
-
-> 🧩 **[PLACEHOLDER — TOOL]** Until a grassland planner is built, include a documented manual GIS workflow and a downloadable boundary/strata template. Do not present the copied Forests tool as field-ready: its priors, plot footprint, and single-pool assumptions do not match this workshop.
+*Used in Step 4.*
 
 </td>
 <td width="50%">
 
-**📄 [Grassland Sample Allocation Calculator](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx)**  A spreadsheet that sizes soil and root sampling separately and records the assumptions used.
+**🔬 [Sample Size Explorer](Sampling%20Design%20Tools/index.html)**  An interactive page that reveals a simulated carbon surface one sample at a time, so you can watch the estimate and its interval respond. Open it in a browser.
 
-*Used in Step 4.*
-
-> 🧩 **[PLACEHOLDER — FILE]** Create the workbook and, if practical, a Google Sheets copy. It should accept separate variability and precision targets for soil and roots and report both the planning estimate and the small-sample adjustment.
+*Used in the Background and Step 4.*
 
 </td>
 </tr>
 </table>
+
+> 🧩 **[PLACEHOLDER — SPATIAL PLANNER]** A map-based planner — draw a boundary, add strata, allocate samples, export coordinates — is not built. Until it is, use the [boundary template](templates/grassland-boundary-template.geojson) with QGIS, ArcGIS or Earth Engine and record the random seed on the [planning worksheet](templates/project-planning-worksheet.md). The Forests GEE tool that used to stand in here has been moved to [`_superseded/`](Sampling%20Design%20Tools/_superseded/): its priors, plot footprint and single-pool assumption do not match this workshop.
 
 If you want to know how the calculator returns its values, [Appendix A](#appendix-a--a-brief-lesson-in-sampling-logic) explains the sampling logic and how to check achieved precision after fieldwork.
 
@@ -80,24 +78,28 @@ If you want to know how the calculator returns its values, [Appendix A](#appendi
 
 Measuring every square metre of an ecosystem is rarely feasible. Instead, we measure a **small portion** and use it to estimate the whole. Because an estimate built from a portion will not be exactly right every time, we also report its uncertainty. This is the basis of **probability-based sampling**.
 
+<p align="center">
+  <img src="images/sampling_explainer.svg" alt="A grid of carbon values across a study area with eight sampled plots circled, beside the estimate and margin of error those samples produce" width="100%">
+</p>
+
 <table>
 <tr>
 <td width="60%">
-
-> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/sampling_explainer.svg`: a grassland carbon surface with a small set of probability-based sample locations and a clear connection between sampled points and the site-wide estimate.
-
-</td>
-<td width="40%">
 
 **Sampling** means taking a small portion of something to make an informed estimate of the whole.
 
 A **sampling design** is the framework for deciding what and where to sample, then combining those measurements into an estimate for the full study area.
 
 </td>
+<td width="40%">
+
+The more independent, representative samples you collect, the more precise the estimate will generally become.
+
+</td>
 </tr>
 </table>
 
-The more independent, representative samples you collect, the more precise the estimate will generally become. A carbon result is usually reported in three parts:
+A carbon result is usually reported in three parts:
 
 | Component | Symbol | What it tells you |
 |---|---|---|
@@ -105,30 +107,38 @@ The more independent, representative samples you collect, the more precise the e
 | **Confidence level** | $1-\alpha$ | How often intervals built by this procedure would contain the true value over repeated sampling. |
 | **Relative margin of error** | $E$ | The distance from the estimate to the edge of the interval, expressed relative to the mean—for example, ±20%. |
 
-Put together, a result might read: *“Mean soil carbon = 100 ±20 units at 90% confidence.”*
+Put together, a result might read: *"Mean soil carbon = 100 ±20 units at 90% confidence."*
 
 ### Seeing it on a map
 
 <table>
 <tr>
-<td width="60%">
+<td width="55%">
 
-> 🧩 **[PLACEHOLDER — INTERACTIVE]** Build `Sampling Design Tools/index.html`: a sample-size explorer that reveals cores on a simulated grassland map while showing the running mean and confidence interval. Include soil, roots, and compare-both modes.
+**🔬 [Open the Sample Size Explorer](Sampling%20Design%20Tools/index.html)**
 
-> 🧩 **[PLACEHOLDER — STATIC FALLBACK]** Add `images/sample_size_explorer_static.svg` showing the same idea in three frames: few samples, more samples, and a stabilized estimate.
+Each sample reveals one small part of a simulated carbon surface. With only a few samples, the estimate may be far from the simulated true mean and its interval will be wide. As samples accumulate, the estimate usually stabilizes and the interval narrows.
+
+Switch to **compare both** and the reason soil and roots are sized separately becomes visible: at the same sample size, the more variable pool carries a much wider band.
 
 </td>
-<td width="40%">
+<td width="45%">
 
-Each sample reveals one small part of a simulated carbon surface. With only a few samples, the estimate may be far from the simulated true mean and its interval will be wide.
+The explorer also shows something the arithmetic alone does not. It reports whether the interval actually **contains** the simulated true mean — and sometimes it does not, even when the precision target is met.
 
-As samples accumulate, the estimate usually stabilizes and the interval narrows. Switching from soil to roots should show why a more variable pool needs more samples to achieve the same relative precision.
+That is not a bug. At 90% confidence it should happen about one time in ten. Hitting a precision target is not the same as being right.
 
 </td>
 </tr>
 </table>
 
-> **Visualization note:** Use an interactive HTML tool or a short MP4/WebM with controls rather than an autoplay GIF as the primary explanation. Provide a poster image, text explanation, and static fallback. The lesson should still work if motion is disabled.
+**Static fallback**, for print or where motion and scripting are unavailable:
+
+<p align="center">
+  <img src="images/sample_size_explorer_static.svg" alt="Three panels showing an estimate and its confidence band at three, nine and twenty-five samples; the band narrows while the simulated true mean stays fixed" width="100%">
+</p>
+
+> **Visualization note:** The explorer is an interactive HTML page rather than an autoplay GIF, and the lesson still works with motion disabled — the static panels above and the data table inside the page carry the same argument.
 
 ### The takeaway
 
@@ -166,22 +176,11 @@ They expect to measure soil, roots, ground vegetation, shrubs, and scattered tre
 
 Every carbon value derived from a core is first expressed per unit area. The boundary defined here is what turns a carbon **density** into a carbon **total**. It also defines the area to which the estimate applies.
 
-<table>
-<tr>
-<td width="45%">
+<p align="center">
+  <img src="images/step1_grassland_boundary.svg" alt="A project boundary with wetland, rock outcrop, road and fence line marked as exclusions, beside a form recording gross area, exclusions, net area and the inclusion rule" width="100%">
+</p>
 
-> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/step1_grassland_boundary.svg`: an aerial-style diagram showing the project boundary, excluded wetland, road, rock outcrop, and shelterbelt polygons, fence lines, and total area in m².
-
-</td>
-<td width="55%">
-
-The boundary may be a polygon drawn on a map or an existing management unit. What matters is that the inclusion rule is explicit and the area can be calculated.
-
-Record the area in **m²** for the planning tools and in **hectares** for reporting.
-
-</td>
-</tr>
-</table>
+The boundary may be a polygon drawn on a map or an existing management unit. What matters is that the inclusion rule is explicit and the area can be calculated. Record the area in **m²** for the planning tools and in **hectares** for reporting.
 
 Three grassland-specific cautions:
 
@@ -206,7 +205,10 @@ Three grassland-specific cautions:
 4. Write one sentence stating the inclusion rule.
 5. Export the boundary as GeoJSON or KML and save a static map for the field package.
 
-> 🧩 **[PLACEHOLDER — TEMPLATE]** Add `templates/grassland-boundary-template.geojson` and a short manual workflow for QGIS, ArcGIS, Google Earth Engine, or the GIS used by the project.
+**Start from [`templates/grassland-boundary-template.geojson`](templates/grassland-boundary-template.geojson)** — it carries the three feature roles (study area, exclusion, stratum) with the property fields this workshop expects, and opens directly in QGIS, ArcGIS, Earth Engine or geojson.io. Record your decisions on the [planning worksheet](templates/project-planning-worksheet.md).
+
+> [!WARNING]
+> **Do not read an area off coordinates in degrees.** Reproject to a metre-based CRS appropriate to your site — a UTM zone, or Statistics Canada Lambert (EPSG:3347) for prairie-wide work — before measuring.
 
 > [!TIP]
 > **✅ Before moving on, you should have:**
@@ -223,22 +225,13 @@ Three grassland-specific cautions:
 
 **Stratification** divides the study area into meaningful sub-areas, called **strata**, so that samples from one area are used to describe that area. A uniform site may not need stratification. If the project intends to compare management units, restoration ages, or burn histories, those groups must exist in the design before fieldwork.
 
-<table>
-<tr>
-<td width="45%">
-
-> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/step2_stratification.svg`: the Step 1 boundary split into restoration-age and burn-history polygons, each labelled with its area and a clear legend.
-
-</td>
-<td width="55%">
+<p align="center">
+  <img src="images/step2_stratification.svg" alt="The study boundary divided into three restoration-age strata, each labelled and awaiting an area, with a burn-unit boundary as an optional second layer" width="100%">
+</p>
 
 Stratification can reduce within-group variation and makes planned comparisons possible. A useful stratum is linked to the project question, can be mapped, and has an area that can be used when combining results.
 
 Do not create strata simply because a map layer is available. Each one adds field and analytical requirements.
-
-</td>
-</tr>
-</table>
 
 ### What counts as meaningfully distinct?
 
@@ -262,7 +255,7 @@ Do not create strata simply because a map layer is available. Each one adds fiel
 
 Management history is often held by the people who work on the land rather than in a spatial dataset. Budget time to record grazing regime and stocking, cultivation and seeding, burn years, restoration treatments, droughts, wildfire, and unusual disturbances.
 
-> 🧩 **[PLACEHOLDER — TOOL/FIELD]** Add `Management`, `Grazing regime`, `Years since fire`, `Cultivation history`, `Restoration year`, and `Native or seeded` fields to the Plot & Site Log. These fields are descriptive until a documented analysis explicitly uses them.
+The calculator's `1. Plot & Site Log` carries `Management`, `Grazing regime`, `Years since fire`, `Cultivation history`, `Restoration year` and `Native or seeded` fields for exactly this. **They are descriptive.** Nothing in the workbook computes from them — they are there so that when an interval comes out wide, you can post-stratify on something you actually recorded.
 
 ### Savannah and parkland: fire may define a stratum
 
@@ -284,10 +277,10 @@ Where fire is part of the management or restoration question, time since burn sh
 1. Start with the boundary from Step 1.
 2. List only the differences that could answer the project question or materially affect carbon estimates.
 3. Draw those strata and calculate the area of each.
-4. Name each stratum with an objective rule—for example, “north of the cross-fence, rotationally grazed since 2015.”
+4. Name each stratum with an objective rule—for example, "north of the cross-fence, rotationally grazed since 2015."
 5. Record management history and note any important differences that cannot be mapped.
 
-> 🧩 **[PLACEHOLDER — TOOL]** Add strata drawing and area reporting to the Grassland Sampling Planner. Until then, provide a manual GIS workflow.
+Add one `stratum` feature per sub-area to the [boundary template](templates/grassland-boundary-template.geojson); it already carries `stratum_rule`, `area_m2`, `restoration_year`, `years_since_fire` and the rest.
 
 > [!TIP]
 > **✅ Before moving on, you should have:**
@@ -304,22 +297,11 @@ Where fire is part of the management or restoration question, time since burn sh
 
 Carbon is stored in several pools. A **stock** is the amount stored at a defined place and time. **Living biomass** is the mass of living plant material. A clipped above-ground sample is a **standing crop** measured at that moment, not the total long-term carbon stock of the site.
 
-<table>
-<tr>
-<td width="45%">
+<p align="center">
+  <img src="images/step3_carbon_pools.svg" alt="A nested grassland plot in cross-section: a tree over two metres in a 400 square metre plot, a shrub in the medium plot, ground vegetation in a quadrat, and a soil core with depth increments to refusal" width="100%">
+</p>
 
-> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/step3_carbon_pools.svg`: a nested grassland plot showing a tree, shrubs and tall vegetation, clipped quadrat, soil/root core, and labelled depth increments.
-
-</td>
-<td width="55%">
-
-Soil is expected to contain the largest long-lived carbon pool in most grassland projects, but roots, shoots, shrubs, and scattered trees may be required by the project question.
-
-Choose each pool deliberately. Every additional pool adds field, laboratory, and analytical work.
-
-</td>
-</tr>
-</table>
+Soil is expected to contain the largest long-lived carbon pool in most grassland projects, but roots, shoots, shrubs, and scattered trees may be required by the project question. Choose each pool deliberately — every additional pool adds field, laboratory, and analytical work.
 
 | Pool | Field/lab implication | Planning recommendation |
 |---|---|---|
@@ -373,9 +355,7 @@ Complete the planning table before choosing a sample size:
 | Shrubs | | | | |
 | Trees >2 m | | | | |
 
-Then record the full-profile target, reporting windows, depth increments, and protocol link for every included pool.
-
-> 🧩 **[PLACEHOLDER — TEMPLATE]** Create `templates/project-planning-worksheet.md` with this table and the outputs required in all five steps.
+Then record the full-profile target, reporting windows, depth increments, and protocol link for every included pool. This table, and the outputs required in all five steps, are laid out in **[`templates/project-planning-worksheet.md`](templates/project-planning-worksheet.md)**.
 
 > [!TIP]
 > **✅ Before moving on, you should have:**
@@ -414,13 +394,15 @@ The prior should describe the variability the field crew expects to encounter be
 
 > 🧩 **[PLACEHOLDER — DATA]** Add a documented regional prior table with source, ecosystem, management context, depth, analytical method, mean, SD, CV, and suitability notes. Do not hide a generic default inside the calculator.
 
+*The calculator leaves the prior cells **orange and empty** for this reason. Nothing downstream computes until you supply one and say where it came from.*
+
 ### Soil and roots need separate decisions
 
 Root biomass is often more spatially variable than soil carbon because living roots cluster around individual plants and tussocks. Since planned sample size scales approximately with the square of the coefficient of variation, using one precision target for both pools can make root processing dominate the project.
 
 The values below are **illustrative calculator inputs**, not universal grassland defaults.
 
-| Pool | Illustrative CV | Illustrative cores for ±20% at 90% confidence |
+| Pool | Illustrative CV | Illustrative samples for ±20% at 90% confidence |
 |---|---:|---:|
 | Soil carbon — relatively uniform | 0.20 | 5 |
 | Soil carbon — moderate variation | 0.30 | 9 |
@@ -429,19 +411,19 @@ The values below are **illustrative calculator inputs**, not universal grassland
 | Roots — moderate illustrative variation | 0.70 | 36 |
 | Roots — high illustrative variation | 1.00 | 70 |
 
-> 📚 **[CITATIONS AND CALCULATOR VALIDATION NEEDED]** Replace or qualify these ranges using appropriate grassland studies. Regenerate every number from the final tested calculator.
+> 📚 **[CITATIONS NEEDED]** Replace or qualify these CV ranges using appropriate grassland studies. The *arithmetic* is generated by the calculator's `4. Sensitivity` tab; the *CV values it is run at* still need grassland sources.
 
 ### Set a target for each pool
 
 Separate precision targets may produce a more realistic design:
 
-| Illustrative design | Soil target | Root target | Approximate field cores |
+| Illustrative design | Soil target | Root target | Approximate field samples |
 |---|---:|---:|---:|
 | Same target for both | ±20% | ±20% | 36 |
 | **Different pool targets** | ±20% | ±40% | 11 |
 | Tighter root estimate | ±20% | ±30% | 17 |
 
-*Illustrative only: soil CV 0.30, root CV 0.70, 90% confidence, with the draft small-sample adjustment. Validate in the final calculator.*
+*Illustrative only: soil CV 0.30, root CV 0.70, 90% confidence, with the small-sample adjustment. The field count is whichever pool needs more, before per-stratum rounding and minimums.*
 
 A wider root interval is not automatically a failure. It may be an honest description of a variable pool. State the target and the achieved result separately for each pool.
 
@@ -460,24 +442,32 @@ Because soil and roots can come from the same core, the team may analyze soil ca
 
 ### 🛠 Your turn
 
-Use the **[Grassland Sample Allocation Calculator](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx)** or document the same calculation manually.
+Use the **[Sample Allocation Calculator](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx)**, or document the same calculation manually.
 
 <table>
 <tr>
-<td width="45%">
+<td width="48%">
 
-> 🧩 **[PLACEHOLDER — SCREENSHOT]** Add `images/step4_calculator_inputs.webp` showing separate soil and root inputs and the assumptions summary.
+**`1. Design`** — confidence, a precision target per pool, and a variability prior per pool with its source.
+
+**`2. Strata`** — each stratum's name and area. Allocation is proportional to area, rounded up, then raised to the minimum.
+
+**`3. Result`** — the sample size for each pool, what the small-sample adjustment added, the field count, and an assumptions statement to paste into your project record.
+
+**`4. Sensitivity`** — the figures quoted above, regenerated rather than typed.
 
 </td>
-<td width="55%">
+<td width="52%">
 
-Enter each stratum's area, confidence level, per-pool prior, and per-pool precision target. The tool should return:
+The tool returns:
 
 - planning sample size for each pool;
-- small-sample-adjusted value;
+- the small-sample-adjusted value, and what it added;
 - per-stratum allocation;
 - optional root subsample implications;
-- a plain-language assumptions statement for the project record.
+- a plain-language assumptions statement.
+
+> 🧩 **[PLACEHOLDER — SCREENSHOT]** Add `images/step4_calculator_inputs.webp` showing the separate soil and root inputs beside the assumptions summary, once the workbook has been reviewed.
 
 </td>
 </tr>
@@ -492,7 +482,7 @@ Enter each stratum's area, confidence level, per-pool prior, and per-pool precis
 > - A random root-subsampling plan, if used
 
 > [!NOTE]
-> The draft statistical minimum is **3 samples per stratum**, with **5 preferred where feasible**. The eelgrass workshop uses a five-sample operational minimum. Resolve and document the series-wide rule before publication; do not imply that the statistical and operational minimums are the same thing.
+> The draft statistical minimum is **3 samples per stratum**, with **5 preferred where feasible**. The eelgrass workshop uses a five-sample operational minimum. Resolve and document the series-wide rule before publication; do not imply that the statistical and operational minimums are the same thing. The calculator exposes this as an orange input rather than fixing it.
 
 ---
 
@@ -500,20 +490,11 @@ Enter each stratum's area, confidence level, per-pool prior, and per-pool precis
 
 *Exactly where do I sample?*
 
-<table>
-<tr>
-<td width="45%">
-
-> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/step5_sampling_strategies.svg`: four small panels comparing random, systematic, stratified-random, and paired-across-boundary designs.
-
-</td>
-<td width="55%">
+<p align="center">
+  <img src="images/step5_sampling_strategies.svg" alt="Four panels comparing random, systematic grid, stratified random and paired across-a-boundary sample placement" width="100%">
+</p>
 
 The spatial design should represent the target area while supporting the comparison the project intends to make. Accessibility may constrain fieldwork, but convenience alone should not quietly replace a probability-based design.
-
-</td>
-</tr>
-</table>
 
 | Strategy | When to use it |
 |---|---|
@@ -525,7 +506,7 @@ The spatial design should represent the target area while supporting the compari
 
 ### How does the total split across strata?
 
-A simple starting allocation gives each stratum a share of the total sample count proportional to its area. Round up and apply the documented minimum. If strata differ greatly in variability or if a small stratum is central to the comparison, proportional allocation may not be adequate; see [Appendix A7](#a7--allocation-across-strata).
+A simple starting allocation gives each stratum a share of the total sample count proportional to its area. Round up and apply the documented minimum. If strata differ greatly in variability or if a small stratum is central to the comparison, proportional allocation may not be adequate; see [Appendix A7](#a7--allocation-across-strata). The calculator's `2. Strata` tab does the area-proportional case.
 
 ### For grasslands specifically
 
@@ -545,11 +526,17 @@ The draft nested layout follows the [Vegetation Field Guide](../../_Shared/Veget
 | **Small** | 0.25 m², or a documented alternative | Ground vegetation below 0.5 m and clip-and-weigh sampling. |
 | **Soil/root core** | Point location | Soil and roots by depth increment. |
 
-> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/step5_nested_plot_layout.svg`: a plan view showing the optional 400 m² tree plot, medium plot, 0.25 m² quadrat, soil/root core, approach path, and destructive-sampling exclusion zone.
+<p align="center">
+  <img src="images/step5_nested_plot_layout.svg" alt="Plan view of a nested grassland plot: a 400 square metre tree plot, a medium shrub plot, a 0.25 square metre quadrat, and a soil core offset from the quadrat, with the order of work alongside" width="100%">
+</p>
 
 ### Permanent or single-use plots?
 
 This is a planning decision, not one to leave to the field crew.
+
+<p align="center">
+  <img src="images/permanent_vs_single_use.svg" alt="Two matched panels: in a single-use plot the core is taken inside the vegetation plot after the survey; in a permanent plot the core is offset outside it and the plot carries a relocatable marker" width="100%">
+</p>
 
 <table>
 <tr>
@@ -559,7 +546,7 @@ This is a planning decision, not one to leave to the field crew.
 
 Sampled once. Complete non-destructive work first, then destructive coring and clipping in the documented locations.
 
-Appropriate when the question is *“How much carbon is here now?”* and no return visit is planned.
+Appropriate when the question is *"How much carbon is here now?"* and no return visit is planned.
 
 </td>
 <td width="50%">
@@ -568,13 +555,11 @@ Appropriate when the question is *“How much carbon is here now?”* and no ret
 
 Relocated and measured repeatedly. Keep destructive sampling outside the permanent vegetation area and record each core or clip offset.
 
-Appropriate when the question is *“Is this changing?”*
+Appropriate when the question is *"Is this changing?"*
 
 </td>
 </tr>
 </table>
-
-> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/permanent_vs_single_use.svg`: matched panels showing plot markers, vegetation measurements, core locations, clipping locations, and the offset/exclusion rule.
 
 Permanent plots require:
 
@@ -595,13 +580,14 @@ Permanent plots require:
 ### 🛠 Your turn
 
 1. Choose and justify the sampling strategy.
-2. Allocate the Step 4 sample count across strata.
+2. Allocate the Step 4 sample count across strata — the calculator's `2. Strata` tab does this by area.
 3. Generate candidate coordinates and check access and safety constraints without quietly replacing the probability-based design.
 4. Select the plot layout for the chosen pools.
 5. Decide whether plots are permanent or single-use.
 6. Export coordinates, maps, and identifiers in formats the field team can use.
 
-> 🧩 **[PLACEHOLDER — TOOL]** The Grassland Sampling Planner should accept strata and sample counts, generate reproducible locations using a recorded random seed, allow documented replacements, and export CSV plus GeoJSON/KML.
+> [!IMPORTANT]
+> **Record the random seed, and every replacement you make.** Generating locations reproducibly is what separates a probability design from a set of points somebody chose. If a location is unreachable, replace it by a documented rule — not by moving it to somewhere convenient — and note both on the [planning worksheet](templates/project-planning-worksheet.md).
 
 > [!TIP]
 > **✅ Before moving on, you should have:**
@@ -638,6 +624,10 @@ Then confirm the grassland-specific decisions:
 | ☐ | Permanent or single-use plots selected |
 | ☐ | Destructive-sampling offsets documented |
 | ☐ | Sampling season chosen and justified for vegetation measurements |
+
+All of the above is laid out as a fill-in sheet in
+**[`templates/project-planning-worksheet.md`](templates/project-planning-worksheet.md)**, which also
+has a section to complete *after* the field season.
 
 <details>
 <summary><b>📊 The Black Oak plan at a glance</b></summary>
@@ -721,7 +711,7 @@ where $N$ is the number of possible sampling units under the chosen plot footpri
 
 For large $N$, the result approaches the simpler expression in A2. The practical importance of this correction depends on how the sampling unit and population are defined.
 
-> 📚 **[METHOD REVIEW NEEDED]** Confirm that the chosen definition of $N$ is appropriate for point cores and nested grassland plots before using area ÷ plot footprint as a universal population count.
+> 📚 **[METHOD REVIEW NEEDED]** Confirm that the chosen definition of $N$ is appropriate for point cores and nested grassland plots before using area ÷ plot footprint as a universal population count. **The calculator does not apply this correction** — it uses the A2 form, which is the conservative choice while the definition of $N$ is unresolved.
 
 ### A4 — What drives sample size
 
@@ -734,7 +724,17 @@ In the simple planning relationship:
 
 **Precision and variability usually matter more than total area.** The project controls the target precision and confidence level, but it does not control the site's true variability. That is why a pilot can be valuable.
 
-> 🧩 **[PLACEHOLDER — VISUAL]** Generate a four-row comparison chart from the final calculator, turning one input at a time. Do not maintain the numbers manually in both the chart and the prose.
+One knob at a time, from the calculator's `4. Sensitivity` tab:
+
+| Change | From | To | Samples |
+|---|---|---|---:|
+| Baseline — soil, CV 0.30, ±20%, 90% | | | **9** |
+| Variability | CV 0.30 | CV 0.70 | **36** |
+| Precision | ±20% | ±30% *(roots, CV 0.70)* | **17** |
+| Precision | ±20% | ±40% *(roots, CV 0.70)* | **11** |
+| Confidence | 90% | 95% *(soil, CV 0.30)* | **12** |
+
+*Regenerated by `_source/build_grass_alloc.py`. Do not edit these by hand in both places — re-run the script.*
 
 ### A5 — The proportion form
 
@@ -767,7 +767,9 @@ $$n_h = \frac{A_h}{A}\,n$$
 
 where $A_h$ is the area of stratum $h$, $A$ is total study area, and $n_h$ is that stratum's allocation.
 
-Round using a documented rule and apply the chosen minimum per stratum. Area-proportional allocation is not always optimal. When variability and processing cost differ among strata, a design such as Neyman or cost-adjusted allocation may be more appropriate.
+Round using a documented rule and apply the chosen minimum per stratum. Both push the total above $n$, which is expected: rounding down or allowing a two-sample stratum would leave that stratum without an estimable variance.
+
+Area-proportional allocation is not always optimal. When variability and processing cost differ among strata, a design such as Neyman or cost-adjusted allocation may be more appropriate. **The calculator implements the area-proportional case only.**
 
 ### A8 — After the campaign: did you hit the target?
 
@@ -784,15 +786,24 @@ If the target is missed:
 3. Add samples using the observed variability and a pre-defined rule where feasible.
 4. Otherwise report the achieved interval honestly and explain the limitation.
 
+The [planning worksheet](templates/project-planning-worksheet.md) has a section for this, so the
+plan and the outcome sit on the same page.
+
 ### A9 — Normal planning and small-sample intervals
 
 The basic planning equation uses a normal multiplier, $z$. After sampling, when variability is estimated from a small sample, a Student's $t$ multiplier is generally larger. The difference shrinks as sample size increases.
 
-The draft calculator proposes a small-sample adjustment during planning. If retained, document the algorithm, its convergence rule, and why it is appropriate. In the illustrative CV examples used earlier, the adjustment happened to add two samples; that is a property of those displayed scenarios, not a universal rule.
+The calculator applies a small-sample adjustment during planning. The algorithm is a fixed-point iteration:
+
+$$n_0 = \left\lceil \left(\frac{z\,CV}{E}\right)^2 \right\rceil, \qquad n_{k+1} = \left\lceil \left(\frac{t_{n_k-1}\,CV}{E}\right)^2 \right\rceil$$
+
+repeated until the value stops moving. Where it settles into a two-cycle rather than a fixed point — alternating between $n$ and $n+1$ — the larger is taken. The workbook unrolls six passes across hidden columns, which converges in three or four for every case quoted here, and avoids circular references or macros.
+
+In the illustrative CV examples above the adjustment happened to add two samples in every case; that is a property of those displayed scenarios, not a universal rule. Both the plain and the adjusted figure appear on the `3. Result` tab so the adjustment is never invisible.
 
 Report the design transparently, for example:
 
-> “The initial planning value was calculated at 90% confidence and ±20% relative precision using a CV of 0.30 from the pilot. The field target was then increased using the documented small-sample rule.”
+> "The initial planning value was calculated at 90% confidence and ±20% relative precision using a CV of 0.30 from the pilot. The field target was then increased using the documented small-sample rule."
 
 ### A10 — Why roots may need more samples
 
@@ -823,20 +834,25 @@ Compositing may reduce variation among analytical samples but removes informatio
 | File | Purpose | Status |
 |---|---|---|
 | `README.md` | Part 2 lesson | This revised draft |
-| `images/banner_planning.svg` | Grassland planning banner | 🧩 Placeholder |
-| `images/sampling_explainer.svg` | Probability-based sampling explainer | 🧩 Placeholder |
-| `images/sample_size_explorer_static.svg` | Static visualization fallback | 🧩 Placeholder |
-| `images/step1_grassland_boundary.svg` | Boundary and exclusions | 🧩 Placeholder |
-| `images/step2_stratification.svg` | Management/restoration strata | 🧩 Placeholder |
-| `images/step3_carbon_pools.svg` | Pools and depth diagram | 🧩 Placeholder |
-| `images/step5_sampling_strategies.svg` | Sampling strategy comparison | 🧩 Placeholder |
-| `images/step5_nested_plot_layout.svg` | Nested plot layout | 🧩 Placeholder |
-| `images/permanent_vs_single_use.svg` | Permanent/single-use comparison | 🧩 Placeholder |
-| `Sampling Design Tools/grassland-sample-allocation.xlsx` | Per-pool sample-size calculator | 🧩 Placeholder |
-| `Sampling Design Tools/index.html` | Sampling planner and visualizer | 🧩 Placeholder |
-| `templates/grassland-boundary-template.geojson` | Boundary/strata template | 🧩 Placeholder |
-| `templates/project-planning-worksheet.md` | Participant decision record | 🧩 Placeholder |
+| [`images/banner_planning.svg`](images/banner_planning.svg) | Grassland planning banner | ✅ Built |
+| [`images/sampling_explainer.svg`](images/sampling_explainer.svg) | Probability-based sampling explainer | ✅ Built |
+| [`images/sample_size_explorer_static.svg`](images/sample_size_explorer_static.svg) | Static visualization fallback | ✅ Built |
+| [`images/step1_grassland_boundary.svg`](images/step1_grassland_boundary.svg) | Boundary and exclusions | ✅ Built |
+| [`images/step2_stratification.svg`](images/step2_stratification.svg) | Management/restoration strata | ✅ Built |
+| [`images/step3_carbon_pools.svg`](images/step3_carbon_pools.svg) | Pools and depth diagram | ✅ Built |
+| [`images/step5_sampling_strategies.svg`](images/step5_sampling_strategies.svg) | Sampling strategy comparison | ✅ Built |
+| [`images/step5_nested_plot_layout.svg`](images/step5_nested_plot_layout.svg) | Nested plot layout | ✅ Built |
+| [`images/permanent_vs_single_use.svg`](images/permanent_vs_single_use.svg) | Permanent/single-use comparison | ✅ Built |
+| `images/step4_calculator_inputs.webp` | Calculator screenshot | 🧩 Placeholder |
+| [`Sampling Design Tools/grassland-sample-allocation.xlsx`](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx) | Per-pool sample-size calculator | ✅ Built |
+| [`Sampling Design Tools/index.html`](Sampling%20Design%20Tools/index.html) | Sample Size Explorer | ✅ Built |
+| `Sampling Design Tools/` — spatial planner | Draw, allocate, export coordinates | 🧩 Placeholder |
+| [`templates/grassland-boundary-template.geojson`](templates/grassland-boundary-template.geojson) | Boundary/strata template | ✅ Built |
+| [`templates/project-planning-worksheet.md`](templates/project-planning-worksheet.md) | Participant decision record | ✅ Built |
 | `../Worked_Example/02_Project_Planning.md` | Complete Black Oak planning example | 🧩 Placeholder |
+
+*The built figures and workbooks are generated by `_source/make_planning_figures.py` and
+`_source/build_grass_alloc.py`. Re-run those rather than editing the outputs.*
 
 ---
 

@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif">
+<title id="t">Probability-based sampling</title>
+<desc id="d">A grid representing carbon values across a study area, with eight sampled plots circled, and beside it the estimate and its margin of error that those samples produce.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#b9b8b1"/></marker></defs>
+<rect x="30" y="54" width="24" height="24" rx="2" fill="#199e70" opacity="0.38"/>
+<rect x="30" y="80" width="24" height="24" rx="2" fill="#199e70" opacity="0.40"/>
+<rect x="30" y="106" width="24" height="24" rx="2" fill="#199e70" opacity="0.42"/>
+<rect x="30" y="132" width="24" height="24" rx="2" fill="#199e70" opacity="0.42"/>
+<rect x="30" y="158" width="24" height="24" rx="2" fill="#199e70" opacity="0.42"/>
+<rect x="30" y="184" width="24" height="24" rx="2" fill="#199e70" opacity="0.40"/>
+<rect x="30" y="210" width="24" height="24" rx="2" fill="#199e70" opacity="0.38"/>
+<rect x="30" y="236" width="24" height="24" rx="2" fill="#199e70" opacity="0.36"/>
+<rect x="56" y="54" width="24" height="24" rx="2" fill="#199e70" opacity="0.41"/>
+<rect x="56" y="80" width="24" height="24" rx="2" fill="#199e70" opacity="0.44"/>
+<rect x="56" y="106" width="24" height="24" rx="2" fill="#199e70" opacity="0.46"/>
+<rect x="56" y="132" width="24" height="24" rx="2" fill="#199e70" opacity="0.47"/>
+<rect x="56" y="158" width="24" height="24" rx="2" fill="#199e70" opacity="0.46"/>
+<rect x="56" y="184" width="24" height="24" rx="2" fill="#199e70" opacity="0.44"/>
+<rect x="56" y="210" width="24" height="24" rx="2" fill="#199e70" opacity="0.41"/>
+<rect x="56" y="236" width="24" height="24" rx="2" fill="#199e70" opacity="0.38"/>
+<rect x="82" y="54" width="24" height="24" rx="2" fill="#199e70" opacity="0.44"/>
+<rect x="82" y="80" width="24" height="24" rx="2" fill="#199e70" opacity="0.48"/>
+<rect x="82" y="106" width="24" height="24" rx="2" fill="#199e70" opacity="0.50"/>
+<rect x="82" y="132" width="24" height="24" rx="2" fill="#199e70" opacity="0.51"/>
+<rect x="82" y="158" width="24" height="24" rx="2" fill="#199e70" opacity="0.51"/>
+<rect x="82" y="184" width="24" height="24" rx="2" fill="#199e70" opacity="0.48"/>
+<rect x="82" y="210" width="24" height="24" rx="2" fill="#199e70" opacity="0.45"/>
+<rect x="82" y="236" width="24" height="24" rx="2" fill="#199e70" opacity="0.41"/>
+<rect x="108" y="54" width="24" height="24" rx="2" fill="#199e70" opacity="0.46"/>
+<rect x="108" y="80" width="24" height="24" rx="2" fill="#199e70" opacity="0.51"/>
+<rect x="108" y="106" width="24" height="24" rx="2" fill="#199e70" opacity="0.53"/>
+<rect x="108" y="132" width="24" height="24" rx="2" fill="#199e70" opacity="0.55"/>
+<rect x="108" y="158" width="24" height="24" rx="2" fill="#199e70" opacity="0.54"/>
+<rect x="108" y="184" width="24" height="24" rx="2" fill="#199e70" opacity="0.51"/>
+<rect x="108" y="210" width="24" height="24" rx="2" fill="#199e70" opacity="0.47"/>
+<rect x="108" y="236" width="24" height="24" rx="2" fill="#199e70" opacity="0.42"/>
+<rect x="134" y="54" width="24" height="24" rx="2" fill="#199e70" opacity="0.47"/>
+<rect x="134" y="80" width="24" height="24" rx="2" fill="#199e70" opacity="0.52"/>
+<rect x="134" y="106" width="24" height="24" rx="2" fill="#199e70" opacity="0.55"/>
+<rect x="134" y="132" width="24" height="24" rx="2" fill="#199e70" opacity="0.56"/>
+<rect x="134" y="158" width="24" height="24" rx="2" fill="#199e70" opacity="0.56"/>
+<rect x="134" y="184" width="24" height="24" rx="2" fill="#199e70" opacity="0.53"/>
+<rect x="134" y="210" width="24" height="24" rx="2" fill="#199e70" opacity="0.49"/>
+<rect x="134" y="236" width="24" height="24" rx="2" fill="#199e70" opacity="0.44"/>
+<rect x="160" y="54" width="24" height="24" rx="2" fill="#199e70" opacity="0.47"/>
+<rect x="160" y="80" width="24" height="24" rx="2" fill="#199e70" opacity="0.51"/>
+<rect x="160" y="106" width="24" height="24" rx="2" fill="#199e70" opacity="0.55"/>
+<rect x="160" y="132" width="24" height="24" rx="2" fill="#199e70" opacity="0.57"/>
+<rect x="160" y="158" width="24" height="24" rx="2" fill="#199e70" opacity="0.56"/>
+<rect x="160" y="184" width="24" height="24" rx="2" fill="#199e70" opacity="0.54"/>
+<rect x="160" y="210" width="24" height="24" rx="2" fill="#199e70" opacity="0.49"/>
+<rect x="160" y="236" width="24" height="24" rx="2" fill="#199e70" opacity="0.44"/>
+<rect x="186" y="54" width="24" height="24" rx="2" fill="#199e70" opacity="0.45"/>
+<rect x="186" y="80" width="24" height="24" rx="2" fill="#199e70" opacity="0.50"/>
+<rect x="186" y="106" width="24" height="24" rx="2" fill="#199e70" opacity="0.54"/>
+<rect x="186" y="132" width="24" height="24" rx="2" fill="#199e70" opacity="0.56"/>
+<rect x="186" y="158" width="24" height="24" rx="2" fill="#199e70" opacity="0.56"/>
+<rect x="186" y="184" width="24" height="24" rx="2" fill="#199e70" opacity="0.53"/>
+<rect x="186" y="210" width="24" height="24" rx="2" fill="#199e70" opacity="0.50"/>
+<rect x="186" y="236" width="24" height="24" rx="2" fill="#199e70" opacity="0.45"/>
+<rect x="212" y="54" width="24" height="24" rx="2" fill="#199e70" opacity="0.43"/>
+<rect x="212" y="80" width="24" height="24" rx="2" fill="#199e70" opacity="0.48"/>
+<rect x="212" y="106" width="24" height="24" rx="2" fill="#199e70" opacity="0.51"/>
+<rect x="212" y="132" width="24" height="24" rx="2" fill="#199e70" opacity="0.54"/>
+<rect x="212" y="158" width="24" height="24" rx="2" fill="#199e70" opacity="0.55"/>
+<rect x="212" y="184" width="24" height="24" rx="2" fill="#199e70" opacity="0.53"/>
+<rect x="212" y="210" width="24" height="24" rx="2" fill="#199e70" opacity="0.50"/>
+<rect x="212" y="236" width="24" height="24" rx="2" fill="#199e70" opacity="0.45"/>
+<rect x="238" y="54" width="24" height="24" rx="2" fill="#199e70" opacity="0.41"/>
+<rect x="238" y="80" width="24" height="24" rx="2" fill="#199e70" opacity="0.45"/>
+<rect x="238" y="106" width="24" height="24" rx="2" fill="#199e70" opacity="0.49"/>
+<rect x="238" y="132" width="24" height="24" rx="2" fill="#199e70" opacity="0.52"/>
+<rect x="238" y="158" width="24" height="24" rx="2" fill="#199e70" opacity="0.53"/>
+<rect x="238" y="184" width="24" height="24" rx="2" fill="#199e70" opacity="0.52"/>
+<rect x="238" y="210" width="24" height="24" rx="2" fill="#199e70" opacity="0.49"/>
+<rect x="238" y="236" width="24" height="24" rx="2" fill="#199e70" opacity="0.45"/>
+<rect x="264" y="54" width="24" height="24" rx="2" fill="#199e70" opacity="0.38"/>
+<rect x="264" y="80" width="24" height="24" rx="2" fill="#199e70" opacity="0.42"/>
+<rect x="264" y="106" width="24" height="24" rx="2" fill="#199e70" opacity="0.46"/>
+<rect x="264" y="132" width="24" height="24" rx="2" fill="#199e70" opacity="0.49"/>
+<rect x="264" y="158" width="24" height="24" rx="2" fill="#199e70" opacity="0.51"/>
+<rect x="264" y="184" width="24" height="24" rx="2" fill="#199e70" opacity="0.51"/>
+<rect x="264" y="210" width="24" height="24" rx="2" fill="#199e70" opacity="0.49"/>
+<rect x="264" y="236" width="24" height="24" rx="2" fill="#199e70" opacity="0.45"/>
+<rect x="290" y="54" width="24" height="24" rx="2" fill="#199e70" opacity="0.36"/>
+<rect x="290" y="80" width="24" height="24" rx="2" fill="#199e70" opacity="0.39"/>
+<rect x="290" y="106" width="24" height="24" rx="2" fill="#199e70" opacity="0.43"/>
+<rect x="290" y="132" width="24" height="24" rx="2" fill="#199e70" opacity="0.46"/>
+<rect x="290" y="158" width="24" height="24" rx="2" fill="#199e70" opacity="0.49"/>
+<rect x="290" y="184" width="24" height="24" rx="2" fill="#199e70" opacity="0.49"/>
+<rect x="290" y="210" width="24" height="24" rx="2" fill="#199e70" opacity="0.47"/>
+<rect x="290" y="236" width="24" height="24" rx="2" fill="#199e70" opacity="0.43"/>
+<rect x="316" y="54" width="24" height="24" rx="2" fill="#199e70" opacity="0.34"/>
+<rect x="316" y="80" width="24" height="24" rx="2" fill="#199e70" opacity="0.37"/>
+<rect x="316" y="106" width="24" height="24" rx="2" fill="#199e70" opacity="0.40"/>
+<rect x="316" y="132" width="24" height="24" rx="2" fill="#199e70" opacity="0.43"/>
+<rect x="316" y="158" width="24" height="24" rx="2" fill="#199e70" opacity="0.45"/>
+<rect x="316" y="184" width="24" height="24" rx="2" fill="#199e70" opacity="0.46"/>
+<rect x="316" y="210" width="24" height="24" rx="2" fill="#199e70" opacity="0.44"/>
+<rect x="316" y="236" width="24" height="24" rx="2" fill="#199e70" opacity="0.41"/>
+<rect x="342" y="54" width="24" height="24" rx="2" fill="#199e70" opacity="0.32"/>
+<rect x="342" y="80" width="24" height="24" rx="2" fill="#199e70" opacity="0.34"/>
+<rect x="342" y="106" width="24" height="24" rx="2" fill="#199e70" opacity="0.37"/>
+<rect x="342" y="132" width="24" height="24" rx="2" fill="#199e70" opacity="0.39"/>
+<rect x="342" y="158" width="24" height="24" rx="2" fill="#199e70" opacity="0.41"/>
+<rect x="342" y="184" width="24" height="24" rx="2" fill="#199e70" opacity="0.42"/>
+<rect x="342" y="210" width="24" height="24" rx="2" fill="#199e70" opacity="0.41"/>
+<rect x="342" y="236" width="24" height="24" rx="2" fill="#199e70" opacity="0.38"/>
+<text x="30" y="28" font-size="14" fill="#898781" text-anchor="start" font-weight="600">The whole study area</text>
+<text x="30" y="45" font-size="11.5" fill="#a5a49e" text-anchor="start" font-weight="normal">every square metre has a carbon value — you cannot measure them all</text>
+<circle cx="68.0" cy="92.0" r="7" fill="none" stroke="#d95926" stroke-width="2.5"/>
+<circle cx="146.0" cy="196.0" r="7" fill="none" stroke="#d95926" stroke-width="2.5"/>
+<circle cx="224.0" cy="118.0" r="7" fill="none" stroke="#d95926" stroke-width="2.5"/>
+<circle cx="302.0" cy="222.0" r="7" fill="none" stroke="#d95926" stroke-width="2.5"/>
+<circle cx="120.0" cy="144.0" r="7" fill="none" stroke="#d95926" stroke-width="2.5"/>
+<circle cx="328.0" cy="144.0" r="7" fill="none" stroke="#d95926" stroke-width="2.5"/>
+<circle cx="198.0" cy="222.0" r="7" fill="none" stroke="#d95926" stroke-width="2.5"/>
+<circle cx="276.0" cy="66.0" r="7" fill="none" stroke="#d95926" stroke-width="2.5"/>
+<text x="30" y="284" font-size="12" fill="#898781" text-anchor="start" font-weight="normal">8 sampled plots (circled)</text>
+<text x="408" y="45" font-size="14" fill="#898781" text-anchor="start" font-weight="600">What you report</text>
+<line x1="408" y1="80" x2="618" y2="80" stroke="#b9b8b1" stroke-width="2"/>
+<rect x="460" y="68" width="106" height="24" rx="4" fill="#d95926" opacity="0.22"/>
+<line x1="513" y1="64" x2="513" y2="96" stroke="#d95926" stroke-width="3"/>
+<text x="513" y="114" font-size="12" fill="#898781" text-anchor="middle" font-weight="normal">estimate</text>
+<text x="513" y="130" font-size="12" fill="#a5a49e" text-anchor="middle" font-weight="normal">± margin of error</text>
+<text x="408" y="164" font-size="12" fill="#898781" text-anchor="start" font-weight="normal">More samples usually means</text>
+<text x="408" y="182" font-size="12" fill="#898781" text-anchor="start" font-weight="normal">a narrower band — not a</text>
+<text x="408" y="200" font-size="12" fill="#898781" text-anchor="start" font-weight="normal">different true value.</text>
+<path d="M376 80 h24" stroke="#b9b8b1" stroke-width="2" marker-end="url(#a)"/>
+</svg>

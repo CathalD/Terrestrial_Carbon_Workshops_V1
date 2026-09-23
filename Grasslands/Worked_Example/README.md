@@ -80,7 +80,7 @@ ecosystem entirely, and is there to break things: trees, thin soil, and a core t
 | **S3** Black Oak savannah | 3 | **5.26 ±1.41** | NOT MET: ±27% | 0.648 ±0.689 | NOT MET: ±106% |
 
 *±half-widths at 90% confidence. Targets: **±20% soil**, **±40% roots** — deliberately different,
-per [Appendix A10](../02_Project_Planning/README.md#a10--why-roots-need-more-cores-than-soil).*
+per [Appendix A10](../02_Project_Planning/README.md#a10--why-roots-may-need-more-samples).*
 
 ### Study area
 
@@ -207,7 +207,7 @@ carbon gets counted.
 | **S3 soil, ±27% — missed** | Soil CV **0.16**, and `BOS-03` is an underestimate because it was cored shallow. Fix the caveat before adding plots |
 | **All three root targets missed** | Root CVs **0.34, 0.34, 0.63** against soil CVs of **0.05, 0.15, 0.16** |
 
-The root failures are not a mistake. They are [A10](../02_Project_Planning/README.md#a10--why-roots-need-more-cores-than-soil)
+The root failures are not a mistake. They are [A10](../02_Project_Planning/README.md#a10--why-roots-may-need-more-samples)
 happening on real data: **roots are between two and four times as variable as soil at the same
 site**, the target was already loosened to ±40% to account for it, and three plots still cannot
 deliver it. Closing that gap at S3 would need roughly **five times the cores**.

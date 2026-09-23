@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="306" viewBox="0 0 760 306" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif">
+<title id="t">Sampling strategies</title>
+<desc id="d">Four panels comparing random, systematic grid, stratified random and paired across-a-boundary sample placement.</desc>
+<text x="24" y="28" font-size="14" fill="#898781" text-anchor="start" font-weight="600">Step 5 — four ways to place the samples</text>
+<text x="24" y="46" font-size="11.5" fill="#a5a49e" text-anchor="start" font-weight="normal">The design has to represent the area and support the comparison the project intends to make.</text>
+<rect x="24" y="66" width="168" height="150" rx="4" fill="none" stroke="#b9b8b1" stroke-width="1"/>
+<circle cx="84.3" cy="99.1" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="128.3" cy="89.7" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="112.8" cy="124.9" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="48.6" cy="141.9" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="45.8" cy="133.0" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="50.2" cy="91.9" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="97.9" cy="180.2" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="57.4" cy="107.8" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="125.1" cy="194.7" r="4" fill="#3987e5" opacity="0.85"/>
+<text x="108.0" y="236" font-size="12" fill="#898781" text-anchor="middle" font-weight="600">Random</text>
+<rect x="208" y="66" width="168" height="150" rx="4" fill="none" stroke="#b9b8b1" stroke-width="1"/>
+<circle cx="241.6" cy="96.0" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="241.6" cy="141.0" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="241.6" cy="186.0" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="292.0" cy="96.0" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="292.0" cy="141.0" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="292.0" cy="186.0" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="342.4" cy="96.0" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="342.4" cy="141.0" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="342.4" cy="186.0" r="4" fill="#3987e5" opacity="0.85"/>
+<text x="292.0" y="236" font-size="12" fill="#898781" text-anchor="middle" font-weight="600">Systematic</text>
+<rect x="392" y="66" width="168" height="150" rx="4" fill="none" stroke="#b9b8b1" stroke-width="1"/>
+<rect x="393" y="67.0" width="166" height="49.333333333333336" fill="#199e70" opacity="0.12"/>
+<rect x="393" y="116.33333333333334" width="166" height="49.333333333333336" fill="#3987e5" opacity="0.12"/>
+<rect x="393" y="165.66666666666669" width="166" height="49.333333333333336" fill="#c98500" opacity="0.12"/>
+<circle cx="486.9" cy="87.2" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="543.2" cy="75.1" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="526.6" cy="83.5" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="425.8" cy="127.6" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="449.0" cy="151.7" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="430.9" cy="143.6" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="495.6" cy="186.3" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="482.7" cy="175.7" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="413.9" cy="180.6" r="4" fill="#3987e5" opacity="0.85"/>
+<text x="476.0" y="236" font-size="12" fill="#898781" text-anchor="middle" font-weight="600">Stratified random</text>
+<rect x="576" y="66" width="168" height="150" rx="4" fill="none" stroke="#b9b8b1" stroke-width="1"/>
+<line x1="660.0" y1="66" x2="660.0" y2="216" stroke="#d95926" stroke-width="2" stroke-dasharray="6 4"/>
+<circle cx="626.4" cy="90.0" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="693.6" cy="90.0" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="626.4" cy="123.0" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="693.6" cy="123.0" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="626.4" cy="156.0" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="693.6" cy="156.0" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="626.4" cy="189.0" r="4" fill="#3987e5" opacity="0.85"/>
+<circle cx="693.6" cy="189.0" r="4" fill="#3987e5" opacity="0.85"/>
+<text x="660.0" y="236" font-size="12" fill="#898781" text-anchor="middle" font-weight="600">Paired across a boundary</text>
+<text x="24" y="266" font-size="11.5" fill="#a5a49e" text-anchor="start" font-weight="normal">Stratified random is the default once strata exist.</text>
+<text x="24" y="284" font-size="11.5" fill="#a5a49e" text-anchor="start" font-weight="normal">Convenience sampling is not a probability design — if it is unavoidable for a pilot, label the limitation.</text>
+</svg>
