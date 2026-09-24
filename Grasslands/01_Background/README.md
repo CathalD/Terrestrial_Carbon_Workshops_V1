@@ -167,7 +167,7 @@ The values are a worked-example dataset—not a regional default and not a claim
 </table>
 
 <p align="center">
-  <img src="images/carbon_pools.svg" alt="Bar chart: soil 10.97, roots 1.06, shoots 0.17 kg C per square metre — soil is 89.9% of the three-pool total" width="100%">
+  <img src="images/carbon_pools.svg" alt="Bar chart: soil 10.97 and roots 0.81 kg C per square metre, both to 30 cm, and shoots 0.17 — soil is 91.9% of the three-pool total" width="100%">
 </p>
 
 | Pool | Role in this workshop | How quickly it may vary |
@@ -315,13 +315,28 @@ Bulk density matters because the same depth can contain different masses of soil
 </td>
 <td width="45%">
 
-> 🧩 **[PLACEHOLDER — IMAGE/SLIDE]** Create a full soil profile beside a 30 cm core, showing carbon and roots below the conventional reporting depth. No existing slide currently covers this comparison.
-
 The equivalent-soil-mass concept is developed in [Part 5 — Monitoring](../05_Monitoring/#step-4--equivalent-soil-mass). A core intended for that comparison generally needs material below the reporting depth so the reference mass can be matched.
 
 </td>
 </tr>
 </table>
+
+<p align="center">
+  <img src="images/soil_profile_vs_30cm.svg" alt="Depth profiles of soil and root carbon in five prairie plots cored to 60 cm. About 30% of the soil carbon and 29% of the root carbon in the 0–60 cm profile lie below 30 cm, and roots were still present at 60 cm." width="100%">
+</p>
+
+In the workshop's worked example, a 30 cm core would have missed **about 30% of the soil carbon and 29% of the root carbon** that a 60 cm core recovered. Root carbon per 10 cm barely falls between 20–30 cm (0.11 kg C/m²) and 30–60 cm (0.10). Roots were still present at 60 cm, so even the deeper figure is a minimum.
+
+| Increment | Soil C (kg C/m²) | Root C (kg C/m²) |
+|---|---:|---:|
+| 0–10 cm | 4.81 | 0.42 |
+| 10–20 cm | 3.51 | 0.22 |
+| 20–30 cm | 2.54 | 0.11 |
+| **0–30 cm** | **10.86** | **0.75** |
+| 30–60 cm | 4.76 | 0.31 |
+| **Share below 30 cm** | **30%** | **29%** |
+
+*Mean of the five prairie plots cored to 60 cm; UP-03 hit refusal at 30 cm and is excluded. Constructed teaching data from the [Worked Example](../Worked_Example/), not a regional value.*
 
 > 📚 **[METHOD REVIEW NEEDED]** Confirm the full-profile recommendation, reporting depths, and equivalent-soil-mass workflow against the final soil guide, calculator, and cited grassland literature.
 
@@ -391,15 +406,14 @@ Establish two things early:
 
 - `images/banner_background.svg` — section banner.
 - The existing slide images embedded throughout this page — retained beside their original concepts.
-- `images/carbon_pools.svg` — teaching-data comparison of soil, root, and shoot pools.
+- `images/carbon_pools.svg` — teaching-data comparison of soil, root, and shoot pools, soil and roots both to 30 cm.
+- `images/soil_profile_vs_30cm.svg` — teaching-data depth profile showing what a 30 cm core leaves behind.
 - `images/accumulation_baseline.gif` — baseline accumulation animation.
 - `images/accumulation_pulse.gif` — disturbance-and-recovery animation.
 - `images/accumulation_collapse.gif` — overlapping-disturbance animation.
 - [`_references/`](../_references/) — papers cited by the workshop.
 
 > 🧩 **[PLACEHOLDER — SLIDE DECK]** Add the completed Part 1 `.pptx` and `.pdf` here after upload.
->
-> 🧩 **[PLACEHOLDER — PROFILE VISUAL]** Add the full-profile-versus-30-cm image after it is created.
 >
 > 🔗 **[PLACEHOLDER — VIDEO]** Add the WWF vegetation video playlist when its URL is confirmed.
 
