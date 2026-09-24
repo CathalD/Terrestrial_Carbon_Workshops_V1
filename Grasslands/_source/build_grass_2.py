@@ -79,6 +79,17 @@ for r in range(R0, R1 + 1):
             f'"Bottom depth is not below top depth. ","")'
             f'&IF($L{r}="Not confirmed","Bulk-density basis not confirmed with the lab — the '
             f'coarse-fragment correction may be wrong or doubled. ","")'
+            # The row records what the lab actually reported for THIS sample; the
+            # setting records what the project agreed with the lab in writing. They
+            # should be the same, and a disagreement is worth catching before it
+            # propagates into every stock on the sheet.
+            f'&IF(LAB_BULK_DENSITY_BASIS="Not confirmed",'
+            f'"No lab bulk-density basis is on file in Settings (LAB_BULK_DENSITY_BASIS), so '
+            f'nothing checks this row. ","")'
+            f'&IF(AND($L{r}<>"",LAB_BULK_DENSITY_BASIS<>"Not confirmed",'
+            f'$L{r}<>LAB_BULK_DENSITY_BASIS),'
+            f'"This row\'s bulk-density basis disagrees with the lab method on file. One of "'
+            f'&"the two is wrong, and the coarse-fragment correction follows the row. ","")'
             f'&IF(AND(ISNUMBER($M{r}),OR($M{r}<QC_BD_MIN,$M{r}>QC_BD_MAX)),'
             f'"Bulk density outside the plausible range for a mineral grassland soil. ","")'
             f'&IF(AND(ISNUMBER($N{r}),$N{r}>QC_CARBON_PCT_MAX),'
@@ -152,52 +163,74 @@ for r in range(R0, R1 + 1):
 
 # ── 4. Vegetation Data ───────────────────────────────────────────────────────
 vg = wb.create_sheet("4. Vegetation Data", 4)
-COLS = ["Plot ID", "Sampling date", "Peak growing season?", "Small plot area (m²)",
+# Phenology is recorded in three separate fields, not one yes/no. The stage is
+# an observation; whether the plot is comparable is a judgement against the
+# project's own written rule (COMPARABLE_SEASON_RULE); and removal by grazing or
+# mowing is a third, independent fact about what is standing there. Collapsing
+# them loses the reason a plot is or is not comparable, which is the part a
+# reader needs.
+COLS = ["Plot ID", "Sampling date", "Phenological stage", "Recent grazing / removal",
+        "Comparable-season criterion met?", "Small plot area (m²)",
         "Clip dry mass — LIVE (g)", "Clip dry mass — DEAD (g)",
         "Herbaceous carbon (kg C/m²)", "Medium plot area (m²)",
         "Shrub biomass, total (kg)", "Shrub carbon (kg C/m²)",
         "Canopy cover (%)", "Tree carbon (kg C/m²) — from Forests calculator",
         "TOTAL vegetation (kg C/m²)", "QC flags", "Notes"]
-W = [12, 13, 12, 13, 15, 15, 15, 13, 14, 14, 12, 30, 15, 46, 30]
-FILLS = ["y","y","y","y","b","b","g","y","b","g","y","y","g","r","y"]
+W = [12, 13, 20, 19, 18, 13, 15, 15, 15, 13, 14, 14, 12, 30, 15, 52, 30]
+FILLS = ["y","y","y","y","y","y","b","b","g","y","b","g","y","y","g","r","y"]
 title(vg, "VEGETATION DATA",
       "ONE ROW PER PLOT. This is a STANDING CROP, not a stock — it grows from nothing each "
       "spring and is gone by autumn, so it is reported in its own column and never merged into "
-      "the soil figure. Clip at ground level, at peak growing season, and record the date.",
+      "the soil figure. Record the stage you found it at, not the stage you wanted.",
       len(COLS))
 header_row(vg, 4, COLS, W, FILLS)
 R0, R1 = 5, 4 + NROW_VEG
 for col, f in enumerate(FILLS, start=1):
     paint(vg, R0, R1, col, f)
-dv(vg, 3, R0, R1, ["Yes", "No", "Unknown"])
+dv(vg, 3, R0, R1, PHENOLOGICAL_STAGES)
+dv(vg, 4, R0, R1, RECENT_REMOVAL)
+dv(vg, 5, R0, R1, COMPARABLE_SEASON)
 
 for r in range(R0, R1 + 1):
     # herbaceous: (live + dead) g over the quadrat area -> g/m2 -> kg C/m2
-    vg.cell(r, 7,
-            f'=IF(OR(NOT(ISNUMBER($D{r})),$D{r}=0,'
-            f'AND(NOT(ISNUMBER($E{r})),NOT(ISNUMBER($F{r})))),"",'
-            f'(IF(ISNUMBER($E{r}),$E{r},0)+IF(ISNUMBER($F{r}),$F{r},0))'
-            f'/$D{r}*CARBON_FRACTION_BIOMASS/1000)')
+    vg.cell(r, 9,
+            f'=IF(OR(NOT(ISNUMBER($F{r})),$F{r}=0,'
+            f'AND(NOT(ISNUMBER($G{r})),NOT(ISNUMBER($H{r})))),"",'
+            f'(IF(ISNUMBER($G{r}),$G{r},0)+IF(ISNUMBER($H{r}),$H{r},0))'
+            f'/$F{r}*CARBON_FRACTION_BIOMASS/1000)')
     # shrubs: kg over the medium plot -> kg C/m2
-    vg.cell(r, 10,
-            f'=IF(OR(NOT(ISNUMBER($I{r})),NOT(ISNUMBER($H{r})),$H{r}=0),"",'
-            f'$I{r}*CARBON_FRACTION_BIOMASS/$H{r})')
-    vg.cell(r, 13,
-            f'=IF($A{r}="","",IF(ISNUMBER($G{r}),$G{r},0)+IF(ISNUMBER($J{r}),$J{r},0)'
-            f'+IF(ISNUMBER($L{r}),$L{r},0))')
-    vg.cell(r, 14,
+    vg.cell(r, 12,
+            f'=IF(OR(NOT(ISNUMBER($K{r})),NOT(ISNUMBER($J{r})),$J{r}=0),"",'
+            f'$K{r}*CARBON_FRACTION_BIOMASS/$J{r})')
+    vg.cell(r, 15,
+            f'=IF($A{r}="","",IF(ISNUMBER($I{r}),$I{r},0)+IF(ISNUMBER($L{r}),$L{r},0)'
+            f'+IF(ISNUMBER($N{r}),$N{r},0))')
+    vg.cell(r, 16,
             f'=IF($A{r}="","",'
             f'IF(COUNTIF(\'1. Plot & Site Log\'!$A$5:$A${4+NROW_PLOT},$A{r})=0,'
             f'"Plot ID not in the Plot & Site Log. ","")'
-            f'&IF(OR($C{r}<>"Yes",PEAK_SEASON_SAMPLED<>"Yes"),'
-            f'"Not confirmed as peak-season. A standing crop measured off-peak is not "'
-            f'&"comparable to anything, including your own next visit. ","")'
+            f'&IF(COMPARABLE_SEASON_RULE="",'
+            f'"No comparable-season rule is written down in Settings, so no plot can say "'
+            f'&"whether it met one. ","")'
+            f'&IF($E{r}="No",'
+            f'"Did NOT meet the project comparable-season rule. Usable on its own, but do not "'
+            f'&"pool it with plots that did, or compare it to another visit. ","")'
+            f'&IF($E{r}="Not assessed",'
+            f'"Comparability against the season rule has not been assessed for this plot. ","")'
+            f'&IF($C{r}="Unknown",'
+            f'"Phenological stage unknown — a standing crop with no stage attached cannot be "'
+            f'&"interpreted or repeated. ","")'
             f'&IF($B{r}="","No sampling date. A clip-and-weigh without a date cannot be '
             f'interpreted. ","")'
-            f'&IF(AND(ISNUMBER($K{r}),$K{r}>0,NOT(ISNUMBER($L{r}))),'
+            f'&IF(OR($D{r}="Grazing — heavy",$D{r}="Hayed / mown",$D{r}="Burned"),'
+            f'"Standing material was removed before clipping, so this is what SURVIVED, not "'
+            f'&"what grew. Report it as such. ","")'
+            f'&IF($D{r}="Unknown",'
+            f'"Recent removal unknown — the clip cannot be separated from grazing loss. ","")'
+            f'&IF(AND(ISNUMBER($M{r}),$M{r}>0,NOT(ISNUMBER($N{r}))),'
             f'"Canopy cover is recorded but no tree carbon is entered — any tree over 2 m "'
             f'&"goes through the Forests protocol. ","")'
-            f'&IF(AND(ISNUMBER($I{r}),$I{r}>0),'
+            f'&IF(AND(ISNUMBER($K{r}),$K{r}>0),'
             f'"Shrub figures are ABOVE-ground only; shrub roots are in neither this pool nor "'
             f'&"the soil core. Declare the gap. ",""))')
 

@@ -4,6 +4,11 @@ Reads the numbers out of the recalculated worked-example workbook rather than
 carrying them as literals, so the chart cannot drift from the data. Writes
 Grasslands/01_Background/images/carbon_pools.svg.
 
+Soil and roots are BOTH taken to 30 cm. An earlier version drew roots over
+the full cored depth beside soil to 30 cm, which compares two different
+windows; the Plot Summary's root column is full-core, so roots are summed
+here from '3. Root Biomass' increments instead.
+
 Only the two PRAIRIE sites are used (S1 grazed, S2 ungrazed exclosure, 6 plots).
 S3 is Black Oak savannah and most of its vegetation carbon is TREE carbon, which
 would make the shoot bar describe something other than grassland.
@@ -41,9 +46,24 @@ prairie = [x for x in rows if x["site"] in ("S1", "S2")]
 if len(prairie) != 6:
     raise SystemExit(f"expected 6 prairie plots, found {len(prairie)}")
 
+# roots within the same 0-30 cm window as the soil figure
+DEPTH = 30
+rt = wb["3. Root Biomass"]
+ids = {ps.cell(r, 1).value for r in range(5, 20) if ps.cell(r, 2).value in ("S1", "S2")}
+root30 = {i: 0.0 for i in ids}
+for r in range(5, 1000):
+    pid = rt.cell(r, 1).value
+    if pid not in ids or not isinstance(rt.cell(r, 14).value, (int, float)):
+        continue
+    top, bot = rt.cell(r, 3).value, rt.cell(r, 4).value
+    if top < DEPTH < bot:
+        raise SystemExit(f"{pid}: root increment {top}-{bot} straddles {DEPTH} cm")
+    if bot <= DEPTH:
+        root30[pid] += rt.cell(r, 14).value
+
 pools = [
     ("Soil, 0–30 cm", statistics.mean(p["soil"] for p in prairie)),
-    ("Roots",              statistics.mean(p["root"] for p in prairie)),
+    ("Roots, 0–30 cm",     statistics.mean(root30.values())),
     ("Shoots",             statistics.mean(p["veg"]  for p in prairie)),
 ]
 total = sum(v for _, v in pools)
@@ -70,14 +90,14 @@ parts = [
     f'aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif">',
     '<title id="t">Grassland carbon by pool</title>',
     f'<desc id="d">Horizontal bar chart of mean carbon stock in three pools across six '
-    f'prairie plots: soil to 30 cm {pools[0][1]:.2f}, roots {pools[1][1]:.2f} and shoots '
+    f'prairie plots: soil to 30 cm {pools[0][1]:.2f}, roots to 30 cm {pools[1][1]:.2f} and shoots '
     f'{pools[2][1]:.2f} kilograms of carbon per square metre. Soil holds '
     f'{100*pools[0][1]/total:.0f} per cent of the total and shoots '
     f'{100*pools[2][1]/total:.0f} per cent.</desc>',
     f'<text x="0" y="20" font-size="15" font-weight="600" fill="{INK}">'
     f'Where the carbon is — mean of six prairie plots</text>',
     f'<text x="0" y="38" font-size="12.5" fill="{FAINT}">'
-    f'kg C per m² · soil to 30 cm · share of the three-pool total in brackets</text>',
+    f'kg C per m² · soil and roots both to 30 cm · share of the total in brackets</text>',
 ]
 
 for i, (label, val) in enumerate(pools):

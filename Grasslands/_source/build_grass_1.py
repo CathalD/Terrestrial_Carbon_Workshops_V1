@@ -66,7 +66,9 @@ warns = [
     ("Roots and soil carbon can be double counted",
      "Soil carbon analysis conventionally removes visible roots, but fine roots stay in the "
      "sample. If root carbon is then added to a soil stock that already contains it, the same "
-     "carbon is counted twice. Set ROOTS_REMOVED_BEFORE_SOIL_C to say which you did."),
+     "carbon is counted twice. ROOT_SOIL_REPORTING_BOUNDARY records which roots the soil "
+     "sample no longer contains; until it is agreed with the lab, the Plot Summary refuses to "
+     "add the two pools."),
     ("30 cm is a floor, not a total",
      "Native grassland roots reach metres. A root total whose deepest increment is simply the "
      "bottom of the core is a MINIMUM, and the Plot Summary flags it as one."),
@@ -100,9 +102,15 @@ SETTINGS = [
     ("SOIL_REPORTING_DEPTH_CM", 30, "o",
      "The fixed depth every core is reported to, ALONGSIDE the full profile. 30 cm is the IPCC "
      "default and what makes your number comparable. It is a floor, not the total."),
-    ("ROOTS_REMOVED_BEFORE_SOIL_C", "Yes", "o",
-     "Were roots sieved OUT before the soil went for carbon analysis? If No, fine-root carbon "
-     "is already inside the soil number and adding root carbon double counts it."),
+    ("ROOT_SOIL_REPORTING_BOUNDARY", "Not agreed with the lab", "o",
+     "WHICH roots the soil-carbon sample no longer contains, agreed with the lab in writing "
+     "before sampling. 'Root-separated soil' = roots removed by the project's defined procedure, "
+     "so soil and root pools may be added. 'Operational soil fraction' = the lab removed only "
+     "what its standard preparation picks out, so finer roots are already inside the soil "
+     "number and an overlapping root estimate must NOT be added to it."),
+    ("ROOT_SOIL_BOUNDARY_SOURCE", "", "o",
+     "Who agreed the boundary above, under which written method, and on what date. A boundary "
+     "with no source is an assumption, not a method."),
     ("ROOT_SIEVE_MM", 0.5, "o",
      "Finest sieve mesh used to recover roots, mm. Roots finer than this are lost, so the "
      "fine-root figure is a known underestimate and cannot be interpreted without this number."),
@@ -111,9 +119,20 @@ SETTINGS = [
      "mass is systematically too high."),
     ("ROOT_DRY_TEMP_C", 65, "o",
      "Temperature roots were dried at. Roots dry at 60–70 °C; soil bulk density at 105 °C."),
-    ("PEAK_SEASON_SAMPLED", "No", "o",
-     "Was above-ground vegetation clipped at peak growing season? Off-peak, a standing crop is "
-     "not comparable to anything."),
+    ("COMPARABLE_SEASON_RULE", "", "o",
+     "The project's OWN rule for when two clip-and-weigh samples count as comparable, written "
+     "out — the phenological stage, the window around it, and what disqualifies a plot. Each "
+     "plot then records whether it met the rule, on '4. Vegetation Data'. A blank here means "
+     "no plot can honestly answer that question."),
+    ("LAB_BULK_DENSITY_BASIS", "Not confirmed", "o",
+     "The volume the LAB divides dry mass by when it reports bulk density. 'total volume' = "
+     "the whole cored volume, coarse fragments included, so no further coarse-fragment "
+     "correction belongs in this workbook. 'fine-earth volume' = stones already excluded, so "
+     "the workbook applies the correction. Getting this wrong corrects once too often or not "
+     "at all, and Soil Data flags every row that disagrees with it."),
+    ("LAB_METHOD_REFERENCE", "", "o",
+     "Laboratory, method code or SOP number, and the date the bulk-density basis and the "
+     "root/soil boundary above were confirmed. This is the record the two settings point to."),
     ("SMALL_PLOT_AREA_M2", 0.25, "g",
      "Default clip-and-weigh quadrat area. 0.25 m², or a circle of radius 0.28 m."),
     ("MEDIUM_PLOT_AREA_M2", 100, "g", "Default medium (shrub) plot area. 16–100 m²."),
@@ -142,9 +161,13 @@ for name, val, fill, desc in SETTINGS:
     wb.defined_names.add(DefinedName(name, attr_text=f"'7. Settings'!$B${r}"))
     r += 1
 
-dv(st, 2, 9, 9, ["Yes", "No"])       # ROOTS_REMOVED_BEFORE_SOIL_C
-dv(st, 2, 11, 11, ["Yes", "No"])     # ASH_CORRECTED
-dv(st, 2, 13, 13, ["Yes", "No"])     # PEAK_SEASON_SAMPLED
+# Controlled lists, keyed by name rather than row number so the block survives
+# a setting being inserted above it.
+_ROW = {name: 5 + i for i, (name, *_rest) in enumerate(SETTINGS)}
+dv(st, 2, _ROW["ROOT_SOIL_REPORTING_BOUNDARY"], _ROW["ROOT_SOIL_REPORTING_BOUNDARY"],
+   ROOT_SOIL_BOUNDARY_OPTIONS)
+dv(st, 2, _ROW["ASH_CORRECTED"], _ROW["ASH_CORRECTED"], ["Yes", "No"])
+dv(st, 2, _ROW["LAB_BULK_DENSITY_BASIS"], _ROW["LAB_BULK_DENSITY_BASIS"], BD_BASIS)
 
 # ── 8. Fill Me In ────────────────────────────────────────────────────────────
 fm = wb.create_sheet("8. Fill Me In")

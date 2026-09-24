@@ -136,7 +136,7 @@ Across all 68 root fractions, correcting for adhering mineral soil took root mas
 
 **Ten per cent of the root pool was dirt.** Skip that step and every root number in the workshop is
 biased high by about that much, in one direction, invisibly. It is one of the
-[four details](../03_Field_Methods/#four-details-that-change-the-number) in Part 3A, and it
+[four details](../03_Field_Methods/#four-decisions-that-can-change-the-result) in Part 3A, and it
 is the one most often left out.
 
 ### 3 · Fine roots are the pool, so the sieve mesh decides the answer
@@ -257,9 +257,9 @@ order:
 > [!NOTE]
 > **Two things this constructed dataset does not exercise**, and a real campaign will:
 > **dead roots** (every fraction here is recorded Live, so the live/dead path is untested) and a
-> **`ROOTS_REMOVED_BEFORE_SOIL_C = No`** case, where fine-root carbon sits inside the soil number and
-> the double-counting flag fires. Both paths are built and both are worth trying by hand —
-> flip the setting on the `7. Settings` tab and watch what changes.
+> **`ROOT_SOIL_REPORTING_BOUNDARY = Operational soil fraction`** case, where fine-root carbon sits
+> inside the soil number and the overlap flag fires. Both paths are built and both are worth trying
+> by hand — change the setting on the `7. Settings` tab and watch what changes.
 
 ---
 
@@ -268,7 +268,8 @@ order:
 1. **Open the workbook and read it backwards.** Start at `6. Site Summary`, then `5. Plot Summary`,
    then the data tabs. That is the order the numbers depend on each other, and it is the spine of
    the whole workshop.
-2. **Change something and watch it move.** Flip `ROOTS_REMOVED_BEFORE_SOIL_C` to `No`. Set
+2. **Change something and watch it move.** Set `ROOT_SOIL_REPORTING_BOUNDARY` to
+   `Operational soil fraction`, or back to `Not agreed with the lab`. Set
    `ASH_CORRECTED` to `No`. Change `SOIL_REPORTING_DEPTH_CM` to 60. Each one is a point the workshop
    argues in prose; the workbook lets you see it.
 3. **Then take the blank copy.** The clean workbook is at
