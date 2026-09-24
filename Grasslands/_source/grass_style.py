@@ -115,6 +115,40 @@ NATIVE_SEEDED = ["Native sward", "Tame or introduced", "Mixed", "Unknown"]
 
 BD_BASIS = ["Fine earth / total volume", "Fine earth / fine-earth volume", "Not confirmed"]
 
+# Which roots the soil-carbon sample no longer contains. This is a method
+# boundary, not a yes/no: the two working answers imply different arithmetic,
+# and "not agreed" is a real and common third state that has to be visible.
+ROOT_SOIL_BOUNDARY_OPTIONS = [
+    "Not agreed with the lab",
+    "Root-separated soil",
+    "Operational soil fraction",
+]
+
+# Phenology is recorded as the stage observed, not as a yes/no on someone
+# else's idea of peak. Whether the plot is comparable is a separate judgement
+# against the project's own written rule.
+PHENOLOGICAL_STAGES = [
+    "Emergence / early vegetative",
+    "Vegetative",
+    "Peak standing biomass",
+    "Flowering / anthesis",
+    "Seed set / senescing",
+    "Dormant / cured",
+    "Unknown",
+]
+
+RECENT_REMOVAL = [
+    "None observed",
+    "Grazing — light",
+    "Grazing — moderate",
+    "Grazing — heavy",
+    "Hayed / mown",
+    "Burned",
+    "Unknown",
+]
+
+COMPARABLE_SEASON = ["Yes", "No", "Not assessed"]
+
 ROOT_CLASS = ["<=2 mm (fine)", ">2 mm (coarse)"]
 ROOT_STATE = ["Live", "Dead", "Not separated"]
 
@@ -137,9 +171,13 @@ FILL_ME_IN = [
     ("CARBON_FRACTION_ROOT", "7. Settings",
      "Fraction of dry root biomass that is carbon.",
      "0.5", "Set equal to the shoot value by default. Published root values often run a little lower."),
-    ("ROOTS_REMOVED_BEFORE_SOIL_C", "7. Settings",
-     "Were roots sieved OUT before the soil was analysed for carbon?",
-     "Yes", "If No, fine-root carbon is already inside the soil number and adding root carbon DOUBLE COUNTS it."),
+    ("ROOT_SOIL_REPORTING_BOUNDARY", "7. Settings",
+     "Which roots the soil-carbon sample no longer contains, agreed with the lab.",
+     "Not agreed with the lab",
+     "Until it is agreed, soil and root pools cannot be added: the overlap between them is unknown, not zero."),
+    ("ROOT_SOIL_BOUNDARY_SOURCE", "7. Settings",
+     "Who agreed that boundary, under which written method, and when.",
+     "(blank)", "A boundary with no source is an assumption. Reviewers cannot check it and neither can you, later."),
     ("ROOT_SIEVE_MM", "7. Settings",
      "Finest sieve mesh used to recover roots, in mm.",
      "0.5", "Roots finer than the mesh are lost. Without this number the fine-root figure cannot be interpreted."),
@@ -149,9 +187,16 @@ FILL_ME_IN = [
     ("ROOT_DRY_TEMP_C", "7. Settings",
      "Temperature roots were dried at, in degrees C.",
      "65", "Roots dry at 60-70 C; soil bulk density at 105 C. Confusing the two biases root mass."),
-    ("PEAK_SEASON_SAMPLED", "7. Settings",
-     "Was above-ground vegetation clipped at peak growing season?",
-     "No", "A standing crop measured off-peak is not comparable to anything, including your own next visit."),
+    ("COMPARABLE_SEASON_RULE", "7. Settings",
+     "The project's written rule for when two clip-and-weigh samples are comparable.",
+     "(blank)", "Each plot is asked whether it met the rule. With no rule written down, that question has no answer."),
+    ("LAB_BULK_DENSITY_BASIS", "7. Settings",
+     "The volume the lab divides dry mass by when reporting bulk density.",
+     "Not confirmed",
+     "The coarse-fragment correction is applied once, twice or never. Every Soil Data row that disagrees is flagged."),
+    ("LAB_METHOD_REFERENCE", "7. Settings",
+     "Laboratory, method or SOP number, and the date those two were confirmed.",
+     "(blank)", "The two settings above point at this record. Without it they are unsourced claims."),
     ("SOIL_REPORTING_DEPTH_CM", "7. Settings",
      "The fixed depth every core is reported to, alongside the full profile.",
      "30", "30 cm is the comparability depth. It is a FLOOR, not the total."),

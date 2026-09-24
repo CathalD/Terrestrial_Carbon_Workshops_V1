@@ -65,8 +65,9 @@ finest roots.
 - [ ] ❓ **Tree-cover threshold for the Forests protocol.** Proposed **≥ 25%** (matching Wetlands
   swamps). Savannah is the case that makes this matter.
 - [ ] ❓ **Fine roots: in the soil pool, or reported separately?** The calculator supports both via
-  `ROOTS_REMOVED_BEFORE_SOIL_C`. Default is **sieve first, analyse root-free soil**. Confirm, or
-  switch.
+  `ROOT_SOIL_REPORTING_BOUNDARY`, alongside `ROOT_SOIL_BOUNDARY_SOURCE` for who agreed it and
+  under which method. Default is **`Not agreed with the lab`** — deliberately, since that is the
+  real starting state. Settle it with the laboratory and set it.
 - [ ] ❓ **Root sieve mesh.** Default **2 mm** for the fine/coarse split; a second, finer mesh
   (0.5 mm or 0.2 mm) determines how much fine root you actually recover. State what you use.
 - [ ] ❓ **Default reporting depth.** Set to **30 cm minimum**, with deeper increments reported
@@ -180,8 +181,8 @@ below are references and real data, not arithmetic.*
   30 cm, and root density at 30–60 cm is still **19%** of the surface value.
 - [ ] 📸 The three sites side by side: grazed sward, exclosure, oak savannah.
 - [ ] 📊 **Two paths the constructed dataset does not exercise** — **dead roots** (every fraction is
-  recorded Live) and a **`ROOTS_REMOVED_BEFORE_SOIL_C = No`** case, where the double-counting flag
-  fires. Both are built; neither is demonstrated. A revised dataset could cover both.
+  recorded Live) and a **`ROOT_SOIL_REPORTING_BOUNDARY = Operational soil fraction`** case, where
+  the overlap flag fires. Both are built; neither is demonstrated. A revised dataset could cover both.
 
 ---
 

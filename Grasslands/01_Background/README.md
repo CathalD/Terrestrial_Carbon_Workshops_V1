@@ -230,7 +230,7 @@ option for very thin soils, where there is no column to core.
 </tr>
 </table>
 
-All three are covered step by step in [Part 3 — Field Methods](../03_Field_Methods/#soil).
+All three are covered step by step in [Part 3 — Field Methods](../03_Field_Methods/#3-collect-the-soil-and-root-core).
 
 ---
 
@@ -380,9 +380,9 @@ Grassland carbon is old, deep and slow to rebuild. Most of the ways it leaves ar
 | # | Step | Where |
 |---|---|---|
 | 1 | **Divide the site into meaningfully distinct areas** — restoration age, management, history | [Part 2](../02_Project_Planning/#step-2--stratify-your-site) |
-| 2 | **Core the soil**, full profile to refusal, in increments | [Part 3](../03_Field_Methods/#soil) |
-| 3 | **Separate the roots** from the soil sample, by diameter class and depth | [Part 3](../03_Field_Methods/#separate-the-roots) |
-| 4 | **Clip the standing vegetation at peak season**, and measure shrubs 0.5–2 m | [Part 3](../03_Field_Methods/#plants) |
+| 2 | **Core the soil**, full profile to refusal, in increments | [Part 3](../03_Field_Methods/#3-collect-the-soil-and-root-core) |
+| 3 | **Separate the roots** from the soil sample, by diameter class and depth | [Part 3](../03_Field_Methods/#5-separate-the-roots-and-finish-the-records) |
+| 4 | **Clip the standing vegetation at peak season**, and measure shrubs 0.5–2 m | [Part 3](../03_Field_Methods/#2-measure-the-vegetation) |
 | 5 | **Measure any tree over 2 m** | [Forests Part 3A](../../Forests/03_Field_Methods/3A_Trees.md) |
 | 6 | **Multiply up, add an interval**, and say what you left out | [Part 4](../04_Data_Interpretation/) |
 | 7 | **Optionally, come back and do it again** | [Part 5](../05_Monitoring/) |
