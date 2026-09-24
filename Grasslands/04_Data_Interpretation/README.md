@@ -63,7 +63,7 @@ Standard, and identical to [Forests](../../Forests/04_Data_Interpretation/):
 ### 1.3 The root chain — and this one is yours to get right
 
 No WWF guide covers it, so the procedure in
-[Part 3](../03_Field_Methods/#separate-the-roots) is the reference. The four
+[Part 3](../03_Field_Methods/#5-separate-the-roots-and-finish-the-records) is the reference. The four
 steps that change the number:
 
 | Step | Get it wrong and… |
@@ -123,9 +123,14 @@ a convention a field crew can apply with a sieve — not a biological boundary.
 | **Pro** | Clean separation; root carbon is fully measured | Much less lab work |
 | **Con** | The labour | Fine-root carbon is inside the soil number and cannot be broken out |
 
-> 🟠 **[FILL ME IN]** — `ROOTS_REMOVED_BEFORE_SOIL_C` in the calculator's `7. Settings`. **Default
-> is Option 1.** A QC flag fires on every soil row while root carbon is being added to a stock not
-> confirmed root-free.
+> 🟠 **[FILL ME IN]** — `ROOT_SOIL_REPORTING_BOUNDARY` in the calculator's `7. Settings`, with
+> `ROOT_SOIL_BOUNDARY_SOURCE` recording who agreed it and under which written method. **The
+> default is `Not agreed with the lab`**, because that is the state most projects are actually
+> in, and a workbook that assumed otherwise would hand you a combined figure nobody had earned.
+> While it reads that way, `5. Plot Summary` flags every plot where root carbon is being added
+> to a soil stock whose root content was never agreed — the overlap is unknown, not zero.
+> Option 1 is `Root-separated soil`; Option 2 is `Operational soil fraction`, and it gets its
+> own flag saying the pools overlap and must be reported separately rather than added.
 >
 > **Being silent about which you did is the only wrong answer** — and silence is the default
 > outcome if nobody decides in advance. Decide it in
@@ -261,9 +266,11 @@ Every flag is an instruction. Clear or explain all of them before reporting.
 | `Root mass is NOT ash-corrected` | It is systematically too high. Ash a subsample, or report it as an upper bound |
 | `Sieve mesh not recorded` | The fine-root figure cannot be interpreted. Recover it from the lab notes |
 | `Root total reaches only X cm — the bottom of the core` | Report it as a **minimum**. Native grassland roots reach metres |
-| `Root carbon added to a soil stock NOT confirmed root-free` | **Probable double count.** Set `ROOTS_REMOVED_BEFORE_SOIL_C`, or report the pools separately |
+| `Root carbon is being added to a soil stock whose root content was never agreed with the lab` | **The overlap is unknown, not zero.** Settle `ROOT_SOIL_REPORTING_BOUNDARY` before reporting a combined figure |
+| `The soil sample keeps every root the lab's standard preparation did not pick out` | Under the operational boundary the pools **overlap**. Report them separately; do not add them |
 | `Cored shallower than the reporting depth` | That plot's reporting-depth figure is an underestimate |
-| `Not confirmed as peak-season` | A standing crop measured off-peak is not comparable to anything |
+| `Did NOT meet the project comparable-season rule` | Usable on its own, but do not pool it with plots that did, or compare it to another visit |
+| `No comparable-season rule is written down in Settings` | Fill in `COMPARABLE_SEASON_RULE`. No plot can claim to have met a rule that nobody wrote down |
 | `Canopy cover at or above the threshold but no tree carbon` | Measure the trees, or say the pool is excluded |
 | `Shrub figures are ABOVE-ground only` | Shrub roots are in no pool. Declare the gap |
 | `NOT MET: ±X% against a ±Y% target` | Scrutinise the data, post-stratify on management, then add cores |

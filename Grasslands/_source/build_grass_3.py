@@ -61,7 +61,7 @@ for r in range(R0, R1 + 1):
     ps.cell(r, 7, f'=IF(OR($A{r}="",$P{r}=0),"",'
                   f'SUMIFS(\'3. Root Biomass\'!$N$5:$N${RT_LAST},'
                   f'\'3. Root Biomass\'!$A$5:$A${RT_LAST},$A{r})/$P{r})')
-    ps.cell(r, 8, f'=IF($A{r}="","",IFERROR(SUMIFS(\'4. Vegetation Data\'!$M$5:$M${VG_LAST},'
+    ps.cell(r, 8, f'=IF($A{r}="","",IFERROR(SUMIFS(\'4. Vegetation Data\'!$O$5:$O${VG_LAST},'
                   f'\'4. Vegetation Data\'!$A$5:$A${VG_LAST},$A{r}),""))')
     ps.cell(r, 9, f'=IF($A{r}="","",IF(ISNUMBER($D{r}),$D{r},0)+IF(ISNUMBER($G{r}),$G{r},0)'
                   f'+IF(ISNUMBER($H{r}),$H{r},0))')
@@ -76,9 +76,21 @@ for r in range(R0, R1 + 1):
             f'&IF(AND(ISNUMBER($G{r}),$G{r}>0,ISNUMBER($F{r})),'
             f'"Root total reaches only "&$F{r}&" cm — the bottom of the core, not the bottom of '
             f'the roots. Report it as a MINIMUM. ","")'
-            f'&IF(AND(ISNUMBER($G{r}),$G{r}>0,ROOTS_REMOVED_BEFORE_SOIL_C<>"Yes"),'
-            f'"Root carbon is being added to a soil stock NOT confirmed root-free — fine-root '
-            f'carbon is probably counted twice. ",""))')
+            # The two working boundaries are not equivalent, so they get different
+            # flags: one says the sum is defensible, the other says the sum is a
+            # double count. "Not agreed" is the state most projects are actually in.
+            f'&IF(AND(ISNUMBER($G{r}),$G{r}>0,'
+            f'ROOT_SOIL_REPORTING_BOUNDARY="Not agreed with the lab"),'
+            f'"Root carbon is being added to a soil stock whose root content was never agreed '
+            f'with the lab. The overlap is unknown, not zero — settle '
+            f'ROOT_SOIL_REPORTING_BOUNDARY before reporting a combined figure. ","")'
+            f'&IF(AND(ISNUMBER($G{r}),$G{r}>0,'
+            f'ROOT_SOIL_REPORTING_BOUNDARY="Operational soil fraction"),'
+            f'"The soil sample keeps every root the lab\'s standard preparation did not pick '
+            f'out, so soil and root pools OVERLAP. Report them separately; do not add them. '
+            f'","")'
+            f'&IF(ROOT_SOIL_BOUNDARY_SOURCE="",'
+            f'"No source recorded for the root/soil boundary. ",""))')
     ps.cell(r, 12, f'=IF(ISNUMBER($D{r}),$D{r},"")')   # reporting-depth basis
     ps.cell(r, 13, f'=IF(ISNUMBER($G{r}),$G{r},"")')
     ps.cell(r, 14, f'=IF(AND(ISNUMBER($D{r}),$A{r}<>""),1,0)')

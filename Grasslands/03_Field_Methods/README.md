@@ -2,8 +2,6 @@
   <img src="images/banner_field_methods.svg" alt="Field Methods — Grassland Carbon Workshop banner" width="100%">
 </p>
 
-> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/banner_field_methods.svg` using the shared workshop banner dimensions, typography, and colour treatment, with a grassland field crew measuring vegetation and collecting a soil core.
-
 ---
 
 # Part 3 — Field Methods
@@ -43,24 +41,15 @@ The work follows five stages:
 
 ## ⚠ The order matters
 
-<table>
-<tr>
-<td width="50%">
-
-> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/field_workflow_order.svg`: a numbered plot diagram showing the crew moving from plot marking and photographs through vegetation measurements, then to the offset soil/root core.
-
-</td>
-<td width="50%">
+<p align="center">
+  <img src="images/field_workflow_order.svg" alt="Where each step of the plot visit happens — seven numbered stations, non-destructive first" width="62%">
+</p>
 
 > **Complete non-destructive vegetation measurements before coring or clipping disturbs the plot.**
 
 Coring changes the surface and creates traffic around the sampling point. Clipping removes the vegetation another measurement may need. Plan the crew's movement so the unmeasured plot is protected.
 
 For a **permanent plot**, keep destructive samples outside the permanent vegetation area and record their direction and distance from the marker.
-
-</td>
-</tr>
-</table>
 
 ```text
  1. Navigate, mark the plot, and record GPS             ──┐
@@ -177,22 +166,11 @@ Vegetation, roots, and soil do not have identical seasonal constraints.
 
 This decision was made under [Permanent or single-use plots? in Part 2](../02_Project_Planning/#permanent-or-single-use-plots). Confirm it against the field map before laying out the plot.
 
-<table>
-<tr>
-<td width="45%">
-
-> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/permanent_vs_single_use_field.svg`: matched field diagrams showing the plot marker, vegetation area, traffic path, clipped quadrat, and soil-core position for both designs.
-
-</td>
-<td width="55%">
+<img src="images/permanent_vs_single_use_field.svg" alt="Where the destructive samples go in a single-use plot and in a permanent plot" width="100%">
 
 **Single-use:** complete non-destructive work first, then place destructive measurements in the documented sampling area.
 
 **Permanent:** protect the area that will be remeasured. Place clipping and coring outside it, and record bearing and distance from the permanent marker.
-
-</td>
-</tr>
-</table>
 
 #### Navigate and mark
 
@@ -237,7 +215,7 @@ Use one series-wide convention so photographs can be compared among sites and vi
 | 3–14 | For each cardinal direction: horizontal, 45° up, and 45° down. |
 | Additional | Small quadrat directly overhead before and after clipping. |
 
-> 🧩 **[PLACEHOLDER — DIAGRAM]** Create `images/photo_series.svg` showing camera direction, frame numbering, photo-board placement, and filename convention.
+<img src="images/photo_series.svg" alt="The photograph series — sixteen frames, and the filename convention" width="100%">
 
 Use a photo board or first frame containing plot ID, date, direction, and photographer. Preserve original files and record filenames on the plot log.
 
@@ -276,24 +254,13 @@ Use a photo board or first frame containing plot ID, date, direction, and photog
 
 Complete vegetation work from the least destructive measurement to the most destructive: trees, shrubs/tall vegetation, then the small clipped quadrat.
 
-<table>
-<tr>
-<td width="45%">
-
-> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/nested_vegetation_plots.svg`: the large, medium, and small plots nested around the centre, with height classes and the offset soil-core position.
-
-</td>
-<td width="55%">
+<img src="images/nested_vegetation_plots.svg" alt="The nested vegetation plots and the height class each one holds" width="100%">
 
 | Plot | Vegetation | Draft method |
 |---|---|---|
 | **Large** | Trees >2 m | Species, DBH, height, and approved allometry. |
 | **Medium** | Plants 0.5–2 m | Species and dimensions used by the selected allometry or a documented harvest method. |
 | **Small** | Plants <0.5 m | Photograph, clip, separate required fractions, bag, dry, and weigh. |
-
-</td>
-</tr>
-</table>
 
 #### Small plot — clip and weigh
 
@@ -321,7 +288,9 @@ Clip-and-weigh measures standing material at the sampling date. It should not be
 > - Record recent grazing, mowing, fire, drought, or other events that affect standing material.
 > - If the question is production rather than standing crop, use a design such as exclosures and repeated harvests that directly addresses production.
 
-> 🧩 **[PLACEHOLDER — DATA FIELD]** Add `Phenological stage`, `Recent grazing/removal`, and `Comparable-season criterion met?` to the vegetation record. Do not hide this decision in an undocumented calculator flag.
+> ✅ **Built.** `4. Vegetation Data` in the [calculator](../04_Data_Interpretation/calculators/Grassland_Carbon_Calculator.xlsx) now carries three separate controlled fields — **`Phenological stage`**, **`Recent grazing / removal`** and **`Comparable-season criterion met?`** — and the single `PEAK_SEASON_SAMPLED` yes/no has been removed. The project's own rule lives in `7. Settings` as **`COMPARABLE_SEASON_RULE`**, written out in words; a plot cannot claim to have met a rule that nobody wrote down, and the QC column says so when the setting is blank. The same three fields are on the [field data sheet](datasheets/Grassland-Field-Data-Sheet.docx).
+>
+> The three are deliberately not collapsible into one. The stage is **what you found**; comparability is a **judgement against the project rule**; recent removal is a **third, independent fact** — a heavily grazed plot measures what survived, not what grew. A single yes/no loses the reason a plot is or is not comparable, which is the part a reader needs.
 
 #### Medium plot — shrubs and tall vegetation
 
@@ -417,23 +386,12 @@ Use the method specified in the sampling plan. If conditions force a change, rec
 
 #### Position the core
 
-<table>
-<tr>
-<td width="45%">
-
-> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/core_offset_and_traffic.svg`: the clipped quadrat, undisturbed core point, crew approach path, and permanent-plot exclusion area.
-
-</td>
-<td width="55%">
+<img src="images/core_offset_and_traffic.svg" alt="Where the core goes, and where the crew does not" width="100%">
 
 - Use the pre-defined offset and direction.
 - Avoid the clipped quadrat, kneeling areas, wheel tracks, obvious animal burrows, and previous core holes unless the design explicitly targets them.
 - Record the offset and any deviation.
 - Photograph unusual surface conditions before coring.
-
-</td>
-</tr>
-</table>
 
 #### Insert the corer
 
@@ -475,7 +433,7 @@ Bulk density must use a **known bulk volume** and a clearly defined mass fractio
 > [!WARNING]
 > Do not apply a coarse-fragment correction twice. The correct calculation depends on whether bulk density is reported over total bulk volume or fine-earth volume and on how the carbon concentration sample was prepared. Record the laboratory definition and make one documented correction in the analysis workflow.
 
-> 🧩 **[PLACEHOLDER — LAB FIELD]** Add a controlled `Bulk-density basis` field linked to a laboratory-method record. Replace the informal `Fill Me In` note with a required pre-field configuration item.
+> ✅ **Built.** The per-row `Bulk density basis` on `2. Soil Data` is now checked against a project-level record: **`LAB_BULK_DENSITY_BASIS`** and **`LAB_METHOD_REFERENCE`** in `7. Settings` hold the basis the laboratory reports and the lab, method number and date it was confirmed on. Both appear on the `8. Fill Me In` index as pre-field configuration, and the Soil Data QC column fires twice — once if no lab basis is on file at all, and again on any row whose basis disagrees with it. The [field data sheet](datasheets/Grassland-Field-Data-Sheet.docx) and the [chain-of-custody form](datasheets/Grassland-Sample-Inventory-and-Chain-of-Custody.docx) both carry the same tick boxes, so the decision travels with the samples.
 
 > [!IMPORTANT]
 > Washing and sieving alter the soil sample and destroy its original structure. Do not treat washed root-free material as a direct bulk-density sample without a validated mass-balance method. Use the field guide's intact-core/ring procedure or another reviewed method that preserves the known original bulk volume.
@@ -512,14 +470,7 @@ Bulk density must use a **known bulk volume** and a clearly defined mass fractio
 
 *Which material belongs to each depth interval?*
 
-<table>
-<tr>
-<td width="45%">
-
-> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/core_sectioning_grassland.svg`: an oriented core on a depth-marked tray, with actual increment boundaries, clean tools, pre-labelled containers, and soil/root subsample routing.
-
-</td>
-<td width="55%">
+<img src="images/core_sectioning_grassland.svg" alt="Sectioning the core, and where each fraction goes" width="100%">
 
 1. Place the core on a clean, depth-marked tray and preserve orientation.
 2. Reconcile recovered length with the project's depth-assignment rule.
@@ -528,10 +479,6 @@ Bulk density must use a **known bulk volume** and a clearly defined mass fractio
 5. Describe visible horizons, stones, roots, disturbances, or abrupt changes.
 6. Route the required material to soil carbon, bulk density, roots, archive, or other analyses using the written subsampling plan.
 7. Seal, label, cool, and record every container.
-
-</td>
-</tr>
-</table>
 
 #### Use identifiers that survive separation from the datasheet
 
@@ -607,22 +554,11 @@ The same material cannot be independently used for every destructive analysis. M
 
 Root separation is the method component that most clearly distinguishes this workshop from the current WWF soil and vegetation guides. It is also the component most in need of specialist review and a tested standard operating procedure.
 
-<table>
-<tr>
-<td width="45%">
-
-> 🧩 **[PLACEHOLDER — IMAGE]** Create `images/root_processing_workflow.svg`: field-moist increment → recorded subsample → soaking/disaggregation → nested sieves → root sorting → drying → weighing → optional ash correction, with soil and root output streams kept distinct.
-
-</td>
-<td width="55%">
+<img src="images/root_processing_workflow.svg" alt="Root separation — the draft sequence, and the record each step needs" width="100%">
 
 When soil carbon and root carbon will be reported as separate pools, the preparation method must define which roots are removed from the soil-carbon sample and which remain.
 
 The field, laboratory, calculator, and report must use the same boundary. Otherwise root carbon can be omitted or counted twice.
-
-</td>
-</tr>
-</table>
 
 #### Decide the reporting boundary before sampling
 
@@ -636,7 +572,9 @@ Two broad approaches are possible, but neither should be adopted from this page 
 > [!IMPORTANT]
 > Record the operational definition, mesh sizes, root diameter boundary, live/dead treatment, soil-carbon preparation, and which fractions are combined in the final stock. Silence is not a method.
 
-> 🧩 **[PLACEHOLDER — REQUIRED CONFIGURATION]** Add a reviewed `Root/soil reporting boundary` record shared by the datasheet, laboratory submission, calculator, and report. Do not use an unexplained yes/no setting.
+> ✅ **Built.** The yes/no `ROOTS_REMOVED_BEFORE_SOIL_C` is gone. `7. Settings` now holds **`ROOT_SOIL_REPORTING_BOUNDARY`**, a controlled choice between the two approaches in the table above plus an explicit **`Not agreed with the lab`**, and **`ROOT_SOIL_BOUNDARY_SOURCE`** recording who agreed it, under which written method, and when. `5. Plot Summary` writes a different flag for each state: *not agreed* says the overlap is unknown rather than zero and the pools must not be added; *operational soil fraction* says they overlap and must be reported separately. The same three tick boxes and the method-reference line are on the [field data sheet](datasheets/Grassland-Field-Data-Sheet.docx) and the [chain-of-custody form](datasheets/Grassland-Sample-Inventory-and-Chain-of-Custody.docx).
+>
+> The default ships as **`Not agreed with the lab`** on purpose. That is the state most projects are actually in, and a workbook that quietly assumed otherwise would produce a combined figure nobody had earned.
 
 #### Draft root-processing sequence
 
@@ -730,7 +668,7 @@ Required sections:
 4. Vegetation Data
 5. Sample/Cooler Inventory and Chain of Custody
 
-> 🧩 **[PLACEHOLDER — FILE REVIEW]** Update the datasheet to include every required field on this page and remove any field the calculator does not define.
+> ✅ **Rebuilt.** The sheet is generated from the calculator — the field labels are read out of the workbook tabs rather than retyped, so the two cannot drift apart. This revision adds the three phenology fields, the root/soil boundary tick boxes with their method-reference line, the bulk-density basis with its lab and date, and a new **section 5 sample/cooler inventory** to reconcile against before leaving.
 
 </td>
 <td width="50%">
@@ -747,7 +685,7 @@ Separate sign-offs should cover:
 - sectioning, labels, and chain of custody;
 - root separation and QA/QC.
 
-> 🧩 **[PLACEHOLDER — FILE REVIEW]** Add trainer criteria, not only task names, so competency is assessed consistently.
+> ✅ **Rebuilt.** Every skill now carries a *Signed off when…* line naming something the trainer can **observe on the day** — a value read off the calipers, a completed record, a decision the participant can defend — rather than "understands". Two trainers signing the same skill should now be signing the same thing.
 
 </td>
 </tr>
@@ -765,7 +703,9 @@ Before leaving the site and again at handoff, reconcile:
 - preservation temperature and time;
 - sender and receiver names, dates, and signatures.
 
-> 🧩 **[PLACEHOLDER — TEMPLATE]** Create `datasheets/Grassland-Sample-Inventory-and-Chain-of-Custody.docx` plus a completed fictional example image.
+> ✅ **Built** — [`Grassland-Sample-Inventory-and-Chain-of-Custody.docx`](datasheets/Grassland-Sample-Inventory-and-Chain-of-Custody.docx). One form per cooler: site reconciliation, containers by analysis, cold chain and seal, the two method records the samples assume (bulk-density basis and root/soil boundary), and a custody table signed at each transfer. It is deliberately separate from the field data sheet — the data sheet stays with the crew, the custody form goes with the samples, and the point of a custody record is that the two are reconciled by different people at different times.
+>
+> 🧩 **[PLACEHOLDER — IMAGE]** Add `images/custody_form_completed.webp`, a completed fictional example.
 
 ---
 
@@ -844,19 +784,21 @@ Complete a site-specific risk assessment and follow organizational requirements.
 | File | Purpose | Status |
 |---|---|---|
 | `README.md` | Part 3 field-methods lesson | This revised draft |
-| `images/banner_field_methods.svg` | Grassland field-methods banner | 🧩 Placeholder |
-| `images/field_workflow_order.svg` | Order-of-operations diagram | 🧩 Placeholder |
-| `images/permanent_vs_single_use_field.svg` | Field layout comparison | 🧩 Placeholder |
-| `images/photo_series.svg` | Photograph convention | 🧩 Placeholder |
-| `images/nested_vegetation_plots.svg` | Nested plot and height classes | 🧩 Placeholder |
-| `images/core_offset_and_traffic.svg` | Core offset and traffic control | 🧩 Placeholder |
-| `images/core_sectioning_grassland.svg` | Depth sectioning and sample routing | 🧩 Placeholder |
-| `images/root_processing_workflow.svg` | Root separation workflow | 🧩 Placeholder pending SOP review |
-| `datasheets/Grassland-Field-Data-Sheet.docx` | Field records | 🧩 Review/update required |
-| `datasheets/Grassland-Sample-Inventory-and-Chain-of-Custody.docx` | Sample handoff | 🧩 Placeholder |
-| `checklists/Grassland_Carbon_Skill_Checklist.docx` | Trainer sign-off | 🧩 Review/update required |
-| `Root-Separation-SOP.md` | Validated root method | 🧩 Required before publication/use |
-| `Safety/Grassland-Field-Risk-Assessment.pdf` | Project safety plan | 🧩 Placeholder |
+| `images/banner_field_methods.svg` | Grassland field-methods banner | ✅ Built |
+| `images/field_workflow_order.svg` | Order-of-operations diagram | ✅ Built |
+| `images/permanent_vs_single_use_field.svg` | Field layout comparison | ✅ Built |
+| `images/photo_series.svg` | Photograph convention | ✅ Built |
+| `images/nested_vegetation_plots.svg` | Nested plot and height classes | ✅ Built |
+| `images/core_offset_and_traffic.svg` | Core offset and traffic control | ✅ Built |
+| `images/core_sectioning_grassland.svg` | Depth sectioning and sample routing | ✅ Built |
+| `images/root_processing_workflow.svg` | Root separation workflow | ✅ Built, and **labelled DRAFT on its face** — it illustrates the proposed sequence, it does not license it |
+| `images/equipment_*.webp` (×3) | Labelled equipment photographs | 🧩 Placeholder |
+| `images/datasheet_*_completed.webp` (×5) | Completed fictional datasheets | 🧩 Placeholder |
+| `datasheets/Grassland-Field-Data-Sheet.docx` | Field records | ✅ Rebuilt from the calculator |
+| `datasheets/Grassland-Sample-Inventory-and-Chain-of-Custody.docx` | Sample handoff | ✅ Built |
+| `checklists/Grassland_Carbon_Skill_Checklist.docx` | Trainer sign-off | ✅ Rebuilt with observable trainer criteria |
+| `Root-Separation-SOP.md` | Validated root method | 🧩 **Required before publication or field use.** Deliberately not drafted here — a document called an SOP that has not been reviewed or tested reads as authority it has not earned. The draft sequence above is the input to that review, not a substitute for it |
+| `Safety/Grassland-Field-Risk-Assessment.pdf` | Project safety plan | 🧩 Placeholder — must come from the operating organization, not from this page |
 
 > ✍️ **[PLACEHOLDER — SLIDE DECK]** Create the Part 3 workshop slide deck from the five-stage sequence. Use the same diagrams and terminology as this page rather than maintaining a separate version of the method.
 

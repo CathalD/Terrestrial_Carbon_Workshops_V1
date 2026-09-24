@@ -138,8 +138,8 @@ tree={'BOS-01':1.94,'BOS-02':2.31,'BOS-03':1.42}; cover={'BOS-01':28,'BOS-02':31
 for r in range(5,20):
     pid=vg.cell(r,1).value
     if pid in tree:
-        chk(f'{pid} tree C',vg.cell(r,12).value,tree[pid],1e-9)
-        chk(f'{pid} cover',vg.cell(r,11).value,cover[pid],0)
+        chk(f'{pid} tree C',vg.cell(r,14).value,tree[pid],1e-9)
+        chk(f'{pid} cover',vg.cell(r,13).value,cover[pid],0)
 m=statistics.mean(p['veg'] for p in s3)
 # What the abandoned 25% canopy-cover rule would have cost: BOS-03 sits at 22%,
 # so a strict cover gate drops its measured tree carbon. The workshop now counts
@@ -165,7 +165,7 @@ need('**−1.33 to +2.95 kg C/m²**'); need('takes **30**')
 print('\n-- QC flags actually present in the workbook --')
 allflags=' '.join(str(sd.cell(r,19).value) for r in range(5,90))+' '+ \
          ' '.join(str(ps.cell(r,11).value) for r in range(5,20))+' '+ \
-         ' '.join(str(vg.cell(r,14).value) for r in range(5,20))
+         ' '.join(str(vg.cell(r,16).value) for r in range(5,20))
 for frag in ['Bulk-density basis not confirmed','Cored shallower than the reporting depth',
              'the bottom of the core, not the bottom of the roots','ABOVE-ground only',
              'no further correction applied']:

@@ -138,7 +138,10 @@ for i, (p, s, *_rest) in enumerate(PLOTS):
     cov = _rest[5]
     live, dead, shrub, tree = VEG[p]
     r = 5 + i
-    vals = [p, "2026-08-05", "Yes", 0.25, live, dead, None, 100,
+    # Phenology now occupies three columns (C-E), so the areas and masses sit
+    # two columns further right than they did.
+    vals = [p, "2026-08-05", "Peak standing biomass", "None observed", "Yes",
+            0.25, live, dead, None, 100,
             shrub if shrub else None, None, cov, tree]
     for c, v in enumerate(vals, start=1):
         if v is not None:
@@ -152,11 +155,23 @@ for i, (sid, area) in enumerate([("S1", 640000), ("S2", 95000), ("S3", 210000)])
 
 # ── settings the example confirms ────────────────────────────────────────────
 st = wb["7. Settings"]
-for r in range(5, 26):
-    if st.cell(r, 1).value == "ASH_CORRECTED":
-        st.cell(r, 2, "Yes")
-    if st.cell(r, 1).value == "PEAK_SEASON_SAMPLED":
-        st.cell(r, 2, "Yes")
+CONFIRMED = {
+    "ASH_CORRECTED": "Yes",
+    # The example is built on the root-separated case: roots were sieved out of
+    # the soil-carbon sample by the project's own procedure, which is what makes
+    # its combined soil + root figure legitimate.
+    "ROOT_SOIL_REPORTING_BOUNDARY": "Root-separated soil",
+    "ROOT_SOIL_BOUNDARY_SOURCE": "Example lab agreement, method GC-SOC-02, 2026-05-14",
+    "LAB_BULK_DENSITY_BASIS": "Fine earth / total volume",
+    "LAB_METHOD_REFERENCE": "Example lab, methods GC-SOC-02 / GC-BD-01, confirmed 2026-05-14",
+    "COMPARABLE_SEASON_RULE": "Clipped within 14 days of peak standing biomass, judged from "
+                              "phenology on site; plots grazed or hayed in the preceding "
+                              "30 days are excluded from pooled means.",
+}
+for r in range(5, 40):
+    name = st.cell(r, 1).value
+    if name in CONFIRMED:
+        st.cell(r, 2, CONFIRMED[name])
 
 import os
 os.makedirs(os.path.dirname(DST), exist_ok=True)
