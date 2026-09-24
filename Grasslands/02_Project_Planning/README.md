@@ -12,9 +12,9 @@
 
 ## From a carbon question to a sampling design
 
-**Quick links:** [Sampling Design Guide](../../_Shared/Sampling-Design-Eng-2026.pdf) · [Grassland Sample Allocation Calculator](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx) · [Sample Size Explorer](Sampling%20Design%20Tools/index.html) · [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Non-Peat Soils Field Guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Appendix A — sampling logic](#appendix-a--a-brief-lesson-in-sampling-logic)
+**Quick links:** [Sampling Design Guide](../../_Shared/Sampling-Design-Eng-2026.pdf) · [Grassland Sample Allocation Calculator](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx) · [Grassland Sampling Planner](Sampling%20Design%20Tools/) · [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Non-Peat Soils Field Guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Appendix A — sampling logic](#appendix-a--a-brief-lesson-in-sampling-logic)
 
-> 🧩 **[PLACEHOLDER — GOOGLE SHEETS COPY]** Add a maintained Sheets copy beside the downloadable workbook, for teams without Excel.
+> 🧩 **[PLACEHOLDER — LINKS]** Replace the calculator and planner links when those files are complete. Add a Google Sheets copy beside the downloadable workbook if one will be maintained.
 
 ---
 
