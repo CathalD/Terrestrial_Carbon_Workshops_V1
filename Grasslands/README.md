@@ -6,50 +6,39 @@
 
 # Grassland Carbon Workshop
 
-*Measuring carbon in grassland-type ecosystems, covering above-ground plant biomass, below-ground
-plant biomass, and soil carbon.*
+*In this workshop, we will cover how to measure carbon in grassland ecosystems, including above-ground plant biomass, below-ground plant biomass, and soil carbon. The workshop is organized into 4 parts, with an optional part 5 for teams looking to measure carbon into the future*
 
 ---
 
-## Contents
+## Contents of this workshop
 
 | # | Section | What it covers |
 |---|---------|----------------|
 | 1 | [**Background**](01_Background/) | The carbon pools of grasslands; common grassland types found in Canada; measuring roots, shoots and soils. |
-| 2 | [**Project Planning**](02_Project_Planning/) | How many cores, and where: setting a precision threshold, dividing the area into meaningfully distinct zones, and applying permanent vs single-use plots. |
-| 3 | [**Field Methods**](03_Field_Methods/) | Plot setup, clip-and-weigh, shrubs, soil coring and root separation  |
-| 4 | [**Data Interpretation**](04_Data_Interpretation/) | Lab results, root processing, the carbon calculator, scaling and reporting. |
-| 5 | [**Monitoring Supplement**](05_Monitoring/) *(optional)* | Detecting **change**, for restoration, management and soil-health baselines. |
-
-### Useful links
-
-- **WWF-Canada Carbon Measurement library** — [wwf.ca/carbon-measurement](https://wwf.ca/carbon-measurement/)
-- **Measuring Carbon in Vegetation (Non-Tree)** — [PDF](../_Shared/Vegetation-FINAL-Eng-2026.pdf)
-- **Measuring Carbon in Non-Peat Soils** — [PDF](../_Shared/Non-peat-FINAL-Eng-2026.pdf)
-- **Carbon Measurement: Sampling Design** — [PDF](../_Shared/Sampling-Design-Eng-2026.pdf)
-- **Laboratory Analysis guide** — [PDF](../_Shared/Lab-Guide-Eng-2026.pdf)
-- **Trees** — the [Forests workshop](../Forests/), for savannah and other areas with tree cover
+| 2 | [**Project Planning**](02_Project_Planning/) | How many cores, and where: setting project goals, dividing the area into meaningfully distinct zones, and applying permanent vs single-use plots |
+| 3 | [**Field Methods**](03_Field_Methods/) | Plot setup, clip-and-weigh methods, shrub allometry, soil coring and root separation  |
+| 4 | [**Data Interpretation**](04_Data_Interpretation/) | Lab results, root processing, the carbon calculator, scaling and reporting |
+| 5 | [**Monitoring Supplement**](05_Monitoring/) *(optional)* | Detecting change over time, for restoration, stewardship and soil-health baselines |
 
 ---
 
-## Overall Objectives
+## TLDR: Workshop Objectives and Overview
 
 1. **Learn about grassland carbon**, above and below ground.
-2. **Learn field methods for measuring it**, including soil coring, separating roots from soil, and
-   clip-and-weigh methods
+2. **Learn field methods for measuring different carbon types**, including soil coring, separating roots from soil, and clip-and-weigh methods for above-ground carbon
 3. **Turn measurements into outputs**, carbon stocks, and baselines you can compare against
 
----
 
 ## How to think about this workshop
 
-This workshop is both for learning about, and implementing, a carbon measurement project. To
-implement a project it is sometimes useful to begin at the end and work backwards from there. In
+For some projects, it can be useful to begin at the end and work backwards from there. In
 this spirit, we will **start from the data sheet**:
 **[`Grassland_Carbon_Calculator.xlsx`](04_Data_Interpretation/calculators/Grassland_Carbon_Calculator.xlsx)**
 
-Every heading on it is something real you measure in the field or get back from the lab. Once the
-sheet is full, those numbers become a carbon stock.
+Every heading on it is something that will be documented or measured in the field, or you will get back from the lab. Once the
+sheet is full, those numbers can be turned into a carbon stock.
+
+(Note for Codex - Separate these to be stacked on top of each other and to be larger . In a table below, we will add what each header describes and link to the where it is discussed further and will be filled in)
 
 <table>
 <tr>
@@ -72,26 +61,27 @@ sheet is full, those numbers become a carbon stock.
 
 ---
 
-## A brief overview
 
-[**Section 1 — Background**](01_Background/) is *why this matters*.
-[**Section 2 — Project Planning**](02_Project_Planning/) is *making the data useful*.
-[**Section 3 — Field Methods**](03_Field_Methods/) is *collecting the data*.
-[**Section 4 — Data Interpretation**](04_Data_Interpretation/) turns the completed sheet into
-carbon estimates.
-[**Section 5 — Monitoring**](05_Monitoring/) is optional, and is about measuring the same place
-over time.
-
----
-
-## Canada's grasslands, and what has been lost
+## Background on Canada's grasslands, and what has been lost
 
 <table>
 <tr>
 <td width="55%">
 
-> 🗺 **[MAP NEEDED]** — distribution of grassland across Canada (or North America), ideally showing
-> historic extent against what remains. Candidate sources:
+(For codex here is a link to a map image of just the prarie provinces, note there are other grasslands and losses are prevelant in these areas aswell)
+(And make this a 2 by 2 table so we can add in this restoration potential map as well)
+
+<img width="4200" height="2550" alt="grasslands" src="https://github.com/user-attachments/assets/b07c519e-d56c-423d-bbfa-e8d419c5f33a" />
+
+https://institute.smartprosperity.ca/Grasslands-Drought-Resilience-Prairies
+
+[Living Planet Data Hub _ WWF-Canada.pdf](https://github.com/user-attachments/files/32654290/Living.Planet.Data.Hub._.WWF-Canada.pdf)
+
+ And this is from https://wwf.ca/restoration-analysis/
+
+
+(For codex - move these sources to a spot below for "Further reading")
+
 > [Canada's Grasslands](https://canadasgrasslands.ca/explore-grasslands), the
 > [CFGA grassland inventory](https://www.canadianfga.ca/en/conservation/grassland-inventory/), the
 > Prairie Ecozone map from the
@@ -103,7 +93,7 @@ over time.
 
 Temperate grassland is among the **least protected and most converted** biomes on Earth, and
 Canada's share of it has gone the same way. Most of the native prairie that was here before
-settlement is now cropland or tame pasture.
+settlement is now cropland or pasture.
 
 What went with it is not only carbon:
 
@@ -328,6 +318,15 @@ Screenshots of two of its tabs are at the
 | `Fill Me In` | 🟠 **Every value the workshop cannot supply**, in one list |
 
 ---
+
+### Useful links
+
+- **WWF-Canada Carbon Measurement library** — [wwf.ca/carbon-measurement](https://wwf.ca/carbon-measurement/)
+- **Measuring Carbon in Vegetation (Non-Tree)** — [PDF](../_Shared/Vegetation-FINAL-Eng-2026.pdf)
+- **Measuring Carbon in Non-Peat Soils** — [PDF](../_Shared/Non-peat-FINAL-Eng-2026.pdf)
+- **Carbon Measurement: Sampling Design** — [PDF](../_Shared/Sampling-Design-Eng-2026.pdf)
+- **Laboratory Analysis guide** — [PDF](../_Shared/Lab-Guide-Eng-2026.pdf)
+- **Trees** — the [Forests workshop](../Forests/), for savannah and other areas with tree cover
 
 ## Some resources to find in this workshop
 
