@@ -128,60 +128,68 @@ Because roots deliver carbon below the surface, a shallow sample can miss part o
 
 ### Differences in carbon stock relate to grassland type and stewardship
 
-Carbon stocks are not set by climate and soil alone. Within a site they differ between patches and with depth, and a change in the plant community can shift them. The three figures below, from a [2024 study in *Communications Earth & Environment*](https://www.nature.com/articles/s43247-024-01795-9), show this for invasion by exotic annual grasses and for wildfire.
+A carbon stock reflects the plant community growing on it, and a change in that community can move it. [Maxwell et al. (2024)](https://www.nature.com/articles/s43247-024-01795-9) measured this in sagebrush steppe in Idaho, USA, where exotic annual grasses such as cheatgrass (*Bromus tectorum*) and the wildfires they promote have converted deep-rooted perennial shrubland to annual grassland. They sampled all four combinations of burned or unburned and invaded or uninvaded land, to 1 m depth.
 
 <table>
 <tr>
 <td width="55%">
 
-<img width="100%" alt="Representative sites, the microsites that make them up, and expected relative differences in carbon above ground and by soil depth for each microsite" src="https://github.com/user-attachments/assets/45ee7f9b-c0c0-4953-9746-606df9750f36" />
+<img width="100%" alt="Fig. 1 from Maxwell et al. 2024: representative sites, the microsites that make them up, and predicted relative differences in carbon above ground and by soil depth for each microsite" src="https://github.com/user-attachments/assets/45ee7f9b-c0c0-4953-9746-606df9750f36" />
 
 </td>
 <td width="45%">
 
 **Carbon varies within a site**
 
-Representative sites, the microsites that make them up, and the expected difference in carbon above ground and at each soil depth for each microsite.
+Each site is a mosaic of microsites: under shrubs, under perennial bunchgrasses, under annual grasses, and bare soil. Before sampling, the authors predicted carbon would rank shrub > bunchgrass > annual grass > bare soil. They sampled each microsite and weighted its stock by how much of the site it covered.
 
-Carbon is not spread evenly across a site, so where cores and quadrats land matters. That is why [Part 2](../02_Project_Planning/) stratifies the site and places samples at random.
+Where cores land matters. Treating microsites as strata, weighted by their area, is the same idea as the stratified design in [Part 2](../02_Project_Planning/).
 
 </td>
 </tr>
 <tr>
 <td width="55%">
 
-<img width="100%" alt="Above-ground biomass, carbon content and carbon stock in invaded or uninvaded and burned or unburned areas" src="https://github.com/user-attachments/assets/d4ce16e0-b1f7-4dae-8594-f8167a9a5c8b" />
+<img width="100%" alt="Fig. 2 from Maxwell et al. 2024: above-ground biomass, carbon content and carbon stock in invaded or uninvaded and burned or unburned areas" src="https://github.com/user-attachments/assets/d4ce16e0-b1f7-4dae-8594-f8167a9a5c8b" />
 
 </td>
 <td width="45%">
 
-**Invasion and fire change the stock**
+**Invasion and fire roughly halved soil carbon**
 
-Above-ground biomass, its carbon content, and the resulting carbon stock, compared across invaded and uninvaded, burned and unburned areas.
+Invaded land had 55% less above-ground biomass and burned land 93% less. Both held about half the soil carbon of intact shrubland: a loss of 42–49% from about 11.3 kg C/m² (113 Mg C/ha) to 1 m. Burning and invasion together lost about the same as either alone, so the authors propose soil carbon had fallen to a "floor".
 
-A stock is the amount of material multiplied by its carbon content, so a disturbance can change the stock through either one. That is why both are measured rather than assumed.
+Above-ground biomass did not predict soil carbon. Fire removed almost all of the biomass but about the same share of soil carbon as invasion did. Measure the soil; do not infer it from the vegetation.
 
 </td>
 </tr>
 <tr>
 <td width="55%">
 
-<img width="100%" alt="Ball-and-cup diagram of plant community state transitions with exotic annual grass invasion and wildfire, and the associated changes in soil carbon" src="https://github.com/user-attachments/assets/768f8308-86e3-4d9e-a538-f98b63ab2375" />
+<img width="100%" alt="Fig. 4 from Maxwell et al. 2024: ball-and-cup diagram of plant community states under exotic annual grass invasion and wildfire, and the associated soil carbon" src="https://github.com/user-attachments/assets/768f8308-86e3-4d9e-a538-f98b63ab2375" />
 
 </td>
 <td width="45%">
 
 **Tipping into a different state**
 
-How invasion and wildfire can move a plant community, and its soil carbon, from one state to another.
+Each cup is an ecosystem state, shown with its soil carbon and how stable that carbon is. The height of the hill between cups is how severe a disturbance, or how intensive a restoration, it takes to move from one state to another. Green arrows mark transitions where natural recovery is likely; red arrows mark those where it is not, and where intervention matters most.
 
-Each cup is a relatively stable state and the ball is the ecosystem. Small disturbances roll the ball around its cup and it settles back. A large enough disturbance, or several together, can push it over the rim into another cup. There it settles at a different carbon stock, and it may not return on its own.
+Returning a burned and invaded site to high-carbon shrubland takes more than returning an invaded but unburned one. The authors conclude that protecting intact perennial communities may be more achievable than building new soil carbon.
 
 </td>
 </tr>
 </table>
 
-> 📚 **[CHECK AGAINST THE PAPER]** Add the headline result for each figure (the direction and size of each difference) and where the study sites are. The summaries above describe what each figure compares; they do not yet say what it found.
+<sub>Figures 1, 2 and 4 from Maxwell, T.M., Quicke, H.E., Price, S.J. & Germino, M.J. (2024). Annual grass invasions and wildfire deplete ecosystem carbon storage by >50% to resistant base levels. *Communications Earth & Environment* 5, 669. [doi:10.1038/s43247-024-01795-9](https://www.nature.com/articles/s43247-024-01795-9). Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).</sub>
+
+> 🧩 **[PERMISSION CHECK]** Fig. 4's credit line reads "This original image was made for exclusive use by the authors by Mason Otis." The article's licence excludes third-party material that a credit line marks otherwise, so confirm Fig. 4 may be reused (corresponding author: M. J. Germino, USGS) or redraw the concept for the workshop.
+
+> [!IMPORTANT]
+> **What transfers to a Canadian grassland project, and what does not**
+> - **Most of the difference was deep.** Two-thirds of the soil carbon lay between 40 cm and 1 m, and invasion and fire changed deep carbon more than surface carbon. A 30 cm core would have missed much of the effect. See [How deep should the project sample?](#how-deep-should-the-project-sample)
+> - **These are total-carbon stocks.** The lab measured total carbon without separating organic from inorganic (carbonate) carbon, and the authors expect deep dryland carbon to be mostly inorganic. Compare these numbers only with other total-carbon figures, not with soil *organic* carbon.
+> - **The setting is US cold-desert sagebrush steppe**, with 253–377 mm of precipitation a year. The mechanisms transfer: plant community change reaching deep soil carbon, and thresholds that make some losses hard to reverse. The percentages are not Canadian values.
 
 The ball-and-cup picture treats a carbon stock as the outcome of inputs, losses, and disturbance over time. The next section turns that into curves: a stock building toward equilibrium, a single disturbance knocking it back, and overlapping disturbances tipping it into a lower state, the same move as the ball crossing into a new cup.
 
