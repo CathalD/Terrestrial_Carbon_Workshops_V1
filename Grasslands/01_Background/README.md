@@ -124,7 +124,20 @@ Because roots deliver carbon below the surface, a shallow sample can miss part o
 | **Roots** | A smaller carbon pool but potentially a large share of living biomass | Can vary seasonally and spatially. |
 | **Shoots** | A standing crop measured at the sampling date | Can change within a season through growth, senescence, grazing, mowing, or fire. |
 
-> 📚 **[DATA NEEDED — ECOSYSTEM COMPARISON]** Add national context from Sothe et al. (2022), [*Global Biogeochemical Cycles*](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2021GB007213): typical carbon per m² for grassland, boreal forest, and wetland or peatland, all on the paper's own basis. Give it its own chart rather than adding bars to the one above. Those bars are soil and roots to 30 cm from constructed data; the national estimates use a different depth and method, so the two cannot share an axis.
+To put these numbers in context, [Sothe et al. (2022)](https://doi.org/10.1029/2021GB007213) mapped organic carbon in plants and soils across Canada at 250 m. They report no grassland-specific value, so each bar below is grouped by what was measured and to what depth. Soil to 30 cm is the one like-for-like comparison.
+
+<p align="center">
+  <img src="images/ecosystem_carbon_comparison.svg" alt="Bar chart in kg C per square metre. Plant carbon: forests 6.2, worked-example grassland roots to 30 cm and shoots 1.0. Soil organic carbon to 30 cm: Canada 13.2, worked-example grassland 11.0. Soil organic carbon to 1 m: Canada 36.4, peatlands 81, Hudson Plains ecozone 109." width="100%">
+</p>
+
+What the national maps show:
+
+- **Soil holds most of Canada's terrestrial carbon.** Soils store about 306 Pg C in the top metre, roughly 14 times the 21 Pg C in all plants, living and dead.
+- **Forests hold far more carbon in plants than grasslands do.** Forest trees, roots, and dead wood average about 6.2 kg C/m². In the worked-example grassland, roots and shoots together hold about 1. In a grassland, nearly all the carbon is in the soil.
+- **Peatlands are the hotspot.** They cover about 12% of Canada but hold about a third of the top-metre soil carbon (98 of 306 Pg C), averaging 81 kg C/m² against 36.4 nationally. The Hudson Plains average about 109.
+- **A 30 cm sample misses most of it.** The top 30 cm holds about 36% of the carbon in the first metre, and the second metre adds another 266 Pg C. The authors conclude that estimates limited to 30 cm seriously underestimate soil carbon.
+- **These are modelled means with wide uncertainty.** The 90% interval on the 306 Pg C is ±147 Pg C, and it is widest where stocks are largest. The worked-example soil (11.0 kg C/m² to 30 cm) is within one standard deviation of the national mean (13.2 ± 10), but it is constructed data, not a measurement.
+- **They are organic carbon only.** The study in the next section reports total carbon, which includes carbonate. Keep the two apart.
 
 ### Differences in carbon stock relate to grassland type and stewardship
 
@@ -393,6 +406,7 @@ Establish two things early:
 - `images/banner_background.svg` — section banner.
 - The existing slide images embedded throughout this page — retained beside their original concepts.
 - `images/carbon_pools.svg` — teaching-data comparison of soil, root, and shoot pools, soil and roots both to 30 cm.
+- `images/ecosystem_carbon_comparison.svg` — worked-example grassland beside national means from Sothe et al. (2022), grouped by pool and depth.
 - `images/soil_profile_vs_30cm.svg` — teaching-data depth profile showing what a 30 cm core leaves behind.
 - `images/accumulation_baseline.gif` — baseline accumulation animation.
 - `images/accumulation_pulse.gif` — disturbance-and-recovery animation.
