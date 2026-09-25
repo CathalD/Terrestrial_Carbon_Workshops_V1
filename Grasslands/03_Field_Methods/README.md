@@ -6,7 +6,7 @@
 
 # Part 3 — Field Methods
 
-*A field day in a grassland, in the order it needs to happen.*
+* Making observations, recording data, and collecting samples*
 
 [← 2 — Project Planning](../02_Project_Planning/) · [Back to main guide](../README.md) · Next: [4 — Data Interpretation →](../04_Data_Interpretation/)
 
@@ -35,16 +35,11 @@ The work follows five stages:
 - [*Carbon Measurement: Sampling Design*](../../_Shared/Sampling-Design-Eng-2026.pdf) (WWF-Canada, 2026)
 - [*Supplemental Guide: Laboratory Analysis*](../../_Shared/Lab-Guide-Eng-2026.pdf) (WWF-Canada, 2026)
 
-> 📚 **[METHOD AND REFERENCES REQUIRED]** The current WWF field guides do not provide the complete root-separation method proposed here. Before publication or field use, the root workflow must be reviewed by a soil/root methods specialist, supported with primary references, tested on the soils expected at the site, and reconciled with the contracted laboratory's preparation method.
 
 ---
 
-## ⚠ The order matters
 
-<p align="center">
-  <img src="images/field_workflow_order.svg" alt="Where each step of the plot visit happens — seven numbered stations, non-destructive first" width="62%">
-</p>
-
+(We can move this section below and add as a drop down right before we get into the sampling)
 > **Complete non-destructive vegetation measurements before coring or clipping disturbs the plot.**
 
 Coring changes the surface and creates traffic around the sampling point. Clipping removes the vegetation another measurement may need. Plan the crew's movement so the unmeasured plot is protected.
@@ -121,21 +116,85 @@ Before leaving, lay out the equipment and test the full workflow with the actual
 </tr>
 </table>
 
-> 🧩 **[PLACEHOLDER — IMAGE SET]** Add three locally stored equipment photographs or diagrams: `equipment_plot_setup.webp`, `equipment_vegetation.webp`, and `equipment_soil_roots.webp`. Label every item visible in the photograph.
+Here are the equipment images: <img width="572" height="348" alt="image" src="https://github.com/user-attachments/assets/0de6e3e9-8cbf-4812-ac9e-f69ed459b09d" />
 
-> [!IMPORTANT]
-> **Measure and record the corer's internal diameter.** Cross-sectional area depends on diameter squared, so a diameter error propagates into the calculated sample volume and any stock derived from it. Measure the inside diameter with calipers at several positions, record the value and units, and identify the corer used for every sample.
 
-### Field-day preflight
+And here is the proper list - For setting up a plot:
+• GPS
+• Work gloves
+• Soil probe
+• Measuring tape
+• Utility knife
+• Camera
+• Notebook
+• Permanent markers
+• Tarps
+• Scissors
+• Resealable bags
+For taking a soil core:
+• Soil corer
+• Core extraction tool
+• Cooler or storage box
+• Tarps
+• Plastic tubes
+• Plastic tube end caps
+• Notepad
+• Permanent markers
+• Measuring tape
+• Duct tape
+• Packing materials
+• Cooler
+For taking soil samples
+with a soil pit:
+• Shovel
+• Soil sampling ring/bulk density disk
+• Resealable bags
+• Permanent markers
+• Cooler
+For taking shallow surface cores:
+• Shovel/gardener shovel
+• Resealable bags
+• Permanent marker
+• 0.25m-by-0.25m frame/mould
+• Cooler
 
-| Check | Confirm before departure |
+And her is another image but for vegeation
+<img width="478" height="337" alt="image" src="https://github.com/user-attachments/assets/3471fdd1-98cb-4c51-98a4-dd1b6863003c" />
+
+And here is another list to be made into a seperate table:
+
+
+FOR SETTING UP PLOTS:
+¥ Notebook and pen/pencil
+¥ Large measuring tapes
+¥ String or flagging tape
+¥ Plastic measuring tape
+¥ GPS
+¥ Rangefinder/clinometer/Abney level/
+Brunton compass
+¥ Altimeter
+¥ Resealable bags
+¥ Permanent marker
+FOR MEASURING MEDIUM VEGETATION:
+¥ Notebook and pen/pencil
+¥ DBH tape
+¥ Measuring tapes
+FOR MEASURING SMALL VEGETATION:
+¥ Notebook and pen/pencil
+¥ Clippers
+¥ 1-by-1m quadrat
+¥ 0.5-by-0.5m quadrat
+¥ Resealable bags
+
+
+### Before heading out to the field, check over these items:
+
+| Check | Confirm before field |
 |---|---|
-| **Design** | Plot coordinates, strata, alternates, permanent/single-use status, and offsets are loaded and printed. |
+| **Design** | Plot coordinates, strata, alternates, permanent/single-use status, data sheets. |
 | **Identifiers** | Plot, core, depth, and sample identifiers are unique and match the datasheets. |
-| **Laboratory** | Containers, minimum mass, temperature, holding time, root/soil separation, and bulk-density basis are confirmed. |
-| **Safety** | Access permission, weather, fire restrictions, livestock, wildlife, first aid, communications, and emergency plan are reviewed. |
-| **QA/QC** | Duplicates, equipment blanks where relevant, cleaning sequence, and replacement rules are written down. |
-| **Cold chain** | Coolers are cold, labelled, and large enough for the planned sample count. |
+| **Safety** | Access permission, weather, fire restrictions, wildlife, first aid, communications, and emergency plan are reviewed. |
+| **Laboratory** | Sample bags/Containers, a place for storage, any other requests from the lab. Coolers are cold, labelled, and large enough for the planned sample count. |
 
 ---
 
@@ -149,10 +208,7 @@ Vegetation, roots, and soil do not have identical seasonal constraints.
 | **Roots** | Root biomass can vary seasonally; collect on the same visit as vegetation when the design intends to relate the two. |
 | **Soil carbon** | Usually less seasonally variable, but frozen, saturated, very dry, or structurally unstable soils can compromise coring and bulk-density measurements. |
 
-> 📚 **[REGIONAL GUIDANCE NEEDED]** Replace generic calendar language with ecosystem- and region-specific phenology guidance. “Peak season” should be defined operationally for the project rather than assumed to occur in the same month everywhere.
 
-> [!TIP]
-> If work must be split across visits, document which measurements share a date and why. Never merge measurements from different phenological stages without recording the limitation.
 
 ---
 
@@ -162,49 +218,63 @@ Vegetation, roots, and soil do not have identical seasonal constraints.
 
 *Where are we, what kind of plot is this, and what was here before we touched it?*
 
-#### Confirm permanent or single-use status
+First we'll add in this image of "Nested Plot Design" where different plot sizes are contained within each-other from the WWF- guides <img width="395" height="340" alt="image" src="https://github.com/user-attachments/assets/b20de7ee-863c-4f44-b20b-bf1e79e31d77" />
 
-This decision was made under [Permanent or single-use plots? in Part 2](../02_Project_Planning/#permanent-or-single-use-plots). Confirm it against the field map before laying out the plot.
 
-<img src="images/permanent_vs_single_use_field.svg" alt="Where the destructive samples go in a single-use plot and in a permanent plot" width="100%">
+And then we'll use these images from the guides fro permanent vs single use side by side
 
+Single use:
+<img width="208" height="157" alt="image" src="https://github.com/user-attachments/assets/1f564d1e-42a0-4759-8dda-03a53f368f5d" />
+Single sue caption:
+SINGLE-USE
+Single-use plots are effective for project areas that will be measured
+once, and/or when destructive sampling techniques will be used.
+In single-use plots, destructive sampling can occur within the plot
+but should only be carried out after all non-destructive surveying
+is completed. Peat sampling, for example, is a destructive sampling
+technique, so vegetation surveys must be completed before peat samples
+are collected.
+
+Peramment image: <img width="203" height="147" alt="image" src="https://github.com/user-attachments/assets/5a780146-c177-4c7e-9c9c-1f23a3dcb504" />
+
+permanent caption: - PERMANENT
+Permanent plots are intended to be sampled repeatably over time, using
+non-destructive sampling techniques that measure the exact same
+vegetation during each field survey.
+
+Update these:
 **Single-use:** complete non-destructive work first, then place destructive measurements in the documented sampling area.
 
 **Permanent:** protect the area that will be remeasured. Place clipping and coring outside it, and record bearing and distance from the permanent marker.
 
-#### Navigate and mark
+<img src="images/permanent_vs_single_use_field.svg" alt="Where the destructive samples go in a single-use plot and in a permanent plot" width="100%">
 
-1. Navigate to the assigned coordinate without selecting a more convenient or “representative-looking” location.
-2. Follow the project's pre-defined rule if the point is unsafe, inaccessible, or outside the mapped stratum.
-3. Mark the centre and record latitude, longitude, coordinate system, GNSS accuracy, time, and crew.
-4. Lay out only the plot sizes required for the selected pools.
-5. If permanent, install the approved marker and record enough redundant information to relocate it.
 
-| Plot | Draft size | Used for |
-|---|---:|---|
-| **Large** | 400 m² | Trees taller than 2 m, where present. |
-| **Medium** | 16–100 m² | Shrubs and plants approximately 0.5–2 m. |
-| **Small** | 0.25 m², or documented alternative | Ground vegetation and clip-and-weigh measurements. |
 
-> 📚 **[PROTOCOL CHECK NEEDED]** Confirm plot dimensions and height-class boundaries against the final vegetation protocol and calculator before publication.
+## Arriving at your pinned site:
+Here you will set-up the plot
+
+Use the Field datasheet to guide this process:
+
+<img width="734" height="388" alt="image" src="https://github.com/user-attachments/assets/16d69b44-5e86-44da-82dc-d28b15e44854" />
+
 
 #### Complete the plot log before disturbance
 
 Record:
 
-| Field | Guidance |
-|---|---|
-| **Grassland type** | Use the project's controlled list and definitions. |
-| **Management** | Grazed, ungrazed, hayed, cultivated/reseeded, never cultivated, or other documented category. |
-| **Grazing regime** | Record type and stocking information where known; use `unknown` rather than guessing. |
-| **Fire history** | Years since fire, no recorded fire, or unknown, with source. |
-| **Native/seeded status** | Apply the rule defined in Part 2. |
-| **Restoration history** | Treatment and year, with source. |
-| **Conditions** | Weather, recent rain, soil moisture condition, visible disturbance, and access notes. |
+Plot ID
+Site ID
+Study AREA:
 
-Management history often comes from landholders or project records. Collect it before the field day and identify its source.
+Location - Long and Lat
 
-#### Photograph the undisturbed plot
+Geographic variables: Canopy? Slope position? Water table? etc
+
+Plot Notes: For example managment type, years since restoration, disturbances, etc
+
+
+#### Take a photo series:
 
 Use one series-wide convention so photographs can be compared among sites and visits. The current draft proposes:
 
@@ -219,25 +289,19 @@ Use one series-wide convention so photographs can be compared among sites and vi
 
 Use a photo board or first frame containing plot ID, date, direction, and photographer. Preserve original files and record filenames on the plot log.
 
+Image of 14 photo series - <img width="564" height="347" alt="image" src="https://github.com/user-attachments/assets/bac6201f-e742-4b4c-b89b-d7b68b6bc8f5" />
+
+
 <table>
 <tr>
 <td width="55%">
 
 **📋 Record it — `1. Plot & Site Log`**
 
-- Plot ID and stratum
-- Date, time, crew, and coordinates
-- GNSS accuracy and coordinate system
-- Permanent/single-use status
-- Marker description and relocation information
-- Grassland, management, grazing, fire, and restoration fields
-- Conditions and disturbances
-- Photograph filenames
+I moved this section up
 
 </td>
 <td width="45%">
-
-> 🧩 **[PLACEHOLDER — IMAGE]** Add `images/datasheet_plot_log_completed.webp`, using fictional or anonymized data.
 
 </td>
 </tr>
@@ -256,7 +320,7 @@ Complete vegetation work from the least destructive measurement to the most dest
 
 <img src="images/nested_vegetation_plots.svg" alt="The nested vegetation plots and the height class each one holds" width="100%">
 
-| Plot | Vegetation | Draft method |
+| Plot | Vegetation | Methods |
 |---|---|---|
 | **Large** | Trees >2 m | Species, DBH, height, and approved allometry. |
 | **Medium** | Plants 0.5–2 m | Species and dimensions used by the selected allometry or a documented harvest method. |
@@ -264,56 +328,110 @@ Complete vegetation work from the least destructive measurement to the most dest
 
 #### Small plot — clip and weigh
 
+Image of a small plot - <img width="211" height="138" alt="image" src="https://github.com/user-attachments/assets/b19da7a2-9b28-487e-8fb2-26de558bad13" />
+
 1. Place the small quadrat at its assigned position, offset from the soil core.
 2. Photograph it directly overhead before touching the vegetation.
-3. Apply the protocol's defined cutting height consistently.
+3. Cut all plants with stems at 3 cm above the ground surface.
 4. Separate the required fractions—for example, species groups and/or live versus standing dead.
 5. Place every fraction in its own pre-labelled bag.
 6. Photograph the quadrat after clipping from the same position.
 7. Record field mass only if required, then protect samples according to the laboratory plan.
 8. Dry and weigh using the documented laboratory method.
 
-> [!IMPORTANT]
-> Define cutting height in the protocol and train crews to apply it consistently. If the chosen method is clipping at ground level, state exactly how basal crowns, mosses, litter, and attached dead material are handled.
+<img width="302" height="169" alt="image" src="https://github.com/user-attachments/assets/8a4ff1e0-5ef1-4ac8-b9a2-bfa2f2a81e5d" />
 
-> 📚 **[METHOD CHECK NEEDED]** Confirm live/dead, litter, species-separation, storage, and drying requirements with the vegetation guide and laboratory method. The participant should not have to improvise these boundaries in the field.
 
-#### Phenology and grazing
-
-Clip-and-weigh measures standing material at the sampling date. It should not be interpreted as annual production without a design that supports that inference. On grazed sites, the result also reflects removal by animals.
-
-> [!WARNING]
-> - Record the sampling date and phenological stage.
-> - Apply the project's comparable-season rule.
-> - Record recent grazing, mowing, fire, drought, or other events that affect standing material.
-> - If the question is production rather than standing crop, use a design such as exclosures and repeated harvests that directly addresses production.
-
-> ✅ **Built.** `4. Vegetation Data` in the [calculator](../04_Data_Interpretation/calculators/Grassland_Carbon_Calculator.xlsx) now carries three separate controlled fields — **`Phenological stage`**, **`Recent grazing / removal`** and **`Comparable-season criterion met?`** — and the single `PEAK_SEASON_SAMPLED` yes/no has been removed. The project's own rule lives in `7. Settings` as **`COMPARABLE_SEASON_RULE`**, written out in words; a plot cannot claim to have met a rule that nobody wrote down, and the QC column says so when the setting is blank. The same three fields are on the [field data sheet](datasheets/Grassland-Field-Data-Sheet.docx).
+> ✅ **Built.** `4. Vegetation Data` in the [calculator](../04_Data_Interpretation/calculators/Grassland_Carbon_Calculator.xlsx) now carries three separate controlled fields
 >
-> The three are deliberately not collapsible into one. The stage is **what you found**; comparability is a **judgement against the project rule**; recent removal is a **third, independent fact** — a heavily grazed plot measures what survived, not what grew. A single yes/no loses the reason a plot is or is not comparable, which is the part a reader needs.
+> Simplify the calculator to remove this, we want it to be minimal viable product form that can be modified for our partenrs - so dont have grazing or amnagment, jus the essentials, and then if our partners want things added I can do it manually, fix this or add as placegolder until the spreadsheet is uplaoded
 
 #### Medium plot — shrubs and tall vegetation
 
-Use a non-destructive allometric method only when its predictor, units, species scope, and size range match the vegetation being measured.
+Use a non-destructive allometric method allows for the estimation of biomass for individual plants belween 0.5 meters and 2 meters in height in plots between 16M^2 (4m by 4m) and 100 m^2 (10m by 10m)
 
-| Record | Examples |
-|---|---|
-| **Identity** | Species or documented group. |
-| **Predictor** | Stem diameter at the defined height, or crown length × width × height, as required by the equation. |
-| **Equation** | Source, equation ID, coefficient set, units, valid size range, and fallback rule. |
-| **Plot area** | Exact medium-plot area used for the per-area calculation. |
 
-> 📚 **[ALLOMETRY REVIEW NEEDED]** Verify every shrub coefficient, including the proposed Flade et al. source and any generic fallback, against the species, region, predictor definition, and calculator implementation. Do not instruct participants to use a generic equation until its limitations are documented.
+Here are the exact instuctions and steps - Make more clear and concise - 
 
-Coarse shrub roots are not reliably represented by a small soil core. If below-ground shrub biomass is outside scope, state that exclusion in the final report.
+1. Within the medium plot, systematically identify the species and measure all individuals between 0.5m (i.e., roughly kneeheight) and 2m in height (i.e., roughly an arm’s length above the head).
+a. Species identification can be done using a dichotomous key, or by using a mobile species identification application. A
+dichotomous key (meaning to “divide into parts”) is a method of identifying an organism based on the species’ observable
+traits. The method requires answering a series of statements with one of two options. Together, the statement answers lead
+to the correct species identification.
+b. It also helps to become familiar with the local plant communities before doing surveys, as species identification can
+initially be tedious.
+c. Some mobile applications are designed to recognize various tree attributes that can help with species identification. Some
+applications are Google Lens, LeafSnap, vTree and Seek by iNaturalist. There are several online resources available to find
+this information specific to the area of study.
+d. Instead of identifying species in the field, the field team may instead choose to take well-documented photos of each
+species (including the leaf, branching structure, bark and any buds, flowers or seeds) for later identification. Make sure
+to record in a notebook a unique photo identifier (such as photo number) alongside the measurements of each plant
+measured.
+
+
+And here are photos - 
+
+Dichotmous key example - <img width="492" height="273" alt="image" src="https://github.com/user-attachments/assets/e29ba3fa-d7fb-4ed8-a76d-d88082b9e92f" />
+
+
+And for short -statured trees - 
+Short-statured trees: If the
+species in question is a small
+tree (i.e., single stem), measure
+the diameter of the tree stem in
+centimetres (cm) at 0.3m above
+ground level using a DBH (i.e.,
+“diameter at breast height”) tape.
+a. Record the species and
+diameter (cm) at 0.3 metres
+(m) height in a notebook.
+15
+3. Shrubs and herbaceous plants: If the species
+in question does not have a single woody
+stem, but instead multiple branches emerging
+together from the earth, then it is a shrub.
+Instead of measuring the diameter of a shrub,
+measure its volume.
+a. Obtain the maximum height, length and
+width of the plant in metres (m).
+i. Maximum height is defined as the height
+of the tallest part of the plant measured
+from the ground.
+ii. Length, also called the line intercept
+cover, is a measure of the length
+between one end of the plant to the
+other, where the measurement is made
+parallel to the east-west plot lines.
+iii. Width runs perpendicular to length,
+measuring from one end of the plant to
+the other in the south-north direction.
+b. These measurements are best conducted
+with three field staff. Have two team
+members stand on either side of the plant,
+holding the measuring tape on either side
+of the plant while a third team member
+records the measurements in a notebook.
+c. Together, length and width provide the
+cross-sectional area (m2
+) of the plant.
+Multiply length, width and height together
+to obtain the plant’s volume (m3
+).
+4. To convert the measurements for volume to
+biomass and carbon stock for each individual
+plant, refer to the mathematical equations in
+the Appendix.
+
+
+Imag shrt statured tree - <img width="323" height="231" alt="image" src="https://github.com/user-attachments/assets/14b7e190-43a1-49e3-af92-5e1b5d356fd9" />
+
+and shrubs - <img width="261" height="151" alt="image" src="https://github.com/user-attachments/assets/17638c03-908a-46b2-90c4-a8ddd20f6733" />
+
 
 #### Trees taller than 2 m
 
 Use the [Forests tree protocol](../../Forests/03_Field_Methods/3A_Trees.md) for trees that meet the agreed handoff rule. Record species, DBH at the protocol height, height, condition, and whether the tree is open-grown.
 
-Open-grown savannah or parkland trees may not match the form of trees used to fit forest allometries. Record equation source and applicability, and carry the additional uncertainty into interpretation.
-
-> 📚 **[ALLOMETRY REVIEW NEEDED]** Confirm the Lambert/Ung equations and their use for open-grown trees before publication. Do not imply that a forest-derived equation transfers without qualification.
 
 #### Where the vegetation numbers go
 
@@ -342,7 +460,8 @@ Match `Plot ID`, units, dry-mass basis, carbon fraction, and plot area exactly. 
 </td>
 <td width="45%">
 
-> 🧩 **[PLACEHOLDER — IMAGE]** Add `images/datasheet_vegetation_completed.webp`, using fictional or anonymized data.
+Image of vegeation datasheet - <img width="725" height="398" alt="image" src="https://github.com/user-attachments/assets/e3c9b089-63f3-407c-a52a-c8fdc548de0d" />
+
 
 </td>
 </tr>
@@ -359,9 +478,8 @@ Match `Plot ID`, units, dry-mass basis, carbon fraction, and plot area exactly. 
 
 #### Confirm depth increments
 
-The depth plan was selected in Part 2. The current draft uses finer increments near the surface and wider increments at depth:
 
-| Draft increment | Purpose |
+| Recommended depth increment | Purpose |
 |---|---|
 | **0–10 cm** | Captures the upper mineral soil and high root-density zone. |
 | **10–20 cm** | Maintains resolution through the upper profile. |
@@ -370,7 +488,7 @@ The depth plan was selected in Part 2. The current draft uses finer increments n
 | **60–100 cm** | Supports a deeper reporting window where the profile allows it. |
 | **Below 100 cm to refusal** | Captures deeper material when required by the design and feasible. |
 
-> 📚 **[METHOD REVIEW NEEDED]** Confirm these increments, the full-profile recommendation, and reporting windows against the final project objectives, field equipment, laboratory capacity, and cited grassland methods.
+Image of soil datasheet - <img width="749" height="437" alt="image" src="https://github.com/user-attachments/assets/c19175b6-d27d-4f59-b826-8099d7845604" />
 
 If refusal occurs early, record the actual depth and what caused refusal. Never enter the intended bottom depth when the recovered interval was shorter.
 
@@ -388,12 +506,163 @@ Use the method specified in the sampling plan. If conditions force a change, rec
 
 <img src="images/core_offset_and_traffic.svg" alt="Where the core goes, and where the crew does not" width="100%">
 
-- Use the pre-defined offset and direction.
-- Avoid the clipped quadrat, kneeling areas, wheel tracks, obvious animal burrows, and previous core holes unless the design explicitly targets them.
-- Record the offset and any deviation.
-- Photograph unusual surface conditions before coring.
 
-#### Insert the corer
+Here are exact steps:
+1) Before coring, find a flat area close
+to the coring spot, lay down a
+tarp and prepare all the required
+equipment.
+2) Gently push the corer into the soil,
+keeping it as straight as possible.
+a) Corers with serrated edges can
+be used to cut through coring
+spots with tough roots. When
+coring with this tool, it’s also
+important to try and reduce
+compaction as much as possible.
+3) The depth of each core depends
+on each site, but should first be
+estimated with a soil probe.
+a) Once a desired soil depth is
+decided, capture as much of
+the soil from the soil surface to
+the desired depth as possible to
+obtain the best bulk density and
+carbon measurements for each
+soil layer.
+4) With the core fully inserted, twist
+and jiggle the corer to release the
+bottom part of the core sample
+from the base sediment.
+a) If the core is stuck, dig down
+from the outside of the core to
+give the corer more room, or cut
+with a trowel or knife.
+5) Once the core is free, remove the
+corer with the sample inside.
+6) Keep pressure on the bottom of the
+core sample to prevent the sample
+from falling out of the bottom of
+the corer.
+7) Once fully removed, turn the corer
+horizontally and place a plastic core
+sleeve, cut lengthwise, around it.
+
+
+) Using the core extraction tool, push
+the sample from the bottom of the core
+to reveal the sample through the top
+of the corer. The plastic sleeve should
+be adjusted to catch the sample as it
+releases from the top of the core.
+9) Once fully removed, place labelled end
+caps on the top and bottom end of the
+core. Secure it with tape. Apply a strip
+of duct tape along the cut edge of the
+tube.
+SECTION SUMMARY: COLLECTING A SOIL CORE
+¥ Find a flat area close to the coring spot, lay down a tarp and prepare the required equipment.
+¥ Gently push the corer into the soil, keeping it as straight as possible.
+¥ With the corer fully inserted, twist and jiggle the corer to release the bottom part of the core
+sample from the base sediment.
+¥ Remove the corer with the sample inside. Keep pressure on the bottom of the core sample to
+prevent the sample from falling out of the bottom of the corer.
+¥ Turn the corer horizontally and place a plastic core sleeve around the corer.
+¥ Use a core extraction tool to push the core out of the corer into the sleeve. Place the
+appropriate end caps on the top and bottom of the core tube and secure it with tape.
+¥ Measure and record the core length and the depth of the hole.
+¥ Label the sample and place it in a cooler.
+SAMPLING
+10) Measure the length of the core and the
+depth of the hole that was just cored,
+and record these measurements in a
+notebook. The hole depth is the true
+depth of the core, whereas the core
+extracted length can be smaller due to
+compaction. It is important to correct
+for this compaction when measuring
+the bulk density of the core in a lab.
+11) Label the sample and place it in a cooler
+for storage.
+The cores can be transported to a lab for
+further processing, where they will be
+sectioned by soil layer type, measured to
+obtained volume, weighed to obtain bulk
+density and analyzed for carbon content.
+
+
+
+And for soil pit:
+The second method requires digging a
+soil pit and using a horizontal punch
+sampler. This method is designed
+to expose the soil horizons of the
+landscape and is the best method if
+other properties of the soil are also
+going to be measured. However, it takes
+more time and effort than soil coring.
+1. At the selected site, dig a hole in the
+ground that is at least 0.5m wide.
+a. The hole should be deep enough
+to expose all the soil horizons
+and should be wide enough to
+easily collect samples from each
+horizon.
+2. Identify each soil layer by its
+major soil horizon group using
+the Canadian System of Soil
+Classification, outlined in the
+Appendix. Distinctions are made
+using the colour, texture and depth
+of the soil horizon.
+3. In a notebook, record the soil layer,
+depth increment, colour and texture
+for horizon classification.
+STEP-BY-STEP PROCESS TO
+COLLECT SAMPLES FROM
+A SOIL PIT
+19
+SECTION SUMMARY: COLLECTING SOIL SAMPLES
+FROM A SOIL PIT
+¥ At the selected site, dig a hole 0.5m wide and to the desired
+sampling depth.
+¥ For each soil layer, record the depth interval, colour and texture.
+¥ Label resealable bags with a unique CoreID and sample depth
+interval for each layer.
+¥ With a soil sampling ring/bulk density disk, obtain a sample
+from the middle of each of the soil layers and transfer each of the
+samples to its respective labelled bag.
+Note: Additional samples from each layer can be collected and
+transferred to a separate bag.
+¥ Place samples in a cooler.
+4. Using a small mould with a known
+volume, often referred to as a “soil
+sampling ring” or a “bulk density
+disk,” collect a sample in the middle
+of each horizon for the purpose of
+determining bulk density.
+5. Place the sample in a labelled
+resealable bag.
+6. Additional samples from each layer
+can be collected in a separate bag
+for carbon content or other lab
+analyse
+
+and photos 
+Soil coring
+- <img width="211" height="125" alt="image" src="https://github.com/user-attachments/assets/ecd9dc4f-1ea5-40ad-aade-d2d585b16b3c" />
+
+
+<img width="196" height="162" alt="image" src="https://github.com/user-attachments/assets/a44d1125-f64a-4389-b3f1-0a50030e7ac5" />
+
+soil pits:
+**<img width="182" height="165" alt="image" src="https://github.com/user-attachments/assets/98b1ec2a-429c-4f14-a9cb-f6f56e1b7550" />
+**
+<img width="251" height="139" alt="image" src="https://github.com/user-attachments/assets/f96e56ac-36a3-412a-9bd4-34b12b2d7762" />
+
+
+
+#### Insert the corer (**** Replace with steps above)
 
 1. Confirm corer ID, internal diameter, cleanliness, liner, and orientation mark.
 2. Place the corer vertically at the assigned point.
@@ -402,7 +671,6 @@ Use the method specified in the sampling plan. If conditions force a change, rec
 5. Recover the core without losing the bottom or mixing the profile.
 6. Keep the core upright and preserve its top/bottom orientation.
 
-> 🧩 **[PLACEHOLDER — VIDEO]** Produce a controlled MP4/WebM demonstration with captions and a static sequence showing corer placement, insertion, extraction, capping, and orientation. Include the specific corer used by this workshop.
 
 #### Measure recovery and possible compression
 
@@ -417,7 +685,6 @@ recovery ratio = recovered core length ÷ depth driven
 
 A low recovery ratio signals loss, compression, or both; the ratio alone cannot always distinguish them. Do not silently stretch the core back to the driven length. Follow the project's acceptance, recollection, and depth-assignment rule.
 
-> 📚 **[PROTOCOL DECISION NEEDED]** Define acceptable recovery, when a core must be recollected, and how depth boundaries are assigned when penetration and recovered length differ. “More than a few per cent” is not an adequate field rule.
 
 #### Bulk density and coarse fragments
 
