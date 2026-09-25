@@ -119,7 +119,8 @@ This map provides Prairie-region context. It should not be read as a complete na
 
 Grassland regions have been identified as important opportunities for recovering biodiversity, ecological function, climate resilience, and carbon. The final map should make clear which restoration criteria and geographic extent it represents.
 
-> 🧩 **[PLACEHOLDER — IMAGE]** Restoration-potential map from the [Living Planet Data Hub — WWF-Canada (PDF)](https://github.com/user-attachments/files/32655788/Living.Planet.Data.Hub._.WWF-Canada.pdf). GitHub cannot show a PDF inline, so it needs to go in as an image of the relevant page.
+<img width="615" height="751" alt="image" src="https://github.com/user-attachments/assets/a034979c-63d8-400d-a2ab-2e09c724b554" />
+
 
 Temperate grassland is among the world's least protected and most converted biomes, and much of Canada's native grassland has been converted or altered. The consequences extend beyond carbon:
 
