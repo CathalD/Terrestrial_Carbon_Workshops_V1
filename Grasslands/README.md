@@ -6,121 +6,142 @@
 
 # Grassland Carbon Workshop
 
-*In this workshop, we will cover how to measure carbon in grassland ecosystems, including above-ground plant biomass, below-ground plant biomass, and soil carbon. The workshop is organized into 4 parts, with an optional part 5 for teams looking to measure carbon into the future*
+*This workshop covers how to measure carbon in grassland ecosystems, including above-ground plant biomass, below-ground plant biomass, and soil carbon. It is organized into four core parts, with an optional fifth part for teams measuring change through time.*
 
 ---
 
 ## Contents of this workshop
 
 | # | Section | What it covers |
-|---|---------|----------------|
-| 1 | [**Background**](01_Background/) | The carbon pools of grasslands; common grassland types found in Canada; measuring roots, shoots and soils. |
-| 2 | [**Project Planning**](02_Project_Planning/) | How many cores, and where: setting project goals, dividing the area into meaningfully distinct zones, and applying permanent vs single-use plots |
-| 3 | [**Field Methods**](03_Field_Methods/) | Plot setup, clip-and-weigh methods, shrub allometry, soil coring and root separation  |
-| 4 | [**Data Interpretation**](04_Data_Interpretation/) | Lab results, root processing, the carbon calculator, scaling and reporting |
-| 5 | [**Monitoring Supplement**](05_Monitoring/) *(optional)* | Detecting change over time, for restoration, stewardship and soil-health baselines |
+|---|---|---|
+| 1 | [**Background**](01_Background/) | Grassland carbon pools, how carbon accumulates, and why roots, shoots, and soils are measured differently. |
+| 2 | [**Project Planning**](02_Project_Planning/) | Project goals, study boundaries, strata, sample counts, sampling locations, and permanent versus single-use plots. |
+| 3 | [**Field Methods**](03_Field_Methods/) | Plot setup, vegetation measurements, soil and root coring, depth intervals, root separation, and field records. |
+| 4 | [**Data Interpretation**](04_Data_Interpretation/) | Laboratory results, calculator inputs, carbon stocks, uncertainty, scaling, and reporting. |
+| 5 | [**Monitoring Supplement**](05_Monitoring/) *(optional)* | Detecting change through time for restoration, stewardship, and soil-health baselines. |
 
 ---
 
-## TLDR: Workshop Objectives and Overview
+## TL;DR: workshop objectives
 
-1. **Learn about grassland carbon**, above and below ground.
-2. **Learn field methods for measuring different carbon types**, including soil coring, separating roots from soil, and clip-and-weigh methods for above-ground carbon
-3. **Turn measurements into outputs**, carbon stocks, and baselines you can compare against
+1. **Understand grassland carbon** above and below ground.
+2. **Learn field methods for measuring different carbon pools**, including vegetation plots, soil coring, and root separation.
+3. **Turn field and laboratory measurements into carbon stocks and baselines** that can support comparison and monitoring.
 
+---
 
 ## How to think about this workshop
 
-For some projects, it can be useful to begin at the end and work backwards from there. In
-this spirit, we will **start from the data sheet**:
+For some projects, it helps to begin at the end and work backwards. In that spirit, start with the workbook that will eventually hold the field and laboratory data:
+
 **[`Grassland_Carbon_Calculator.xlsx`](04_Data_Interpretation/calculators/Grassland_Carbon_Calculator.xlsx)**
 
-Every heading on it is something that will be documented or measured in the field, or you will get back from the lab. Once the
-sheet is full, those numbers can be turned into a carbon stock.
+Every input should be one of three things:
 
-(Note for Codex - Separate these to be stacked on top of each other and to be larger . In a table below, we will add what each header describes and link to the where it is discussed further and will be filled in)
+- documented in the project plan;
+- measured or observed in the field; or
+- returned by the laboratory under a defined method.
+
+Once the workbook is complete and checked, those inputs can be converted into pool-specific carbon stocks and site summaries.
+
+### Soil Data tab
+
+<p align="center">
+  <img width="92%" alt="Grassland carbon calculator — Soil Data tab" src="https://github.com/user-attachments/assets/beb531e4-aed0-430c-97e9-bc657db6c39d" />
+</p>
+
+**One row represents one depth interval from one core.**
+
+| Header or field group | What it describes | Where it is introduced | When it is filled |
+|---|---|---|---|
+| `Plot ID`, `Core ID` | The identifiers linking the soil result to the site and plot records. | [Part 2 — Project Planning](02_Project_Planning/) and [Part 3 — Field Methods](03_Field_Methods/) | Assigned before fieldwork; confirmed in the field. |
+| Stratum/site fields | The mapped area and comparison group represented by the core. | [Part 2 — Project Planning](02_Project_Planning/#step-2--stratify-your-site) | Planning and plot setup. |
+| Top and bottom depth | The actual interval represented by the sample. | [Part 3 — Field Methods](03_Field_Methods/#4-section-bag-and-label-the-core) | Field sectioning. |
+| Corer/ring dimensions | The measurements defining sampled volume. | [Part 3 — Field Methods](03_Field_Methods/#3-collect-the-soil-and-root-core) | Equipment setup and field collection. |
+| Penetration and recovery | How far the sampler entered and how much material was recovered. | [Part 3 — Field Methods](03_Field_Methods/#3-collect-the-soil-and-root-core) | Field collection. |
+| Coarse fragments | The stone or coarse-fragment record and its measurement basis. | [Part 3 — Field Methods](03_Field_Methods/#3-collect-the-soil-and-root-core) | Field and/or laboratory, under the selected method. |
+| Bulk density | Dry soil mass per defined bulk volume, with its preparation basis. | [Part 3 — Field Methods](03_Field_Methods/#3-collect-the-soil-and-root-core) | Laboratory or validated field/lab workflow. |
+| Organic carbon concentration | The proportion of the prepared soil sample measured as organic carbon. | [Part 4 — Data Interpretation](04_Data_Interpretation/) | Laboratory result. |
+| Calculated soil stock | Carbon concentration combined with bulk density, thickness, and required corrections. | [Part 4 — Data Interpretation](04_Data_Interpretation/) | Calculated by the workbook after QC. |
+
+### Vegetation Data tab
+
+<p align="center">
+  <img width="92%" alt="Grassland carbon calculator — Vegetation Data tab" src="https://github.com/user-attachments/assets/dc1908fc-4c81-4aa5-aad9-300bda336db8" />
+</p>
+
+**One row represents a plot-level vegetation measurement or defined vegetation fraction.**
+
+| Header or field group | What it describes | Where it is introduced | When it is filled |
+|---|---|---|---|
+| `Plot ID` | The identifier joining vegetation to the plot and soil records. | [Part 2 — Project Planning](02_Project_Planning/) | Assigned before fieldwork; confirmed in the field. |
+| Plot type and area | The small, medium, or large plot used for the measurement. | [Part 3 — Field Methods](03_Field_Methods/#2-measure-the-vegetation) | Field layout. |
+| Vegetation pool/fraction | Shoots, standing dead material, shrubs, or trees, under the selected protocol. | [Part 2 — Project Planning](02_Project_Planning/#step-3--choose-what-to-measure) | Planned before fieldwork; confirmed in the field. |
+| Species/group | The species or operational group used for direct measurement or allometry. | [Part 3 — Field Methods](03_Field_Methods/#2-measure-the-vegetation) | Field measurement and sorting. |
+| Field measurement | Dry mass, stem diameter, crown dimensions, DBH, height, or another approved predictor. | [Part 3 — Field Methods](03_Field_Methods/#2-measure-the-vegetation) | Field and laboratory. |
+| Date and phenological stage | When the standing vegetation was measured and whether it met the comparable-season rule. | [Part 3 — Field Methods](03_Field_Methods/#2-measure-the-vegetation) | Field visit. |
+| Equation/coefficient | The documented allometry used when biomass is predicted rather than harvested. | [Part 4 — Data Interpretation](04_Data_Interpretation/) | Analysis, after applicability is checked. |
+| Calculated biomass/carbon | Plot biomass converted to a per-area basis and then to carbon under the selected method. | [Part 4 — Data Interpretation](04_Data_Interpretation/) | Calculated by the workbook after QC. |
+
+### Other workbook tabs
+
+| Tab | What it holds | Where it is completed |
+|---|---|---|
+| `1. Plot & Site Log` | One row per plot: location, grassland type, management, grazing, fire, restoration history, and field conditions. | [Part 3 — Field Methods](03_Field_Methods/#1-set-up-the-plot-and-record-conditions) |
+| `3. Root Biomass` | Root measurements linked to core and depth, including the operational root/soil boundary and processing method. | [Part 3 — Field Methods](03_Field_Methods/#5-separate-the-roots-and-finish-the-records) |
+| `5. Plot Summary` | Calculated pool-specific results for each plot. | [Part 4 — Data Interpretation](04_Data_Interpretation/) |
+| `6. Site Summary` | Site or stratum stocks, intervals, sample counts, and achieved precision. | [Part 4 — Data Interpretation](04_Data_Interpretation/) |
+
+---
+
+## Background on Canada's grasslands—and what has been lost
+
+The map currently available focuses on the Prairie provinces. Canada also contains important grasslands, savannahs, parklands, and open ecosystems outside that extent, and loss and restoration opportunities are not confined to the Prairie region.
 
 <table>
 <tr>
 <td width="50%">
 
-<img width="100%" alt="Data sheet — Soil Data tab" src="https://github.com/user-attachments/assets/beb531e4-aed0-430c-97e9-bc657db6c39d" />
-
-**Soil Data** — one row per depth increment.
+<img width="100%" alt="Map of grasslands in the Canadian Prairie provinces" src="https://github.com/user-attachments/assets/b07c519e-d56c-423d-bbfa-e8d419c5f33a" />
 
 </td>
 <td width="50%">
 
-<img width="100%" alt="Data sheet — Vegetation Data tab" src="https://github.com/user-attachments/assets/dc1908fc-4c81-4aa5-aad9-300bda336db8" />
-
-**Vegetation Data** — one row per plot.
+> 🧩 **[PLACEHOLDER — RESTORATION POTENTIAL MAP]** Add the restoration-potential map from WWF-Canada's restoration analysis after confirming the image file and reuse permissions.
 
 </td>
 </tr>
-</table>
-
----
-
-
-## Background on Canada's grasslands, and what has been lost
-
-<table>
 <tr>
-<td width="55%">
+<td width="50%">
 
-(For codex here is a link to a map image of just the prarie provinces, note there are other grasslands and losses are prevelant in these areas aswell)
-(And make this a 2 by 2 table so we can add in this restoration potential map as well)
+**Grassland extent and loss**
 
-<img width="4200" height="2550" alt="grasslands" src="https://github.com/user-attachments/assets/b07c519e-d56c-423d-bbfa-e8d419c5f33a" />
-
-https://institute.smartprosperity.ca/Grasslands-Drought-Resilience-Prairies
-
-[Living Planet Data Hub _ WWF-Canada.pdf](https://github.com/user-attachments/files/32654290/Living.Planet.Data.Hub._.WWF-Canada.pdf)
-
- And this is from https://wwf.ca/restoration-analysis/
-
-
-(For codex - move these sources to a spot below for "Further reading")
-
-> [Canada's Grasslands](https://canadasgrasslands.ca/explore-grasslands), the
-> [CFGA grassland inventory](https://www.canadianfga.ca/en/conservation/grassland-inventory/), the
-> Prairie Ecozone map from the
-> [National Ecological Framework for Canada](https://sis.agr.gc.ca/cansis/nsdb/ecostrat/), or the
-> Grassland Ecosystem Inventory layers. **Check the licence before embedding.**
+This map provides Prairie-region context. It should not be read as a complete national inventory of every Canadian grassland ecosystem.
 
 </td>
-<td width="45%">
+<td width="50%">
 
-Temperate grassland is among the **least protected and most converted** biomes on Earth, and
-Canada's share of it has gone the same way. Most of the native prairie that was here before
-settlement is now cropland or pasture. However, these areas have also been identified as having some of the hiester potential for restoration to recover both biodiversity and carbon
+**Restoration potential**
 
-What went with it is not only carbon:
-
-- **Grassland birds** have fallen further than any other group of North American birds — roughly a
-  **50–60% decline since 1970**, the steepest of any habitat guild.
-- **Prairie species** dependent on intact sod — swift fox, burrowing owl, greater sage-grouse,
-  black-footed ferret — are among Canada's most at-risk.
-- **Services that come with deep-rooted perennial cover**: water infiltration and storage, erosion
-  control, drought resilience, forage, and the carbon this workshop measures.
-
-That is the context a carbon number sits in. It is rarely the only reason a community is measuring.
+Grassland regions have been identified as important opportunities for recovering biodiversity, ecological function, climate resilience, and carbon. The final map should make clear which restoration criteria and geographic extent it represents.
 
 </td>
 </tr>
 </table>
 
-<details>
-<summary><b>
+Temperate grassland is among the world's least protected and most converted biomes, and much of Canada's native grassland has been converted or altered. The consequences extend beyond carbon:
 
-(Note for codex Im removing this entire section with the drop down
+- **Grassland birds** have experienced some of the steepest declines among North American bird groups.
+- **Prairie-dependent species**, including swift fox, burrowing owl, greater sage-grouse, and black-footed ferret, are among Canada's species at risk.
+- **Deep-rooted perennial cover supports multiple functions**, including water infiltration and storage, erosion control, drought resilience, forage, habitat, and carbon storage.
 
-</details>
+That is the context in which a carbon number sits. Carbon is rarely the only reason a community measures or restores a grassland.
+
+> 📚 **[CITATIONS NEEDED]** Add the source and date for national conversion estimates, the grassland-bird trend, species-status claims, and the restoration-potential interpretation before publication.
 
 ---
 
-
-## TLDR: Background - What is Grassland Carbon?
+## TL;DR: what is grassland carbon?
 
 <table>
 <tr>
@@ -131,13 +152,11 @@ That is the context a carbon number sits in. It is rarely the only reason a comm
 </td>
 <td width="45%">
 
-Organic carbon cycles through grasslands starting with photosynthesis, then the deposition of
-plant remains, and the decomposition of those materials. Whatever is left over gets **sequestered
-into the soils**.
+Organic carbon moves through grasslands through photosynthesis, plant growth, transfers to soil, decomposition, respiration, erosion, fire, grazing, and other processes.
 
-**The soil holds the majority of the carbon**, and it builds slowly, over long periods.
+Soil commonly holds the largest measured carbon pool in a grassland project, and that stock develops over long periods.
 
-For more, see [*Monitoring soil carbon formation during afforestation*](https://cid-inc.com/blog/monitoring-soil-carbon-formation-during-afforestation/).
+For more background, see [Part 1](01_Background/).
 
 </td>
 </tr>
@@ -149,10 +168,9 @@ For more, see [*Monitoring soil carbon formation during afforestation*](https://
 </td>
 <td width="45%">
 
-**Of the living biomass, most is in the roots.** Grassland root biomass commonly exceeds shoot
-biomass several times over, especially in native grasses. Those roots also carry much of the
-ecosystem's function — soil health, water infiltration and landscape stability
-([Ecosphere, 2019](https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecs2.2582)).
+**A large share of grassland living biomass can occur below ground.** Root amount and root:shoot relationships vary among species, sites, seasons, and management histories, so regional measurements are preferable to a universal multiplier.
+
+Roots also contribute to soil structure, water movement, plant recovery, and carbon inputs ([Ecosphere, 2019](https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecs2.2582)).
 
 </td>
 </tr>
@@ -164,12 +182,9 @@ ecosystem's function — soil health, water infiltration and landscape stability
 </td>
 <td width="45%">
 
-**Plants grow quickly, and decompose quickly as well.** The standing crop you can see turns over on
-a seasonal cycle.
+Above-ground herbaceous biomass is a **standing crop at the sampling date**. It can change quickly through growth, senescence, grazing, mowing, drought, or fire.
 
-So a grassland carbon project should decide **which pools it cares about**, because that governs
-how different stewardship techniques will show up in the numbers. Here we see a range of native
-grasses and the vast underground networks we do not always see on the surface.
+A grassland carbon project must decide which pools it will measure, because soil, roots, shoots, shrubs, and trees respond on different timescales and require different methods.
 
 </td>
 </tr>
@@ -177,10 +192,13 @@ grasses and the vast underground networks we do not always see on the surface.
 
 ---
 
-## Part 3 - Measuring carbon stocks in grasslands<img width="467" height="169" alt="Screenshot 2026-09-25 at 09 31 59" src="https://github.com/user-attachments/assets/fc467588-7d87-4b0d-ab0c-5a3c12c3e6e6" />
+## Measuring plant biomass in grasslands
 
+<p align="center">
+  <img width="70%" alt="Grassland plant carbon measurement overview" src="https://github.com/user-attachments/assets/fc467588-7d87-4b0d-ab0c-5a3c12c3e6e6" />
+</p>
 
-There are two ways to get plant biomass, and one of them is built from the other.
+There are two broad ways to estimate plant biomass, and the second is developed from the first.
 
 <table>
 <tr>
@@ -188,19 +206,14 @@ There are two ways to get plant biomass, and one of them is built from the other
 
 **Method 1 · Direct measurement**
 
-Clip the quadrat, wash the roots out of the core, weigh what you have. This is what
-[Part 3](03_Field_Methods/) covers, and it is what the calculator's `3. Root Biomass` and
-`4. Vegetation Data` tabs hold — measured mass, not a multiplier.
+Collect the defined plant material, dry it under the selected method, and weigh it. In this workshop, examples include clipping the small vegetation quadrat and separating roots from a defined soil-core fraction.
+
+[Part 3 — Field Methods](03_Field_Methods/) covers collection and processing records. Direct measurements are entered in the calculator's `3. Root Biomass` and `4. Vegetation Data` tabs.
 
 </td>
 <td width="50%">
 
-
-
-> 📸 **[IMAGE NEEDED]** —  here it is - <img width="451" height="153" alt="image" src="https://github.com/user-attachments/assets/fd32e15b-5702-48d2-96c3-3f0667fd6f34" />
-
-
-
+<img width="100%" alt="Direct grassland biomass measurement by collecting and weighing plant material" src="https://github.com/user-attachments/assets/fd32e15b-5702-48d2-96c3-3f0667fd6f34" />
 
 </td>
 </tr>
@@ -209,102 +222,107 @@ Clip the quadrat, wash the roots out of the core, weigh what you have. This is w
 
 **Method 2 · Allometric relationships**
 
-A measurement you can take easily stands in for one you cannot: shrub crown volume for shrub
-biomass, tree diameter for tree biomass, shoot mass for root mass.
+A measurement that is easier to collect is used to predict biomass: shrub crown dimensions for shrub biomass, tree diameter for tree biomass, or—with appropriate local evidence—shoot measurements for root biomass.
 
-An allometric relationship is *built from* direct measurement — someone measured both quantities,
-on enough plants, to establish the relationship in the first place. Root:shoot relationships in
-particular are often developed on a **regional or study-area basis**, where the ratio is compared
-across sites and against plant relative abundance, then modelled out.
+An allometric relationship is built from direct measurements of both the predictor and the biomass response across enough observations to fit and validate the relationship.
 
 </td>
 <td width="50%">
 
-> 📸 **[DIAGRAM NEEDED]** — <img width="310" height="235" alt="image" src="https://github.com/user-attachments/assets/47ed5e04-5c43-422e-8e39-6921b976d70c" />
-
+<img width="100%" alt="Allometric relationship connecting an easy field measurement to plant biomass" src="https://github.com/user-attachments/assets/47ed5e04-5c43-422e-8e39-6921b976d70c" />
 
 </td>
 </tr>
 </table>
 
-**Why it is worth collecting data towards this.** Every field outing that measures both quantities
-contributes to a local relationship. Once you have one, **later surveys can collect less field data
-for the same answer**, because the relationship can be used instead of clipping.
+Collecting paired measurements can contribute to a local relationship that reduces destructive sampling in later surveys. However, an allometry should only be used when its species or functional group, size range, region, predictor definition, and validation are appropriate for the project.
+
+> 📚 **[METHOD REVIEW NEEDED]** Document the source, equation, units, applicable species, size range, and uncertainty for every allometry used by the calculator. A root:shoot relationship should not be treated as transferable without evidence.
 
 ---
 
-## Part 2: Soil organic carbon
+## Measuring soil organic carbon
 
 <table>
 <tr>
 <td width="55%">
 
-**The method is to sample the whole profile** — from the surface down to the parent material, or
-to refusal. Not a fixed 30 cm window.
+The current workshop method is to sample the **full accessible soil profile** to parent material or refusal, then calculate standard reporting windows from the same profile.
 
-**Why:** a fixed depth does not hold a fixed amount of soil. As bulk density changes, a 30 cm
-window holds a different *mass* of soil from one survey to the next, so you are not comparing
-like with like — you are comparing two different quantities of material.
+A fixed depth does not always contain a fixed mass of soil. Changes in bulk density can make two surveys of the same nominal depth represent different amounts of soil. This is especially important where compaction or management change is part of the question.
 
-That failure has a direction, and it is the wrong one. A disturbance that **compacts** the top
-30 cm raises bulk density there, which **raises the apparent carbon stock in that window** — at
-the same time as the disturbance is releasing carbon from the profile as a whole. Sample only
-the top 30 cm and the number can go **up** while the site is **losing** carbon.
+Fixed windows such as 0–30 cm and 0–1 m can still be reported for comparison, but they should be identified as reporting windows rather than assumed to capture the complete stock.
 
-Sampling the full profile is also what lets you see landscape-scale change at all: the signal you
-are looking for is frequently below 30 cm.
+Repeated measurements may require an **equivalent soil mass** calculation so comparable masses—not only comparable depths—are evaluated.
 
 </td>
 <td width="45%">
 
-> 📸 **[IMAGE NEEDED]** — image here of both pits and soil cores -<img width="2500" height="2368" alt="image" src="https://github.com/user-attachments/assets/9b846c54-d1d3-41ea-954b-02edddc26509" />
-
+<img width="100%" alt="Soil pits and soil cores used to sample grassland soil carbon" src="https://github.com/user-attachments/assets/9b846c54-d1d3-41ea-954b-02edddc26509" />
 
 </td>
 </tr>
 </table>
 
+[Part 2 — Project Planning](02_Project_Planning/) defines the pools, depths, precision, and sample count. [Part 3 — Field Methods](03_Field_Methods/) covers soil cores, pits or other approved collection methods, actual depth intervals, bulk density, coarse fragments, and sample records. [Part 4 — Data Interpretation](04_Data_Interpretation/) converts the validated results into stocks.
+
+> 📚 **[METHOD REVIEW NEEDED]** Confirm the full-profile recommendation, reporting depths, and equivalent-soil-mass implementation against the final field guide, calculator, and cited grassland literature.
+
 ---
 
+## Back to the workbook
 
-## Back to the data sheet
+Everything in Parts 2–4 feeds the same workbook:
 
-Everything in Parts 3 and 4 feeds one workbook:
 **[`Grassland_Carbon_Calculator.xlsx`](04_Data_Interpretation/calculators/Grassland_Carbon_Calculator.xlsx)**
 
-(Insert the screenshots of the data sheets here and seperate the tabkle into two tables that corresponds to the vegetation and teh soils data sheet respectively
+Use the large [Soil Data](#soil-data-tab) and [Vegetation Data](#vegetation-data-tab) screenshots at the top of this page as a field-to-workbook map. The other tabs connect as follows:
 
-Screenshots of two of its tabs are at the
-[top of this page](#how-to-think-about-this-workshop).
+| Tab | Holds | Primary source |
+|---|---|---|
+| `1. Plot & Site Log` | Plot identity, location, grassland type, management, grazing, fire, restoration, and field conditions. | Field team and project records. |
+| `2. Soil Data` | One row per depth interval: volume basis, bulk density, coarse fragments, carbon concentration, and calculated stock. | Field team and laboratory. |
+| `3. Root Biomass` | Root result by core, depth, and operational fraction. | Field/laboratory root-processing workflow. |
+| `4. Vegetation Data` | Direct vegetation mass and/or validated allometric inputs. | Field team and laboratory. |
+| `5. Plot Summary` | Pool-specific results at plot scale. | Calculated after QA/QC. |
+| `6. Site Summary` | Stratum/site estimates, intervals, sample count, and achieved precision. | Calculated after QA/QC. |
 
-| Tab | Holds |
-|---|---|
-| `1. Plot & Site Log` | One row per plot — grassland type, management, grazing, fire history |
-| `2. Soil Data` | One row per depth increment — bulk density, coarse fragments, carbon |
-| `3. Root Biomass` | **Measured** root mass by diameter class and depth |
-| `4. Vegetation Data` | Shrubs (medium plot) and clip-and-weigh (small plot) |
-| `5. Plot Summary` · `6. Site Summary` | Calculated — stocks, intervals, whether you hit your target |
+The workbook should never be the only place a method decision exists. Field definitions, laboratory preparation, units, equations, exclusions, and assumptions should also be recorded in the project documentation.
 
 ---
 
-### Useful links
+## Further reading and data sources
 
-- **WWF-Canada Carbon Measurement library** — [wwf.ca/carbon-measurement](https://wwf.ca/carbon-measurement/)
-- **Measuring Carbon in Vegetation (Non-Tree)** — [PDF](../_Shared/Vegetation-FINAL-Eng-2026.pdf)
-- **Measuring Carbon in Non-Peat Soils** — [PDF](../_Shared/Non-peat-FINAL-Eng-2026.pdf)
-- **Carbon Measurement: Sampling Design** — [PDF](../_Shared/Sampling-Design-Eng-2026.pdf)
-- **Laboratory Analysis guide** — [PDF](../_Shared/Lab-Guide-Eng-2026.pdf)
-- **Trees** — the [Forests workshop](../Forests/), for savannah and other areas with tree cover
+### Grassland extent, condition, and restoration
 
-## Some resources to find in this workshop
+- [Canada's Grasslands](https://canadasgrasslands.ca/explore-grasslands)
+- [Canadian Forage and Grassland Association grassland inventory](https://www.canadianfga.ca/en/conservation/grassland-inventory/)
+- [National Ecological Framework for Canada — Prairie Ecozone and related layers](https://sis.agr.gc.ca/cansis/nsdb/ecostrat/)
+- [Smart Prosperity Institute — Grasslands and Drought Resilience in the Prairies](https://institute.smartprosperity.ca/Grasslands-Drought-Resilience-Prairies)
+- [WWF-Canada restoration analysis](https://wwf.ca/restoration-analysis/)
+- [Living Planet Data Hub — WWF-Canada PDF](https://github.com/user-attachments/files/32654290/Living.Planet.Data.Hub._.WWF-Canada.pdf)
+- Grassland Ecosystem Inventory layers, where available for the project region
 
-- [`Grassland_Carbon_Calculator.xlsx`](04_Data_Interpretation/calculators/) — the calculator.
-- [Field datasheet and skill checklist](03_Field_Methods/) — printable, for the field.
-- [**Measuring Carbon in Vegetation (Non-Tree)**](../_Shared/Vegetation-FINAL-Eng-2026.pdf) and
-  [**Non-Peat Soils**](../_Shared/Non-peat-FINAL-Eng-2026.pdf) — the protocols this follows.
+> Check licence, attribution, geographic scope, date, and methods before embedding a map or using it as project data.
+
+### Carbon measurement guidance
+
+- [WWF-Canada Carbon Measurement library](https://wwf.ca/carbon-measurement/)
+- [Measuring Carbon in Vegetation (Non-Tree)](../_Shared/Vegetation-FINAL-Eng-2026.pdf)
+- [Measuring Carbon in Non-Peat Soils](../_Shared/Non-peat-FINAL-Eng-2026.pdf)
+- [Carbon Measurement: Sampling Design](../_Shared/Sampling-Design-Eng-2026.pdf)
+- [Laboratory Analysis guide](../_Shared/Lab-Guide-Eng-2026.pdf)
+- [Forests workshop](../Forests/) for savannah, parkland, and other sites with trees in scope
+
+---
+
+## Resources in this workshop
+
+- [`Grassland_Carbon_Calculator.xlsx`](04_Data_Interpretation/calculators/) — calculator workbook.
+- [Field datasheet and skill checklist](03_Field_Methods/) — printable field resources.
 - [Worked example](Worked_Example/) — one dataset from field sheet to reportable stock.
-- [Monitoring supplement](05_Monitoring/) — measuring the same place over time.
-- [`TODO.md`](TODO.md) — what this workshop still needs from you.
+- [Monitoring supplement](05_Monitoring/) — measuring the same place through time.
+- [`TODO.md`](TODO.md) — remaining evidence, asset, and method dependencies during development.
 
 ---
 
