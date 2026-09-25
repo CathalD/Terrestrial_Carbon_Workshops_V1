@@ -52,7 +52,7 @@ This workshop focuses on the pools that can be measured consistently in grasslan
 <tr>
 <td width="58%">
 
-<img width="100%" alt="Reasons to measure ecosystem carbon" src="https://github.com/user-attachments/assets/688f43f7-ddba-4c3a-86bb-ccdf66e1a4d2" />
+(Insert ppt slide on Carbon cycle here)
 
 </td>
 <td width="42%">
@@ -77,7 +77,7 @@ Parts 2–4 focus on measuring **stocks**. [Part 5 — Monitoring](../05_Monitor
 
 ## Grasslands and their carbon pools
 
-Grassland carbon is distributed among the soil, roots, shoots, forbs, shrubs, standing dead material, litter, and—in savannah or parkland—trees. This workshop measures a defined subset of those pools and reports exclusions explicitly.
+Grassland carbon is distributed among the soil, and plant roots and shoots. This includes any forbs, shrubs, standing dead material, litter, and sometimes trees.
 
 <table>
 <tr>
@@ -88,9 +88,7 @@ Grassland carbon is distributed among the soil, roots, shoots, forbs, shrubs, st
 </td>
 <td width="42%">
 
-**Grassland carbon** is the organic carbon held in the ecosystem at a point in time, including carbon in soil, living and dead roots, and above-ground vegetation.
-
-The boundaries of the reported stock depend on the methods selected in [Part 2](../02_Project_Planning/) and must remain consistent through fieldwork and analysis.
+**Grassland carbon stock** is the organic carbon held in the ecosystem at a point in time, including carbon in soil, living and dead roots, and above-ground vegetation.
 
 </td>
 </tr>
@@ -102,7 +100,9 @@ The boundaries of the reported stock depend on the methods selected in [Part 2](
 </td>
 <td width="42%">
 
-Many perennial grassland plants allocate a substantial share of production below ground. Their root systems place living biomass and organic inputs directly through the soil profile.
+(For claude - Pull these images out, keep them small but place them side by side. Underneath paste the text below
+
+Many grassland plants allocate a substantial share of production below ground. Their root systems place living biomass and organic inputs directly through the soil profile.
 
 Root amount and distribution vary among species, sites, seasons, and management histories, so a single root:shoot ratio should not be treated as universal.
 
@@ -125,6 +125,8 @@ That is one reason a shallow soil sample may miss part of the carbon distributio
 </table>
 
 ### Where the carbon is, and why
+
+(For claude - Consolodate the text above and below here as there seems to be repitaition)
 
 <table>
 <tr>
@@ -153,18 +155,16 @@ See also [*Global patterns of grassland carbon*](https://www.nature.com/articles
 <tr>
 <td width="55%">
 
-<img width="100%" alt="Relative size of the shoot, root and soil carbon pools" src="https://github.com/user-attachments/assets/c9570cc0-11be-496d-9bd8-01765a50f7e4" />
 
 </td>
 <td width="45%">
 
-The teaching example used by this workshop contains three measured pools: soil, roots, and shoots. In those illustrative plots, soil is the largest pool, roots are a smaller share of total carbon but most of the measured living biomass, and shoots are the smallest and most seasonal pool.
-
-The values are a worked-example dataset—not a regional default and not a claim about every grassland.
 
 </td>
 </tr>
 </table>
+
+(For claude - Edit the daigram below - Remove the incessary text - Just show that each bar is different and by how much. Add in a little comparison to tother ecosystems to put it into context boreal forest, wetlands, etc - Use the sothe et al. paper to pull out braod based conclusions) - https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2021GB007213
 
 <p align="center">
   <img src="images/carbon_pools.svg" alt="Bar chart: soil 10.97 and roots 0.81 kg C per square metre, both to 30 cm, and shoots 0.17 — soil is 91.9% of the three-pool total" width="100%">
@@ -176,36 +176,46 @@ The values are a worked-example dataset—not a regional default and not a claim
 | **Roots** | A smaller carbon pool but potentially a large share of living biomass | Can vary seasonally and spatially. |
 | **Shoots** | A standing crop measured at the sampling date | Can change within a season through growth, senescence, grazing, mowing, or fire. |
 
-> 📚 **[REFERENCE NEEDED]** Add a citable Canadian range for grassland root:shoot relationships and pool sizes. Keep `images/carbon_pools.svg` identified as constructed teaching data from the workshop's worked example.
 
-### A standing crop is not the same as a long-lived stock
+### Differences in Carbon stock relate to type of grassland and stewardship
+
+
+Ive moved this image below to this section. Here use this paper - https://www.nature.com/articles/s43247-024-01795-9 which I pulled the below figures to communitcate this. This should just a breif intro, followed by a 3 by 3 table, on the left you have the imaes and on the right a brief summary
+
+HEre is the caption from the paper - modfy and simplyf for our purposes - Fig. 1: Photographs of representative sites, the primary microsites comprising each site, and generalized predictions for relative differences in carbon stock above ground and by depth in the soil for each microsite.
+
+- <img width="100%" alt="Below-ground carbon allocation in grassland" src="https://github.com/user-attachments/assets/45ee7f9b-c0c0-4953-9746-606df9750f36" />
+
+
+
+
+And another figure showing how stocks vary - <img width="2000" height="1155" alt="image" src="https://github.com/user-attachments/assets/d4ce16e0-b1f7-4dae-8594-f8167a9a5c8b" />
+
+
+and the caption - Fig. 2: Aboveground biomass, carbon content, and carbon stock in invaded or uninvaded and burned or unburned areas.
+
+
+And a third - caption Fig. 4: Ball-and-cup diagram conceptualizing results on changes in soil carbon resulting from plant community state transitions associated with exotic annual grass invasion and wildfire.
+
+and photo - <img width="1000" height="1360" alt="image" src="https://github.com/user-attachments/assets/768f8308-86e3-4d9e-a538-f98b63ab2375" />
+
 
 <table>
 <tr>
 <td width="55%">
 
-**Soil carbon is measured as a stock** within a defined area and depth or equivalent soil mass.
-
-**Herbaceous above-ground biomass is a standing crop** at the sampling date. It grows, is grazed or cut, senesces, and decomposes. A spring measurement and a late-summer measurement can differ greatly even when the site's long-term condition has not changed.
-
-Report these pools separately before deciding whether and how they can be combined for a specific purpose.
 
 </td>
 <td width="45%">
 
-> [!WARNING]
-> - Sample vegetation at the project-defined comparable phenological stage.
-> - Record the date, recent grazing, mowing, fire, drought, and other events affecting standing biomass.
-> - Do not interpret a single harvest as annual production.
-> - Do not compare different seasons without explaining the limitation.
->
-> Root biomass may also vary seasonally. Record its collection date and method.
+Removing all of ths unnecessary information
 
 </td>
 </tr>
 </table>
 
-> 📚 **[REGIONAL GUIDANCE NEEDED]** Define “peak” or the comparable-season rule for the ecosystems and regions covered by the workshop. Avoid assuming one calendar window applies everywhere.
+
+This ball and cup diagram should lead very smoothly into the carbon visualization portion here:
 
 ---
 
