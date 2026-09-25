@@ -52,7 +52,7 @@ This workshop focuses on the pools that can be measured consistently in grasslan
 <tr>
 <td width="58%">
 
-(Insert ppt slide on Carbon cycle here)
+> 🧩 **[PLACEHOLDER — SLIDE IMAGE]** Carbon cycle slide from the Part 1 deck.
 
 </td>
 <td width="42%">
@@ -92,82 +92,30 @@ Grassland carbon is distributed among the soil, and plant roots and shoots. This
 
 </td>
 </tr>
-<tr>
-<td width="58%">
+</table>
 
-<img width="340" alt="Root systems of native grassland species" src="https://github.com/user-attachments/assets/db57f784-882d-4a10-aa1f-53ef5441117a" />
+<p align="center">
+  <img height="260" alt="Root systems of native grassland species" src="https://github.com/user-attachments/assets/db57f784-882d-4a10-aa1f-53ef5441117a" />
+  &nbsp;&nbsp;
+  <img height="260" alt="Depth of grassland root systems" src="https://github.com/user-attachments/assets/066e676e-28c7-4a2b-9979-82279e79b416" />
+</p>
 
-</td>
-<td width="42%">
-
-(For claude - Pull these images out, keep them small but place them side by side. Underneath paste the text below
-
-Many grassland plants allocate a substantial share of production below ground. Their root systems place living biomass and organic inputs directly through the soil profile.
+Many grassland plants allocate a substantial share of production below ground, and in many grasslands below-ground living biomass exceeds the shoots visible above ground. A crew that measures only above-ground vegetation therefore measures only part of the living biomass, and a small part of the ecosystem carbon this workshop considers.
 
 Root amount and distribution vary among species, sites, seasons, and management histories, so a single root:shoot ratio should not be treated as universal.
 
-</td>
-</tr>
-<tr>
-<td width="58%">
-
-<img width="270" alt="Depth of grassland root systems" src="https://github.com/user-attachments/assets/066e676e-28c7-4a2b-9979-82279e79b416" />
-
-</td>
-<td width="42%">
-
-Roots can deliver organic material below the surface rather than relying only on litter moving downward from above.
-
-That is one reason a shallow soil sample may miss part of the carbon distribution and why actual rooting depth matters when the project chooses sampling depths.
-
-</td>
-</tr>
-</table>
-
 ### Where the carbon is, and why
 
-(For claude - Consolodate the text above and below here as there seems to be repitaition)
+<p align="center">
+  <img width="70%" alt="Grassland carbon cycle — plants take up CO2, roots and shoots feed the soil" src="https://github.com/user-attachments/assets/8a23fedc-782b-4bbe-bcd2-805622839f4d" />
+</p>
 
-<table>
-<tr>
-<td width="50%">
+Plants take up carbon dioxide and use it to build shoots and roots. Carbon reaches the soil by two routes: litter from the surface, and roots, which place living biomass and organic inputs directly through the profile. Decomposers transform both. Some carbon returns to the atmosphere; some remains in living organisms, particulate material, mineral-associated organic matter, and other soil fractions. Microbial products and remains can make an important contribution to the part that persists, and how much is retained depends on climate, soil properties, vegetation, disturbance, management, and time.
 
-<img width="100%" alt="Grassland carbon cycle — plants take up CO2, roots and shoots feed the soil" src="https://github.com/user-attachments/assets/8a23fedc-782b-4bbe-bcd2-805622839f4d" />
-
-</td>
-<td width="50%">
-
-<img width="100%" alt="Below-ground carbon allocation in grassland" src="https://github.com/user-attachments/assets/45ee7f9b-c0c0-4953-9746-606df9750f36" />
-
-</td>
-</tr>
-</table>
-
-Plants take up carbon dioxide and use it to build shoots and roots. Plant material and root-derived compounds enter the soil, where decomposers transform them. Some carbon returns to the atmosphere; some remains in living organisms, particulate material, mineral-associated organic matter, and other soil fractions.
-
-Microbial products and remains can make an important contribution to persistent soil organic matter. The amount retained depends on climate, soil properties, vegetation, disturbance, management, and time.
-
-In many grasslands, below-ground living biomass exceeds the shoots visible above ground. A crew measuring only above-ground vegetation therefore measures only part of the living biomass and a small part of the total ecosystem carbon considered by this workshop.
-
-See also [*Global patterns of grassland carbon*](https://www.nature.com/articles/s43247-024-01795-9) (*Communications Earth & Environment*, 2024).
-
-<table>
-<tr>
-<td width="55%">
-
-
-</td>
-<td width="45%">
-
-
-</td>
-</tr>
-</table>
-
-(For claude - Edit the daigram below - Remove the incessary text - Just show that each bar is different and by how much. Add in a little comparison to tother ecosystems to put it into context boreal forest, wetlands, etc - Use the sothe et al. paper to pull out braod based conclusions) - https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2021GB007213
+Because roots deliver carbon below the surface, a shallow sample can miss part of the distribution. That is why actual rooting depth matters when the project chooses sampling depths — see [How deep should the project sample?](#how-deep-should-the-project-sample).
 
 <p align="center">
-  <img src="images/carbon_pools.svg" alt="Bar chart: soil 10.97 and roots 0.81 kg C per square metre, both to 30 cm, and shoots 0.17 — soil is 91.9% of the three-pool total" width="100%">
+  <img src="images/carbon_pools.svg" alt="Bar chart of the worked example: soil 10.97 and roots 0.81 kg C per square metre, both to 30 cm, and shoots 0.17. Soil holds 66 times and roots 4.9 times the carbon of the shoots." width="100%">
 </p>
 
 | Pool | Role in this workshop | How quickly it may vary |
@@ -176,46 +124,66 @@ See also [*Global patterns of grassland carbon*](https://www.nature.com/articles
 | **Roots** | A smaller carbon pool but potentially a large share of living biomass | Can vary seasonally and spatially. |
 | **Shoots** | A standing crop measured at the sampling date | Can change within a season through growth, senescence, grazing, mowing, or fire. |
 
+> 📚 **[DATA NEEDED — ECOSYSTEM COMPARISON]** Add national context from Sothe et al. (2022), [*Global Biogeochemical Cycles*](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2021GB007213): typical carbon per m² for grassland, boreal forest, and wetland or peatland, all on the paper's own basis. Give it its own chart rather than adding bars to the one above. Those bars are soil and roots to 30 cm from constructed data; the national estimates use a different depth and method, so the two cannot share an axis.
 
-### Differences in Carbon stock relate to type of grassland and stewardship
+### Differences in carbon stock relate to grassland type and stewardship
 
-
-Ive moved this image below to this section. Here use this paper - https://www.nature.com/articles/s43247-024-01795-9 which I pulled the below figures to communitcate this. This should just a breif intro, followed by a 3 by 3 table, on the left you have the imaes and on the right a brief summary
-
-HEre is the caption from the paper - modfy and simplyf for our purposes - Fig. 1: Photographs of representative sites, the primary microsites comprising each site, and generalized predictions for relative differences in carbon stock above ground and by depth in the soil for each microsite.
-
-- <img width="100%" alt="Below-ground carbon allocation in grassland" src="https://github.com/user-attachments/assets/45ee7f9b-c0c0-4953-9746-606df9750f36" />
-
-
-
-
-And another figure showing how stocks vary - <img width="2000" height="1155" alt="image" src="https://github.com/user-attachments/assets/d4ce16e0-b1f7-4dae-8594-f8167a9a5c8b" />
-
-
-and the caption - Fig. 2: Aboveground biomass, carbon content, and carbon stock in invaded or uninvaded and burned or unburned areas.
-
-
-And a third - caption Fig. 4: Ball-and-cup diagram conceptualizing results on changes in soil carbon resulting from plant community state transitions associated with exotic annual grass invasion and wildfire.
-
-and photo - <img width="1000" height="1360" alt="image" src="https://github.com/user-attachments/assets/768f8308-86e3-4d9e-a538-f98b63ab2375" />
-
+Carbon stocks are not set by climate and soil alone. Within a site they differ between patches and with depth, and a change in the plant community can shift them. The three figures below, from a [2024 study in *Communications Earth & Environment*](https://www.nature.com/articles/s43247-024-01795-9), show this for invasion by exotic annual grasses and for wildfire.
 
 <table>
 <tr>
 <td width="55%">
 
+<img width="100%" alt="Representative sites, the microsites that make them up, and expected relative differences in carbon above ground and by soil depth for each microsite" src="https://github.com/user-attachments/assets/45ee7f9b-c0c0-4953-9746-606df9750f36" />
 
 </td>
 <td width="45%">
 
-Removing all of ths unnecessary information
+**Carbon varies within a site**
+
+Representative sites, the microsites that make them up, and the expected difference in carbon above ground and at each soil depth for each microsite.
+
+Carbon is not spread evenly across a site, so where cores and quadrats land matters. That is why [Part 2](../02_Project_Planning/) stratifies the site and places samples at random.
+
+</td>
+</tr>
+<tr>
+<td width="55%">
+
+<img width="100%" alt="Above-ground biomass, carbon content and carbon stock in invaded or uninvaded and burned or unburned areas" src="https://github.com/user-attachments/assets/d4ce16e0-b1f7-4dae-8594-f8167a9a5c8b" />
+
+</td>
+<td width="45%">
+
+**Invasion and fire change the stock**
+
+Above-ground biomass, its carbon content, and the resulting carbon stock, compared across invaded and uninvaded, burned and unburned areas.
+
+A stock is the amount of material multiplied by its carbon content, so a disturbance can change the stock through either one. That is why both are measured rather than assumed.
+
+</td>
+</tr>
+<tr>
+<td width="55%">
+
+<img width="100%" alt="Ball-and-cup diagram of plant community state transitions with exotic annual grass invasion and wildfire, and the associated changes in soil carbon" src="https://github.com/user-attachments/assets/768f8308-86e3-4d9e-a538-f98b63ab2375" />
+
+</td>
+<td width="45%">
+
+**Tipping into a different state**
+
+How invasion and wildfire can move a plant community, and its soil carbon, from one state to another.
+
+Each cup is a relatively stable state and the ball is the ecosystem. Small disturbances roll the ball around its cup and it settles back. A large enough disturbance, or several together, can push it over the rim into another cup. There it settles at a different carbon stock, and it may not return on its own.
 
 </td>
 </tr>
 </table>
 
+> 📚 **[CHECK AGAINST THE PAPER]** Add the headline result for each figure (the direction and size of each difference) and where the study sites are. The summaries above describe what each figure compares; they do not yet say what it found.
 
-This ball and cup diagram should lead very smoothly into the carbon visualization portion here:
+The ball-and-cup picture treats a carbon stock as the outcome of inputs, losses, and disturbance over time. The next section turns that into curves: a stock building toward equilibrium, a single disturbance knocking it back, and overlapping disturbances tipping it into a lower state, the same move as the ball crossing into a new cup.
 
 ---
 

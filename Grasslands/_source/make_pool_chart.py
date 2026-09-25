@@ -68,10 +68,11 @@ pools = [
 ]
 total = sum(v for _, v in pools)
 
-W, H = 760, 258
-X0, MAXW = 172, 420
-Y0, BARH, GAP = 54, 32, 24
+W, H = 760, 214
+X0, MAXW = 150, 440
+Y0, BARH, GAP = 58, 32, 20
 scale = MAXW / max(v for _, v in pools)
+shoots = pools[2][1]
 
 
 def bar_path(x, y, w, h):
@@ -84,46 +85,49 @@ def bar_path(x, y, w, h):
             f"{x + w - r:.1f} {y + h:.1f} H{x:.1f} Z")
 
 
+def times(v):
+    """How many shoots' worth of carbon: the one comparison the chart makes."""
+    r = v / shoots
+    return f"{r:.0f}×" if r >= 10 else f"{r:.1f}×"
+
+
+# Pared back on request: the chart states the three values and how many times
+# the shoot pool each one is, and nothing else. The depth basis stays in the
+# subtitle because without it the soil and root bars are not comparable, and
+# the teaching-data label stays because these are not regional values.
 parts = [
     f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
     f'viewBox="0 0 {W} {H}" role="img" '
     f'aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif">',
-    '<title id="t">Grassland carbon by pool</title>',
-    f'<desc id="d">Horizontal bar chart of mean carbon stock in three pools across six '
-    f'prairie plots: soil to 30 cm {pools[0][1]:.2f}, roots to 30 cm {pools[1][1]:.2f} and shoots '
-    f'{pools[2][1]:.2f} kilograms of carbon per square metre. Soil holds '
-    f'{100*pools[0][1]/total:.0f} per cent of the total and shoots '
-    f'{100*pools[2][1]/total:.0f} per cent.</desc>',
+    '<title id="t">Carbon in each grassland pool</title>',
+    f'<desc id="d">Horizontal bar chart of mean carbon in three pools across six prairie '
+    f'plots of the worked example: soil to 30 cm {pools[0][1]:.2f}, roots to 30 cm '
+    f'{pools[1][1]:.2f} and shoots {shoots:.2f} kilograms of carbon per square metre. Soil '
+    f'holds {times(pools[0][1])} and roots {times(pools[1][1])} the carbon of the shoots.</desc>',
     f'<text x="0" y="20" font-size="15" font-weight="600" fill="{INK}">'
-    f'Where the carbon is — mean of six prairie plots</text>',
+    f'Carbon in each pool</text>',
     f'<text x="0" y="38" font-size="12.5" fill="{FAINT}">'
-    f'kg C per m² · soil and roots both to 30 cm · share of the total in brackets</text>',
+    f'kg C per m² · soil and roots to 30 cm · worked-example teaching data</text>',
 ]
 
 for i, (label, val) in enumerate(pools):
     y = Y0 + i * (BARH + GAP)
     w = val * scale
     parts.append(f'<text x="{X0 - 14}" y="{y + BARH/2 + 5.5:.1f}" font-size="14.5" '
-                 f'text-anchor="end" fill="{INK}">{label}</text>')
+                 f'text-anchor="end" fill="{INK}">{label.split(",")[0]}</text>')
     p = bar_path(X0, y, w, BARH)
     if p:
         parts.append(f'<path d="{p}" fill="{BAR}"/>')
     else:   # too thin to round; keep a visible minimum so the sliver still reads
         parts.append(f'<rect x="{X0}" y="{y}" width="2" height="{BARH}" fill="{BAR}"/>')
+    ratio = "" if i == 2 else (f'<tspan dx="16" fill="{FAINT}">{times(val)} the shoots</tspan>')
     parts.append(
         f'<text x="{X0 + max(w, 2) + 12:.1f}" y="{y + BARH/2 + 5.5:.1f}" font-size="14.5" '
-        f'fill="{INK}"><tspan font-weight="600">{val:.2f}</tspan>'
-        f'<tspan fill="{FAINT}">  ({100*val/total:.1f}%)</tspan></text>')
-
-parts.append(
-    f'<text x="0" y="{H - 10}" font-size="12" fill="{FAINT}">'
-    f'Soil holds {pools[0][1]/pools[2][1]:.0f}× the carbon of the shoots you can see; '
-    f'roots hold {pools[1][1]/pools[2][1]:.1f}×. '
-    f'Constructed teaching data — see the Worked Example.</text>')
+        f'fill="{INK}"><tspan font-weight="600">{val:.2f}</tspan>{ratio}</text>')
 parts.append("</svg>")
 
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 open(OUT, "w", encoding="utf-8").write("\n".join(parts))
 print("wrote", OUT)
 for label, val in pools:
-    print(f"  {label:<16} {val:6.3f} kg C/m2   {100*val/total:5.1f}%")
+    print(f"  {label:<16} {val:6.3f} kg C/m2   {times(val)} shoots")
