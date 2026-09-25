@@ -376,7 +376,7 @@ In the compaction case above, 348.4 kg/m² was reached at **27.78 cm**. In the l
 > recovers it. Go at least 20% deeper than your reporting depth, every time.
 >
 > Which is the same instruction the workshop gives for a different reason —
-> [sample the full soil profile](../README.md#measuring-carbon-stocks-in-grasslands--part-2-soil-organic-carbon), set as the default in
+> [sample the full soil profile](../README.md#measuring-soil-organic-carbon), set as the default in
 > [Part 2 Step 3](../02_Project_Planning/README.md#decide-your-sampling-depth-now-not-later).
 > Deeper cores serve the stock *and* make the monitoring possible.
 

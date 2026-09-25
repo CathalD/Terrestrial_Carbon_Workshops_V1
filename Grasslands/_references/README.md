@@ -17,4 +17,4 @@ live in [`_Shared/`](../../_Shared/).
 > and that 0–75 mm predicted 0–300 mm, are **site-specific regression results** from that farm.
 > Applying either to native prairie, parkland or savannah without local calibration would be an
 > over-transfer — and the shallow-sampling result in particular runs against this workshop's own
-> position on [sampling the full profile](../#measuring-carbon-stocks-in-grasslands--part-2-soil-organic-carbon).
+> position on [sampling the full profile](../#measuring-soil-organic-carbon).
