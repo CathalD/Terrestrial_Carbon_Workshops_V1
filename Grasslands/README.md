@@ -22,7 +22,7 @@
 
 ---
 
-## TL;DR: workshop objectives
+## TLDR: workshop objectives
 
 1. **Understand grassland carbon** above and below ground.
 2. **Learn field methods for measuring different carbon pools**, including vegetation plots, soil coring, and root separation.
@@ -32,7 +32,7 @@
 
 ## How to think about this workshop
 
-For some projects, it helps to begin at the end and work backwards. In that spirit, start with the workbook that will eventually hold the field and laboratory data:
+For some projects, it helps to begin at the end and work backwards. In that spirit, start with the spreadsheet that will eventually hold the field and laboratory data:
 
 **[`Grassland_Carbon_Calculator.xlsx`](04_Data_Interpretation/calculators/Grassland_Carbon_Calculator.xlsx)**
 
@@ -42,15 +42,15 @@ Every input should be one of three things:
 - measured or observed in the field; or
 - returned by the laboratory under a defined method.
 
-Once the workbook is complete and checked, those inputs can be converted into pool-specific carbon stocks and site summaries.
+Once the workbook is complete and checked, those inputs can be converted into carbon stocks.
 
-### Soil Data tab
+### Soil Data Sheet
 
 <p align="center">
   <img width="92%" alt="Grassland carbon calculator — Soil Data tab" src="https://github.com/user-attachments/assets/beb531e4-aed0-430c-97e9-bc657db6c39d" />
 </p>
 
-**One row represents one depth interval from one core.**
+**Each row represents one depth interval from one core.**
 
 | Header or field group | What it describes | Where it is introduced | When it is filled |
 |---|---|---|---|
@@ -96,6 +96,13 @@ Once the workbook is complete and checked, those inputs can be converted into po
 
 ## Background on Canada's grasslands—and what has been lost
 
+(For claude turn this into a 1 by 1 table - With image below on the left and teh "Prairie Grassland Extenxt and Loss" text on the right
+
+Below, paste this pdf image and above that have the text for restoraiton potential
+
+pdf here: [Living Planet Data Hub _ WWF-Canada.pdf](https://github.com/user-attachments/files/32655788/Living.Planet.Data.Hub._.WWF-Canada.pdf)
+
+
 The map currently available focuses on the Prairie provinces. Canada also contains important grasslands, savannahs, parklands, and open ecosystems outside that extent, and loss and restoration opportunities are not confined to the Prairie region.
 
 <table>
@@ -107,7 +114,6 @@ The map currently available focuses on the Prairie provinces. Canada also contai
 </td>
 <td width="50%">
 
-> 🧩 **[PLACEHOLDER — RESTORATION POTENTIAL MAP]** Add the restoration-potential map from WWF-Canada's restoration analysis after confirming the image file and reuse permissions.
 
 </td>
 </tr>
@@ -135,14 +141,17 @@ Temperate grassland is among the world's least protected and most converted biom
 - **Prairie-dependent species**, including swift fox, burrowing owl, greater sage-grouse, and black-footed ferret, are among Canada's species at risk.
 - **Deep-rooted perennial cover supports multiple functions**, including water infiltration and storage, erosion control, drought resilience, forage, habitat, and carbon storage.
 
-That is the context in which a carbon number sits. Carbon is rarely the only reason a community measures or restores a grassland.
+In this workshop, we will work towards how measuring and monitoring carbon stock can contribute towards the restoration and stewardhsip, keeping in mind the co-benefits that come along with this work 
 
-> 📚 **[CITATIONS NEEDED]** Add the source and date for national conversion estimates, the grassland-bird trend, species-status claims, and the restoration-potential interpretation before publication.
 
 ---
 
-## TL;DR: what is grassland carbon?
+## What is grassland carbon?
 
+
+(For claude lets remove the top part of the table as we cover this in background section
+
+(And for the second graphic move it as an inserted image above the table, with the caption below it. Then this leaves the middle table all by iteslef as a 1 by 1 table
 <table>
 <tr>
 <td width="55%">
@@ -195,7 +204,7 @@ A grassland carbon project must decide which pools it will measure, because soil
 ## Measuring plant biomass in grasslands
 
 <p align="center">
-  <img width="70%" alt="Grassland plant carbon measurement overview" src="https://github.com/user-attachments/assets/fc467588-7d87-4b0d-ab0c-5a3c12c3e6e6" />
+  I removed an image from here
 </p>
 
 There are two broad ways to estimate plant biomass, and the second is developed from the first.
@@ -203,6 +212,8 @@ There are two broad ways to estimate plant biomass, and the second is developed 
 <table>
 <tr>
 <td width="50%">
+
+(Keep the format consistent so that images are on the left and teh text is on the right.
 
 **Method 1 · Direct measurement**
 
@@ -243,6 +254,8 @@ Collecting paired measurements can contribute to a local relationship that reduc
 
 ## Measuring soil organic carbon
 
+Take this image out of the tablle with the text above the image, therefore you can delete the table
+
 <table>
 <tr>
 <td width="55%">
@@ -264,9 +277,16 @@ Repeated measurements may require an **equivalent soil mass** calculation so com
 </tr>
 </table>
 
-[Part 2 — Project Planning](02_Project_Planning/) defines the pools, depths, precision, and sample count. [Part 3 — Field Methods](03_Field_Methods/) covers soil cores, pits or other approved collection methods, actual depth intervals, bulk density, coarse fragments, and sample records. [Part 4 — Data Interpretation](04_Data_Interpretation/) converts the validated results into stocks.
+[Part 2 — Project Planning](02_Project_Planning/) defines the pools, depths, precision, and sample count. 
 
-> 📚 **[METHOD REVIEW NEEDED]** Confirm the full-profile recommendation, reporting depths, and equivalent-soil-mass implementation against the final field guide, calculator, and cited grassland literature.
+
+
+[Part 3 — Field Methods](03_Field_Methods/) covers soil cores, pits or other approved collection methods, actual depth intervals, bulk density, coarse fragments, and sample records. 
+
+
+
+[Part 4 — Data Interpretation](04_Data_Interpretation/) converts the validated results into stocks.
+
 
 ---
 
@@ -291,6 +311,8 @@ The workbook should never be the only place a method decision exists. Field defi
 
 ---
 
+
+(For claude - clean this section up, as its messy, but the content is good)
 ## Further reading and data sources
 
 ### Grassland extent, condition, and restoration
