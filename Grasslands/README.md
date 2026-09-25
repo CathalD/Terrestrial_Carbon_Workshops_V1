@@ -93,7 +93,7 @@ https://institute.smartprosperity.ca/Grasslands-Drought-Resilience-Prairies
 
 Temperate grassland is among the **least protected and most converted** biomes on Earth, and
 Canada's share of it has gone the same way. Most of the native prairie that was here before
-settlement is now cropland or pasture.
+settlement is now cropland or pasture. However, these areas have also been identified as having some of the hiester potential for restoration to recover both biodiversity and carbon
 
 What went with it is not only carbon:
 
@@ -106,53 +106,21 @@ What went with it is not only carbon:
 
 That is the context a carbon number sits in. It is rarely the only reason a community is measuring.
 
-> 🟠 **[CHECK THESE FIGURES]** — the decline percentages above are from the North American
-> literature (Rosenberg et al. 2019, *Science*, for the bird trend) and the conversion figures vary
-> by source and by how "native grassland" is defined. Replace with the numbers and citations
-> WWF-Canada uses, so the workshop and the organisation agree.
-
 </td>
 </tr>
 </table>
 
 <details>
-<summary><b>🌾 Fun fact — some of the grassland types found across Canada</b></summary>
+<summary><b>
 
-<br>
-
-Canada's grasslands are diverse, differing in plants, climate, soil, hydrology and management.
-These are some of the types you will meet; the list is not exhaustive.
-
-| Type | Where it is |
-|---|---|
-| 🌾 **Tallgrass prairie** | Red River valley in Manitoba, and remnants in southern Ontario |
-| 🌾 **Mixed-grass prairie** | Southern Alberta, Saskatchewan and Manitoba |
-| 🏜 **Dry mixedgrass / shortgrass** | Palliser's Triangle — southeastern Alberta, southwestern Saskatchewan |
-| 🌾 **Fescue prairie** | Alberta foothills and the northern fescue belt |
-| 🌳 **Aspen parkland** | The transition belt between prairie and boreal forest |
-| 🏜 **Bunchgrass and sagebrush steppe** | Interior BC — Okanagan, Thompson, Chilcotin |
-| 🌰 **Black Oak savannah** | Southern Ontario, fire-maintained, often sandy |
-| 🌊 **Garry Oak meadows** | Vancouver Island and the Gulf Islands |
-| 🪨 **Alvar** | Thin soils over limestone pavement — Ontario, Manitoulin, Quebec |
-
-What each type changes about the **method** is in
-[Part 1 — Background](01_Background/).
+(Note for codex Im removing this entire section with the drop down
 
 </details>
-
-> [!NOTE]
-> **Where there are trees, use the tree protocol.** Any tree over **2 m** tall is measured with
-> the [Forests large plot and calculator](../Forests/03_Field_Methods/3A_Trees.md) — species, DBH
-> and height, through the same allometric equations — and the result is carried across into this
-> workshop's `4. Vegetation Data` tab.
->
-> That threshold is also the clean handoff: the **medium plot** here covers shrubs and woody
-> stems **0.5–2 m**, so nothing is missed between the two and nothing is counted twice.
 
 ---
 
 
-## TLDR — the workshop in a nutshell
+## TLDR: Background - What is Grassland Carbon?
 
 <table>
 <tr>
@@ -209,7 +177,8 @@ grasses and the vast underground networks we do not always see on the surface.
 
 ---
 
-## Measuring carbon stocks in grasslands — Part 1: Biomass
+## Part 3 - Measuring carbon stocks in grasslands<img width="467" height="169" alt="Screenshot 2026-09-25 at 09 31 59" src="https://github.com/user-attachments/assets/fc467588-7d87-4b0d-ab0c-5a3c12c3e6e6" />
+
 
 There are two ways to get plant biomass, and one of them is built from the other.
 
@@ -226,8 +195,12 @@ Clip the quadrat, wash the roots out of the core, weigh what you have. This is w
 </td>
 <td width="50%">
 
-> 📸 **[IMAGE NEEDED]** — the clip-and-weigh method: a quadrat being clipped at ground level, and
-> the bagged sample.
+
+
+> 📸 **[IMAGE NEEDED]** —  here it is - <img width="451" height="153" alt="image" src="https://github.com/user-attachments/assets/fd32e15b-5702-48d2-96c3-3f0667fd6f34" />
+
+
+
 
 </td>
 </tr>
@@ -247,26 +220,20 @@ across sites and against plant relative abundance, then modelled out.
 </td>
 <td width="50%">
 
-> 📸 **[DIAGRAM NEEDED]** — an allometric relationship: measured shoot mass on one axis against
-> measured root mass on the other, with the fitted line that lets one predict the other.
+> 📸 **[DIAGRAM NEEDED]** — <img width="310" height="235" alt="image" src="https://github.com/user-attachments/assets/47ed5e04-5c43-422e-8e39-6921b976d70c" />
+
 
 </td>
 </tr>
 </table>
 
-**Why it is worth collecting data towards this.** Every campaign that measures both quantities
+**Why it is worth collecting data towards this.** Every field outing that measures both quantities
 contributes to a local relationship. Once you have one, **later surveys can collect less field data
-for the same answer**, because the relationship carries part of the work — and it is the step that
-makes drone and aerial survey for carbon possible at all.
-
-> [!IMPORTANT]
-> **This applies to plant biomass only.** There is no equivalent shortcut for **soil carbon**: bulk
-> density and carbon concentration have to be measured. Soil is also the largest pool, so the pool
-> you can least afford to estimate indirectly is the one you cannot.
+for the same answer**, because the relationship can be used instead of clipping.
 
 ---
 
-## Measuring carbon stocks in grasslands — Part 2: Soil organic carbon
+## Part 2: Soil organic carbon
 
 <table>
 <tr>
@@ -290,8 +257,8 @@ are looking for is frequently below 30 cm.
 </td>
 <td width="45%">
 
-> 📸 **[IMAGE NEEDED]** — soil carbon sampling in the field: a core being driven, or a sectioned
-> core laid out on a depth-marked tray.
+> 📸 **[IMAGE NEEDED]** — image here of both pits and soil cores -<img width="2500" height="2368" alt="image" src="https://github.com/user-attachments/assets/9b846c54-d1d3-41ea-954b-02edddc26509" />
+
 
 </td>
 </tr>
@@ -300,10 +267,12 @@ are looking for is frequently below 30 cm.
 ---
 
 
-## The data sheet we're building toward
+## Back to the data sheet
 
 Everything in Parts 3 and 4 feeds one workbook:
 **[`Grassland_Carbon_Calculator.xlsx`](04_Data_Interpretation/calculators/Grassland_Carbon_Calculator.xlsx)**
+
+(Insert the screenshots of the data sheets here and seperate the tabkle into two tables that corresponds to the vegetation and teh soils data sheet respectively
 
 Screenshots of two of its tabs are at the
 [top of this page](#how-to-think-about-this-workshop).
@@ -315,7 +284,6 @@ Screenshots of two of its tabs are at the
 | `3. Root Biomass` | **Measured** root mass by diameter class and depth |
 | `4. Vegetation Data` | Shrubs (medium plot) and clip-and-weigh (small plot) |
 | `5. Plot Summary` · `6. Site Summary` | Calculated — stocks, intervals, whether you hit your target |
-| `Fill Me In` | 🟠 **Every value the workshop cannot supply**, in one list |
 
 ---
 
