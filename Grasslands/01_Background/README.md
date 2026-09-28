@@ -38,7 +38,8 @@ Carbon is both a **building block of life** and a **key part of the Earth's clim
 <tr>
 <td width="58%">
 
-<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/e8275520-f40a-449f-a661-c0649ca6fe2e" />
+<img width="626" height="746" alt="image" src="https://github.com/user-attachments/assets/95bb7f68-9e7b-4e59-a7a3-820c6786b05e" />
+
 
 
 </td>
