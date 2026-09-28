@@ -12,7 +12,7 @@
 
 ## From a carbon question to a sampling design
 
-**Quick links:** [Sampling Design Guide](../../_Shared/Sampling-Design-Eng-2026.pdf) · **Terrestrial Carbon Planning Tool for Grasslands** *(link to be added)* · [Non-spatial Planning Spreadsheet](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx) · [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Non-Peat Soils Field Guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Appendix A — sampling logic](#appendix-a--a-brief-lesson-in-sampling-logic)
+**Quick links:** [Sampling Design Guide](../../_Shared/Sampling-Design-Eng-2026.pdf) · **Terrestrial Carbon Planning Tool for Grasslands** *(link to be added)* · [Non-spatial Planning Spreadsheet](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx) · [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Non-Peat Soils Field Guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Appendix A](#appendix-a--a-brief-lesson-in-sampling-logic)
 
 > 🧩 **[PLACEHOLDER — TOOL LINK]** Add the final link to the Terrestrial Carbon Planning Tool for Grasslands when it is ready. Confirm the spreadsheet download and add a Google Sheets copy if one will be maintained.
 
@@ -20,34 +20,28 @@
 
 **Before collecting soil cores**, four questions are worth addressing:
 
-1. **What do I want to know?** Am I establishing a baseline, comparing grazing or restoration treatments, tracking recovery, or doing some combination of these?
-2. **Where does that question apply?** The whole property, one pasture, a restoration unit, or the area burned in a particular year?
-3. **How much data do I need?** How precise does the result need to be, how confident do I need to be, and how many samples can the team process?
-4. **Where should the samples be collected?** Which locations will represent the study area without introducing avoidable bias?
+1. **What do I want to know?** Am I establishing a baseline, comparing management or restoration areas, tracking recovery, or doing some combination of these?
+2. **Where does that question apply?** The whole study area, one area, a restoration plot, or the area disturbedin a particular year?
+3. **How much data do I need?** How precise does the result need to be, how confident do I need to be, and how many samples can we collect and analyse?
+4. **Where should the samples be collected?** Which locations should we establish plots and collect the samples?
 
-Answering these questions is what a **sampling design** aims to achieve. It turns a carbon question into a field plan: a boundary, a set of strata, a list of carbon pools, a number of samples, and a set of sampling coordinates.
+Answering these questions is what a **sampling design** aims to achieve. It turns a carbon question into a field plan: a boundary, a set of stratified areas, identified carbon pools, a number of samples, and a set of sampling coordinates.
 
 This section covers five steps.
 
 | # | Step | Answers |
 |---|---|---|
 | 1 | **[Define the study area](#step-1--define-your-study-area)** | *Where, roughly, am I working?* |
-| 2 | **[Stratify the site](#step-2--stratify-your-site)** | *Does it contain distinct management or ecological areas?* |
+| 2 | **[Stratify the site](#step-2--stratify-your-site)** | *Does it contain distinct stewardship or environmentally distinct areas?* |
 | 3 | **[Choose measurements and configure the nested plot](#step-3--choose-measurements-and-configure-the-nested-plot)** | *Which pools and plot sizes does the project need?* |
 | 4 | **[Determine how many plots and samples](#step-4--decide-how-many-plots-and-samples)** | *How much field and laboratory sampling is required?* |
 | 5 | **[Place and finalize the plots](#step-5--place-and-finalize-the-plots)** | *Where do plots go, and will they be permanent or single-use?* |
 
-> The methods here follow WWF-Canada's [Sampling Design Guide](../../_Shared/Sampling-Design-Eng-2026.pdf), [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf), and [Non-Peat Soils Field Guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf). Ecosystem-specific defaults and examples should be confirmed against the sources listed in the project bibliography.
+> Note: The methods here follow WWF-Canada's [Sampling Design Guide](../../_Shared/Sampling-Design-Eng-2026.pdf), [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf), and [Non-Peat Soils Field Guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf).
 
-### What changes in grasslands
+### Before we begin planning?
 
-If you have worked through another workshop in this series, most of the planning process will be familiar. Three decisions need special attention here.
-
-1. **Management and land-use history are often among the strongest practical variables to map.** Restoration age, cultivation, grazing, fire, and seeding may define more useful strata than vegetation appearance alone.
-2. **Soil and roots commonly require different sample sizes at the same relative precision.** Root biomass is often more spatially variable, and root washing can dominate laboratory time.
-3. **A variability prior should come from a pilot or defensible comparable data.** A coarse modelled map may be useful for scoping, but its pixel-to-pixel variation should not be treated as the variation a field crew will encounter between cores.
-
-**Two planning routes** are available. They use the same decisions and should produce the same documented planning record.
+Below we provide and show **Two planning tools** that are available.
 
 <table>
 <tr>
@@ -73,11 +67,6 @@ An alternative for teams that prefer to calculate plot and sample requirements w
 </td>
 </tr>
 </table>
-
-The optional **[Sample Size Explorer](Sampling%20Design%20Tools/index.html)** demonstrates how estimates and uncertainty respond as samples accumulate. It is a learning aid rather than a required planning step.
-
-> [!NOTE]
-> A spreadsheet calculation is **non-spatial**: it can determine how many plots are required and how many belong in each stratum, but it does not decide where the plot centres go. Teams using the spreadsheet must still complete Steps 1, 2 and 5 with the planning tool or a documented GIS workflow.
 
 If you want to know how the calculator returns its values, [Appendix A](#appendix-a--a-brief-lesson-in-sampling-logic) explains the sampling logic and how to check achieved precision after fieldwork.
 
