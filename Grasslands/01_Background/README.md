@@ -10,7 +10,7 @@
 
 # Part 1 — Background
 
-*What ecosystem carbon is, where it sits in a grassland, and how it is measured.*
+*What ecosystem carbon is, how it cycles in grasslands, and how it is measured.*
 
 **Quick links:** 🧩 **[Workshop Presentation Slides — placeholder]** · [Measuring Carbon in Vegetation (Non-Tree)](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Measuring Carbon in Non-Peat Soils](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Laboratory Analysis](../../_Shared/Lab-Guide-Eng-2026.pdf)
 
@@ -38,7 +38,7 @@ Carbon is both a **building block of life** and a **key part of the Earth's clim
 <tr>
 <td width="58%">
 
-<img width="100%" alt="Ecosystem carbon — the carbon stored in plants and soils" src="https://github.com/user-attachments/assets/5ac111cd-1dd3-4e07-bdd7-6bf50defa96c" />
+<img width="100%" alt="Ecosystem carbon: the carbon stored in living and dead material and soils" src="https://github.com/user-attachments/assets/95bb7f68-9e7b-4e59-a7a3-820c6786b05e" />
 
 </td>
 <td width="42%">
@@ -52,7 +52,7 @@ This workshop focuses on the pools that can be measured consistently in grasslan
 <tr>
 <td width="58%">
 
-> 🧩 **[PLACEHOLDER — SLIDE IMAGE]** Carbon cycle slide from the Part 1 deck.
+<img width="100%" alt="The carbon cycle: carbon moving between the atmosphere, plants, soils, and water" src="https://github.com/user-attachments/assets/d87705d4-c07c-4095-8e71-e0c409871939" />
 
 </td>
 <td width="42%">
@@ -366,16 +366,16 @@ Grassland carbon measurement combines vegetation measurements with soil samples 
 </tr>
 </table>
 
-All three require an explicit bulk-volume or sampled-area calculation, actual depths, and a documented treatment of coarse fragments and roots. The field procedures are developed in [Part 3 — Field Methods](../03_Field_Methods/#3-collect-the-soil-and-root-core).
+All three require an explicit bulk-volume or sampled-area calculation, actual depths, and a documented treatment of coarse fragments and roots. The field procedures are developed in [Part 3 — Field Methods](../03_Field_Methods/#3-collect-soil).
 
 ### The project workflow
 
 | # | Step | Where |
 |---|---|---|
 | 1 | Define the question, boundary, strata, pools, precision, and sample count. | [Part 2 — Project Planning](../02_Project_Planning/) |
-| 2 | Set up plots and measure vegetation before destructive work. | [Part 3 — Field Methods](../03_Field_Methods/#2-measure-the-vegetation) |
-| 3 | Collect soil/root samples to the selected depths and record known volumes. | [Part 3 — Field Methods](../03_Field_Methods/#3-collect-the-soil-and-root-core) |
-| 4 | Section, label, preserve, and submit samples using a documented laboratory method. | [Part 3 — Field Methods](../03_Field_Methods/#4-section-bag-and-label-the-core) |
+| 2 | Set up plots and measure vegetation before destructive work. | [Part 3 — Field Methods](../03_Field_Methods/#2-measure-vegetation) |
+| 3 | Collect soil/root samples to the selected depths and record known volumes. | [Part 3 — Field Methods](../03_Field_Methods/#3-collect-soil) |
+| 4 | Section, label, preserve, and submit samples using a documented laboratory method. | [Part 3 — Field Methods](../03_Field_Methods/#4-label-cool-and-reconcile-samples) |
 | 5 | Calculate pool-specific stocks, uncertainty, and exclusions. | [Part 4 — Data Interpretation](../04_Data_Interpretation/) |
 | 6 | Repeat with a monitoring design when the objective is change through time. | [Part 5 — Monitoring](../05_Monitoring/) |
 

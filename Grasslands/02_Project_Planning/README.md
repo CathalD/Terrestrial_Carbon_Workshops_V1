@@ -12,9 +12,9 @@
 
 ## From a carbon question to a sampling design
 
-**Quick links:** [Sampling Design Guide](../../_Shared/Sampling-Design-Eng-2026.pdf) · [Grassland Sample Allocation Calculator](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx) · [Grassland Sampling Planner](Sampling%20Design%20Tools/) · [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Non-Peat Soils Field Guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Appendix A — sampling logic](#appendix-a--a-brief-lesson-in-sampling-logic)
+**Quick links:** [Sampling Design Guide](../../_Shared/Sampling-Design-Eng-2026.pdf) · **Terrestrial Carbon Planning Tool for Grasslands** *(link to be added)* · [Non-spatial Planning Spreadsheet](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx) · [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Non-Peat Soils Field Guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Appendix A — sampling logic](#appendix-a--a-brief-lesson-in-sampling-logic)
 
-> 🧩 **[PLACEHOLDER — LINKS]** Replace the calculator and planner links when those files are complete. Add a Google Sheets copy beside the downloadable workbook if one will be maintained.
+> 🧩 **[PLACEHOLDER — TOOL LINK]** Add the final link to the Terrestrial Carbon Planning Tool for Grasslands when it is ready. Confirm the spreadsheet download and add a Google Sheets copy if one will be maintained.
 
 ---
 
@@ -33,9 +33,9 @@ This section covers five steps.
 |---|---|---|
 | 1 | **[Define the study area](#step-1--define-your-study-area)** | *Where, roughly, am I working?* |
 | 2 | **[Stratify the site](#step-2--stratify-your-site)** | *Does it contain distinct management or ecological areas?* |
-| 3 | **[Choose what to measure](#step-3--choose-what-to-measure)** | *Soil, roots, shoots, shrubs, or trees?* |
-| 4 | **[Determine how many samples](#step-4--decide-how-many-samples)** | *How many samples meet each pool's precision target?* |
-| 5 | **[Determine where they go](#step-5--decide-where-the-samples-go)** | *Where are plots placed, and how is each plot laid out?* |
+| 3 | **[Choose measurements and configure the nested plot](#step-3--choose-measurements-and-configure-the-nested-plot)** | *Which pools and plot sizes does the project need?* |
+| 4 | **[Determine how many plots and samples](#step-4--decide-how-many-plots-and-samples)** | *How much field and laboratory sampling is required?* |
+| 5 | **[Place and finalize the plots](#step-5--place-and-finalize-the-plots)** | *Where do plots go, and will they be permanent or single-use?* |
 
 > The methods here follow WWF-Canada's [Sampling Design Guide](../../_Shared/Sampling-Design-Eng-2026.pdf), [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf), and [Non-Peat Soils Field Guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf). Ecosystem-specific defaults and examples should be confirmed against the sources listed in the project bibliography.
 
@@ -47,28 +47,37 @@ If you have worked through another workshop in this series, most of the planning
 2. **Soil and roots commonly require different sample sizes at the same relative precision.** Root biomass is often more spatially variable, and root washing can dominate laboratory time.
 3. **A variability prior should come from a pilot or defensible comparable data.** A coarse modelled map may be useful for scoping, but its pixel-to-pixel variation should not be treated as the variation a field crew will encounter between cores.
 
-**Two companion tools** appear throughout:
+**Two planning routes** are available. They use the same decisions and should produce the same documented planning record.
 
 <table>
 <tr>
 <td width="50%">
 
-**📄 [Sample Allocation Calculator](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx)**  A spreadsheet that sizes soil and root sampling separately, applies the small-sample adjustment, allocates across strata by area, and writes out the assumptions you used.
+**🗺 Terrestrial Carbon Planning Tool for Grasslands**  
+The primary spatial workflow. Draw or upload the boundary, add strata, select pools, calculate the allocation, configure the nested plot, generate plot centres, and export the field plan.
 
-*Used in Step 4.*
+*Used throughout Steps 1–5.*
+
+> 🧩 **[PLACEHOLDER — TOOL PREVIEW]** Add a launch button and overview screenshot when the tool is ready.
 
 </td>
 <td width="50%">
 
-**🔬 [Sample Size Explorer](Sampling%20Design%20Tools/index.html)**  An interactive page that reveals a simulated carbon surface one sample at a time, so you can watch the estimate and its interval respond. Open it in a browser.
+**📄 [Non-spatial Planning Spreadsheet](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx)**  
+An alternative for teams that prefer to calculate plot and sample requirements without using a map-based interface. Enter the same project assumptions, then complete spatial placement separately in the GIS used by the project.
 
-*Used in the Background and Step 4.*
+*Used primarily in Step 4.*
+
+> 🧩 **[PLACEHOLDER — SPREADSHEET SCREENSHOT]** Add a screenshot showing the project inputs, soil and root targets, per-stratum allocation, and assumptions summary.
 
 </td>
 </tr>
 </table>
 
-> 🧩 **[PLACEHOLDER — SPATIAL PLANNER]** A map-based planner — draw a boundary, add strata, allocate samples, export coordinates — is not built. Until it is, use the [boundary template](templates/grassland-boundary-template.geojson) with QGIS, ArcGIS or Earth Engine and record the random seed on the [planning worksheet](templates/project-planning-worksheet.md). The Forests GEE tool that used to stand in here has been moved to [`_superseded/`](Sampling%20Design%20Tools/_superseded/): its priors, plot footprint and single-pool assumption do not match this workshop.
+The optional **[Sample Size Explorer](Sampling%20Design%20Tools/index.html)** demonstrates how estimates and uncertainty respond as samples accumulate. It is a learning aid rather than a required planning step.
+
+> [!NOTE]
+> A spreadsheet calculation is **non-spatial**: it can determine how many plots are required and how many belong in each stratum, but it does not decide where the plot centres go. Teams using the spreadsheet must still complete Steps 1, 2 and 5 with the planning tool or a documented GIS workflow.
 
 If you want to know how the calculator returns its values, [Appendix A](#appendix-a--a-brief-lesson-in-sampling-logic) explains the sampling logic and how to check achieved precision after fieldwork.
 
@@ -199,16 +208,33 @@ Three grassland-specific cautions:
 
 ### 🛠 Your turn
 
-1. Draw or import the project boundary.
-2. Remove areas that are not part of the target ecosystem.
-3. Record the total area in m² and hectares.
-4. Write one sentence stating the inclusion rule.
-5. Export the boundary as GeoJSON or KML and save a static map for the field package.
+<table>
+<tr>
+<td width="45%">
 
-**Start from [`templates/grassland-boundary-template.geojson`](templates/grassland-boundary-template.geojson)** — it carries the three feature roles (study area, exclusion, stratum) with the property fields this workshop expects, and opens directly in QGIS, ArcGIS, Earth Engine or geojson.io. Record your decisions on the [planning worksheet](templates/project-planning-worksheet.md).
+> 🧩 **[PLACEHOLDER — TOOL SCREENSHOT]** Add `images/step1_tool_boundary.webp`: drawing or uploading a study boundary, marking exclusions, and displaying net area.
+
+</td>
+<td width="55%">
+
+**In the Terrestrial Carbon Planning Tool:**
+
+1. Draw or upload the project boundary.
+2. Mark areas that are not part of the target ecosystem.
+3. Confirm the net area in m² and hectares.
+4. Write one sentence stating the inclusion rule.
+5. Save the boundary and a static reference map.
+
+**Spreadsheet route:** record the same boundary and area in the spreadsheet, then save the actual polygon in QGIS, ArcGIS, Earth Engine, or the GIS used by the project.
+
+</td>
+</tr>
+</table>
+
+The [`grassland-boundary-template.geojson`](templates/grassland-boundary-template.geojson) provides a manual starting point if the planning tool is unavailable.
 
 > [!WARNING]
-> **Do not read an area off coordinates in degrees.** Reproject to a metre-based CRS appropriate to your site — a UTM zone, or Statistics Canada Lambert (EPSG:3347) for prairie-wide work — before measuring.
+> **Do not read an area directly from coordinates in degrees.** Calculate area in an appropriate metre-based projected coordinate system.
 
 > [!TIP]
 > **✅ Before moving on, you should have:**
@@ -274,13 +300,31 @@ Where fire is part of the management or restoration question, time since burn sh
 
 ### 🛠 Your turn
 
-1. Start with the boundary from Step 1.
-2. List only the differences that could answer the project question or materially affect carbon estimates.
-3. Draw those strata and calculate the area of each.
-4. Name each stratum with an objective rule—for example, "north of the cross-fence, rotationally grazed since 2015."
-5. Record management history and note any important differences that cannot be mapped.
+<table>
+<tr>
+<td width="45%">
 
-Add one `stratum` feature per sub-area to the [boundary template](templates/grassland-boundary-template.geojson); it already carries `stratum_rule`, `area_m2`, `restoration_year`, `years_since_fire` and the rest.
+> 🧩 **[PLACEHOLDER — TOOL SCREENSHOT]** Add `images/step2_tool_strata.webp`: the boundary divided into named grassland strata with the area of each displayed.
+
+</td>
+<td width="55%">
+
+**In the Terrestrial Carbon Planning Tool:**
+
+1. Start with the boundary from Step 1.
+2. Add only divisions that answer the project question or are expected to materially affect carbon estimates.
+3. Give each stratum an objective name and mapped rule.
+4. Confirm its area.
+5. Record whether it is a reporting unit, a comparison group, or both.
+6. Add management history that cannot be seen on the map.
+
+**Spreadsheet route:** enter one row per stratum with its name, area, rule, and management notes.
+
+</td>
+</tr>
+</table>
+
+Do not create strata simply because a map layer is available. Every additional stratum creates field, analytical, and reporting requirements.
 
 > [!TIP]
 > **✅ Before moving on, you should have:**
@@ -291,9 +335,9 @@ Add one `stratum` feature per sub-area to the [boundary template](templates/gras
 
 ---
 
-## Step 3 — Choose what to measure
+## Step 3 — Choose measurements and configure the nested plot
 
-*Soil, roots, shoots, shrubs, or trees?*
+*Which pools and plot sizes does the project need?*
 
 Carbon is stored in several pools. A **stock** is the amount stored at a defined place and time. **Living biomass** is the mass of living plant material. A clipped above-ground sample is a **standing crop** measured at that moment, not the total long-term carbon stock of the site.
 
@@ -334,6 +378,35 @@ A proposed increment sequence is **0–10, 10–20, 20–30, 30–60, and 60–1
 
 > 📚 **[METHOD REVIEW NEEDED]** Confirm the depth recommendation, reporting windows, increments, and compaction rationale against the final field guides and cited grassland literature before publication.
 
+### Build the nested plot
+
+When several carbon pools are measured, use an **integrated—or nested—plot design**. The vegetation plots share one centre mark, allowing every measurement to be tied to the same location without using the same footprint for every vegetation layer.
+
+| Plot component | Working workshop configuration | Measures |
+|---|---:|---|
+| **Large plot** *(where trees occur)* | 400 m² | Trees taller than 2 m |
+| **Medium plot** | 25 m² default; document another approved size within the field-guide range | Shrubs and vegetation approximately 0.5–2 m |
+| **Small plot** | 0.25 m² workshop quadrat; document any approved alternative | Ground vegetation below 0.5 m |
+| **Soil/root sampling point** | Recorded point or offset | Soil and roots by depth increment |
+
+<p align="center">
+  <img src="images/step5_nested_plot_layout.svg" alt="Plan view of a nested grassland plot with large, medium and small vegetation plots sharing a centre, plus a documented soil and root sampling location" width="100%">
+</p>
+
+The planning tool should build the layout from the pools selected:
+
+| Selected pools | Tool-generated configuration |
+|---|---|
+| Ground vegetation only | Small plot |
+| Shrubs plus ground vegetation | Medium + small nested plots |
+| Trees, shrubs and ground vegetation | Large + medium + small nested plots |
+| Vegetation plus soil or roots | Appropriate nested vegetation plots plus a defined core location |
+
+> 🧩 **[PLACEHOLDER — TOOL SCREENSHOT]** Add `images/step3_tool_plot_design.webp`: pool selection beside the nested-plot layout generated by the tool.
+
+> [!IMPORTANT]
+> Plot type is finalized in Step 5. A soil core or vegetation clipping may be collected inside a single-use plot after non-destructive measurements, but destructive sampling must be placed outside a permanent vegetation plot.
+
 <details>
 <summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>what the Black Oak team chose to measure</i></summary>
 
@@ -345,17 +418,24 @@ A proposed increment sequence is **0–10, 10–20, 20–30, 30–60, and 60–1
 
 ### 🛠 Your turn
 
-Complete the planning table before choosing a sample size:
+**In the Terrestrial Carbon Planning Tool:**
 
-| Pool | Include? | Field/lab method | Precision target | Reason |
-|---|---|---|---|---|
-| Soil | | | | |
-| Roots | | | | |
-| Shoots | | | | |
-| Shrubs | | | | |
-| Trees >2 m | | | | |
+1. Select every carbon pool that is in scope.
+2. Confirm the field and laboratory method for each pool.
+3. Record the target soil depth, reporting windows, and depth increments.
+4. Accept or revise the suggested plot sizes using an approved field protocol.
+5. Review the generated nested-plot diagram.
+6. Record the order of work so non-destructive measurements occur first.
 
-Then record the full-profile target, reporting windows, depth increments, and protocol link for every included pool. This table, and the outputs required in all five steps, are laid out in **[`templates/project-planning-worksheet.md`](templates/project-planning-worksheet.md)**.
+Complete the decision table in the tool or the [planning worksheet](templates/project-planning-worksheet.md):
+
+| Pool | Include? | Field/lab method | Plot component | Precision target | Reason |
+|---|---|---|---|---|---|
+| Soil | | | | | |
+| Roots | | | | | |
+| Ground vegetation | | | | | |
+| Shrubs | | | | | |
+| Trees >2 m | | | | | |
 
 > [!TIP]
 > **✅ Before moving on, you should have:**
@@ -366,9 +446,9 @@ Then record the full-profile target, reporting windows, depth increments, and pr
 
 ---
 
-## Step 4 — Decide how many samples
+## Step 4 — Decide how many plots and samples
 
-*How many samples meet each pool's precision target?*
+*How much field and laboratory sampling is required?*
 
 Too few samples may leave the estimate too uncertain to support a decision. Too many consume field and laboratory resources that could be used elsewhere. The aim is to calculate a defensible starting sample size and record every assumption used.
 
@@ -442,36 +522,49 @@ Because soil and roots can come from the same core, the team may analyze soil ca
 
 ### 🛠 Your turn
 
-Use the **[Sample Allocation Calculator](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx)**, or document the same calculation manually.
+Use either route below. Both require the same assumptions and should leave the same decision record.
 
 <table>
 <tr>
-<td width="48%">
+<td width="50%">
 
-**`1. Design`** — confidence, a precision target per pool, and a variability prior per pool with its source.
+**🗺 Spatial planning tool**
 
-**`2. Strata`** — each stratum's name and area. Allocation is proportional to area, rounded up, then raised to the minimum.
+Use the **Terrestrial Carbon Planning Tool for Grasslands** when you want the allocation connected directly to the mapped study area and strata.
 
-**`3. Result`** — the sample size for each pool, what the small-sample adjustment added, the field count, and an assumptions statement to paste into your project record.
+Enter:
 
-**`4. Sensitivity`** — the figures quoted above, regenerated rather than typed.
+- precision and confidence targets;
+- a variability prior for each pool and its source;
+- any operational minimum per stratum;
+- whether roots will be processed from every core or a random subset.
+
+The tool should return the number of plot centres, the pool-specific sample targets, and the allocation by stratum.
+
+> 🧩 **[PLACEHOLDER — TOOL SCREENSHOT]** Add `images/step4_spatial_calculator.webp`: calculation inputs and the mapped allocation.
 
 </td>
-<td width="52%">
+<td width="50%">
 
-The tool returns:
+**📄 [Non-spatial Planning Spreadsheet](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx)**
 
-- planning sample size for each pool;
-- the small-sample-adjusted value, and what it added;
-- per-stratum allocation;
-- optional root subsample implications;
-- a plain-language assumptions statement.
+Use the spreadsheet when the team prefers a table-based calculation or does not yet have mapped boundaries available in the planning tool.
 
-> 🧩 **[PLACEHOLDER — SCREENSHOT]** Add `images/step4_calculator_inputs.webp` showing the separate soil and root inputs beside the assumptions summary, once the workbook has been reviewed.
+The spreadsheet should contain:
+
+- **Design** — confidence, precision and variability by pool;
+- **Strata** — names and areas;
+- **Results** — plot count, pool-specific sample count, per-stratum allocation and assumptions statement;
+- **Sensitivity** — the effect of changing one assumption at a time.
+
+> 🧩 **[PLACEHOLDER — SPREADSHEET SCREENSHOT]** Add `images/step4_spreadsheet_planner.webp`: input cells, soil and root results, and the assumptions summary.
 
 </td>
 </tr>
 </table>
+
+> [!IMPORTANT]
+> Keep the units distinct. The tool must report the number of **plot centres**, **soil cores**, **vegetation measurements**, and **root samples or subsamples** separately. One nested plot can produce several measurements, but not every pool must have the same laboratory sample count.
 
 > [!TIP]
 > **✅ Before moving on, you should have:**
@@ -486,131 +579,121 @@ The tool returns:
 
 ---
 
-## Step 5 — Decide where the samples go
+## Step 5 — Place and finalize the plots
 
-*Exactly where do I sample?*
+*Where do the plots go, and will they be permanent or single-use?*
 
 <p align="center">
-  <img src="images/step5_sampling_strategies.svg" alt="Four panels comparing random, systematic grid, stratified random and paired across-a-boundary sample placement" width="100%">
+  <img src="images/step5_sampling_strategies.svg" alt="Four panels comparing random, systematic grid, stratified-random and paired-across-a-boundary plot placement" width="100%">
 </p>
 
-The spatial design should represent the target area while supporting the comparison the project intends to make. Accessibility may constrain fieldwork, but convenience alone should not quietly replace a probability-based design.
+The spatial design should represent the target area while supporting the comparison the project intends to make. Accessibility may constrain fieldwork, but convenience should not quietly replace a probability-based design.
 
 | Strategy | When to use it |
 |---|---|
-| **Random** | A reasonably uniform area with no planned internal comparison. |
-| **Systematic grid** | Large or uniform areas where even coverage is useful; check that grid spacing does not align with furrows, treatment strips, or other periodic features. |
-| **Stratified random** | **Default when strata exist.** Randomize locations within each stratum. |
-| **Paired across a boundary** | The boundary itself is the comparison—for example, grazed versus ungrazed or burned versus unburned. Use an analysis designed for pairing. |
-| **Convenience only** | Avoid for an inferential stock estimate. If unavoidable for a pilot, label the limitation clearly. |
+| **Random** | A reasonably uniform area with no planned internal comparison |
+| **Systematic grid** | A large or uniform area where even coverage is useful; verify that spacing does not align with furrows, treatment strips, or another repeating feature |
+| **Stratified-random** | **Default when strata exist:** allocate plots, then randomize locations within each stratum |
+| **Paired across a boundary** | The boundary itself is the comparison, such as grazed versus ungrazed or burned versus unburned; use an analysis designed for pairing |
+| **Convenience/practical** | A preliminary or capacity-limited assessment whose limitations will be stated clearly |
 
-### How does the total split across strata?
+### 5A — Generate the plot centres
 
-A simple starting allocation gives each stratum a share of the total sample count proportional to its area. Round up and apply the documented minimum. If strata differ greatly in variability or if a small stratum is central to the comparison, proportional allocation may not be adequate; see [Appendix A7](#a7--allocation-across-strata). The calculator's `2. Strata` tab does the area-proportional case.
+In the planning tool, use the Step 4 plot count and allocation to generate candidate coordinates. Record the random seed and keep inaccessible candidates in the audit record when replacements are generated.
 
-### For grasslands specifically
+Teams using the non-spatial spreadsheet must complete this stage in the Terrestrial Carbon Planning Tool or another documented GIS workflow.
+
+Grassland cautions:
 
 - Do not align a systematic grid with cultivation furrows, fence lines, pipeline corridors, or treatment strips.
-- Use paired locations when the project question is specifically about a boundary or treatment contrast.
-- Finish vegetation measurements before coring or clipping disturbs the plot.
-- Keep destructive sampling outside permanent vegetation plots and record the offset from the plot marker.
+- Do not move an inaccessible point to a convenient nearby location without applying a documented replacement rule.
+- Finish non-destructive vegetation measurements before coring or clipping disturbs the location.
 
-### How each plot is laid out
-
-The draft nested layout follows the [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf):
-
-| Plot | Size | Holds |
-|---|---:|---|
-| **Large** *(savannah/parkland where trees occur)* | 400 m² | Trees taller than 2 m. |
-| **Medium** | 16–100 m² | Shrubs and plants approximately 0.5–2 m. |
-| **Small** | 0.25 m², or a documented alternative | Ground vegetation below 0.5 m and clip-and-weigh sampling. |
-| **Soil/root core** | Point location | Soil and roots by depth increment. |
-
-<p align="center">
-  <img src="images/step5_nested_plot_layout.svg" alt="Plan view of a nested grassland plot: a 400 square metre tree plot, a medium shrub plot, a 0.25 square metre quadrat, and a soil core offset from the quadrat, with the order of work alongside" width="100%">
-</p>
-
-### Permanent or single-use plots?
+### 5B — Decide between permanent and single-use plots
 
 This is a planning decision, not one to leave to the field crew.
 
 <p align="center">
-  <img src="images/permanent_vs_single_use.svg" alt="Two matched panels: in a single-use plot the core is taken inside the vegetation plot after the survey; in a permanent plot the core is offset outside it and the plot carries a relocatable marker" width="100%">
+  <img src="images/permanent_vs_single_use.svg" alt="Single-use and permanent grassland plots showing where destructive sampling occurs and how a permanent plot is relocated" width="100%">
 </p>
+
+| | **Single-use plot** | **Permanent plot** |
+|---|---|---|
+| **Use when** | The location will be measured once | The same vegetation will be measured again |
+| **Marker** | Temporary centre marker and recorded GPS position | Relocatable centre marker, GPS, photographs, bearings and distances from stable features |
+| **Non-destructive work** | Complete first | Repeat using the same plot boundary and protocol |
+| **Destructive work** | May occur inside the plot after all non-destructive measurements | Must occur outside the protected vegetation plot |
+| **Records** | Plot ID, coordinates, layout and collected samples | Plot ID, coordinates, layout, marker description, photographs and every destructive-sample offset |
+
+A project does not have to use only one type. For example, it may combine **permanent nested vegetation plots** with separately located **single-use soil or clipping points**. The important requirement is that the relationship between them is fixed and recorded.
+
+### 5C — Record destructive-sampling offsets
+
+For every permanent plot, define the direction and distance used for soil cores, root cores, or vegetation clipping. If several monitoring rounds are planned, reserve separate destructive-sampling positions so later visits do not resample previously disturbed ground.
+
+> 🧩 **[PLACEHOLDER — TOOL DECISION]** Add the permanent/single-use decision tree and an offset planner to the tool. It should warn whenever destructive sampling is placed inside a permanent vegetation plot.
+
+### 🛠 Your turn
 
 <table>
 <tr>
-<td width="50%">
+<td width="45%">
 
-**Single-use**
-
-Sampled once. Complete non-destructive work first, then destructive coring and clipping in the documented locations.
-
-Appropriate when the question is *"How much carbon is here now?"* and no return visit is planned.
+> 🧩 **[PLACEHOLDER — TOOL SCREENSHOT]** Add `images/step5_tool_export.webp`: generated plot centres, permanent/single-use designations, destructive-sampling offsets, and the export panel.
 
 </td>
-<td width="50%">
+<td width="55%">
 
-**Permanent**
+**In the Terrestrial Carbon Planning Tool:**
 
-Relocated and measured repeatedly. Keep destructive sampling outside the permanent vegetation area and record each core or clip offset.
+1. Choose and justify the sampling strategy.
+2. Generate the allocated plot centres.
+3. Review access and safety constraints using a documented replacement rule.
+4. Assign each plot as permanent or single-use.
+5. Apply the nested layout from Step 3.
+6. Record destructive-sampling offsets.
+7. Export the field package.
 
-Appropriate when the question is *"Is this changing?"*
+The export should include CSV, GeoJSON or KML, a printable map, plot identifiers, stratum assignments, plot type, layout dimensions, offsets, replacements, and the random seed.
 
 </td>
 </tr>
 </table>
 
-Permanent plots require:
-
-- relocatable markers plus GPS, photographs, and bearings or distances from stable features;
-- recorded destructive-sample offsets;
-- a monitoring design sized to detect change, which may require more plots than a one-time stock estimate;
-- repeated bulk-density measurement where compaction or equivalent-soil-mass comparisons matter.
-
 <details>
-<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>where the Black Oak samples went</i></summary>
+<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>how the Black Oak plots were finalized</i></summary>
 
 <br>
 
-> 🧩 **[PLACEHOLDER — EXAMPLE DATA]** Show the per-stratum allocation, final coordinates or an anonymized map, sampling strategy, plot layout, permanent/single-use decision, and core-offset rule.
+> 🧩 **[PLACEHOLDER — EXAMPLE DATA]** Show the allocation by stratum, anonymized plot map, nested layout, permanent and single-use components, core-offset rule, replacement rule, and exported field package.
 
 </details>
-
-### 🛠 Your turn
-
-1. Choose and justify the sampling strategy.
-2. Allocate the Step 4 sample count across strata — the calculator's `2. Strata` tab does this by area.
-3. Generate candidate coordinates and check access and safety constraints without quietly replacing the probability-based design.
-4. Select the plot layout for the chosen pools.
-5. Decide whether plots are permanent or single-use.
-6. Export coordinates, maps, and identifiers in formats the field team can use.
-
-> [!IMPORTANT]
-> **Record the random seed, and every replacement you make.** Generating locations reproducibly is what separates a probability design from a set of points somebody chose. If a location is unreachable, replace it by a documented rule — not by moving it to somewhere convenient — and note both on the [planning worksheet](templates/project-planning-worksheet.md).
 
 > [!TIP]
 > **✅ Before moving on, you should have:**
 > - A sampling strategy chosen and justified
-> - A per-stratum allocation
+> - A per-stratum plot allocation
 > - A coordinate list and field map
-> - Plot sizes and layout
-> - A permanent/single-use decision
-> - A destructive-sampling offset rule
+> - A nested layout for every plot type
+> - Permanent and single-use designations
+> - A destructive-sampling offset plan
+> - A reproducible record of the random seed and replacements
 
 ---
 
 ## ✅ Sampling design complete
 
-Before heading into the field, confirm the universal outputs:
+Before heading into the field, confirm that the spatial tool—or the combination of the non-spatial spreadsheet and a documented GIS workflow—has produced the complete planning package:
 
 ```text
-☐ Study area boundary and area recorded          → Step 1
-☐ Strata identified or explicitly ruled out      → Step 2
-☐ Carbon pools and depths selected               → Step 3
-☐ Sample size calculated for each pool           → Step 4
-☐ Sampling locations and plot layout generated   → Step 5
-☐ Field sheets, maps, and identifiers prepared   → Part 3
+☐ Study-area boundary, exclusions and net area       → Step 1
+☐ Strata identified or explicitly ruled out          → Step 2
+☐ Carbon pools, depths and nested layout selected    → Step 3
+☐ Plot and pool-specific sample counts calculated    → Step 4
+☐ Plot centres generated and assigned                → Step 5
+☐ Permanent/single-use status recorded               → Step 5
+☐ Destructive-sampling offsets documented            → Step 5
+☐ Map, coordinates, identifiers and field sheets     → Field package
 ```
 
 Then confirm the grassland-specific decisions:
@@ -619,15 +702,14 @@ Then confirm the grassland-specific decisions:
 |---|---|
 | ☐ | Management, restoration, cultivation, grazing, and fire history recorded where relevant |
 | ☐ | Trees taller than 2 m confirmed as present/in scope or absent/out of scope |
-| ☐ | Soil and root precision targets recorded separately |
+| ☐ | Soil and root targets recorded separately |
 | ☐ | Root subsampling plan recorded, if used |
-| ☐ | Permanent or single-use plots selected |
-| ☐ | Destructive-sampling offsets documented |
+| ☐ | Permanent vegetation areas protected from destructive sampling |
+| ☐ | Replacement locations and the random seed retained |
 | ☐ | Sampling season chosen and justified for vegetation measurements |
 
-All of the above is laid out as a fill-in sheet in
-**[`templates/project-planning-worksheet.md`](templates/project-planning-worksheet.md)**, which also
-has a section to complete *after* the field season.
+The same decisions should be stored in the exported tool summary or the
+**[`templates/project-planning-worksheet.md`](templates/project-planning-worksheet.md)**.
 
 <details>
 <summary><b>📊 The Black Oak plan at a glance</b></summary>
@@ -843,16 +925,18 @@ Compositing may reduce variation among analytical samples but removes informatio
 | [`images/step5_sampling_strategies.svg`](images/step5_sampling_strategies.svg) | Sampling strategy comparison | ✅ Built |
 | [`images/step5_nested_plot_layout.svg`](images/step5_nested_plot_layout.svg) | Nested plot layout | ✅ Built |
 | [`images/permanent_vs_single_use.svg`](images/permanent_vs_single_use.svg) | Permanent/single-use comparison | ✅ Built |
-| `images/step4_calculator_inputs.webp` | Calculator screenshot | 🧩 Placeholder |
-| [`Sampling Design Tools/grassland-sample-allocation.xlsx`](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx) | Per-pool sample-size calculator | ✅ Built |
-| [`Sampling Design Tools/index.html`](Sampling%20Design%20Tools/index.html) | Sample Size Explorer | ✅ Built |
-| `Sampling Design Tools/` — spatial planner | Draw, allocate, export coordinates | 🧩 Placeholder |
+| `images/step1_tool_boundary.webp` | Planning-tool boundary screen | 🧩 Placeholder |
+| `images/step2_tool_strata.webp` | Planning-tool stratification screen | 🧩 Placeholder |
+| `images/step3_tool_plot_design.webp` | Pool selection and generated nested layout | 🧩 Placeholder |
+| `images/step4_spatial_calculator.webp` | Spatial-tool allocation results | 🧩 Placeholder |
+| `images/step4_spreadsheet_planner.webp` | Non-spatial spreadsheet inputs and results | 🧩 Placeholder |
+| `images/step5_tool_export.webp` | Final plot map and export panel | 🧩 Placeholder |
+| [`Sampling Design Tools/grassland-sample-allocation.xlsx`](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx) | Non-spatial planning spreadsheet | ✅ Built |
+| [`Sampling Design Tools/index.html`](Sampling%20Design%20Tools/index.html) | Optional Sample Size Explorer | ✅ Built |
+| `Sampling Design Tools/` — Terrestrial Carbon Planning Tool for Grasslands | Spatial Steps 1–5 workflow and field-package export | 🧩 Placeholder |
 | [`templates/grassland-boundary-template.geojson`](templates/grassland-boundary-template.geojson) | Boundary/strata template | ✅ Built |
 | [`templates/project-planning-worksheet.md`](templates/project-planning-worksheet.md) | Participant decision record | ✅ Built |
 | `../Worked_Example/02_Project_Planning.md` | Complete Black Oak planning example | 🧩 Placeholder |
-
-*The built figures and workbooks are generated by `_source/make_planning_figures.py` and
-`_source/build_grass_alloc.py`. Re-run those rather than editing the outputs.*
 
 ---
 
