@@ -106,7 +106,7 @@ Put together, a result might read: *"Mean soil carbon = 100 ±20 units at 90% co
 ### Seeing it on a map
 
 <p align="center">
-  <img src="images/sampling_explainer.svg" alt="A grid of carbon values across a study area with eight sampled plots circled, beside the estimate and margin of error those samples produce" width="100%">
+  <img src="images/sampling_explainer.svg" alt="A grid of carbon values across a study area with eight sampled plots circled, and an arrow to the estimate and its margin of error" width="84%">
 </p>
 
 These clips come from the **[Sample Size Visualization Tool](https://blue-carbon-hub.projects.earthengine.app/)**.
@@ -179,7 +179,7 @@ They expect to measure soil, roots, ground vegetation, shrubs, and scattered tre
 Every carbon value derived from a core is first expressed per unit area. The boundary defined here is what turns a carbon **density** into a carbon **total**. It also defines the area to which the estimate applies.
 
 <p align="center">
-  <img src="images/step1_grassland_boundary.svg" alt="A project boundary with wetland, rock outcrop, road and fence line marked as exclusions, beside a form recording gross area, exclusions, net area and the inclusion rule" width="100%">
+  <img src="images/step1_grassland_boundary.svg" alt="A study area boundary containing a wetland, a rock outcrop and a road, with a fence line crossing it" width="62%">
 </p>
 
 The boundary may be a polygon drawn on a map or an existing management unit. What matters is that the inclusion rule is explicit and the area can be calculated. Record the area in **m²** for the planning tools and in **hectares** for reporting.
@@ -240,7 +240,7 @@ The [`grassland-boundary-template.geojson`](templates/grassland-boundary-templat
 **Stratification** divides the study area into meaningful sub-areas, called **strata**, so that samples from one area are used to describe that area. A uniform site may not need stratification. If the project intends to compare management units, restoration ages, or burn histories, those groups must exist in the design before fieldwork.
 
 <p align="center">
-  <img src="images/step2_stratification.svg" alt="The study boundary divided into three restoration-age strata, each labelled and awaiting an area, with a burn-unit boundary as an optional second layer" width="100%">
+  <img src="images/step2_stratification.svg" alt="The study area divided into three strata: restored 20 years, restored 10 years, and unrestored" width="58%">
 </p>
 
 Stratification can reduce within-group variation and makes planned comparisons possible. A useful stratum is linked to the project question, can be mapped, and has an area that can be used when combining results.
@@ -330,7 +330,7 @@ Do not create strata simply because a map layer is available. Every additional s
 Carbon is stored in several pools. A **stock** is the amount stored at a defined place and time. **Living biomass** is the mass of living plant material. A clipped above-ground sample is a **standing crop** measured at that moment, not the total long-term carbon stock of the site.
 
 <p align="center">
-  <img src="images/step3_carbon_pools.svg" alt="A nested grassland plot in cross-section: a tree over two metres in a 400 square metre plot, a shrub in the medium plot, ground vegetation in a quadrat, and a soil core with depth increments to refusal" width="100%">
+  <img src="images/step3_carbon_pools.svg" alt="A grassland cross-section with a tree, a shrub, ground vegetation in a small quadrat, and a soil core divided into depth increments from 0 to 100 cm" width="74%">
 </p>
 
 Soil is expected to contain the largest long-lived carbon pool in most grassland projects, but roots, shoots, shrubs, and scattered trees may be required by the project question. Choose each pool deliberately — every additional pool adds field, laboratory, and analytical work.
@@ -378,7 +378,7 @@ When several carbon pools are measured, use an **integrated—or nested—plot d
 | **Soil/root sampling point** | Recorded point or offset | Soil and roots by depth increment |
 
 <p align="center">
-  <img src="images/step5_nested_plot_layout.svg" alt="Plan view of a nested grassland plot with large, medium and small vegetation plots sharing a centre, plus a documented soil and root sampling location" width="100%">
+  <img src="images/step5_nested_plot_layout.svg" alt="Plan view of a nested plot: a large circular plot, a medium square plot inside it, a small quadrat, and a soil core beside the quadrat" width="40%">
 </p>
 
 The planning tool should build the layout from the pools selected:
@@ -572,7 +572,7 @@ The spreadsheet should contain:
 *Where do the plots go, and will they be permanent or single-use?*
 
 <p align="center">
-  <img src="images/step5_sampling_strategies.svg" alt="Four panels comparing random, systematic grid, stratified-random and paired-across-a-boundary plot placement" width="100%">
+  <img src="images/step5_sampling_strategies.svg" alt="Four panels of sample placement: random, systematic grid, stratified random, and paired across a boundary" width="97%">
 </p>
 
 The spatial design should represent the target area while supporting the comparison the project intends to make. Accessibility may constrain fieldwork, but convenience should not quietly replace a probability-based design.
@@ -602,7 +602,7 @@ Grassland cautions:
 This is a planning decision, not one to leave to the field crew.
 
 <p align="center">
-  <img src="images/permanent_vs_single_use.svg" alt="Single-use and permanent grassland plots showing where destructive sampling occurs and how a permanent plot is relocated" width="100%">
+  <img src="images/permanent_vs_single_use.svg" alt="Single-use plot with the core taken inside the vegetation plot, beside a permanent plot with the core outside it and a marker at one corner" width="58%">
 </p>
 
 | | **Single-use plot** | **Permanent plot** |
