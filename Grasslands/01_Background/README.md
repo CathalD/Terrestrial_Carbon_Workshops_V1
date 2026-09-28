@@ -10,7 +10,7 @@
 
 # Part 1 — Background
 
-*What ecosystem carbon is, where it sits in a grassland, and how it is measured.*
+*What ecosystem carbon is,  how it cycles in grasslands, and how it is measured.*
 
 **Quick links:** 🧩 **[Workshop Presentation Slides — placeholder]** · [Measuring Carbon in Vegetation (Non-Tree)](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Measuring Carbon in Non-Peat Soils](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Laboratory Analysis](../../_Shared/Lab-Guide-Eng-2026.pdf)
 
@@ -38,7 +38,8 @@ Carbon is both a **building block of life** and a **key part of the Earth's clim
 <tr>
 <td width="58%">
 
-<img width="100%" alt="Ecosystem carbon — the carbon stored in plants and soils" src="https://github.com/user-attachments/assets/5ac111cd-1dd3-4e07-bdd7-6bf50defa96c" />
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/e8275520-f40a-449f-a661-c0649ca6fe2e" />
+
 
 </td>
 <td width="42%">
@@ -52,7 +53,8 @@ This workshop focuses on the pools that can be measured consistently in grasslan
 <tr>
 <td width="58%">
 
-(Insert ppt slide on Carbon cycle here)
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/d87705d4-c07c-4095-8e71-e0c409871939" />
+
 
 </td>
 <td width="42%">
