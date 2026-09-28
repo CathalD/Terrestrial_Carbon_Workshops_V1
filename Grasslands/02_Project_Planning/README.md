@@ -21,7 +21,7 @@
 **Before collecting soil cores**, four questions are worth addressing:
 
 1. **What do I want to know?** Am I establishing a baseline, comparing management or restoration areas, tracking recovery, or doing some combination of these?
-2. **Where does that question apply?** The whole study area, one area, a restoration plot, or the area disturbedin a particular year?
+2. **Where does that question apply?** The whole study area, one area, a restoration plot, or the area disturbed in a particular year?
 3. **How much data do I need?** How precise does the result need to be, how confident do I need to be, and how many samples can we collect and analyse?
 4. **Where should the samples be collected?** Which locations should we establish plots and collect the samples?
 
@@ -66,7 +66,7 @@ An alternative for teams that prefer to calculate plot and sample requirements w
 </tr>
 </table>
 
-If you want to know how the calculator returns the number it does and dive deeper into the math behind the tools, look to Appendix A (insert hyperlink to appendix A section), at the bottom of this page, where we go through how sample size is estimated before sampling, and how to check whether the sampling met your goals afterwards.
+If you want to know how the calculator returns the number it does and dive deeper into the math behind the tools, look to [Appendix A](#appendix-a--a-brief-lesson-in-sampling-logic) at the bottom of this page, where we go through how sample size is estimated before sampling, and how to check whether the sampling met your goals afterwards.
 
 
 
@@ -76,26 +76,18 @@ If you want to know how the calculator returns the number it does and dive deepe
 
 Measuring every square metre of an ecosystem is rarely feasible. Instead, we measure a **small portion** and use it to estimate the whole. Because an estimate built from a portion will not be exactly right every time, we also report its uncertainty. This is the basis of **probability-based sampling**.
 
-(Here is a ppt slide on sampling as a small portion of a population)
-<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/bdd820d3-f8e9-4291-bf1b-40071f840c19" />
-
-Add this text to the right box:
-Sampling = taking a small portion of a thing to make an informed estimate of the whole.
-
-A sampling design is the framework for choosing what and where to sample by dividing the study area into sites and plots, measuring those, and combining them into an estimate for the full area.
-
 <table>
 <tr>
 <td width="60%">
 
-**Sampling** means taking a small portion of something to make an informed estimate of the whole.
-
-A **sampling design** is the framework for deciding what and where to sample, then combining those measurements into an estimate for the full study area.
+<img width="100%" alt="Sampling: measuring a small portion of a population to estimate the whole" src="https://github.com/user-attachments/assets/bdd820d3-f8e9-4291-bf1b-40071f840c19" />
 
 </td>
 <td width="40%">
 
-The more independent, representative samples you collect, the more precise the estimate will generally become.
+**Sampling** = taking a small portion of a thing to make an informed estimate of the whole.
+
+A **sampling design** is the framework for choosing what and where to sample by dividing the study area into sites and plots, measuring those, and combining them into an estimate for the full area.
 
 </td>
 </tr>
@@ -113,23 +105,9 @@ Put together, a result might read: *"Mean soil carbon = 100 ±20 units at 90% co
 
 ### Seeing it on a map
 
-(Add these in exactly as they are
-
-
 <p align="center">
   <img src="images/sampling_explainer.svg" alt="A grid of carbon values across a study area with eight sampled plots circled, beside the estimate and margin of error those samples produce" width="100%">
 </p>
-
-<table>
-<tr>
-<td width="55%">
-
-
-**🔬 [Open the Sample Size Explorer](Sampling%20Design%20Tools/index.html)**
-
-
-Replace the existing with these taken directly from the eelgraass workshop -
-### Seeing it on a map
 
 These clips come from the **[Sample Size Visualization Tool](https://blue-carbon-hub.projects.earthengine.app/)**.
 
@@ -171,37 +149,6 @@ On the right, we see how each sample on the map is combined together to estimate
 - The same process that produces an estimate can also tell you whether differences *within* or *between* sites are statistically significant.
 - And it runs **backwards**: fix the precision you want, and it returns the number of cores needed to get there. That's Step 4, see [Appendix A2](#a2--working-backwards-from-precision-to-sample-size).
 
-
-Each sample reveals one small part of a simulated carbon surface. With only a few samples, the estimate may be far from the simulated true mean and its interval will be wide. As samples accumulate, the estimate usually stabilizes and the interval narrows.
-
-Switch to **compare both** and the reason soil and roots are sized separately becomes visible: at the same sample size, the more variable pool carries a much wider band.
-
-</td>
-<td width="45%">
-
-The explorer also shows something the arithmetic alone does not. It reports whether the interval actually **contains** the simulated true mean — and sometimes it does not, even when the precision target is met.
-
-That is not a bug. At 90% confidence it should happen about one time in ten. Hitting a precision target is not the same as being right.
-
-</td>
-</tr>
-</table>
-
-**Static fallback**, for print or where motion and scripting are unavailable:
-
-<p align="center">
-  <img src="images/sample_size_explorer_static.svg" alt="Three panels showing an estimate and its confidence band at three, nine and twenty-five samples; the band narrows while the simulated true mean stays fixed" width="100%">
-</p>
-
-> **Visualization note:** The explorer is an interactive HTML page rather than an autoplay GIF, and the lesson still works with motion disabled — the static panels above and the data table inside the page carry the same argument.
-
-### The takeaway
-
-- Sampling estimates what is impractical to measure completely.
-- A sampling design lets you state how uncertain that estimate is.
-- The calculation also runs **backwards**: set the precision and confidence you need, then estimate how many samples are required. That is Step 4.
-- Comparisons between treatments, restoration ages, or years need each group to be represented deliberately in the design.
-
 ---
 
 # Implementing a sampling design
@@ -211,7 +158,7 @@ That is not a bug. At 90% confidence it should happen about one time in ten. Hit
 
 <br>
 
-This workshop follows a hypothetical team planning a grassland carbon survey in a their savannah following restoration projects across their landscape
+This workshop follows a hypothetical team planning a grassland carbon survey in their savannah following restoration projects across their landscape
 
 They want to answer two questions:
 
@@ -959,7 +906,8 @@ Compositing may reduce variation among analytical samples but removes informatio
 | `README.md` | Part 2 lesson | This revised draft |
 | [`images/banner_planning.svg`](images/banner_planning.svg) | Grassland planning banner | ✅ Built |
 | [`images/sampling_explainer.svg`](images/sampling_explainer.svg) | Probability-based sampling explainer | ✅ Built |
-| [`images/sample_size_explorer_static.svg`](images/sample_size_explorer_static.svg) | Static visualization fallback | ✅ Built |
+| [`images/download (2).gif`](images/download%20%282%29.gif), [`images/download (3).gif`](images/download%20%283%29.gif) | Sample Size Visualization Tool clips, from the eelgrass workshop | ✅ Copied |
+| [`images/sample_size_explorer_static.svg`](images/sample_size_explorer_static.svg) | Static fallback for the Sample Size Explorer | Kept; not used on this page |
 | [`images/step1_grassland_boundary.svg`](images/step1_grassland_boundary.svg) | Boundary and exclusions | ✅ Built |
 | [`images/step2_stratification.svg`](images/step2_stratification.svg) | Management/restoration strata | ✅ Built |
 | [`images/step3_carbon_pools.svg`](images/step3_carbon_pools.svg) | Pools and depth diagram | ✅ Built |
@@ -973,7 +921,7 @@ Compositing may reduce variation among analytical samples but removes informatio
 | `images/step4_spreadsheet_planner.webp` | Non-spatial spreadsheet inputs and results | 🧩 Placeholder |
 | `images/step5_tool_export.webp` | Final plot map and export panel | 🧩 Placeholder |
 | [`Sampling Design Tools/grassland-sample-allocation.xlsx`](Sampling%20Design%20Tools/grassland-sample-allocation.xlsx) | Non-spatial planning spreadsheet | ✅ Built |
-| [`Sampling Design Tools/index.html`](Sampling%20Design%20Tools/index.html) | Optional Sample Size Explorer | ✅ Built |
+| [`Sampling Design Tools/index.html`](Sampling%20Design%20Tools/index.html) | Sample Size Explorer (soil vs roots) | Kept; not used on this page |
 | `Sampling Design Tools/` — Terrestrial Carbon Planning Tool for Grasslands | Spatial Steps 1–5 workflow and field-package export | 🧩 Placeholder |
 | [`templates/grassland-boundary-template.geojson`](templates/grassland-boundary-template.geojson) | Boundary/strata template | ✅ Built |
 | [`templates/project-planning-worksheet.md`](templates/project-planning-worksheet.md) | Participant decision record | ✅ Built |
