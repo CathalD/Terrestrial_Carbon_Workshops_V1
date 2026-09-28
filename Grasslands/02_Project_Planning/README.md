@@ -39,7 +39,7 @@ This section covers five steps.
 
 > Note: The methods here follow WWF-Canada's [Sampling Design Guide](../../_Shared/Sampling-Design-Eng-2026.pdf), [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf), and [Non-Peat Soils Field Guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf).
 
-### Before we begin planning?
+### Before we begin planning...
 
 Below we provide and show **Two planning tools** that are available.
 
@@ -76,9 +76,10 @@ If you want to know how the calculator returns its values, [Appendix A](#appendi
 
 Measuring every square metre of an ecosystem is rarely feasible. Instead, we measure a **small portion** and use it to estimate the whole. Because an estimate built from a portion will not be exactly right every time, we also report its uncertainty. This is the basis of **probability-based sampling**.
 
-<p align="center">
-  <img src="images/sampling_explainer.svg" alt="A grid of carbon values across a study area with eight sampled plots circled, beside the estimate and margin of error those samples produce" width="100%">
-</p>
+(Here is a ppt slide on sampling as a small portion of a population)
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/bdd820d3-f8e9-4291-bf1b-40071f840c19" />
+
+
 
 <table>
 <tr>
@@ -108,6 +109,10 @@ A carbon result is usually reported in three parts:
 Put together, a result might read: *"Mean soil carbon = 100 ±20 units at 90% confidence."*
 
 ### Seeing it on a map
+
+<p align="center">
+  <img src="images/sampling_explainer.svg" alt="A grid of carbon values across a study area with eight sampled plots circled, beside the estimate and margin of error those samples produce" width="100%">
+</p>
 
 <table>
 <tr>
