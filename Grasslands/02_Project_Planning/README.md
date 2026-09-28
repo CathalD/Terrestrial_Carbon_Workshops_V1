@@ -32,16 +32,14 @@ This section covers five steps.
 | # | Step | Answers |
 |---|---|---|
 | 1 | **[Define the study area](#step-1--define-your-study-area)** | *Where, roughly, am I working?* |
-| 2 | **[Stratify the site](#step-2--stratify-your-site)** | *Does it contain distinct stewardship or environmentally distinct areas?* |
-| 3 | **[Choose measurements and configure the nested plot](#step-3--choose-measurements-and-configure-the-nested-plot)** | *Which pools and plot sizes does the project need?* |
+| 2 | **[Stratify the study area](#step-2--stratify-your-site)** | *Does it contain distinct stewardship areas or environmentally distinct sites?* |
+| 3 | **[Choose measurements and plot design](#step-3--choose-measurements-and-configure-the-nested-plot)** | *Which pools and plot sizes does the project need?* |
 | 4 | **[Determine how many plots and samples](#step-4--decide-how-many-plots-and-samples)** | *How much field and laboratory sampling is required?* |
 | 5 | **[Place and finalize the plots](#step-5--place-and-finalize-the-plots)** | *Where do plots go, and will they be permanent or single-use?* |
 
 > Note: The methods here follow WWF-Canada's [Sampling Design Guide](../../_Shared/Sampling-Design-Eng-2026.pdf), [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf), and [Non-Peat Soils Field Guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf).
 
-### Before we begin planning...
-
-Below we provide and show **Two planning tools** that are available.
+Two companion tools appear throughout:
 
 <table>
 <tr>
@@ -68,7 +66,9 @@ An alternative for teams that prefer to calculate plot and sample requirements w
 </tr>
 </table>
 
-If you want to know how the calculator returns its values, [Appendix A](#appendix-a--a-brief-lesson-in-sampling-logic) explains the sampling logic and how to check achieved precision after fieldwork.
+If you want to know how the calculator returns the number it does and dive deeper into the math behind the tools, look to Appendix A (insert hyperlink to appendix A section), at the bottom of this page, where we go through how sample size is estimated before sampling, and how to check whether the sampling met your goals afterwards.
+
+
 
 ---
 
@@ -79,7 +79,10 @@ Measuring every square metre of an ecosystem is rarely feasible. Instead, we mea
 (Here is a ppt slide on sampling as a small portion of a population)
 <img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/bdd820d3-f8e9-4291-bf1b-40071f840c19" />
 
+Add this text to the right box:
+Sampling = taking a small portion of a thing to make an informed estimate of the whole.
 
+A sampling design is the framework for choosing what and where to sample by dividing the study area into sites and plots, measuring those, and combining them into an estimate for the full area.
 
 <table>
 <tr>
@@ -110,6 +113,9 @@ Put together, a result might read: *"Mean soil carbon = 100 ±20 units at 90% co
 
 ### Seeing it on a map
 
+(Add these in exactly as they are
+
+
 <p align="center">
   <img src="images/sampling_explainer.svg" alt="A grid of carbon values across a study area with eight sampled plots circled, beside the estimate and margin of error those samples produce" width="100%">
 </p>
@@ -118,7 +124,53 @@ Put together, a result might read: *"Mean soil carbon = 100 ±20 units at 90% co
 <tr>
 <td width="55%">
 
+
 **🔬 [Open the Sample Size Explorer](Sampling%20Design%20Tools/index.html)**
+
+
+Replace the existing with these taken directly from the eelgraass workshop -
+### Seeing it on a map
+
+These clips come from the **[Sample Size Visualization Tool](https://blue-carbon-hub.projects.earthengine.app/)**.
+
+<table>
+<tr>
+<td width="60%">
+
+<img width="100%" alt="Sample Allocation Visualizer — revealing the true carbon map as samples accumulate" src="images/download%20(2).gif">
+
+</td>
+<td width="40%">
+
+The bottom-left map is a hypothetical carbon map, where each square is the carbon value at that location. Switch between the **True value** and the **Revealed** view to watch the map uncover itself one sample at a time.
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="60%">
+
+<img width="100%" alt="Sample Allocation Visualizer — estimate converging on the true value as sample size grows" src="images/download%20(3).gif">
+
+</td>
+<td width="40%">
+
+On the right, we see how each sample on the map is combined together to estimate the **true value** (dashed blue line). With a few samples the estimate is off and the error range (purple) is wide. As samples accumulate, it narrows.
+
+**That purple band is your margin of error** — watch it shrink as the number of samples grows.
+
+</td>
+</tr>
+</table>
+
+### The takeaway
+
+- Sampling estimates what's impractical to measure directly.
+- The same process that produces an estimate can also tell you whether differences *within* or *between* sites are statistically significant.
+- And it runs **backwards**: fix the precision you want, and it returns the number of cores needed to get there. That's Step 4, see [Appendix A2](#a2--working-backwards-from-precision-to-sample-size).
+
 
 Each sample reveals one small part of a simulated carbon surface. With only a few samples, the estimate may be far from the simulated true mean and its interval will be wide. As samples accumulate, the estimate usually stabilizes and the interval narrows.
 
@@ -155,19 +207,19 @@ That is not a bug. At 90% confidence it should happen about one time in ten. Hit
 # Implementing a sampling design
 
 <details>
-<summary><b>📊 Meet the team at the Black Oak savannah</b> &nbsp;·&nbsp; <i>the worked example, in brief</i></summary>
+<summary><b>📊 Meet the team at the Northern Oak Savannah </b> &nbsp;·&nbsp; <i>the worked example, in brief</i></summary>
 
 <br>
 
-This workshop follows an anonymized or hypothetical team planning a grassland carbon survey in a Black Oak savannah restoration landscape.
+This workshop follows a hypothetical team planning a grassland carbon survey in a their savannah following restoration projects across their landscape
 
 They want to answer two questions:
 
 **A)** What is the current soil carbon stock across the project area?
 
-**B)** Do restoration age and fire history correspond to differences that should be monitored over time?
+**B)** Do restoration age and disturbance history correspond to differences that should be monitored over time?
 
-They expect to measure soil, roots, ground vegetation, shrubs, and scattered trees. Because root biomass is more variable and expensive to process, they will set separate soil and root precision targets. They also want the option to revisit the site, so permanent-plot requirements must be decided before fieldwork.
+They expect to measure soil, roots, ground vegetation, shrubs, and scattered trees. Because root biomass is more variable and expensive to process, they will set separate soil and root targets. They also want the option to revisit the site, so permanent-plot requirements must be decided before fieldwork.
 
 > 🧩 **[PLACEHOLDER — WORKED EXAMPLE]** Create `../Worked_Example/02_Project_Planning.md`. If the underlying project is private, use explicitly illustrative areas, variability values, and sample counts. Do not publish private site coordinates.
 
@@ -185,11 +237,6 @@ Every carbon value derived from a core is first expressed per unit area. The bou
 
 The boundary may be a polygon drawn on a map or an existing management unit. What matters is that the inclusion rule is explicit and the area can be calculated. Record the area in **m²** for the planning tools and in **hectares** for reporting.
 
-Three grassland-specific cautions:
-
-- **Management boundaries may be ecological boundaries.** A fence can separate grazing histories, seeding, burns, or restoration treatments. If crossing it would mix meaningfully different populations, treat the areas separately in Step 2.
-- **Exclude what is outside the target ecosystem.** Wetland inclusions, roads, dugouts, rock outcrops, and shelterbelts should not be silently averaged into a grassland estimate.
-- **Define native and seeded grassland explicitly.** Record the rule or evidence used to distinguish them rather than relying on appearance alone.
 
 <details>
 <summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>how the Black Oak team defined its area</i></summary>
