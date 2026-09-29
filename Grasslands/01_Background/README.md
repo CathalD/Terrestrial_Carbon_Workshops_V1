@@ -12,9 +12,7 @@
 
 *What ecosystem carbon is, how it cycles in grasslands, and how it is measured.*
 
-**Quick links:** 🧩 For Claude - link to ppt here - Grasslands/CarbonPPT_Grasslands_Generic.pdf ** · [Measuring Carbon in Vegetation (Non-Tree)](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Measuring Carbon in Non-Peat Soils](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Laboratory Analysis](../../_Shared/Lab-Guide-Eng-2026.pdf)
-
-> 🧩 **[PLACEHOLDER — SLIDE DECK]** Add the Part 1 `.pptx` and `.pdf` links here after the files are uploaded.
+**Quick links:** [Workshop Presentation Slides (PDF)](../CarbonPPT_Grasslands_Generic.pdf) · [Measuring Carbon in Vegetation (Non-Tree)](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Measuring Carbon in Non-Peat Soils](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Laboratory Analysis](../../_Shared/Lab-Guide-Eng-2026.pdf)
 
 ---
 
@@ -106,14 +104,24 @@ Root amount and distribution vary among species, sites, seasons, and management 
 
 ### Where the carbon is, and why
 
-(For Claude - Can you add this image to a 1 by 1 table with the text below on the right and the image on tehe left)
-<p align="center">
-  <img width="70%" alt="Grassland carbon cycle — plants take up CO2, roots and shoots feed the soil" src="https://github.com/user-attachments/assets/8a23fedc-782b-4bbe-bcd2-805622839f4d" />
-</p>
+<table>
+<tr>
+<td width="45%">
 
-Plants take up carbon dioxide from the atmosphere through photosynthesis and use it to build its shoots and roots. Carbon reaches the soil through litter from the surface, and roots, which deposit organic inputs directly into the soil. Decomposers transform this organic material in multiple ways; some carbon returns to the atmosphere via repsiration; some remains in living organisms, particulate material, mineral-associated organic matter, and other soil fractions. Microbial products and remains can make an important contribution to the part that persists, and how much is retained depends on climate, soil properties, vegetation, disturbance, management, and time.
+<img width="100%" alt="Grassland carbon cycle — plants take up CO2, roots and shoots feed the soil" src="https://github.com/user-attachments/assets/8a23fedc-782b-4bbe-bcd2-805622839f4d" />
 
-Because roots deliver carbon below the surface, a shallow sample can miss part of the distribution. That is why actual rooting depth matters when the project chooses sampling depths — see [How deep should the project sample?](#how-deep-should-the-project-sample).
+</td>
+<td width="55%">
+
+Plants take up carbon dioxide from the atmosphere through photosynthesis and use it to build their shoots and roots. Carbon reaches the soil through litter from the surface and through roots, which deposit organic inputs directly into the soil.
+
+Decomposers transform this organic material in multiple ways. Some carbon returns to the atmosphere through respiration; some remains in living organisms, particulate material, mineral-associated organic matter, and other soil fractions. Microbial products and remains can make an important contribution to the part that persists. How much is retained depends on climate, soil properties, vegetation, disturbance, management, and time.
+
+</td>
+</tr>
+</table>
+
+Because roots deliver carbon below the surface, a shallow sample can miss part of the distribution. That is why actual rooting depth matters when the project chooses sampling depths.
 
 <p align="center">
   <img src="images/carbon_pools.svg" alt="Bar chart of the worked example: soil 10.97 and roots 0.81 kg C per square metre, both to 30 cm, and shoots 0.17. Soil holds 66 times and roots 4.9 times the carbon of the shoots." width="100%">
@@ -126,10 +134,12 @@ Because roots deliver carbon below the surface, a shallow sample can miss part o
 | **Shoots** | A standing crop measured at the sampling date | Can change within a season through growth, senescence, grazing, mowing, or fire. |
 
 
-(For claude - Edit this section below as a drop down menu for "Extra info"
-### Differences in carbon stock relate to grassland type and stewardship
+<details>
+<summary><b>Extra info: differences in carbon stock relate to grassland type and stewardship</b></summary>
 
-A carbon stock reflects the plant community growing on it,. [Maxwell et al. (2024)](https://www.nature.com/articles/s43247-024-01795-9) measured annual grasses and the wildfires they promote. They sampled all four combinations of burned or unburned and invaded or uninvaded land, to 1 m depth, the findings show:
+<br>
+
+A carbon stock reflects the plant community growing on it, and a change in that community can move it. [Maxwell et al. (2024)](https://www.nature.com/articles/s43247-024-01795-9) studied sagebrush steppe in Idaho, USA, where exotic annual grasses such as cheatgrass (*Bromus tectorum*) and the wildfires they promote have converted deep-rooted perennial shrubland to annual grassland. They sampled all four combinations of burned or unburned and invaded or uninvaded land, to 1 m depth. Their findings:
 
 <table>
 <tr>
@@ -184,19 +194,30 @@ Returning a burned and invaded site to high-carbon shrubland takes more than ret
 
 <sub>Figures 1, 2 and 4 from Maxwell, T.M., Quicke, H.E., Price, S.J. & Germino, M.J. (2024). Annual grass invasions and wildfire deplete ecosystem carbon storage by >50% to resistant base levels. *Communications Earth & Environment* 5, 669. [doi:10.1038/s43247-024-01795-9](https://www.nature.com/articles/s43247-024-01795-9). Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).</sub>
 
+> [!NOTE]
+> **Reading this study for a Canadian grassland**
+> - The lab measured **total carbon**, including carbonate, so compare these numbers only with other total-carbon figures, not with soil *organic* carbon.
+> - The setting is US cold-desert sagebrush steppe (253–377 mm of precipitation a year). The mechanisms transfer: plant community change reaching deep soil carbon, and thresholds that make some losses hard to reverse. The percentages are not Canadian values.
+
+</details>
+
 ---
 
 ## Carbon accumulation and equilibrium
 
-<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/27ae6e05-a7f6-4cac-8755-b644ac365021" />
+<p align="center">
+  <img width="80%" alt="Carbon inputs and outputs determine the carbon stock of an ecosystem" src="https://github.com/user-attachments/assets/27ae6e05-a7f6-4cac-8755-b644ac365021" />
+</p>
 
 
 Carbon stocks change through the balance of inputs and outputs. Plants add carbon through production and transfers to the soil. Respiration, decomposition, erosion, fire, and other processes can remove or redistribute it.
 
-As a simplified model, an ecosystem may approach a relatively stable long-term stock when average inputs and outputs become similar, called the ecosystems **carbon equilibrium**. In addition, we can say the **Net ecosystem carbon balance** describes the net change over a defined period and system boundary.
+As a simplified model, an ecosystem may approach a relatively stable long-term stock when average inputs and outputs become similar. This is the ecosystem's **carbon equilibrium**. The **net ecosystem carbon balance** describes the net change in carbon over a defined period and system boundary, and is close to zero at equilibrium.
 
 
-<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/489788e5-9b1a-460b-b73b-f3c901eb8435" />
+<p align="center">
+  <img width="80%" alt="Carbon stock over time as inputs and outputs approach equilibrium" src="https://github.com/user-attachments/assets/489788e5-9b1a-460b-b73b-f3c901eb8435" />
+</p>
 
 
 The graphs below preserve the accumulation sequence used in the workshop presentation: carbon entering the ecosystem in green, carbon leaving in red, and the resulting stock or balance in black.
@@ -210,7 +231,7 @@ The graphs below preserve the accumulation sequence used in the workshop present
 </td>
 <td width="40%">
 
-A simplified baseline curve. As annual inputs and losses approach one another, the stored amount levels toward the dashed equilibrium line, signalling the ecosystem has reached in **Net ecosystem carbon balance**
+A simplified baseline curve. As annual inputs and losses approach one another, the stored amount levels toward the dashed equilibrium line. At equilibrium the **net ecosystem carbon balance** is close to zero.
 
 </td>
 </tr>
@@ -222,7 +243,7 @@ A simplified baseline curve. As annual inputs and losses approach one another, t
 </td>
 <td width="40%">
 
-The same teaching model with a disturbance that causes a carbon loss followed by recovery, a sign of a healthy or **resilient ecosystem**
+The same teaching model with a disturbance that causes a carbon loss followed by recovery. The ability to recover after a disturbance is called **resilience**.
 
 </td>
 </tr>
@@ -236,7 +257,7 @@ The same teaching model with a disturbance that causes a carbon loss followed by
 
 Overlapping disturbances can prevent recovery and move the ecosystem toward a lower carbon state.
 
-**Pulse disturbances** are forces that act abruptly. **Press disturbances** act continuously or repeatedly over longer periods. These can overlap, often referred to as **Multiple Stressors** or **Cumulative effects**,  
+**Pulse disturbances** are forces that act abruptly. **Press disturbances** act continuously or repeatedly over longer periods. When they overlap, this is often called **multiple stressors** or **cumulative effects**.
 
 </td>
 </tr>
@@ -269,13 +290,30 @@ Use the visualizer to ask:
 
 ## So how do you measure grassland carbon?
 
-For each of the carbon pools (Above ground vegetation, below-ground-vegetation, and soil, we weill collect samples, which are small portions of the ecosystem that we will use to characterize the larger ecosystem
+For each carbon pool (above-ground vegetation, below-ground vegetation, and soil), we collect samples. Samples are small portions of the ecosystem that we use to characterize the larger ecosystem.
 
-Samples are collected in **Plots**, which we will see in Section 3 - vary in size directly related to the size of the vegetation we are collecting.
+Samples are collected in **plots**. As you will see in [Part 3 — Field Methods](../03_Field_Methods/), plot size varies with the size of the vegetation being sampled.
 
 ### Vegetation
 
-<img width="179" height="177" alt="image" src="https://github.com/user-attachments/assets/84a45107-550f-4be7-9445-bbf6780c762b" />
+<table>
+<tr>
+<td width="30%">
+
+<img width="100%" alt="Nested plot design: a large plot for trees, a medium plot for short-statured trees and shrubs, and a small plot for ground vegetation" src="https://github.com/user-attachments/assets/84a45107-550f-4be7-9445-bbf6780c762b" />
+
+</td>
+<td width="70%">
+
+Vegetation is measured in **nested plots**, with the plot size matched to the vegetation:
+
+- **Large plot:** trees
+- **Medium plot:** short-statured trees and shrubs
+- **Small plot:** ground vegetation (below 0.5 m)
+
+</td>
+</tr>
+</table>
 
 
 
@@ -304,18 +342,10 @@ All three require an explicit bulk-volume or sampled-area calculation, actual de
 
 ### The project workflow
 
-| # | Step | Where |
-|---|---|---|
-| 1 | Define the question, boundary, strata, pools, precision, and sample count. | [Part 2 — Project Planning](../02_Project_Planning/) |
-| 2 | Set up plots and measure vegetation before destructive work. | [Part 3 — Field Methods](../03_Field_Methods/#2-measure-vegetation) |
-| 3 | Collect soil/root samples to the selected depths and record known volumes. | [Part 3 — Field Methods](../03_Field_Methods/#3-collect-soil) |
-| 4 | Section, label, preserve, and submit samples using a documented laboratory method. | [Part 3 — Field Methods](../03_Field_Methods/#4-label-cool-and-reconcile-samples) |
-| 5 | Calculate pool-specific stocks, uncertainty, and exclusions. | [Part 4 — Data Interpretation](../04_Data_Interpretation/) |
-| 6 | Repeat with a monitoring design when the objective is change through time. | [Part 5 — Monitoring](../05_Monitoring/) |
+The six-step carbon project workflow, from defining the question to monitoring change, is laid out in the [main guide](../README.md#the-carbon-project-workflow).
 
 > [!TIP]
-> Monitoring changes the design before the first field visit. Permanent plots, relocation, destructive-sample offsets, equivalent-soil-mass requirements, and the number of plots must be planned in advance. If monitoring is an objective, read [Part 5](../05_Monitoring/) before finalizing Part 2.
-
+> Monitoring changes the design before the first field visit. If monitoring is an objective, read [Part 5](../05_Monitoring/) before finalizing Part 2.
 
 ---
 
@@ -332,24 +362,17 @@ All three require an explicit bulk-volume or sampled-area calculation, actual de
 - `images/banner_background.svg` — section banner.
 - The existing slide images embedded throughout this page — retained beside their original concepts.
 - `images/carbon_pools.svg` — teaching-data comparison of soil, root, and shoot pools, soil and roots both to 30 cm.
-- `images/ecosystem_carbon_comparison.svg` — worked-example grassland beside national means from Sothe et al. (2022), grouped by pool and depth.
-- `images/soil_profile_vs_30cm.svg` — teaching-data depth profile showing what a 30 cm core leaves behind.
 - `images/accumulation_baseline.gif` — baseline accumulation animation.
 - `images/accumulation_pulse.gif` — disturbance-and-recovery animation.
 - `images/accumulation_collapse.gif` — overlapping-disturbance animation.
 - [`_references/`](../_references/) — papers cited by the workshop.
 
-> 🧩 **[PLACEHOLDER — SLIDE DECK]** Add the completed Part 1 `.pptx` and `.pdf` here after upload. For claude 0 link to ppt - Grasslands/CarbonPPT_Grasslands_Generic.pdf
+### Slides, library and videos
 
-For Claude:
-
-Link to carbon library - https://wwf.ca/carbon-measurement/
-
-Link to videos -
-
-Measuring carbon in non-tree vegetation - https://www.youtube.com/watch?v=Un5PZrs0BWU
-
-Measuring carbon in trees - https://youtu.be/OWsjbQJDe8A?si=N7pgIj-CM4XyBtDH
+- [Workshop Presentation Slides (PDF)](../CarbonPPT_Grasslands_Generic.pdf)
+- [WWF-Canada Carbon Measurement Library](https://wwf.ca/carbon-measurement/)
+- Video: [Measuring carbon in non-tree vegetation](https://www.youtube.com/watch?v=Un5PZrs0BWU)
+- Video: [Measuring carbon in trees](https://youtu.be/OWsjbQJDe8A)
 
 ---
 

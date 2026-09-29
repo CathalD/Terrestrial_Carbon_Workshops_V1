@@ -60,7 +60,9 @@ An alternative for teams that prefer to calculate plot and sample requirements w
 
 *Used primarily in Step 4.*
 
-> For Claude - link to spreadsheet screenshot - <img width="379" height="307" alt="image" src="https://github.com/user-attachments/assets/9cef9db7-601c-44ad-aaa8-6c0be0238cdb" />
+<p align="center">
+  <a href="Sampling%20Design%20Tools/grassland-sample-allocation.xlsx"><img width="379" alt="Screenshot of the non-spatial planning spreadsheet" src="https://github.com/user-attachments/assets/9cef9db7-601c-44ad-aaa8-6c0be0238cdb" /></a>
+</p>
 
 
 </td>

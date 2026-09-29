@@ -16,7 +16,7 @@ If you only do four things from this file, do these.
 | # | What | Why it matters |
 |---|---|---|
 | **1** | 📚 **Root-methods references** (see [below](#root-methods-references--the-big-one)) | Every claim in the root sections is currently written at a level the method itself supports, with **nothing cited**. These pages cannot ship as authoritative until they are |
-| **2** | 📊 **A Canadian grassland carbon reference** | Part 1 is deliberately written **without numbers** rather than with invented ones. It needs a citable source for the root:shoot relationship, soil carbon per unit area, and remaining native grassland area |
+| **2** | 📊 **A Canadian grassland carbon reference** | Part 1 is written with few numbers rather than invented ones (the Sothe et al. national comparison was removed). It needs a citable source for the root:shoot relationship, soil carbon per unit area, and remaining native grassland area |
 | **3** | ❓ **The tree-cover threshold** — at what canopy cover does the Forests tree protocol apply? | Savannah sits right on this boundary by definition. Proposed **≥ 25%**, matching the Wetlands swamp rule. Set it in the calculator's `Fill Me In` tab |
 | **4** | 🔗 **The Community led carbon mapping repository** | Part 4's mapping section is a placeholder until this lands |
 
