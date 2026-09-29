@@ -6,7 +6,7 @@
 
 # Grassland Carbon Workshop
 
-*This workshop covers how to measure carbon in grassland ecosystems, including above-ground plant biomass, below-ground plant biomass, and soil carbon. It is organized into four core parts, with an optional fifth part for teams measuring change through time.*
+*This workshop covers how to measure carbon in grassland ecosystems, including above-ground plant biomass, below-ground plant biomass, and soil carbon. It is organized into four core parts, with an optional fifth part for teams measuring change over time.*
 
 ---
 
@@ -32,11 +32,11 @@
 
 ## How to think about this workshop
 
-For some carbon projects, it helps to begin at the end goal and work backwards. In that spirit, here we start with the spreadsheet that will eventually hold the field and laboratory data:
+For some carbon projects, it helps to begin at the end goal and work backwards. In that spirit, here we start with the spreadsheet that will eventually hold the field and laboratory data that can be used to calculate carbon:
 
 **[`Grassland_Carbon_Calculator.xlsx`](04_Data_Interpretation/calculators/Grassland_Carbon_Calculator.xlsx)**
 
-Every input should be one of three things:
+Within this spreadsheet, every input is categorized into one of three things:
 
 - documented in the project plan;
 - measured or observed in the field; or
@@ -57,7 +57,7 @@ Once the workbook is complete and checked, those inputs can be converted into ca
 | `Plot ID`, `Core ID` | The identifiers linking the soil sample to the site and plot records. | [Part 2 — Project Planning](02_Project_Planning/) and [Part 3 — Field Methods](03_Field_Methods/) | Assigned before fieldwork; confirmed in the field. |
 | Stratum/site fields | The mapped area and comparison group represented by the sample. | [Part 2 — Project Planning](02_Project_Planning/#step-2--stratify-your-site) | Planning and plot setup. |
 | Top and bottom depth | The depth interval represented by the sample. | [Part 3 — Field Methods](03_Field_Methods/#4-label-cool-and-reconcile-samples) | Field sectioning. |
-| Corer/ring dimensions | The measurements defining sampled volume. | [Part 3 — Field Methods](03_Field_Methods/#3-collect-soil) | Equipment setup and field collection. |
+| Corer/Bulk density ring dimensions | The measurements defining sampled volume. | [Part 3 — Field Methods](03_Field_Methods/#3-collect-soil) | Equipment setup and field collection. |
 | Hole depth | How far the sampler entered and how much material was recovered. | [Part 3 — Field Methods](03_Field_Methods/#3-collect-soil) | Field collection. |
 | Coarse fragments | The stone or coarse-fragment record and its measurement basis. | [Part 3 — Field Methods](03_Field_Methods/#3-collect-soil) | Field and/or laboratory, under the selected method. |
 | Bulk density | Dry soil mass per defined volume. | [Part 3 — Field Methods](03_Field_Methods/#3-collect-soil) | Laboratory or validated field/lab workflow. |
@@ -84,9 +84,9 @@ Once the workbook is complete and checked, those inputs can be converted into ca
 
 ---
 
-## Brief Background on Canada's grasslands—and what has been lost
+## Brief Background on Canada's grasslands
 
-A significant proportion of grasslands across Canada have been lost to land conversion, among other drivers. Below, the map shows previous grassland extent in the Prairie provinces, what remains, and the difference. Canada also contains important grasslands, savannahs, parklands, and open ecosystems outside that extent, and loss and restoration opportunities.
+A significant proportion of grasslands across Canada have been lost to land conversion. Below, the map shows previous grassland extent in the Prairie provinces, what remains, and the difference shown in red. Canada also contains important grasslands, savannahs, parklands, and open ecosystems outside this extent, with similar losses.
 
 <table>
 <tr>
@@ -97,13 +97,20 @@ A significant proportion of grasslands across Canada have been lost to land conv
 </td>
 <td width="50%">
 
-**Grassland extent and loss**
+**Grassland extent and loss in the Praries**
 
-Prairie region grassland historical extent and losses shown in red.
+Prairie region grassland historical extent and losses shown in red. These loses are mostly attributable to land conversion for agricultural, industrial and urbanization.
 
 </td>
 </tr>
 </table>
+
+Temperate grassland is among the world's least protected and most converted biomes, and much of Canada's native grassland has been converted or altered. The consequences extend beyond carbon as well, including:
+
+- **Grassland birds** have experienced some of the steepest declines among North American bird groups.
+- **Prairie-dependent species**, including swift fox, burrowing owl, greater sage-grouse, and black-footed ferret, are among Canada's species at risk.
+- **Deep-rooted perennial cover supports multiple functions**, including water infiltration and storage, erosion control, drought resilience, forage, habitat, and carbon storage.
+
 
 **Restoration potential**
 
@@ -112,25 +119,16 @@ Grassland regions have been identified as important opportunities for recovering
 <img width="615" height="751" alt="image" src="https://github.com/user-attachments/assets/a034979c-63d8-400d-a2ab-2e09c724b554" />
 
 
-Temperate grassland is among the world's least protected and most converted biomes, and much of Canada's native grassland has been converted or altered. The consequences extend beyond carbon as well, including:
-
-- **Grassland birds** have experienced some of the steepest declines among North American bird groups.
-- **Prairie-dependent species**, including swift fox, burrowing owl, greater sage-grouse, and black-footed ferret, are among Canada's species at risk.
-- **Deep-rooted perennial cover supports multiple functions**, including water infiltration and storage, erosion control, drought resilience, forage, habitat, and carbon storage.
-
 ---
 
 ## What is grassland carbon?
 
-Below we see Native Grassland plant above-ground and below-ground structure (often called the "roots" and the "shoots" of the plants. Notice, native grassland species plant structure includes a vast root network that can extend meters below ground. Compare this to the first plant depicted, which is common lawn grass, the difference between the lawn grass and native grasses are quite stark here.
+Below we see Native Grassland plant above-ground and below-ground structure (often called the "roots" and the "shoots" of the plants(. Notice, native grassland species plant structure includes a vast root network that can extend meters below ground. Compare this to the first plant depicted, which is common lawn grass, the difference between the lawn grass and native grasses are quite stark.
 
 <p align="center">
   <img width="92%" alt="Soil carbon formation and the below-ground share of grassland carbon" src="https://github.com/user-attachments/assets/ef253a75-2323-4505-b272-72ed680fcdc8" />
 </p>
 
-Above-ground herbaceous biomass is a measure of the weight of a plant after it have been dried to remove the water of the plant. It can change quickly through growth, senescence, grazing, drought, or fire.
-
-A grassland carbon project must decide which pools it will measure, because soil, roots, shoots, shrubs, and trees respond on different timescales and require different methods.
 
 <table>
 <tr>
@@ -148,6 +146,10 @@ Roots are important for carbon, but also to building and maintaining the soil st
 </td>
 </tr>
 </table>
+
+Above-ground herbaceous biomass is a measure of the weight of a plant after it have been dried to remove the water of the plant. It can change quickly through growth, senescence, grazing, drought, or fire.
+
+A grassland carbon project must decide which pools it will measure, because soil, roots, shoots, shrubs, and trees respond on different timescales and require different methods.
 
 ---
 
@@ -189,13 +191,13 @@ One or multiple measurements of an individual plant are taken, and the relations
 </tr>
 </table>
 
-Collecting paired measurements can contribute to a local relationship that reduces destructive sampling in later surveys. However, an allometry should only be used when its species or functional group, size range, region, predictor definition, and validation are appropriate for the project.
+Collecting paired measurements can contribute to a local relationship that reduces destructive sampling in later field outings. However, allometry should only be used when its species or functional group, size range, region, predictor definition, and/or validation are appropriate for the project.
 
 ---
 
 ## Measuring soil organic carbon
 
-The current workshop method is to sample the **full soil profile**, this is from the top of the soil, beggining a the surface and extending down to the parent material or refusal (which is as far deep as you can go).
+This workshop recommends analyzing the **full soil profile** in grasslands. This means, samples are collected starting from the top of the soil, beginning a the surface, extending down to the parent material or refusal, which is as far deep as you can go before the corer "refuses" to go any further.
 
 There are 2 main methods we will show to collect soil samples, these are "Soil Pits" shown in a) and "Soil Cores" shown in d), e), and f)
 
@@ -205,9 +207,9 @@ There are 2 main methods we will show to collect soil samples, these are "Soil P
 
 ---
 
-Lets dive into a bit more details on Carbon Cycling in Grasslands:
+Now that you have a general idea, lets dive into a bit more details on Carbon Cycling in Grasslands:
 
-(Insert a link to go to the background tab)
+ [**Part 01 - Background**](01_Background/)
 
 
 
