@@ -12,7 +12,7 @@
 
 *What ecosystem carbon is, how it cycles in grasslands, and how it is measured.*
 
-**Quick links:** 🧩 **[Workshop Presentation Slides — placeholder]** · [Measuring Carbon in Vegetation (Non-Tree)](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Measuring Carbon in Non-Peat Soils](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Laboratory Analysis](../../_Shared/Lab-Guide-Eng-2026.pdf)
+**Quick links:** 🧩 For Claude - link to ppt here - Grasslands/CarbonPPT_Grasslands_Generic.pdf ** · [Measuring Carbon in Vegetation (Non-Tree)](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Measuring Carbon in Non-Peat Soils](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Laboratory Analysis](../../_Shared/Lab-Guide-Eng-2026.pdf)
 
 > 🧩 **[PLACEHOLDER — SLIDE DECK]** Add the Part 1 `.pptx` and `.pdf` links here after the files are uploaded.
 
@@ -339,7 +339,7 @@ All three require an explicit bulk-volume or sampled-area calculation, actual de
 - `images/accumulation_collapse.gif` — overlapping-disturbance animation.
 - [`_references/`](../_references/) — papers cited by the workshop.
 
-> 🧩 **[PLACEHOLDER — SLIDE DECK]** Add the completed Part 1 `.pptx` and `.pdf` here after upload.
+> 🧩 **[PLACEHOLDER — SLIDE DECK]** Add the completed Part 1 `.pptx` and `.pdf` here after upload. For claude 0 link to ppt - Grasslands/CarbonPPT_Grasslands_Generic.pdf
 
 For Claude:
 
