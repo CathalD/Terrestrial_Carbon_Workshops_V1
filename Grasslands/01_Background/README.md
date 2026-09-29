@@ -71,7 +71,7 @@ In [Part 2 — Project Planning](../02_Project_Planning/), the sampling design i
 
 **Storage** is an **amount or stock**: carbon held in an ecosystem at a defined time.
 
-Parts 2–4 focus on measuring **stocks**. [Part 5 — Monitoring](../05_Monitoring/) compares measurements over time to estimate change. A change in stock can inform—but is not automatically identical to—a sequestration rate unless the design accounts for the relevant inputs, outputs, and time interval.
+Parts 2–4 focus on measuring **stocks**. [Part 5 — Monitoring](../05_Monitoring/) compares measurements over time to estimate change.
 
 ---
 
@@ -100,9 +100,9 @@ Grassland carbon is distributed among the soil, and plant roots and shoots. This
   <img height="260" alt="Depth of grassland root systems" src="https://github.com/user-attachments/assets/066e676e-28c7-4a2b-9979-82279e79b416" />
 </p>
 
-Many grassland plants allocate a substantial share of production below ground, and in many grasslands below-ground living biomass exceeds the shoots visible above ground. A crew that measures only above-ground vegetation therefore measures only part of the living biomass, and a small part of the ecosystem carbon this workshop considers.
+Many grassland plants allocate a substantial share of production below ground, and in many grasslands below-ground living biomass exceeds the shoots visible above ground. A carbon project that measures only above-ground vegetation therefore measures only part of the living biomass, and a small part of the ecosystem carbon this workshop considers.
 
-Root amount and distribution vary among species, sites, seasons, and management histories, so a single root:shoot ratio should not be treated as universal.
+Root amount and distribution vary among species, sites, seasons, and management histories.
 
 ### Where the carbon is, and why
 
@@ -110,7 +110,7 @@ Root amount and distribution vary among species, sites, seasons, and management 
   <img width="70%" alt="Grassland carbon cycle — plants take up CO2, roots and shoots feed the soil" src="https://github.com/user-attachments/assets/8a23fedc-782b-4bbe-bcd2-805622839f4d" />
 </p>
 
-Plants take up carbon dioxide and use it to build shoots and roots. Carbon reaches the soil by two routes: litter from the surface, and roots, which place living biomass and organic inputs directly through the profile. Decomposers transform both. Some carbon returns to the atmosphere; some remains in living organisms, particulate material, mineral-associated organic matter, and other soil fractions. Microbial products and remains can make an important contribution to the part that persists, and how much is retained depends on climate, soil properties, vegetation, disturbance, management, and time.
+Plants take up carbon dioxide from the atmosphere through photosynthesis and use it to build its shoots and roots. Carbon reaches the soil through litter from the surface, and roots, which deposit organic inputs directly into the soil. Decomposers transform this organic material in multiple ways; some carbon returns to the atmosphere via repsiration; some remains in living organisms, particulate material, mineral-associated organic matter, and other soil fractions. Microbial products and remains can make an important contribution to the part that persists, and how much is retained depends on climate, soil properties, vegetation, disturbance, management, and time.
 
 Because roots deliver carbon below the surface, a shallow sample can miss part of the distribution. That is why actual rooting depth matters when the project chooses sampling depths — see [How deep should the project sample?](#how-deep-should-the-project-sample).
 
