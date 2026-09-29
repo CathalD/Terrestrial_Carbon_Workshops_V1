@@ -106,6 +106,7 @@ Root amount and distribution vary among species, sites, seasons, and management 
 
 ### Where the carbon is, and why
 
+(For Claude - Can you add this image to a 1 by 1 table with the text below on the right and the image on tehe left)
 <p align="center">
   <img width="70%" alt="Grassland carbon cycle — plants take up CO2, roots and shoots feed the soil" src="https://github.com/user-attachments/assets/8a23fedc-782b-4bbe-bcd2-805622839f4d" />
 </p>
@@ -125,7 +126,7 @@ Because roots deliver carbon below the surface, a shallow sample can miss part o
 | **Shoots** | A standing crop measured at the sampling date | Can change within a season through growth, senescence, grazing, mowing, or fire. |
 
 
-(Edit this section below as a drop down menu for "Extra info"
+(For claude - Edit this section below as a drop down menu for "Extra info"
 ### Differences in carbon stock relate to grassland type and stewardship
 
 A carbon stock reflects the plant community growing on it,. [Maxwell et al. (2024)](https://www.nature.com/articles/s43247-024-01795-9) measured annual grasses and the wildfires they promote. They sampled all four combinations of burned or unburned and invaded or uninvaded land, to 1 m depth, the findings show:
@@ -340,6 +341,7 @@ All three require an explicit bulk-volume or sampled-area calculation, actual de
 
 > 🧩 **[PLACEHOLDER — SLIDE DECK]** Add the completed Part 1 `.pptx` and `.pdf` here after upload.
 
+For Claude:
 
 Link to carbon library - https://wwf.ca/carbon-measurement/
 
