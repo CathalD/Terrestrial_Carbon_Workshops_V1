@@ -28,6 +28,21 @@
 2. **Learn field methods for measuring different carbon pools**, including vegetation plots, soil coring, and root separation.
 3. **Turn field and laboratory measurements into carbon stocks and baselines** that can support comparison and monitoring.
 
+### The carbon project workflow
+
+| # | Step | Where |
+|---|---|---|
+| 1 | Define the question, boundary, strata, pools, precision, and sample count. | [Part 2 — Project Planning](../02_Project_Planning/) |
+| 2 | Set up plots and measure vegetation before destructive work. | [Part 3 — Field Methods](../03_Field_Methods/#2-measure-vegetation) |
+| 3 | Collect soil/root samples to the selected depths and record known volumes. | [Part 3 — Field Methods](../03_Field_Methods/#3-collect-soil) |
+| 4 | Section, label, preserve, and submit samples using a documented laboratory method. | [Part 3 — Field Methods](../03_Field_Methods/#4-label-cool-and-reconcile-samples) |
+| 5 | Calculate pool-specific stocks, uncertainty, and exclusions. | [Part 4 — Data Interpretation](../04_Data_Interpretation/) |
+| 6 | Repeat with a monitoring design when the objective is change through time. | [Part 5 — Monitoring](../05_Monitoring/) |
+
+> [!TIP]
+> Monitoring changes the design before the first field visit. Permanent plots, relocation, destructive-sample offsets, equivalent-soil-mass requirements, and the number of plots must be planned in advance. If monitoring is an objective, read [Part 5](../05_Monitoring/) before finalizing Part 2.
+
+
 ---
 
 ## How to think about this workshop
