@@ -305,13 +305,15 @@ Do not create strata simply because a map layer is available. Every additional s
 
 *Which pools and plot sizes does the project need?*
 
-Carbon is stored in several pools. A **stock** is the amount stored at a defined place and time. **Living biomass** is the mass of living plant material. A clipped above-ground sample is a **standing crop** measured at that moment, not the total long-term carbon stock of the site.
+Carbon is stored in several pools. A **stock** is the amount stored at a defined place and time. **Living biomass** is the mass of living plant material. A clipped above-ground sample is measured at that moment, not the total long-term carbon stock of the site.
 
 <p align="center">
   <img src="images/step3_carbon_pools.svg" alt="A grassland cross-section with a tree, a shrub, ground vegetation in a small quadrat, and a soil core divided into depth increments from 0 to 100 cm" width="74%">
 </p>
 
-Soil is expected to contain the largest long-lived carbon pool in most grassland projects, but roots, shoots, shrubs, and scattered trees may be required by the project question. Choose each pool deliberately — every additional pool adds field, laboratory, and analytical work.
+For claude - Make this a drop down for "overview of field and methods for each carbon pool". Make the table with the new columns and fill them in. Add in "Dissolved organic carbon" as another pool.
+
+Soil is expected to contain the largest long-lived carbon pool in most grassland projects, but roots, shoots, shrubs, and scattered trees may also be of interest. See a below of list of possible carbon pools and a short description for the field methods in 1 column, and lab methods in another column
 
 | Pool | Field/lab implication | Planning recommendation |
 |---|---|---|
@@ -322,27 +324,10 @@ Soil is expected to contain the largest long-lived carbon pool in most grassland
 | **Trees** | Tree plot, species, DBH, height, and allometric estimates | ✅ Include any tree taller than 2 m that falls within the agreed protocol. |
 | **Litter** | Requires a separate collection and processing protocol | ⬜ Outside the current method unless a documented protocol is added. |
 
-> 📚 **[CITATIONS NEEDED]** Support the relative importance and expected variability of the pools with grassland-appropriate sources. Avoid presenting qualitative rankings as universal across all grasslands.
 
 ### Are there trees?
 
-Measure any tree taller than **2 m** using the [Forests large-plot method](../../Forests/03_Field_Methods/3A_Trees.md), then carry the result into this workshop's vegetation data workflow. The medium plot covers woody stems from **0.5–2 m**, so the 2 m handoff prevents gaps and double counting.
-
-There is no separate tree-cover threshold in this draft method. The decision is whether trees taller than 2 m are present and in scope.
-
-### Decide your sampling depth now, not later
-
-The working recommendation is to sample the **full profile to parent material or refusal**, then calculate standard reporting windows from the same core. Record depth reached as data.
-
-| Basis | What it is | Role |
-|---|---|---|
-| **Full profile** | Surface to parent material or refusal | Primary measurement in this workshop. |
-| **0–30 cm** | Fixed upper-soil window | Common reporting window for comparison with other studies and inventories. |
-| **0–1 m** | Deeper fixed window | Additional comparison window where the profile and equipment allow it. |
-
-A proposed increment sequence is **0–10, 10–20, 20–30, 30–60, and 60–100 cm**, followed by documented deeper increments where possible.
-
-> 📚 **[METHOD REVIEW NEEDED]** Confirm the depth recommendation, reporting windows, increments, and compaction rationale against the final field guides and cited grassland literature before publication.
+If there are trees in your plots you are interested in measuring, please refer to the [Forests large-plot method](../../Forests/03_Field_Methods/3A_Trees.md), then carry the result into this workshop's vegetation data workflow. The medium plot covers woody stems from **0.5–2 m**.
 
 ### Build the nested plot
 
@@ -359,19 +344,6 @@ When several carbon pools are measured, use an **integrated—or nested—plot d
   <img src="images/step5_nested_plot_layout.svg" alt="Plan view of a nested plot: a large circular plot, a medium square plot inside it, a small quadrat, and a soil core beside the quadrat" width="40%">
 </p>
 
-The planning tool should build the layout from the pools selected:
-
-| Selected pools | Tool-generated configuration |
-|---|---|
-| Ground vegetation only | Small plot |
-| Shrubs plus ground vegetation | Medium + small nested plots |
-| Trees, shrubs and ground vegetation | Large + medium + small nested plots |
-| Vegetation plus soil or roots | Appropriate nested vegetation plots plus a defined core location |
-
-> 🧩 **[PLACEHOLDER — TOOL SCREENSHOT]** Add `images/step3_tool_plot_design.webp`: pool selection beside the nested-plot layout generated by the tool.
-
-> [!IMPORTANT]
-> Plot type is finalized in Step 5. A soil core or vegetation clipping may be collected inside a single-use plot after non-destructive measurements, but destructive sampling must be placed outside a permanent vegetation plot.
 
 <details>
 <summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>what the Black Oak team chose to measure</i></summary>
