@@ -268,7 +268,15 @@ Use the visualizer to ask:
 
 ## So how do you measure grassland carbon?
 
-Grassland carbon measurement combines vegetation measurements with soil samples of known area or volume and laboratory analyses. The exact set of pools depends on the project question.
+For each of the carbon pools (Above ground vegetation, below-ground-vegetation, and soil, we weill collect samples, which are small portions of the ecosystem that we will use to characterize the larger ecosystem
+
+Samples are collected in **Plots**, which we will see in Section 3 - vary in size directly related to the size of the vegetation we are collecting.
+
+### Vegetation
+
+<img width="179" height="177" alt="image" src="https://github.com/user-attachments/assets/84a45107-550f-4be7-9445-bbf6780c762b" />
+
+
 
 ### Three ways to collect a defined soil sample
 
@@ -331,8 +339,15 @@ All three require an explicit bulk-volume or sampled-area calculation, actual de
 - [`_references/`](../_references/) — papers cited by the workshop.
 
 > 🧩 **[PLACEHOLDER — SLIDE DECK]** Add the completed Part 1 `.pptx` and `.pdf` here after upload.
->
-> 🔗 **[PLACEHOLDER — VIDEO]** Add the WWF vegetation video playlist when its URL is confirmed.
+
+
+Link to carbon library - https://wwf.ca/carbon-measurement/
+
+Link to videos -
+
+Measuring carbon in non-tree vegetation - https://www.youtube.com/watch?v=Un5PZrs0BWU
+
+Measuring carbon in trees - https://youtu.be/OWsjbQJDe8A?si=N7pgIj-CM4XyBtDH
 
 ---
 
