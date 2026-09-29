@@ -6,6 +6,7 @@ Companion tools for [Part 2 — Project Planning](../).
 |---|---|---|
 | **[Sample Allocation Calculator](grassland-sample-allocation.xlsx)** | Sizes **soil and roots separately** from your own priors and precision targets, applies the small-sample adjustment, and allocates the result across strata by area. Writes an assumptions statement for your project record. | Step 4 |
 | **[Sample Size Explorer](index.html)** | Reveals a simulated carbon surface one sample at a time so you can watch the estimate and its interval respond. Compare-both mode shows why a more variable pool needs more samples for the same relative precision. Open the file in a browser. | Background, Step 4 |
+| **[Grassland Sampling Design Tool](GrasslandSamplingTool_GEE.js)** | The Earth Engine planner for Steps 1–5: boundary, zones (several polygons per zone), separate soil and root sample sizes, area-proportional allocation, random / grid / composite placement, and a field-package export. Uses the same arithmetic as the workbook. | Steps 1–5 |
 | [`_superseded/`](_superseded/) | The Forests GEE tool that used to stand in here. Reference only — see the note inside. | — |
 
 ---
@@ -24,12 +25,7 @@ script and copy them across, so the workshop and the calculator cannot disagree.
 
 ## Still to come
 
-> 🧩 **[PLACEHOLDER — SPATIAL PLANNER]** A map-based planner that takes a drawn boundary and
-> strata, allocates samples, generates locations from a recorded random seed, and exports CSV plus
-> GeoJSON/KML. Until it exists, use the
-> [boundary template](../templates/grassland-boundary-template.geojson) with QGIS, ArcGIS or Earth
-> Engine, and record the seed and any replacements on the
-> [planning worksheet](../templates/project-planning-worksheet.md).
+> 🧩 **[PLACEHOLDER — APP LINK]** Publish `GrasslandSamplingTool_GEE.js` as an Earth Engine App and add its URL here and in Part 2. Until then, paste the script into the Code Editor and press Run.
 
 > 🧩 **[PLACEHOLDER — GOOGLE SHEETS COPY]** A maintained Sheets copy of the calculator, for teams
 > without Excel.
