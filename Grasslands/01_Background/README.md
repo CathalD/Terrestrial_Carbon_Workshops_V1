@@ -124,24 +124,11 @@ Because roots deliver carbon below the surface, a shallow sample can miss part o
 | **Roots** | A smaller carbon pool but potentially a large share of living biomass | Can vary seasonally and spatially. |
 | **Shoots** | A standing crop measured at the sampling date | Can change within a season through growth, senescence, grazing, mowing, or fire. |
 
-To put these numbers in context, [Sothe et al. (2022)](https://doi.org/10.1029/2021GB007213) mapped organic carbon in plants and soils across Canada at 250 m. They report no grassland-specific value, so each bar below is grouped by what was measured and to what depth. Soil to 30 cm is the one like-for-like comparison.
 
-<p align="center">
-  <img src="images/ecosystem_carbon_comparison.svg" alt="Bar chart in kg C per square metre. Plant carbon: forests 6.2, worked-example grassland roots to 30 cm and shoots 1.0. Soil organic carbon to 30 cm: Canada 13.2, worked-example grassland 11.0. Soil organic carbon to 1 m: Canada 36.4, peatlands 81, Hudson Plains ecozone 109." width="100%">
-</p>
-
-What the national maps show:
-
-- **Soil holds most of Canada's terrestrial carbon.** Soils store about 306 Pg C in the top metre, roughly 14 times the 21 Pg C in all plants, living and dead.
-- **Forests hold far more carbon in plants than grasslands do.** Forest trees, roots, and dead wood average about 6.2 kg C/m². In the worked-example grassland, roots and shoots together hold about 1. In a grassland, nearly all the carbon is in the soil.
-- **Peatlands are the hotspot.** They cover about 12% of Canada but hold about a third of the top-metre soil carbon (98 of 306 Pg C), averaging 81 kg C/m² against 36.4 nationally. The Hudson Plains average about 109.
-- **A 30 cm sample misses most of it.** The top 30 cm holds about 36% of the carbon in the first metre, and the second metre adds another 266 Pg C. The authors conclude that estimates limited to 30 cm seriously underestimate soil carbon.
-- **These are modelled means with wide uncertainty.** The 90% interval on the 306 Pg C is ±147 Pg C, and it is widest where stocks are largest. The worked-example soil (11.0 kg C/m² to 30 cm) is within one standard deviation of the national mean (13.2 ± 10), but it is constructed data, not a measurement.
-- **They are organic carbon only.** The study in the next section reports total carbon, which includes carbonate. Keep the two apart.
-
+(Edit this section below as a drop down menu for "Extra info"
 ### Differences in carbon stock relate to grassland type and stewardship
 
-A carbon stock reflects the plant community growing on it, and a change in that community can move it. [Maxwell et al. (2024)](https://www.nature.com/articles/s43247-024-01795-9) measured this in sagebrush steppe in Idaho, USA, where exotic annual grasses such as cheatgrass (*Bromus tectorum*) and the wildfires they promote have converted deep-rooted perennial shrubland to annual grassland. They sampled all four combinations of burned or unburned and invaded or uninvaded land, to 1 m depth.
+A carbon stock reflects the plant community growing on it,. [Maxwell et al. (2024)](https://www.nature.com/articles/s43247-024-01795-9) measured annual grasses and the wildfires they promote. They sampled all four combinations of burned or unburned and invaded or uninvaded land, to 1 m depth, the findings show:
 
 <table>
 <tr>
@@ -196,23 +183,20 @@ Returning a burned and invaded site to high-carbon shrubland takes more than ret
 
 <sub>Figures 1, 2 and 4 from Maxwell, T.M., Quicke, H.E., Price, S.J. & Germino, M.J. (2024). Annual grass invasions and wildfire deplete ecosystem carbon storage by >50% to resistant base levels. *Communications Earth & Environment* 5, 669. [doi:10.1038/s43247-024-01795-9](https://www.nature.com/articles/s43247-024-01795-9). Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).</sub>
 
-> 🧩 **[PERMISSION CHECK]** Fig. 4's credit line reads "This original image was made for exclusive use by the authors by Mason Otis." The article's licence excludes third-party material that a credit line marks otherwise, so confirm Fig. 4 may be reused (corresponding author: M. J. Germino, USGS) or redraw the concept for the workshop.
-
-> [!IMPORTANT]
-> **What transfers to a Canadian grassland project, and what does not**
-> - **Most of the difference was deep.** Two-thirds of the soil carbon lay between 40 cm and 1 m, and invasion and fire changed deep carbon more than surface carbon. A 30 cm core would have missed much of the effect. See [How deep should the project sample?](#how-deep-should-the-project-sample)
-> - **These are total-carbon stocks.** The lab measured total carbon without separating organic from inorganic (carbonate) carbon, and the authors expect deep dryland carbon to be mostly inorganic. Compare these numbers only with other total-carbon figures, not with soil *organic* carbon.
-> - **The setting is US cold-desert sagebrush steppe**, with 253–377 mm of precipitation a year. The mechanisms transfer: plant community change reaching deep soil carbon, and thresholds that make some losses hard to reverse. The percentages are not Canadian values.
-
-The ball-and-cup picture treats a carbon stock as the outcome of inputs, losses, and disturbance over time. The next section turns that into curves: a stock building toward equilibrium, a single disturbance knocking it back, and overlapping disturbances tipping it into a lower state, the same move as the ball crossing into a new cup.
-
 ---
 
 ## Carbon accumulation and equilibrium
 
-Carbon stocks change through the balance of inputs and outputs. Plants add carbon through production and transfers to the soil. Respiration, decomposition, erosion, harvest, fire, and other processes can remove or redistribute it.
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/27ae6e05-a7f6-4cac-8755-b644ac365021" />
 
-As a simplified teaching model, an ecosystem may approach a relatively stable long-term stock when average inputs and outputs become similar. This is an **equilibrium concept**, not a claim that the ecosystem stops changing. **Net ecosystem carbon balance** describes the net change over a defined period and system boundary.
+
+Carbon stocks change through the balance of inputs and outputs. Plants add carbon through production and transfers to the soil. Respiration, decomposition, erosion, fire, and other processes can remove or redistribute it.
+
+As a simplified model, an ecosystem may approach a relatively stable long-term stock when average inputs and outputs become similar, called the ecosystems **carbon equilibrium**. In addition, we can say the **Net ecosystem carbon balance** describes the net change over a defined period and system boundary.
+
+
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/489788e5-9b1a-460b-b73b-f3c901eb8435" />
+
 
 The graphs below preserve the accumulation sequence used in the workshop presentation: carbon entering the ecosystem in green, carbon leaving in red, and the resulting stock or balance in black.
 
@@ -225,7 +209,7 @@ The graphs below preserve the accumulation sequence used in the workshop present
 </td>
 <td width="40%">
 
-A simplified baseline curve. As annual inputs and losses approach one another, the stored amount levels toward the dashed equilibrium line.
+A simplified baseline curve. As annual inputs and losses approach one another, the stored amount levels toward the dashed equilibrium line, signalling the ecosystem has reached in **Net ecosystem carbon balance**
 
 </td>
 </tr>
@@ -237,7 +221,7 @@ A simplified baseline curve. As annual inputs and losses approach one another, t
 </td>
 <td width="40%">
 
-The same teaching model with a disturbance that causes a carbon loss followed by recovery.
+The same teaching model with a disturbance that causes a carbon loss followed by recovery, a sign of a healthy or **resilient ecosystem**
 
 </td>
 </tr>
@@ -251,27 +235,16 @@ The same teaching model with a disturbance that causes a carbon loss followed by
 
 Overlapping disturbances can prevent recovery and move the ecosystem toward a lower carbon state.
 
-**Pulse disturbances** act abruptly. **Press disturbances** act continuously or repeatedly over longer periods. Some real disturbances contain both components.
+**Pulse disturbances** are forces that act abruptly. **Press disturbances** act continuously or repeatedly over longer periods. These can overlap, often referred to as **Multiple Stressors** or **Cumulative effects**,  
 
 </td>
 </tr>
 </table>
 
-### Disturbance in grasslands
 
-The direction and size of a carbon response depend on ecosystem, soil, climate, intensity, duration, recovery, and the carbon pool being measured. Use the table as a set of hypotheses to test—not as a universal ranking.
+Disturbance is a natural and essential component of many Canadian ecosystems and is not inherently negative. In grasslands, for example, periodic disturbances such as fire, grazing, drought, and flooding have historically shaped ecosystem structure and function. Similarly, many forest species have evolved adaptations to recurring disturbances, including serotinous species whose seeds are released in response to fire. The frequency and intensity of disturbance events influence ecosystem health, biodiversity, and long-term resilience, and many species are adapted to specific disturbance regimes.
 
-| Disturbance or management change | Pulse/press framing | Potential pathway | Timescale to consider |
-|---|---|---|---|
-| **Conversion to cropland** | Initial pulse plus ongoing press | Breaking perennial cover, disturbing aggregates, changing plant inputs and depth distribution. | Years to decades. |
-| **Heavy or poorly timed grazing** | Press or repeated pulses | Reduced cover or root inputs, compaction, erosion, and composition change. | Seasons to decades. |
-| **Managed grazing** | Press with variable direction | Outcomes depend on intensity, timing, recovery, climate, and starting condition. | Years to decades. |
-| **Fire** | Pulse within a fire regime | Removes above-ground material rapidly; below-ground effects depend on severity, frequency, and site. | Immediate to decades. |
-| **Fire exclusion in savannah/parkland** | Press | Woody encroachment changes above- and below-ground pools while altering the grassland ecosystem. | Decades. |
-| **Drought** | Pulse or repeated/long-term press | Reduces production and can shift allocation and species composition. | Seasons to decades. |
-| **Invasion** | Press | Changes species traits, rooting patterns, litter, and disturbance interactions. | Years to decades. |
-
-> 📚 **[REFERENCES NEEDED]** Add grassland- and region-specific sources for every disturbance pathway and timescale before presenting this table as evidence. Avoid unsupported claims such as a single “largest” loss pathway across all grasslands.
+Carbon dynamics provide a useful indicator of these responses, as changes in carbon storage, sequestration, and fluxes can reveal how ecosystems are affected by disturbance and subsequent recovery. Monitoring carbon responses can therefore help identify environmental stressors, assess ecosystem resilience, and evaluate whether ecosystems are maintaining their capacity to recover and function under changing disturbance regimes.
 
 ---
 
@@ -290,54 +263,6 @@ Use the visualizer to ask:
 
 > [!NOTE]
 > The visualizer is a conceptual teaching tool, not a calibrated prediction for a specific grassland. Record the assumptions used in any workshop exercise.
-
----
-
-## What is soil carbon—and how deep does it go?
-
-Soil organic carbon is carbon in organic compounds found in living organisms, residues, microbial products, and stabilized soil organic matter. A soil carbon **stock** combines carbon concentration with the amount of soil in a defined area and depth or equivalent mass.
-
-Unlike a single sediment layer accumulating from above, grassland soil receives inputs both at the surface and throughout the rooting profile. That makes the selected sampling depth and bulk-density method part of the definition of the reported stock.
-
-### How deep should the project sample?
-
-<table>
-<tr>
-<td width="55%">
-
-The current workshop recommendation is to sample the **full accessible profile** to parent material or refusal, then calculate standard reporting windows from the same profile.
-
-Fixed windows such as **0–30 cm** and **0–1 m** are useful for comparison with studies or inventories that use them, but they should be identified as reporting windows rather than assumed to contain the complete grassland stock.
-
-Bulk density matters because the same depth can contain different masses of soil. Repeated comparisons may require an **equivalent soil mass** approach so that like masses—not only like depths—are compared.
-
-</td>
-<td width="45%">
-
-The equivalent-soil-mass concept is developed in [Part 5 — Monitoring](../05_Monitoring/#step-4--equivalent-soil-mass). A core intended for that comparison generally needs material below the reporting depth so the reference mass can be matched.
-
-</td>
-</tr>
-</table>
-
-<p align="center">
-  <img src="images/soil_profile_vs_30cm.svg" alt="Depth profiles of soil and root carbon in five prairie plots cored to 60 cm. About 30% of the soil carbon and 29% of the root carbon in the 0–60 cm profile lie below 30 cm, and roots were still present at 60 cm." width="100%">
-</p>
-
-In the workshop's worked example, a 30 cm core would have missed **about 30% of the soil carbon and 29% of the root carbon** that a 60 cm core recovered. Root carbon per 10 cm barely falls between 20–30 cm (0.11 kg C/m²) and 30–60 cm (0.10). Roots were still present at 60 cm, so even the deeper figure is a minimum.
-
-| Increment | Soil C (kg C/m²) | Root C (kg C/m²) |
-|---|---:|---:|
-| 0–10 cm | 4.81 | 0.42 |
-| 10–20 cm | 3.51 | 0.22 |
-| 20–30 cm | 2.54 | 0.11 |
-| **0–30 cm** | **10.86** | **0.75** |
-| 30–60 cm | 4.76 | 0.31 |
-| **Share below 30 cm** | **30%** | **29%** |
-
-*Mean of the five prairie plots cored to 60 cm; UP-03 hit refusal at 30 cm and is excluded. Constructed teaching data from the [Worked Example](../Worked_Example/), not a regional value.*
-
-> 📚 **[METHOD REVIEW NEEDED]** Confirm the full-profile recommendation, reporting depths, and equivalent-soil-mass workflow against the final soil guide, calculator, and cited grassland literature.
 
 ---
 
@@ -382,14 +307,6 @@ All three require an explicit bulk-volume or sampled-area calculation, actual de
 > [!TIP]
 > Monitoring changes the design before the first field visit. Permanent plots, relocation, destructive-sample offsets, equivalent-soil-mass requirements, and the number of plots must be planned in advance. If monitoring is an objective, read [Part 5](../05_Monitoring/) before finalizing Part 2.
 
-### Know your region before you plan
-
-Establish two things early:
-
-- **How deep can the team sample with the proposed method?** A short pilot with a probe, corer, or auger can reveal shallow bedrock, stones, compaction, or very deep profiles.
-- **What is the management history, and who can document it?** Landholders, managers, Indigenous knowledge holders, restoration staff, and project records may hold different parts of that history. Follow the project's consent, attribution, and data-governance requirements.
-
-> 🔗 **[REGIONAL PROTOCOL NEEDED]** Add the relevant grassland regional protocol here when one is available. The Forests workshop's Southern Ontario–St. Lawrence protocol is not a grassland substitute.
 
 ---
 
