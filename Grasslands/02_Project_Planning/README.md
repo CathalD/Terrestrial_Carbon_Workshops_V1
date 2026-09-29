@@ -60,7 +60,8 @@ An alternative for teams that prefer to calculate plot and sample requirements w
 
 *Used primarily in Step 4.*
 
-> 🧩 **[PLACEHOLDER — SPREADSHEET SCREENSHOT]** Add a screenshot showing the project inputs, soil and root targets, per-stratum allocation, and assumptions summary.
+> For Claude - link to spreadsheet screenshot - <img width="379" height="307" alt="image" src="https://github.com/user-attachments/assets/9cef9db7-601c-44ad-aaa8-6c0be0238cdb" />
+
 
 </td>
 </tr>
@@ -158,7 +159,7 @@ On the right, we see how each sample on the map is combined together to estimate
 
 <br>
 
-This workshop follows a hypothetical team planning a grassland carbon survey in their savannah following restoration projects across their landscape
+This workshop follows a hypothetical team planning a grassland carbon survey in their savannah grasslands, following pre and post restoration projects across their lands
 
 They want to answer two questions:
 
