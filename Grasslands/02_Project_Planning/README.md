@@ -50,7 +50,8 @@ The primary spatial workflow. Draw or upload the boundary, add strata, select po
 
 *Used throughout Steps 1–5.*
 
-> 🧩 **[PLACEHOLDER — TOOL PREVIEW]** Add a launch button and overview screenshot when the tool is ready.
+> 🧩 **[PLACEHOLDER — TOOL PREVIEW]** For claude - image of tool screenshot - <img width="1305" height="682" alt="Screenshot 2026-09-29 at 14 03 29" src="https://github.com/user-attachments/assets/de89f3f6-832a-4225-9a03-c4a45bef9b3e" />
+
 
 </td>
 <td width="50%">
@@ -171,7 +172,7 @@ They want to answer two questions:
 
 They expect to measure soil, roots, ground vegetation, shrubs, and scattered trees. Because root biomass is more variable and expensive to process, they will set separate soil and root targets. They also want the option to revisit the site, so permanent-plot requirements must be decided before fieldwork.
 
-> 🧩 **[PLACEHOLDER — WORKED EXAMPLE]** Create `../Worked_Example/02_Project_Planning.md`. If the underlying project is private, use explicitly illustrative areas, variability values, and sample counts. Do not publish private site coordinates.
+ **[PLACEHOLDER — INSERT WORKED EXAMPLE]** 
 
 </details>
 
@@ -194,6 +195,9 @@ The boundary may be a polygon drawn on a map or an existing management unit. Wha
 <br>
 
 > 🧩 **[PLACEHOLDER — EXAMPLE DATA]** Add an illustrative site area, the boundary rule, exclusions, and whether each included unit is native, seeded, or restored. Link to the full worked example.
+>
+> For claude - link to image of tool screenshot here- <img width="1149" height="642" alt="Screenshot 2026-09-29 at 14 06 03" src="https://github.com/user-attachments/assets/7c69eb83-873d-4ef0-8a60-c678892059f4" />
+
 
 </details>
 
@@ -204,19 +208,19 @@ The boundary may be a polygon drawn on a map or an existing management unit. Wha
 <td width="45%">
 
 > 🧩 **[PLACEHOLDER — TOOL SCREENSHOT]** Add `images/step1_tool_boundary.webp`: drawing or uploading a study boundary, marking exclusions, and displaying net area.
+>
+> <img width="1150" height="651" alt="Screenshot 2026-09-29 at 14 07 24" src="https://github.com/user-attachments/assets/92fc7ee1-9dfb-4f90-8783-caa19fd79946" />
 
 </td>
 <td width="55%">
 
 **In the Terrestrial Carbon Planning Tool:**
 
-1. Draw or upload the project boundary.
-2. Mark areas that are not part of the target ecosystem.
-3. Confirm the net area in m² and hectares.
-4. Write one sentence stating the inclusion rule.
-5. Save the boundary and a static reference map.
+Draw or upload the project boundary.
 
-**Spreadsheet route:** record the same boundary and area in the spreadsheet, then save the actual polygon in QGIS, ArcGIS, Earth Engine, or the GIS used by the project.
+Here you have the option to draw the area using the geometry tools on the top left of the map, or upload a google earth engine asset.
+
+Once finished, select "Measure this site" to obtain the area in meters squared (m^2)
 
 </td>
 </tr>
@@ -224,15 +228,11 @@ The boundary may be a polygon drawn on a map or an existing management unit. Wha
 
 The [`grassland-boundary-template.geojson`](templates/grassland-boundary-template.geojson) provides a manual starting point if the planning tool is unavailable.
 
-> [!WARNING]
-> **Do not read an area directly from coordinates in degrees.** Calculate area in an appropriate metre-based projected coordinate system.
 
 > [!TIP]
 > **✅ Before moving on, you should have:**
 > - A boundary polygon or clearly sketched area
 > - Its total area in m² and hectares
-> - A written inclusion/exclusion rule
-> - Internal exclusions removed from the calculated area
 
 ---
 
@@ -248,44 +248,18 @@ The [`grassland-boundary-template.geojson`](templates/grassland-boundary-templat
 
 Stratification can reduce within-group variation and makes planned comparisons possible. A useful stratum is linked to the project question, can be mapped, and has an area that can be used when combining results.
 
-Do not create strata simply because a map layer is available. Each one adds field and analytical requirements.
 
-### What counts as meaningfully distinct?
 
-| Divide by | Possible strata | Why it may matter |
-|---|---|---|
-| **Restoration age** | Recently restored · 10 years · 20 years · unrestored | Creates an explicitly qualified chronosequence comparison. |
-| **Land-use history** | Never cultivated · cultivated and reseeded · long-term pasture | Cultivation and reseeding may change roots, soil structure, and carbon distribution. |
-| **Grazing regime** | Ungrazed · season-long · rotational · heavily stocked | May affect plant allocation, surface cover, and compaction. |
-| **Management unit** | Pasture, stewardship unit, treatment block | Aligns estimates with decisions the project can act on. |
-| **Fire history** | Recently burned · years since burn · long unburned | Important where fire structures savannah or parkland vegetation. |
-| **Seeded/native status** | Native sward · tame or introduced species | May correspond to different root distributions and management histories. |
-| **Soil or texture class** | Mapped soil polygons | May influence carbon storage and coarse-fragment corrections. |
-| **Slope position** | Upper · midslope · lower · depression | May correspond to moisture and material redistribution. |
+[Part 5 — Monitoring](../05_Monitoring/). has other important details for monitoring carbon over time and comparing different age classes 
 
-> 📚 **[CITATIONS NEEDED]** Add full references supporting the expected effects of cultivation, grazing, fire, species composition, soil texture, and slope position. Treat the table as a set of candidate variables, not universal rules.
-
-> [!TIP]
-> A restoration chronosequence substitutes **space for time**. Age classes must be comparable in other important respects, and remaining differences should be documented. Repeated measurement of the same place is covered in [Part 5 — Monitoring](../05_Monitoring/).
-
-### The conversation is part of the method
-
-Management history is often held by the people who work on the land rather than in a spatial dataset. Budget time to record grazing regime and stocking, cultivation and seeding, burn years, restoration treatments, droughts, wildfire, and unusual disturbances.
-
-The calculator's `1. Plot & Site Log` carries `Management`, `Grazing regime`, `Years since fire`, `Cultivation history`, `Restoration year` and `Native or seeded` fields for exactly this. **They are descriptive.** Nothing in the workbook computes from them — they are there so that when an interval comes out wide, you can post-stratify on something you actually recorded.
-
-### Savannah and parkland: fire may define a stratum
-
-Where fire is part of the management or restoration question, time since burn should be considered during stratification rather than added as an afterthought. Recently burned and long-unburned units may differ in standing biomass, litter, shrub encroachment, and potentially surface soil properties.
-
-> 📚 **[CITATION NEEDED]** Add ecosystem-appropriate evidence before making a quantitative claim about the direction or size of fire effects on soil carbon.
 
 <details>
 <summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>how the Black Oak team divided the site</i></summary>
 
 <br>
 
-> 🧩 **[PLACEHOLDER — EXAMPLE DATA]** For each stratum, add its mapped rule, area in m², restoration and burn history, expected source of variation, and whether it is a reporting unit, comparison unit, or both.
+> 🧩 **[PLACEHOLDER — EXAMPLE DATA]** For claude - Here is a screenshot of the stratification - <img width="1252" height="648" alt="Screenshot 2026-09-29 at 14 13 07" src="https://github.com/user-attachments/assets/0bd12d58-841d-4a6a-a17b-33d0d462467c" />
+
 
 </details>
 
@@ -295,21 +269,24 @@ Where fire is part of the management or restoration question, time since burn sh
 <tr>
 <td width="45%">
 
-> 🧩 **[PLACEHOLDER — TOOL SCREENSHOT]** Add `images/step2_tool_strata.webp`: the boundary divided into named grassland strata with the area of each displayed.
+> 🧩 **[PLACEHOLDER — TOOL SCREENSHOT]** For claude here is stratification by land cover class - <img width="1253" height="680" alt="Screenshot 2026-09-29 at 14 14 22" src="https://github.com/user-attachments/assets/0f0d7eaf-30a6-4515-b701-420bb5e78680" />
+
+and here is manual by drawing them - <img width="1305" height="682" alt="Screenshot 2026-09-29 at 14 03 29" src="https://github.com/user-attachments/assets/81899e2b-e7bc-478f-9453-4cbe9abaefe7" />
+
+
 
 </td>
 <td width="55%">
 
 **In the Terrestrial Carbon Planning Tool:**
 
-1. Start with the boundary from Step 1.
-2. Add only divisions that answer the project question or are expected to materially affect carbon estimates.
-3. Give each stratum an objective name and mapped rule.
-4. Confirm its area.
-5. Record whether it is a reporting unit, a comparison group, or both.
-6. Add management history that cannot be seen on the map.
+Start with the boundary from Step 1, if your new areas are outside this boundary, you can re-draw the initial boundary
 
-**Spreadsheet route:** enter one row per stratum with its name, area, rule, and management notes.
+Here you have the option to stratify your area by hand - giving each strata its own name. The app will assign it a unique colour and treat it as distinct.
+
+
+As well, you can choose to stratify automatically, using pre-defined land cover classes, or grouping based on satelite imagery
+
 
 </td>
 </tr>
@@ -319,10 +296,8 @@ Do not create strata simply because a map layer is available. Every additional s
 
 > [!TIP]
 > **✅ Before moving on, you should have:**
-> - One defensible study area or a set of clearly mapped strata
-> - A name, rule, and area in m² for every stratum
-> - The management history behind each stratum
-> - A note explaining which comparisons the strata are intended to support
+> - One larger study area or a set of mapped strata
+> - A name, and area in m² for every stratum
 
 ---
 
