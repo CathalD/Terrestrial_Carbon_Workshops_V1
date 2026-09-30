@@ -71,6 +71,10 @@ var CONFIG = {
   // --- Composite sampling --------------------------------------------------------
   COMPOSITE_RADIUS_M: 5,     // subsamples fall in a ring around each centre
   COMPOSITE_SUBSAMPLES: 5,
+  // Share of composites PAIRED with an individual core at their centre. That core
+  // is bagged and analysed on its own, so each paired composite can be compared
+  // with a single core from the same spot. The rest are UNPAIRED (composite only).
+  COMPOSITE_PAIRED_FRACTION: 0.4,
 
   // --- Dynamic World composite for stratification --------------------------------
   // Growing season only. A calendar-year composite of a Canadian site is dominated
@@ -620,7 +624,8 @@ var BCLayout = {
       short: 'composite',
       rule: 'Composite: pool every subsample core of this composite into one bag',
       blurb: 'Subsample cores around each centre are pooled into one lab sample. The sample ' +
-             'size counts composites, not cores. Measured once: pooling removes the within-plot ' +
+             'size counts composites, not cores. A share of composites, set below, is paired with ' +
+             'an individual core at the centre. Measured once: pooling removes the within-plot ' +
              'information a re-measured site needs (Part 5), so do not composite a site that ' +
              'may be monitored.' }
   ],
@@ -829,6 +834,21 @@ var BCLayout = {
   // --- composite subsamples -----------------------------------------------------
   // Subsamples fall in a ring between half the radius and the radius around the
   // centre, at evenly spread bearings with a random start.
+
+  // --- paired and unpaired composites ------------------------------------------
+  // How many of n composites are paired, for a pairing fraction f. Rounded to the
+  // nearest whole composite, so the realised share is as close to f as n allows.
+  pairedCount: function (n, f) {
+    if (!(n > 0) || !(f > 0)) return 0;
+    return Math.min(n, Math.round(n * f));
+  },
+
+  // CP_001 paired, CU_002 unpaired — the pairing is readable from the label.
+  compositeId: function (paired, n) {
+    var num = String(n);
+    while (num.length < 3) num = '0' + num;
+    return (paired ? 'CP_' : 'CU_') + num;
+  },
 
   compositeSubsamples: function (centre, subsampleCount, radiusM, seed) {
     var rand = this.rng(seed), out = [], i;
@@ -1086,6 +1106,15 @@ var BCTest = {
       codes[BCLayout.STYLES[i].code] = true;
     }
     this.eq('style codes are distinct', dup, 0);
+    this.eq('composite pairing: 40% of 20 is 8', BCLayout.pairedCount(20, 0.4), 8);
+    this.eq('...40% of 11 rounds to 4',          BCLayout.pairedCount(11, 0.4), 4);
+    this.eq('...0% pairs none',                  BCLayout.pairedCount(11, 0), 0);
+    this.eq('...100% pairs all',                 BCLayout.pairedCount(11, 1), 11);
+    this.eq('paired composite id',   BCLayout.compositeId(true, 3),   'CP_003');
+    this.eq('unpaired composite id', BCLayout.compositeId(false, 12), 'CU_012');
+    var pz = BCLayout.pickIndices(20, BCLayout.pairedCount(20, 0.4), CONFIG.SEED + 2000);
+    this.eq('paired composites chosen at random, no repeats',
+            pz.length === 8 && pz[0] !== pz[1], true);
     this.eq('paired rule says OUTSIDE the plot',
             BCLayout.style('paired').rule.indexOf('OUTSIDE') >= 0, true);
   },
@@ -1714,7 +1743,7 @@ var UI = {
   WIDE:    { stretch: 'horizontal', margin: '0 8px 4px 8px' },
   ZONE_COLOURS: ['3F7D3A', 'C8763C', '4C6E8C', '8C5B8C', 'A8843C', '5B8C8C'],
   // One colour per plot style, chosen to stand out on satellite imagery.
-  STYLE_COLOURS: { paired: '00E5FF', unpaired: 'FFD400', composite: 'FF6D00',
+  STYLE_COLOURS: { paired: '00E5FF', unpaired: 'FFD400', composite: 'FF6D00', compPaired: '76FF03',
                    subsample: 'FFFFFF', roots: 'FF3DF5' },
   PLOT_LAYER_PREFIX: 'Plots · '
 };
@@ -1971,7 +2000,14 @@ var subsampleBox = ui.Slider({ min: 3, max: 10, value: CONFIG.COMPOSITE_SUBSAMPL
                                onChange: function () { if (State.style === 'composite') recompute(); } });
 var radiusBox    = ui.Slider({ min: 2, max: 20, value: CONFIG.COMPOSITE_RADIUS_M, step: 1, style: UI.WIDE,
                                onChange: function () { if (State.style === 'composite') recompute(); } });
+var pairBox      = ui.Slider({ min: 0, max: 1, value: CONFIG.COMPOSITE_PAIRED_FRACTION, step: 0.05,
+                               style: UI.WIDE,
+                               onChange: function () { if (State.style === 'composite') { State.placed = null; recompute(); } } });
 var compositeRow = ui.Panel([
+  label('Share of composites PAIRED with an individual centre core (0 = none, 1 = all):', UI.HINT), pairBox,
+  label('A paired composite also has one core taken at its centre, bagged and analysed on its own, ' +
+        'so the composite can be checked against a single core from the same spot. Unpaired ' +
+        'composites are the pooled sample only. Which composites are paired is chosen at random.', UI.HINT),
   label('Subsample cores pooled into each composite:', UI.HINT), subsampleBox,
   label('Composite radius, metres (subsamples fall within this of the centre):', UI.HINT), radiusBox,
   label('The number of composites comes from Step 4. A prior measured on single cores ' +
@@ -2497,6 +2533,7 @@ function recompute() {
                  marginSoil: Es, marginRoot: withRoots ? Er : null,
                  style: State.style, composite: State.style === 'composite',
                  subsamples: subsampleBox.getValue(), radiusM: compositeRadius(),
+                 pairFraction: State.style === 'composite' ? pairBox.getValue() : 0,
                  spacingM: currentSpacing(), plotM2: plotFootprintM2() };
   var centres = 0, soilTotal = 0, rootTotal = 0;
   for (i = 0; i < strata.length; i++) {
@@ -2508,6 +2545,12 @@ function recompute() {
     centres += c; soilTotal += sc.cores; rootTotal += rc ? rc.cores : 0;
   }
   design.centres = centres; design.rootSamples = rootTotal;
+  design.pairedTotal = 0;
+  for (i = 0; i < design.strata.length; i++) {
+    design.strata[i].paired = design.composite
+      ? BCLayout.pairedCount(design.strata[i].cores, design.pairFraction) : 0;
+    design.pairedTotal += design.strata[i].paired;
+  }
   State.design = design;
 
   // --- what to show: each unit on its own line, never one merged "count" ---------
@@ -2522,6 +2565,11 @@ function recompute() {
   designOut.add(label('Soil alone needs ' + soilTotal + '; roots alone need ' + (withRoots ? rootTotal : 0) +
                       '. Roots are washed from the same cores, so the plot count is the larger in each zone.',
                       UI.HINT));
+  if (design.composite) {
+    designOut.add(label('Paired composites: ' + design.pairedTotal + ' (each with one centre core, analysed ' +
+                        'separately)   ·   Unpaired: ' + (centres - design.pairedTotal) +
+                        '   ·   Lab samples: ' + (centres + design.pairedTotal), UI.NOTE));
+  }
   if (withRoots && rootTotal < centres) {
     designOut.add(label('Roots will be washed from a RANDOM subset of ' + rootTotal + ' of the ' + centres +
                         ' samples. The tool marks that subset in the export; pick it before looking at the cores.',
@@ -2669,24 +2717,45 @@ function finishPlacement(results) {
     BCLayout.pickIndices(res.points.length, Math.min(st.rootSamples, res.points.length),
                          CONFIG.SEED + 1000 + i).forEach(function (k) { rootIdx[k] = true; });
 
+    // which composites are paired with a centre core: a seeded random subset, per zone
+    var pairIdx = {};
+    if (d.composite) {
+      BCLayout.pickIndices(res.points.length, BCLayout.pairedCount(res.points.length, d.pairFraction),
+                           CONFIG.SEED + 2000 + i).forEach(function (k) { pairIdx[k] = true; });
+    }
+
     for (j = 0; j < res.points.length; j++) {
       counter += 1;
-      var pid = BCLayout.plotId(d.style, counter);
+      var paired = !!pairIdx[j];
+      var pid = d.composite ? BCLayout.compositeId(paired, counter) : BCLayout.plotId(d.style, counter);
       // Field names are 10 characters or fewer, so a shapefile export keeps them whole.
       rows.push({ lon: res.points[j].lon, lat: res.points[j].lat, plot_id: pid,
                   plot_style: d.style,
                   point_type: d.composite ? 'composite_centre' : 'plot_centre',
-                  core_rule: style.rule + (d.composite ? ' (' + d.subsamples + ' cores)' : ''),
+                  comp_pair: d.composite ? (paired ? 'paired' : 'unpaired') : '',
+                  core_rule: style.rule + (d.composite ? ' (' + d.subsamples + ' cores)' +
+                             (paired ? '; also take the centre core ' + pid + '_CC and bag it separately' : '')
+                             : ''),
                   zone: r.zone, layout: res.layout, seed: res.seed,
                   comp_id: d.composite ? pid : '', subsample: 0,
                   root_wash: rootIdx[j] ? 1 : 0, plot_m2: d.plotM2,
                   spacing_m: Math.round(d.spacingM * 10) / 10 });
+      if (paired) {
+        rows.push({ lon: res.points[j].lon, lat: res.points[j].lat, plot_id: pid + '_CC',
+                    plot_style: d.style, point_type: 'centre_core', comp_pair: 'paired',
+                    core_rule: 'Individual core at the centre of ' + pid + '; bag and analyse separately',
+                    zone: r.zone, layout: res.layout, seed: res.seed,
+                    comp_id: pid, subsample: 0,
+                    root_wash: rootIdx[j] ? 1 : 0, plot_m2: d.plotM2,
+                    spacing_m: Math.round(d.spacingM * 10) / 10 });
+      }
       if (res.subsamples) {
         for (var s = 0; s < res.subsamples.length; s++) {
           var sub = res.subsamples[s];
           if (sub.centre !== j) continue;
           rows.push({ lon: sub.lon, lat: sub.lat, plot_id: pid + '_S' + sub.subsample,
                       plot_style: d.style, point_type: 'composite_subsample',
+                      comp_pair: paired ? 'paired' : 'unpaired',
                       core_rule: 'Subsample ' + sub.subsample + ' of ' + d.subsamples + ' for ' + pid,
                       zone: r.zone, layout: res.layout, seed: res.seed,
                       comp_id: pid, subsample: sub.subsample,
@@ -2720,26 +2789,40 @@ function finishPlacement(results) {
   // The map carries the labels too: one layer per point type, named for its style.
   removePlotLayers();
   var fc = State.features, P = UI.PLOT_LAYER_PREFIX, C = UI.STYLE_COLOURS;
-  var centreName = d.composite ? 'Composite centres' : capitalise(style.short) + ' plots';
   if (d.composite) {
     map.addLayer(fc.filter(ee.Filter.eq('point_type', 'composite_subsample'))
                    .style({ color: C.subsample, pointSize: 2 }), {}, P + 'Composite subsample cores');
+    map.addLayer(fc.filter(ee.Filter.and(ee.Filter.eq('point_type', 'composite_centre'),
+                                         ee.Filter.eq('comp_pair', 'unpaired')))
+                   .style({ color: C.composite, pointSize: 5 }), {}, P + 'Unpaired composites');
+    map.addLayer(fc.filter(ee.Filter.and(ee.Filter.eq('point_type', 'composite_centre'),
+                                         ee.Filter.eq('comp_pair', 'paired')))
+                   .style({ color: C.compPaired, pointSize: 6, pointShape: 'square' }), {},
+                 P + 'Paired composites (centre core)');
+  } else {
+    map.addLayer(fc.style({ color: C[d.style], pointSize: 5 }), {},
+                 P + capitalise(style.short) + ' plots');
   }
-  map.addLayer(fc.filter(ee.Filter.neq('point_type', 'composite_subsample'))
-                 .style({ color: C[d.style], pointSize: 5 }), {}, P + centreName);
   if (d.root) {
     map.addLayer(fc.filter(ee.Filter.and(ee.Filter.eq('root_wash', 1),
-                                         ee.Filter.neq('point_type', 'composite_subsample')))
+                                         ee.Filter.inList('point_type', ['plot_centre', 'composite_centre'])))
                    .style({ color: C.roots, pointSize: 9, pointShape: 'circle',
                             fillColor: '00000000', width: 2 }), {}, P + 'Roots washed here');
   }
 
-  placeOut.add(label(totalPlaced + ' ' + (d.composite ? 'composite centres' : style.short + ' plots') +
-                     ' placed' + (d.composite ? ', with ' + (rows.length - totalPlaced) +
-                                  ' subsample cores' : '') + '.', UI.OK));
-  placeOut.add(legendRow(C[d.style], d.composite ? 'Composite centre (C_001, C_002, …)'
-                                                 : capitalise(style.short) + ' plot (' + style.code + '_001, …)'));
-  if (d.composite) placeOut.add(legendRow(C.subsample, 'Subsample core (C_001_S1, C_001_S2, …)'));
+  var nPaired = 0;
+  rows.forEach(function (rw) { if (rw.point_type === 'centre_core') nPaired++; });
+  placeOut.add(label(totalPlaced + ' ' + (d.composite ? 'composites' : style.short + ' plots') +
+                     ' placed' + (d.composite ? ': ' + nPaired + ' paired, ' + (totalPlaced - nPaired) +
+                                  ' unpaired, with ' + (totalPlaced * d.subsamples) + ' subsample cores' : '') +
+                     '.', UI.OK));
+  if (d.composite) {
+    placeOut.add(legendRow(C.compPaired, 'Paired composite + centre core (CP_001, core CP_001_CC)'));
+    placeOut.add(legendRow(C.composite,  'Unpaired composite (CU_002, …)'));
+    placeOut.add(legendRow(C.subsample,  'Subsample core (CP_001_S1, CU_002_S1, …)'));
+  } else {
+    placeOut.add(legendRow(C[d.style], capitalise(style.short) + ' plot (' + style.code + '_001, …)'));
+  }
   if (d.root) placeOut.add(legendRow(C.roots, 'Ring: roots washed from this sample'));
   placeOut.add(label(style.rule + '.', UI.HINT));
   placeOut.add(label('Closest pair ' + worst.toFixed(0) + ' m apart; no two plots overlap. ' +
@@ -2764,7 +2847,12 @@ function writeMethods() {
     unpaired:  'Plots are single-use (unpaired) plots, measured once; cores are taken inside the ' +
                'plot after the vegetation is measured. ',
     composite: 'Each sample is a composite of ' + d.subsamples + ' subsample cores taken within ' +
-               d.radiusM + ' m of its centre and pooled for analysis; the sample size counts composites. '
+               d.radiusM + ' m of its centre and pooled for analysis; the sample size counts composites. ' +
+               (d.pairFraction > 0
+                 ? 'A random ' + Math.round(d.pairFraction * 100) + '% of composites (' + d.pairedTotal +
+                   ') were paired with an individual core taken at the composite centre and analysed ' +
+                   'separately; the remaining ' + (d.centres - d.pairedTotal) + ' are unpaired. '
+                 : 'No composites were paired with an individual centre core. ')
   }[d.style];
 
   var text =
@@ -2800,8 +2888,9 @@ function exportCores() {
   var l = ui.Label('Download ' + fmt, UI.LINK);
   l.setUrl(url);
   exportOut.add(l);
-  exportOut.add(label('Every point carries: plot_id (P_ paired, U_ unpaired, C_ composite), plot_style, ' +
-                      'point_type, core_rule (what to do there), zone, layout, seed, comp_id, subsample, ' +
+  exportOut.add(label('Every point carries: plot_id (P_ paired, U_ unpaired; composites CP_ paired, ' +
+                      'CU_ unpaired, _CC centre core, _S subsample), plot_style, point_type, comp_pair, ' +
+                      'core_rule (what to do there), zone, layout, seed, comp_id, subsample, ' +
                       'root_wash (1 = wash the roots), plot_m2, spacing_m, lon and lat.', UI.HINT));
 }
 
