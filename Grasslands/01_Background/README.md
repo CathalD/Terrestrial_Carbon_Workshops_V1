@@ -41,7 +41,7 @@ Carbon is both a **building block of life** and a **key part of the Earth's clim
 </td>
 <td width="42%">
 
-When we talk about **ecosystem carbon**, we mean the carbon stored in the living and dead material and soils of an ecosystem at a defined time.
+When we talk about **ecosystem carbon**, we mean the carbon stored in the living plant materials, detritus, and soils of an ecosystem at a defined time.
 
 This workshop focuses on the pools that can be measured consistently in grasslands: soil, roots, shoots, shrubs, and trees where they occur.
 
@@ -123,6 +123,7 @@ Decomposers transform this organic material in multiple ways. Some carbon return
 
 Because roots deliver carbon below the surface, a shallow sample can miss part of the distribution. That is why actual rooting depth matters when the project chooses sampling depths.
 
+(For Claude - remove the excess text from this figure - jus tkeep the bar labels and the amounts here)
 <p align="center">
   <img src="images/carbon_pools.svg" alt="Bar chart of the worked example: soil 10.97 and roots 0.81 kg C per square metre, both to 30 cm, and shoots 0.17. Soil holds 66 times and roots 4.9 times the carbon of the shoots." width="100%">
 </p>
@@ -357,17 +358,7 @@ The six-step carbon project workflow, from defining the question to monitoring c
 
 ---
 
-## In this section
-
-- `images/banner_background.svg` — section banner.
-- The existing slide images embedded throughout this page — retained beside their original concepts.
-- `images/carbon_pools.svg` — teaching-data comparison of soil, root, and shoot pools, soil and roots both to 30 cm.
-- `images/accumulation_baseline.gif` — baseline accumulation animation.
-- `images/accumulation_pulse.gif` — disturbance-and-recovery animation.
-- `images/accumulation_collapse.gif` — overlapping-disturbance animation.
-- [`_references/`](../_references/) — papers cited by the workshop.
-
-### Slides, library and videos
+### Slides, videos, and other resources
 
 - [Workshop Presentation Slides (PDF)](../CarbonPPT_Grasslands_Generic.pdf)
 - [WWF-Canada Carbon Measurement Library](https://wwf.ca/carbon-measurement/)
