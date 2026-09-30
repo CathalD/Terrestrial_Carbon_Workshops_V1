@@ -11,5 +11,5 @@ grassland tool existed. It is kept for reference only.
 | **Plot footprint** | 400 m², the tree plot — not the soil/root sampling unit |
 | **Pools** | One pool. It has no concept of sizing soil and roots separately, which is the central design decision in [Part 2 Step 4](../../#step-4--decide-how-many-plots-and-samples) |
 
-Use the [Sample Allocation Calculator](../grassland-sample-allocation.xlsx) and the
+The grassland replacement is [`GrasslandSamplingTool_GEE.js`](../GrasslandSamplingTool_GEE.js). The [Sample Allocation Calculator](../grassland-sample-allocation.xlsx) and the
 [Sample Size Explorer](../index.html) instead.
