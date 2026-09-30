@@ -75,9 +75,9 @@ if __name__ == "__main__":
     pools = load_pools()
     total = sum(v for _, v in pools)
 
-    W, H = 760, 214
+    W, H = 760, 174
     X0, MAXW = 150, 440
-    Y0, BARH, GAP = 58, 32, 20
+    Y0, BARH, GAP = 18, 32, 20
     scale = MAXW / max(v for _, v in pools)
     shoots = pools[2][1]
 
@@ -98,10 +98,10 @@ if __name__ == "__main__":
         return f"{r:.0f}×" if r >= 10 else f"{r:.1f}×"
 
 
-    # Pared back on request: the chart states the three values and how many times
-    # the shoot pool each one is, and nothing else. The depth basis stays in the
-    # subtitle because without it the soil and root bars are not comparable, and
-    # the teaching-data label stays because these are not regional values.
+    # Pared back on request: the chart shows only the bar labels and the three
+    # values. Units, the 0-30 cm depth basis and the teaching-data label are in
+    # the caption under the figure in 01_Background/README.md, so keep them in
+    # step with any change here. The ratios to shoots stay in the alt text.
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
         f'viewBox="0 0 {W} {H}" role="img" '
@@ -111,10 +111,6 @@ if __name__ == "__main__":
         f'plots of the worked example: soil to 30 cm {pools[0][1]:.2f}, roots to 30 cm '
         f'{pools[1][1]:.2f} and shoots {shoots:.2f} kilograms of carbon per square metre. Soil '
         f'holds {times(pools[0][1])} and roots {times(pools[1][1])} the carbon of the shoots.</desc>',
-        f'<text x="0" y="20" font-size="15" font-weight="600" fill="{INK}">'
-        f'Carbon in each pool</text>',
-        f'<text x="0" y="38" font-size="12.5" fill="{FAINT}">'
-        f'kg C per m² · soil and roots to 30 cm · worked-example teaching data</text>',
     ]
 
     for i, (label, val) in enumerate(pools):
@@ -127,10 +123,9 @@ if __name__ == "__main__":
             parts.append(f'<path d="{p}" fill="{BAR}"/>')
         else:   # too thin to round; keep a visible minimum so the sliver still reads
             parts.append(f'<rect x="{X0}" y="{y}" width="2" height="{BARH}" fill="{BAR}"/>')
-        ratio = "" if i == 2 else (f'<tspan dx="16" fill="{FAINT}">{times(val)} the shoots</tspan>')
         parts.append(
             f'<text x="{X0 + max(w, 2) + 12:.1f}" y="{y + BARH/2 + 5.5:.1f}" font-size="14.5" '
-            f'fill="{INK}"><tspan font-weight="600">{val:.2f}</tspan>{ratio}</text>')
+            f'fill="{INK}"><tspan font-weight="600">{val:.2f}</tspan></text>')
     parts.append("</svg>")
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)

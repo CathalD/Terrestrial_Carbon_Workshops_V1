@@ -75,7 +75,7 @@ Parts 2–4 focus on measuring **stocks**. [Part 5 — Monitoring](../05_Monitor
 
 ## Grasslands and their carbon pools
 
-Grassland carbon is distributed among the soil, and plant roots and shoots. This includes any forbs, shrubs, standing dead material, litter, and sometimes trees.
+Grassland carbon is distributed among soil, roots, and shoots. The vegetation pools include forbs, shrubs, standing dead material, litter, and sometimes trees.
 
 <table>
 <tr>
@@ -123,9 +123,10 @@ Decomposers transform this organic material in multiple ways. Some carbon return
 
 Because roots deliver carbon below the surface, a shallow sample can miss part of the distribution. That is why actual rooting depth matters when the project chooses sampling depths.
 
-(For Claude - remove the excess text from this figure - jus tkeep the bar labels and the amounts here)
 <p align="center">
   <img src="images/carbon_pools.svg" alt="Bar chart of the worked example: soil 10.97 and roots 0.81 kg C per square metre, both to 30 cm, and shoots 0.17. Soil holds 66 times and roots 4.9 times the carbon of the shoots." width="100%">
+  <br>
+  <sub>Mean carbon in each pool, kg C/m². Soil and roots are to 30 cm depth. Values are worked-example teaching data from six prairie plots, not regional values.</sub>
 </p>
 
 | Pool | Role in this workshop | How quickly it may vary |
@@ -221,7 +222,7 @@ As a simplified model, an ecosystem may approach a relatively stable long-term s
 </p>
 
 
-The graphs below preserve the accumulation sequence used in the workshop presentation: carbon entering the ecosystem in green, carbon leaving in red, and the resulting stock or balance in black.
+In the graphs below, carbon entering the ecosystem is green, carbon leaving is red, and the resulting stock or balance is black.
 
 <table>
 <tr>
@@ -265,9 +266,9 @@ Overlapping disturbances can prevent recovery and move the ecosystem toward a lo
 </table>
 
 
-Disturbance is a natural and essential component of many Canadian ecosystems and is not inherently negative. In grasslands, for example, periodic disturbances such as fire, grazing, drought, and flooding have historically shaped ecosystem structure and function. Similarly, many forest species have evolved adaptations to recurring disturbances, including serotinous species whose seeds are released in response to fire. The frequency and intensity of disturbance events influence ecosystem health, biodiversity, and long-term resilience, and many species are adapted to specific disturbance regimes.
+Disturbance is a natural and essential part of many Canadian grasslands and is not inherently negative. Periodic fire, grazing, drought, and flooding have historically shaped grassland structure and function, and many grassland species are adapted to specific disturbance regimes. The frequency and intensity of disturbance influence ecosystem health, biodiversity, and long-term resilience.
 
-Carbon dynamics provide a useful indicator of these responses, as changes in carbon storage, sequestration, and fluxes can reveal how ecosystems are affected by disturbance and subsequent recovery. Monitoring carbon responses can therefore help identify environmental stressors, assess ecosystem resilience, and evaluate whether ecosystems are maintaining their capacity to recover and function under changing disturbance regimes.
+Carbon dynamics are a useful indicator of these responses: changes in carbon storage, sequestration, and fluxes can show how a grassland is affected by disturbance and how it recovers. Monitoring carbon can therefore help identify stressors, assess resilience, and evaluate whether a grassland is keeping its capacity to recover and function under changing disturbance regimes.
 
 ---
 
@@ -340,8 +341,6 @@ Vegetation is measured in **nested plots**, with the plot size matched to the ve
 </table>
 
 All three require an explicit bulk-volume or sampled-area calculation, actual depths, and a documented treatment of coarse fragments and roots. The field procedures are developed in [Part 3 — Field Methods](../03_Field_Methods/#3-collect-soil).
-
-### The project workflow
 
 The six-step carbon project workflow, from defining the question to monitoring change, is laid out in the [main guide](../README.md#the-carbon-project-workflow).
 

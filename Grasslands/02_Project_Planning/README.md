@@ -30,6 +30,9 @@ Answering these questions is what a **sampling design** aims to achieve. It turn
 
 > Note: The methods here follow WWF-Canada's [Sampling Design Guide](../../_Shared/Sampling-Design-Eng-2026.pdf), [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf), and [Non-Peat Soils Field Guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf).
 
+> [!NOTE]
+> **Which level is this?** The WWF-Canada guide describes three levels of sampling design: Level 1 (basic), Level 2 (intermediate), and Level 3 (advanced). This workshop follows a **Level 2** design. It uses a defined boundary, a calculated sample size, and, where you choose, stratified-random sampling and permanent plots. It is **not** a Level 3 (MRV-ready) design. If you plan to take part in carbon crediting, follow the protocol of the relevant standard before designing your sampling.
+
 Two companion tools appear throughout:
 
 <table>
@@ -37,11 +40,11 @@ Two companion tools appear throughout:
 <td width="50%">
 
 **🗺 Terrestrial Carbon Planning Tool for Grasslands**  
-The primary spatial workflow. Draw or upload the boundary, add strata, select pools, calculate the allocation, configure the nested plot, generate plot centres, and export the field plan.
+The primary spatial workflow. Draw or upload the boundary, add strata (optional), select pools, calculate the allocation, configure the nested plot, generate plot centres, and export the field plan.
 
 *Used throughout Steps 1–5.*
 
-> 🧩 **[PLACEHOLDER — TOOL PREVIEW]** For claude - image of tool screenshot - <img width="1305" height="682" alt="Screenshot 2026-09-29 at 14 03 29" src="https://github.com/user-attachments/assets/de89f3f6-832a-4225-9a03-c4a45bef9b3e" />
+<img width="100%" alt="The Terrestrial Carbon Planning Tool for Grasslands: a map of the study area with the planning panel" src="https://github.com/user-attachments/assets/de89f3f6-832a-4225-9a03-c4a45bef9b3e" />
 
 
 </td>
@@ -63,13 +66,12 @@ An alternative for teams that prefer to calculate plot and sample requirements w
 
 If you want to know how the calculator returns the number it does and dive deeper into the math behind the tools, look to [Appendix A](#appendix-a--a-brief-lesson-in-sampling-logic) at the bottom of this page, where we go through how sample size is estimated before sampling, and how to check whether the sampling met your goals afterwards.
 
-These tools allow users to implement these 5 steps:
-This section covers five steps.
+Together, the tools support five steps. Step 2 is optional.
 
 | # | Step | Answers |
 |---|---|---|
 | 1 | **[Define the study area](#step-1--define-your-study-area)** | *Where, roughly, am I working?* |
-| 2 | **[Stratify the study area](#step-2--stratify-your-site)** | *Does it contain distinct stewardship areas or environmentally distinct sites?* |
+| 2 | **[Stratify the study area](#step-2--stratify-your-study-area-optional)** *(optional)* | *Does it contain distinct stewardship areas or environmentally distinct sites?* |
 | 3 | **[Choose measurements and plot design](#step-3--choose-measurements-and-configure-the-nested-plot)** | *Which pools and plot sizes does the project need?* |
 | 4 | **[Determine how many plots and samples](#step-4--decide-how-many-plots-and-samples)** | *How much field and laboratory sampling is required?* |
 | 5 | **[Place and finalize the plots](#step-5--place-and-finalize-the-plots)** | *Where do plots go, and will they be permanent or single-use?* |
@@ -116,15 +118,14 @@ Put together, a result might read: *"Mean soil carbon = 100 ±20 units at 90% co
 
 These clips come from the **[Sample Size Visualization Tool](https://blue-carbon-hub.projects.earthengine.app/)**.
 
-(For Claude - make the GIF's on the left smaller)
 <table>
 <tr>
-<td width="60%">
+<td width="35%">
 
-<img width="100%" alt="Sample Allocation Visualizer — revealing the true carbon map as samples accumulate" src="images/download%20(2).gif">
+<img width="100%" alt="Sample Size Visualization Tool — revealing the true carbon map as samples accumulate" src="images/sample_viz_reveal.gif">
 
 </td>
-<td width="40%">
+<td width="65%">
 
 The bottom-left map is a hypothetical carbon map, where each square is the carbon value at that location. Switch between the **True value** and the **Revealed** view to watch the map uncover itself one sample at a time.
 
@@ -134,12 +135,12 @@ The bottom-left map is a hypothetical carbon map, where each square is the carbo
 
 <table>
 <tr>
-<td width="60%">
+<td width="35%">
 
-<img width="100%" alt="Sample Allocation Visualizer — estimate converging on the true value as sample size grows" src="images/download%20(3).gif">
+<img width="100%" alt="Sample Size Visualization Tool — estimate converging on the true value as sample size grows" src="images/sample_viz_converge.gif">
 
 </td>
-<td width="40%">
+<td width="65%">
 
 On the right, we see how each sample on the map is combined together to estimate the **true value** (dashed blue line). With a few samples the estimate is off and the error range (purple) is wide. As samples accumulate, it narrows.
 
@@ -157,14 +158,14 @@ On the right, we see how each sample on the map is combined together to estimate
 
 ---
 
-# Implementing a sampling design
+## Implementing a sampling design
 
 <details>
-<summary><b>📊 Meet the team at the Northern Oak Savannah </b> &nbsp;·&nbsp; <i>the worked example, in brief</i></summary>
+<summary><b>📊 Meet the team at the Northern Oak Savannah</b> &nbsp;·&nbsp; <i>the worked example, in brief</i></summary>
 
 <br>
 
-This workshop follows a hypothetical team planning a grassland carbon survey in their savannah grasslands, following pre and post restoration projects across their lands
+This workshop follows a hypothetical team, the Northern Oak team, planning a grassland carbon survey across their savannah grasslands. Their land includes sites both before and after restoration.
 
 They want to answer two questions:
 
@@ -192,14 +193,13 @@ The boundary may be a polygon drawn on a map or an existing boundary shapefile, 
 
 
 <details>
-<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>how the Black Oak team defined its area</i></summary>
+<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>how the Northern Oak team defined its area</i></summary>
 
 <br>
 
-> 🧩 **[PLACEHOLDER — EXAMPLE DATA]** Add an illustrative site area, the boundary rule, exclusions, and whether each included unit is native, seeded, or restored. Link to the full worked example.
->
-> For claude - link to image of tool screenshot here- <img width="1149" height="642" alt="Screenshot 2026-09-29 at 14 06 03" src="https://github.com/user-attachments/assets/7c69eb83-873d-4ef0-8a60-c678892059f4" />
+<img width="100%" alt="The Northern Oak study area boundary drawn in the planning tool" src="https://github.com/user-attachments/assets/7c69eb83-873d-4ef0-8a60-c678892059f4" />
 
+> 🧩 **[PLACEHOLDER — EXAMPLE DATA]** Add an illustrative site area, the boundary rule, exclusions, and whether each included unit is native, seeded, or restored. Link to the full worked example.
 
 </details>
 
@@ -209,20 +209,15 @@ The boundary may be a polygon drawn on a map or an existing boundary shapefile, 
 <tr>
 <td width="45%">
 
-> 🧩 **[PLACEHOLDER — TOOL SCREENSHOT]** Add `images/step1_tool_boundary.webp`: drawing or uploading a study boundary, marking exclusions, and displaying net area.
->
-> <img width="1150" height="651" alt="Screenshot 2026-09-29 at 14 07 24" src="https://github.com/user-attachments/assets/92fc7ee1-9dfb-4f90-8783-caa19fd79946" />
+<img width="100%" alt="Drawing or uploading a study boundary in the Terrestrial Carbon Planning Tool" src="https://github.com/user-attachments/assets/92fc7ee1-9dfb-4f90-8783-caa19fd79946" />
 
 </td>
 <td width="55%">
 
 **In the Terrestrial Carbon Planning Tool:**
 
-Draw or upload the project boundary.
-
-Here you have the option to draw the area using the geometry tools on the top left of the map, or upload a google earth engine asset.
-
-Once finished, select "Measure this site" to obtain the area in meters squared (m^2)
+1. Draw or upload the project boundary. Use the geometry tools at the top left of the map to draw the area, or upload a Google Earth Engine asset.
+2. Select **Measure this site** to get the area in square metres (m²).
 
 </td>
 </tr>
@@ -236,12 +231,13 @@ Once finished, select "Measure this site" to obtain the area in meters squared (
 
 ---
 
-(For Claude make sure the strafifcation step is (optional) throughout)
-## Step 2 — Stratify your site (optional)
+## Step 2 — Stratify your study area (optional)
 
-*Does the site contain unique areas you want to compare?*
+*Does the study area contain distinct areas you want to compare?*
 
-**Stratification** divides the study area into sub-areas, called **sites** or **strata**. If the project intends to compare management units, restoration ages, or burn histories, for example, it important to insure sufficient data is collected in area.
+This step is **optional**. You can skip it if the study area is fairly uniform and you do not plan to compare parts of it. If you skip it, use the whole study area in the following steps.
+
+**Stratification** divides the study area into sub-areas, called **sites** or **strata**. If the project intends to compare management units, restoration ages, or burn histories, for example, it is important to ensure that enough samples are collected in each stratum.
 
 <p align="center">
   <img src="images/step2_stratification.svg" alt="The study area divided into three strata: restored 20 years, restored 10 years, and unrestored" width="58%">
@@ -249,61 +245,46 @@ Once finished, select "Measure this site" to obtain the area in meters squared (
 
 Stratification can reduce within-group variation and makes planned comparisons possible. A useful stratum is linked to the project question, can be mapped, and has an area that can be used when combining results.
 
+Stratification can also be done after sampling, but only if the classification is defined in advance and mappable (for example, an existing land cover or management map). Do not create groups after looking at the results, and check that every stratum ends up with enough samples.
 
-
-[Part 5 — Monitoring](../05_Monitoring/). has other important details for monitoring carbon over time and comparing different age classes 
-
-
-(For claude make sure the northern Oak team is the name)
+[Part 5 — Monitoring](../05_Monitoring/) has more detail on monitoring carbon over time and comparing age classes.
 
 <details>
-<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>how the Norther Oak team divided the site</i></summary>
-
-Here, the team has divided their study area into 3 sites, area 1 is a natural reference sites, where no disturbance has occurred, areas 2 is a site that was resotred 15 years ago, and area 3 is recently restored. The team will use the data from each area to calculate the carbon for each unique site.
-
+<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>how the Northern Oak team divided the study area</i></summary>
 
 <br>
 
-> 🧩 **[PLACEHOLDER — EXAMPLE DATA]** For claude - Here is a screenshot of the stratification - <img width="1252" height="648" alt="Screenshot 2026-09-29 at 14 13 07" src="https://github.com/user-attachments/assets/0bd12d58-841d-4a6a-a17b-33d0d462467c" />
+The team divided their study area into three sites:
 
+- **Site 1** is a natural reference site where no disturbance has occurred.
+- **Site 2** was restored 15 years ago.
+- **Site 3** was recently restored.
+
+The team will use the data from each site to calculate the carbon stock for each site separately.
+
+<img width="100%" alt="The Northern Oak study area divided into three strata in the planning tool" src="https://github.com/user-attachments/assets/0bd12d58-841d-4a6a-a17b-33d0d462467c" />
 
 </details>
 
 ### 🛠 Your turn
 
-<table>
-<tr>
-<td width="45%">
-
-> 🧩 **[PLACEHOLDER — TOOL SCREENSHOT]** For claude here is stratification by land cover class - <img width="1253" height="680" alt="Screenshot 2026-09-29 at 14 14 22" src="https://github.com/user-attachments/assets/0f0d7eaf-30a6-4515-b701-420bb5e78680" />
-
-and here is manual by drawing them - <img width="1305" height="682" alt="Screenshot 2026-09-29 at 14 03 29" src="https://github.com/user-attachments/assets/81899e2b-e7bc-478f-9453-4cbe9abaefe7" />
-
-
-
-</td>
-<td width="55%">
-
 **In the Terrestrial Carbon Planning Tool:**
 
-Start with the boundary from Step 1, if your new areas are outside this boundary, you can re-draw the initial boundary
+Start with the boundary from Step 1. If your new areas fall outside it, re-draw the boundary first. Then choose one of two ways to stratify.
 
-Here you have the option to stratify your area by hand - giving each strata its own name. The app will assign it a unique colour and treat it as distinct.
+**Option 1 — Manually.** Draw each stratum and give it a name. The tool assigns each a unique colour and treats it as distinct.
 
+<img width="70%" alt="Drawing strata by hand in the planning tool, each with its own name and colour" src="https://github.com/user-attachments/assets/81899e2b-e7bc-478f-9453-4cbe9abaefe7" />
 
-As well, you can choose to stratify automatically, using pre-defined land cover classes, or grouping based on satelite imagery
+**Option 2 — Automatically.** Use pre-defined land cover classes, or group areas based on satellite imagery.
 
-
-</td>
-</tr>
-</table>
-
+<img width="70%" alt="Stratifying the study area automatically using land cover classes in the planning tool" src="https://github.com/user-attachments/assets/0f0d7eaf-30a6-4515-b701-420bb5e78680" />
 
 > [!TIP]
 > **✅ Before moving on, you should have:**
 > - One larger study area
-> - If you choose to stratify, a set of mapped sub-areas or sites
-> - A name, and area in m² for every stratum
+> - Optionally, a set of mapped sub-areas (strata). If you did not stratify, the whole study area is treated as one stratum.
+> - A name and an area in m² for every stratum
 
 ---
 
@@ -311,24 +292,34 @@ As well, you can choose to stratify automatically, using pre-defined land cover 
 
 *Which pools and plot sizes does the project need?*
 
-As we learned in the background (insert link to background), Carbon is stored in several pools, including plant above-ground biomass (called shoots), plant below ground biomass (called roots). and soils. A **stock** is the amount stored at a defined place and time. **Living biomass** is the mass of living plant material. 
+As we learned in the [background](../01_Background/#grasslands-and-their-carbon-pools), carbon is stored in several pools, including above-ground plant biomass (called shoots), below-ground plant biomass (called roots), and soils. A **stock** is the amount stored at a defined place and time. **Living biomass** is the mass of living plant material.
 
 <p align="center">
   <img src="images/step3_carbon_pools.svg" alt="A grassland cross-section with a tree, a shrub, ground vegetation in a small quadrat, and a soil core divided into depth increments from 0 to 100 cm" width="74%">
 </p>
 
-For claude - Make this a drop down for "overview of field and methods for each carbon pool". Make the table with the new columns and fill them in. Add in "Dissolved organic carbon" as another pool.
+Soil is expected to contain the largest long-lived carbon pool in most grassland projects, but roots, shoots, shrubs, and scattered trees may also be of interest.
 
-Soil is expected to contain the largest long-lived carbon pool in most grassland projects, but roots, shoots, shrubs, and scattered trees may also be of interest. See a below of list of possible carbon pools and a short description for the field methods in 1 column, and lab methods in another column
+**Choosing depth.** Choose a target sampling depth from the actual rooting depth and the project question, since a shallow core can miss part of the carbon (see the [background](../01_Background/#where-the-carbon-is-and-why)). Common reporting depths such as 30 cm or 1 m are reporting boundaries, not fixed field increments, so record the actual depth reached ([Part 3](../03_Field_Methods/)). Sample in depth increments so results can be reported to any depth you reached.
 
-| Pool | Field/lab implication | Planning recommendation |
-|---|---|---|
-| **Soil** | Coring, bulk density, depth increments, laboratory carbon analysis | ✅ Include in a soil-carbon project. |
-| **Roots** | Collected with soil cores; washing and processing can be intensive | ✅ Include when below-ground living biomass is part of the question; set its own precision target. |
-| **Shoots** | Clip-and-weigh or other vegetation method | ✅ Often useful, but report it as a time-specific standing crop. |
-| **Shrubs** | Medium-plot measurements and appropriate allometry | ⬜ Include where present and relevant. |
-| **Trees** | Tree plot, species, DBH, height, and allometric estimates | ✅ Include any tree taller than 2 m that falls within the agreed protocol. |
-| **Litter** | Requires a separate collection and processing protocol | ⬜ Outside the current method unless a documented protocol is added. |
+<details>
+<summary><b>Overview of field and lab methods for each carbon pool</b></summary>
+
+<br>
+
+| Pool | Field method | Lab method | Planning recommendation |
+|---|---|---|---|
+| **Soil** | Soil cores (or a pit with bulk-density rings), sectioned by depth increment. Record core length and the depth of the hole, so compaction can be checked. | Dry at 65 °C to stable mass to get dry bulk density. Measure carbon content by loss-on-ignition (LOI550) or a CHN elemental analyzer. Where soils may contain carbonate, pair LOI with CHN total carbon (Lab Guide). | ✅ Include in a soil-carbon project. |
+| **Roots** | Collected with the soil cores, using the project's root/soil boundary rule. | Wash roots from the soil over a sieve, dry, weigh, and convert to carbon. Processing is intensive. Record the sieve mesh, drying temperature, and carbon fraction ([Part 4](../04_Data_Interpretation/)). | ✅ Include when below-ground living biomass is part of the question; set its own precision target. |
+| **Shoots** | Clip-and-weigh in the small plot (0.25 m²), bagging each clipping separately. | Oven-dry at 50–80 °C for 48–72 h, weigh, and convert dry biomass to carbon (Vegetation Guide). | ✅ Often useful, but report it as a time-specific standing crop. |
+| **Shrubs** | Medium plot: record species and measure each shrub's volume. | No lab work. Biomass comes from a shrub-volume allometric equation, then converts to carbon (Vegetation Guide). | ⬜ Include where present and relevant. |
+| **Trees** | Large plot: record species, DBH, and height for each tree over 2 m. | No lab work. Biomass comes from allometric equations, then converts to carbon. | ✅ Include any tree taller than 2 m that falls within the agreed protocol. |
+| **Litter** | Needs a separate collection protocol. | Needs a separate processing protocol. | ⬜ Outside the current method unless a documented protocol is added. |
+| **Dissolved organic carbon (DOC)** | Water samples from the water table (for example from a well or piezometer). Not collected by soil coring. | Filter (commonly 0.45 µm), keep cool, and analyse on a total organic carbon analyzer. Reported as a concentration (mg C/L). | ⬜ Optional and **outside the workshop method**. Relevant mainly where there is a shallow water table, such as wet meadows and riparian areas. Not included in the stock totals or the sample-size calculation. |
+
+*Shoot and shrub methods follow the Vegetation Field Guide; soil methods follow the Non-Peat Soils Field Guide and the Lab Guide. Both guides sit in [`_Shared`](../../_Shared/). The DOC row is general practice and is not covered by those guides.*
+
+</details>
 
 
 ### Are there trees?
@@ -339,21 +330,21 @@ If there are trees in your plots you are interested in measuring, please refer t
 
 When several carbon pools are measured, use an **integrated—or nested—plot design**. The vegetation plots share one centre mark, allowing every measurement to be tied to the same location without using the same footprint for every vegetation layer.
 
-| Plot component | Working workshop configuration | Measures |
-|---|---:|---|
-| **Large plot** *(where trees occur)* | 400 m² | Trees taller than 2 m |
-| **Medium plot** | 25 m² default; document another approved size within the field-guide range | Shrubs and vegetation approximately 0.5–2 m |
-| **Small plot** | 0.25 m² workshop quadrat; document any approved alternative | Ground vegetation below 0.5 m |
-| **Soil/root sampling point** | Recorded point or offset | Soil and roots by depth increment |
+<img width="100%" alt="Integrated plot design: a large plot for trees over 2 m, a medium plot for vegetation 0.5 to 2 m and soil samples, and a small plot for vegetation under 0.5 m, all sharing one centre" src="https://github.com/user-attachments/assets/1b4e5d25-f163-4cef-be8d-84bdac72dd72" />
 
-For claude - replaces this with a screenshot from the wwf carbon guides here:
+<sub>Integrated (nested) plot design. Source: WWF-Canada (2025), *Carbon Measurement: Sampling Design*, p. 8, reproduced with permission.</sub>
 
-<img width="781" height="349" alt="Screenshot 2026-09-30 at 09 47 42" src="https://github.com/user-attachments/assets/1b4e5d25-f163-4cef-be8d-84bdac72dd72" />
+The figure shows a 20 × 20 m large plot (400 m²) for trees taller than 2 m, a 10 × 10 m medium plot (100 m²) for shrubs and vegetation 0.5–2 m, and a 1 × 1 m small plot for ground vegetation below 0.5 m.
 
+The working workshop configuration is:
 
+- **Large plot** (where trees occur): 400 m².
+- **Medium plot:** 25 m² by default. Document any other approved size within the guide's 16–100 m² range (the figure shows the 100 m² upper end).
+- **Small plot:** 0.25 m² quadrat. Document any approved alternative within the guide's 0.25–1 m² range.
+- **Soil/root sampling point:** a recorded point or offset, sampled by depth increment.
 
 <details>
-<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>what the Black Oak team chose to measure</i></summary>
+<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>what the Northern Oak team chose to measure</i></summary>
 
 <br>
 
@@ -363,16 +354,41 @@ For claude - replaces this with a screenshot from the wwf carbon guides here:
 
 ### 🛠 Your turn
 
-Add in decision tree here:
+Use this decision tree from the WWF-Canada Sampling Design guide to choose the plot design. It answers three things: which carbon pools are measured together, whether single-use or permanent plots are best, and whether an integrated plot design is best or the pools should be kept separate.
 
-Are you measuring multiple carbon pools?
+<table>
+<tr>
+<td width="50%">
 
-Here is screenshot from sampling design guide:
+<img width="100%" alt="WWF-Canada decision tree. Q1: are you using destructive sampling? Q1.2: will you return to the plot? Then permanent or single-use. Q2: are you measuring multiple carbon pools? Yes leads to an integrated plot; no leads to a tree plot, non-tree vegetation plot, or soil plot." src="https://github.com/user-attachments/assets/7659d9c6-044e-4f87-8290-d668a5050282" />
 
-<img width="584" height="725" alt="Screenshot 2026-09-30 at 09 48 18" src="https://github.com/user-attachments/assets/7659d9c6-044e-4f87-8290-d668a5050282" />
+<sub>Source: WWF-Canada (2025), *Carbon Measurement: Sampling Design*, p. 18, reproduced with permission.</sub>
 
-And here 
+</td>
+<td width="50%">
 
+**Quick notes**
+
+**Single-use or permanent? (Q1 and Q1.2)**
+
+- Will you return to sample this plot again? **Yes → permanent. No → single-use.**
+- Destructive sampling (soil cores, clipping) only changes *where* you sample. In a permanent plot, take destructive samples **outside** the plot boundary. In a single-use plot you may sample inside it.
+- Complete non-destructive measurements first.
+
+**Integrated or separate? (Q2)**
+
+- Measuring **more than one pool** (trees, non-tree vegetation, soil)? **Yes → integrated (nested) plot**, with all plots sharing one centre.
+- Measuring **only one pool**? Use a separate plot: a **tree plot**, a **non-tree vegetation plot**, or a **soil plot**.
+
+**For a grassland project**
+
+- Soil, roots and shoots are usually measured together, so an **integrated plot** is usually best.
+- Roots come from the soil cores, so they do not need their own plot.
+- Plot placement and the permanent/single-use decision are finalized in [Step 5](#step-5--place-and-finalize-the-plots).
+
+</td>
+</tr>
+</table>
 
 Complete the decision table in the tool or the [planning worksheet](templates/project-planning-worksheet.md):
 
@@ -401,10 +417,13 @@ Too few samples may leave the estimate too uncertain to support a decision. Too 
 
 | You provide | Meaning |
 |---|---|
-| **Area** (m²) | The area of each stratum from Step 2. |
+| **Area** (m²) | The area of each stratum from Step 2, or of the whole study area if you did not stratify. |
 | **Relative margin of error** ($E$) | How precise the estimate needs to be. |
 | **Confidence level** | How reliable the interval-building procedure needs to be. |
 | **Variability prior** | How variable the measured pool is expected to be between samples. |
+
+> [!NOTE]
+> **Why ±20% at 90% confidence?** The WWF-Canada guide uses a default allowable error of 10% for its sample-allocation calculator, which asks only for study-area size and allowable error. This workshop uses ±20% at 90% confidence as an illustrative starting point for a lower-cost survey, and it adds a variability prior (CV) for each pool. A tighter target such as ±10% needs roughly four times as many samples. Set targets that match your project's purpose, and record them.
 
 ### Where the prior comes from
 
@@ -459,7 +478,7 @@ A wider root interval is not automatically a failure. It may be an honest descri
 Because soil and roots can come from the same core, the team may analyze soil carbon from every core and wash roots from a random subset. Choose that subset randomly—not according to which samples look interesting—and report the root sample size explicitly.
 
 <details>
-<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>what the Black Oak team calculated</i></summary>
+<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>what the Northern Oak team calculated</i></summary>
 
 <br>
 
@@ -522,7 +541,12 @@ The spreadsheet should contain:
 > - A random root-subsampling plan, if used
 
 > [!NOTE]
-> The draft statistical minimum is **3 samples per stratum**, with **5 preferred where feasible**. The eelgrass workshop uses a five-sample operational minimum. Resolve and document the series-wide rule before publication; do not imply that the statistical and operational minimums are the same thing. The calculator exposes this as an orange input rather than fixing it.
+> **Minimum samples per stratum.** The planning minimum is **3 samples per stratum**, with **5 preferred where feasible**. This is a statistical floor for estimating variability, not a guarantee of precision. The calculator exposes it as an orange input rather than fixing it.
+
+<!-- TODO (author): the eelgrass workshop uses a five-sample operational minimum. Resolve and document one series-wide rule before publication, and keep the statistical and operational minimums distinct. -->
+
+> [!IMPORTANT]
+> **These sample sizes estimate a mean; they do not test a difference.** The calculation above gives the number of samples needed to estimate the mean of a stratum, or of the whole study area, to a chosen precision. If your question is to compare strata (for example, restored versus reference), you need a separate calculation for the smallest difference you want to detect. Ask a statistician for help with this (see the note at the end of [Appendix A](#a10--why-roots-may-need-more-samples)).
 
 ---
 
@@ -552,6 +576,7 @@ Teams using the non-spatial spreadsheet must complete this stage in the Terrestr
 
 Grassland cautions:
 
+- Keep plots away from the study-area boundary. The WWF-Canada guide places convenience plots at least 50 m inside the boundary, and applying the same rule to every strategy avoids edge effects. Scale the buffer down for small study areas and record the rule, unless the boundary is itself the comparison (paired design).
 - Do not align a systematic grid with cultivation furrows, fence lines, pipeline corridors, or treatment strips.
 - Do not move an inaccessible point to a convenient nearby location without applying a documented replacement rule.
 - Finish non-destructive vegetation measurements before coring or clipping disturbs the location.
@@ -608,7 +633,7 @@ The export should include CSV, GeoJSON or KML, a printable map, plot identifiers
 </table>
 
 <details>
-<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>how the Black Oak plots were finalized</i></summary>
+<summary><b>📊 Worked example</b> &nbsp;·&nbsp; <i>how the Northern Oak plots were finalized</i></summary>
 
 <br>
 
@@ -634,7 +659,7 @@ Before heading into the field, confirm that the spatial tool—or the combinatio
 
 ```text
 ☐ Study-area boundary, exclusions and net area       → Step 1
-☐ Strata identified or explicitly ruled out          → Step 2
+☐ Strata identified, or stratification skipped       → Step 2 (optional)
 ☐ Carbon pools, depths and nested layout selected    → Step 3
 ☐ Plot and pool-specific sample counts calculated    → Step 4
 ☐ Plot centres generated and assigned                → Step 5
@@ -659,14 +684,14 @@ The same decisions should be stored in the exported tool summary or the
 **[`templates/project-planning-worksheet.md`](templates/project-planning-worksheet.md)**.
 
 <details>
-<summary><b>📊 The Black Oak plan at a glance</b></summary>
+<summary><b>📊 The Northern Oak plan at a glance</b></summary>
 
 <br>
 
 | Step | Decision |
 |---|---|
 | 1 — Study area | 🧩 **[PLACEHOLDER]** Area, boundary rule, and exclusions |
-| 2 — Stratify | 🧩 **[PLACEHOLDER]** Restoration and fire-history strata |
+| 2 — Stratify *(optional)* | 🧩 **[PLACEHOLDER]** Reference, 15-year-restored, and recently restored strata |
 | 3 — Pools | 🧩 **[PLACEHOLDER]** Soil, roots, vegetation, shrubs, and trees in scope |
 | 4 — Sample size | 🧩 **[PLACEHOLDER]** Separate soil/root targets and final field count |
 | 5 — Locations | 🧩 **[PLACEHOLDER]** Allocation, coordinate method, plot layout, and permanent-plot decision |
@@ -675,7 +700,7 @@ The same decisions should be stored in the exported tool summary or the
 
 </details>
 
-You now have what the field team needs: a boundary, strata or a documented decision not to stratify, selected carbon pools and depths, sample counts, plot coordinates, and a plot layout.
+You now have what the field team needs: a boundary, strata (or a documented decision not to stratify), selected carbon pools and depths, sample counts, plot coordinates, and a plot layout.
 
 What remains is the fieldwork itself. **Part 3** covers equipment, plot setup, vegetation measurements, soil and root cores, field records, and sample handling.
 
@@ -683,7 +708,7 @@ What remains is the fieldwork itself. **Part 3** covers equipment, plot setup, v
 
 ---
 
-# Appendix A — A brief lesson in sampling logic
+## Appendix A — A brief lesson in sampling logic
 
 *The calculations behind the planning workflow*
 
@@ -865,7 +890,7 @@ Compositing may reduce variation among analytical samples but removes informatio
 | `README.md` | Part 2 lesson | This revised draft |
 | [`images/banner_planning.svg`](images/banner_planning.svg) | Grassland planning banner | ✅ Built |
 | [`images/sampling_explainer.svg`](images/sampling_explainer.svg) | Probability-based sampling explainer | ✅ Built |
-| [`images/download (2).gif`](images/download%20%282%29.gif), [`images/download (3).gif`](images/download%20%283%29.gif) | Sample Size Visualization Tool clips, from the eelgrass workshop | ✅ Copied |
+| [`images/sample_viz_reveal.gif`](images/sample_viz_reveal.gif), [`images/sample_viz_converge.gif`](images/sample_viz_converge.gif) | Sample Size Visualization Tool clips, from the eelgrass workshop | ✅ Copied |
 | [`images/sample_size_explorer_static.svg`](images/sample_size_explorer_static.svg) | Static fallback for the Sample Size Explorer | Kept; not used on this page |
 | [`images/step1_grassland_boundary.svg`](images/step1_grassland_boundary.svg) | Boundary and exclusions | ✅ Built |
 | [`images/step2_stratification.svg`](images/step2_stratification.svg) | Management/restoration strata | ✅ Built |
@@ -884,7 +909,7 @@ Compositing may reduce variation among analytical samples but removes informatio
 | `Sampling Design Tools/` — Terrestrial Carbon Planning Tool for Grasslands | Spatial Steps 1–5 workflow and field-package export | 🧩 Placeholder |
 | [`templates/grassland-boundary-template.geojson`](templates/grassland-boundary-template.geojson) | Boundary/strata template | ✅ Built |
 | [`templates/project-planning-worksheet.md`](templates/project-planning-worksheet.md) | Participant decision record | ✅ Built |
-| `../Worked_Example/02_Project_Planning.md` | Complete Black Oak planning example | 🧩 Placeholder |
+| `../Worked_Example/02_Project_Planning.md` | Complete Northern Oak planning example | 🧩 Placeholder |
 
 ---
 
