@@ -6,7 +6,7 @@ Companion tools for [Part 2 — Project Planning](../).
 |---|---|---|
 | **[Sample Allocation Calculator](grassland-sample-allocation.xlsx)** | Sizes **soil and roots separately** from your own priors and precision targets, applies the small-sample adjustment, and allocates the result across strata by area. Writes an assumptions statement for your project record. | Step 4 |
 | **[Sample Size Explorer](index.html)** | Reveals a simulated carbon surface one sample at a time so you can watch the estimate and its interval respond. Compare-both mode shows why a more variable pool needs more samples for the same relative precision. Open the file in a browser. | Background, Step 4 |
-| **[Grassland Sampling Design Tool](GrasslandSamplingTool_GEE.js)** | The Earth Engine planner for Steps 1–5: boundary, zones (several polygons per zone), separate soil and root sample sizes, area-proportional allocation, random / grid / composite placement, and a field-package export. Uses the same arithmetic as the workbook. | Steps 1–5 |
+| **[Grassland Sampling Design Tool](GrasslandSamplingTool_GEE.js)** | The Earth Engine planner for Steps 1–5: boundary, zones (several polygons per zone), separate soil and root sample sizes, area-proportional allocation, random or grid placement, paired / unpaired / composite plots labelled on every point, and a field-package export. Soil starts from the Canada-wide prior in Sothe et al. (2022); replace it with your own mean and SD or the CV slider. Uses the same arithmetic as the workbook. | Steps 1–5 |
 | [`_superseded/`](_superseded/) | The Forests GEE tool that used to stand in here. Reference only — see the note inside. | — |
 
 ---

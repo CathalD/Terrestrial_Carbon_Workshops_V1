@@ -8,27 +8,29 @@
 //   SECTION 0   Configuration and resource links
 //   SECTION 1   Statistics core          (BCStats)
 //   SECTION 2   Geometry and feasibility (BCGeom)
+//   SECTION 6A  Pure geometry            (BCZones, BCLayout)
 //   SECTION 3   Test harness             (BCTest)
 //   SECTION 5   Earth Engine layer       (BCEarth)
-//   SECTION 6   Layout engine            (BCLayout, BCPlace, BCZones)
+//   SECTION 6B  Placement                (BCPlace)
 //   SECTION 7   User interface
 //
 // ── HOW THIS DIFFERS FROM THE FOREST TOOL ────────────────────────────────────
 //   * SAMPLE SIZE MATCHES grassland-sample-allocation.xlsx, not Cochran's
 //     finite-population form. n = (z CV / E)^2, then the Student-t fixed-point
-//     iteration (Part 2, Appendix A2 and A9). Appendix A3 flags "N = area / plot"
-//     as unresolved for grasslands, so no finite-population correction is applied
-//     and plot size no longer enters the sample-size maths. It only sets spacing.
+//     iteration (Part 2, Appendix A2 and A9). No finite-population correction is
+//     applied (Appendix A3), so plot size only sets the spacing between plots.
 //   * SOIL AND ROOTS ARE SIZED SEPARATELY, each with its own precision target
-//     and prior. Roots are washed from the same cores, so the number of plot
-//     centres is the larger of the two (Appendix A10).
-//   * NO DEFAULT PRIORS. Nothing is calculated until a prior AND its source are
-//     entered (Part 2 Step 4). The forest tool's built-in fallback values and its
-//     x1.5 map-CV inflation are not carried over.
+//     and prior. Roots are washed from the same cores, so the number of plots
+//     is the larger of the two in each zone (Appendix A10).
+//   * PRIORS: a published Canada-wide starting value for soil (Sothe et al. 2022),
+//     replaceable by your own mean and SD, or set by hand with the CV slider.
+//     There is no published Canada-wide root value, so the root starting value is
+//     the workshop's illustrative CV and is labelled as such everywhere.
 //   * ALLOCATION IS AREA-PROPORTIONAL ONLY, with a per-stratum minimum (Appendix A7).
-//   * COMPOSITE SAMPLING IS KEPT. n counts composite SAMPLES (lab analyses); each
-//     one pools several subsample cores. See the note above BCPlace.
-//   * TRANSECTS ARE REMOVED (wetland / forest layout).
+//   * PLOT STYLE is chosen separately from the layout, and labelled on every point:
+//     paired (permanent), unpaired (single-use) or composite (pooled cores).
+//   * LAYOUTS are random (stratified-random with zones) and an even grid. The grid
+//     is sized to the zone's real shape, not its bounding box.
 //
 // To run the tests: set RUN_SELF_TEST to true and press Run. Results print to
 // the Console panel. Set it to false for the released app.
@@ -46,7 +48,7 @@ var LOG = (typeof print === 'function') ? print : console.log;
 
 var CONFIG = {
 
-  VERSION: '2026.1-grassland',
+  VERSION: '2026.2-grassland',
 
   // --- Defaults, matched to the workshop text and the workbook -------------------
   CONFIDENCE:         0.90,   // Step 4
@@ -70,6 +72,12 @@ var CONFIG = {
   COMPOSITE_RADIUS_M: 5,     // subsamples fall in a ring around each centre
   COMPOSITE_SUBSAMPLES: 5,
 
+  // --- Dynamic World composite for stratification --------------------------------
+  // Growing season only. A calendar-year composite of a Canadian site is dominated
+  // by winter scenes and labels much of it 'Snow and ice'.
+  DW_YEAR:   2025,
+  DW_SEASON: ['06-01', '10-01'],   // 1 June to 30 September (end date exclusive)
+
   // --- Resource links shown to the user -----------------------------------------
   REPO: 'https://github.com/CathalD/Terrestrial_Carbon_Workshops_V1',
 
@@ -77,6 +85,7 @@ var CONFIG = {
     calculator:    '/blob/main/Grasslands/02_Project_Planning/Sampling%20Design%20Tools/grassland-sample-allocation.xlsx',
     planningGuide: '/blob/main/Grasslands/02_Project_Planning/README.md',
     appendixA:     '/blob/main/Grasslands/02_Project_Planning/README.md#appendix-a--a-brief-lesson-in-sampling-logic',
+    monitoring:    '/blob/main/Grasslands/05_Monitoring/README.md',
     treesGuide:    '/blob/main/Forests/03_Field_Methods/3A_Trees.md',
     vegGuide:      '/blob/main/_Shared/Vegetation-FINAL-Eng-2026.pdf',
     soilGuide:     '/blob/main/_Shared/Non-peat-FINAL-Eng-2026.pdf',
@@ -98,7 +107,7 @@ var CONFIG = {
 
 var BCStats = {
 
-  VERSION: '2026.1',
+  VERSION: '2026.2',
 
   // Priors above this CV get a warning: the campaign will be unusually large.
   HIGH_CV: 0.80,
@@ -111,6 +120,9 @@ var BCStats = {
   // Unrolled passes of the t iteration. The workbook does six and takes the larger
   // of the last two, so this does too.
   T_PASSES: 6,
+  // The CV slider's range.
+  CV_MIN: 0.05,
+  CV_MAX: 1.50,
 
   // Round away binary noise before ceil(), as Excel's 15-digit arithmetic does.
   // Without it 10 * 0.3 = 3.0000000000000004 would round UP to 4.
@@ -274,31 +286,74 @@ var BCStats = {
   },
 
   // --- Priors -------------------------------------------------------------------
-  // There is NO default prior. The user supplies a CV, or a mean and SD, and says
-  // where it came from. A CV entered directly wins over mean and SD (as in the
-  // workbook). Nothing downstream computes without one.
+  // Three routes, in the order the tool offers them:
+  //   'published'  the starting value (below)
+  //   'own'        the user's own mean and SD, from a pilot or an earlier survey
+  //   'manual'     the CV slider, set by hand
+  //
+  // SOIL starts from Sothe et al. (2022), the Canada-wide soil carbon study the
+  // workshop cites (Grasslands/_references). Their national spread, 13.2 ± 10
+  // kg C/m2 for 0-30 cm, is variation ACROSS THE COUNTRY'S ECOSYSTEMS from a 250 m
+  // model, not between plots in one grassland. It overstates site-level
+  // variability, so it sizes a large, cautious campaign. That is the safe direction
+  // for a starting value, and the tool says so wherever it is used.
+  //
+  // ROOTS have no published Canada-wide value. The starting value is the
+  // workshop's illustrative CV (Part 2, Step 4), and is labelled as NOT published.
 
-  priorFromInputs: function (o) {
-    var cv = NaN, how = '';
-    if (isFinite(o.cv) && o.cv > 0) { cv = o.cv; how = 'CV entered directly'; }
-    else if (isFinite(o.mean) && o.mean > 0 && isFinite(o.sd) && o.sd >= 0) {
-      cv = o.sd / o.mean; how = 'SD / mean';
+  PUBLISHED_PRIORS: {
+    Soil: {
+      mean: 13.2, sd: 10, cv: 0.76, unit: 'kg C/m²', published: true,
+      short: 'Sothe et al. (2022), Canada-wide',
+      methods: 'CV 0.76, the national spread of soil organic carbon to 30 cm reported by ' +
+               'Sothe et al. (2022) (13.2 ± 10 kg C/m²; all Canadian ecosystems, 250 m model)',
+      note: 'Canada-wide: 13.2 ± 10 kg C/m² (0–30 cm) across every ecosystem in the country. ' +
+            'That is more variable than one grassland site, so it gives a large, cautious ' +
+            'campaign. Use your own data, or lower the slider, when you can justify it.'
+    },
+    Roots: {
+      cv: 0.70, published: false,
+      short: 'workshop illustrative value',
+      methods: 'CV 0.70, the workshop\'s illustrative root value (Part 2, Step 4; not a published estimate)',
+      note: 'No published Canada-wide value exists for root variability. 0.70 is the workshop\'s ' +
+            'illustrative value. Replace it with your own data, or adjust the slider, and say why.'
     }
-    if (!isFinite(cv) || cv <= 0) {
-      return { ok: false, reason: 'Enter a CV, or a mean above zero and a standard deviation above zero.' };
+  },
+
+  flags: function (p) {
+    p.highVariability = p.cv > this.HIGH_CV;
+    p.lowVariability  = p.cv < this.LOW_CV;
+    return p;
+  },
+
+  publishedPrior: function (pool) {
+    var d = this.PUBLISHED_PRIORS[pool];
+    if (!d) return { ok: false, reason: 'No starting value for pool "' + pool + '".' };
+    return this.flags({ ok: true, pool: pool, route: 'published', cv: d.cv,
+                        published: d.published, short: d.short, methods: d.methods, note: d.note });
+  },
+
+  priorFromMeanSd: function (o) {
+    if (!(isFinite(o.mean) && o.mean > 0 && isFinite(o.sd) && o.sd > 0)) {
+      return { ok: false, reason: 'Enter a mean above zero and a standard deviation above zero.' };
     }
-    var source = (o.source || '').replace(/^\s+|\s+$/g, '');
-    if (!source) {
-      return { ok: false, reason: 'Say where this prior came from (pilot, published study, soil map). A reviewer will ask.' };
-    }
-    var thin = (isFinite(o.pilotN) && o.pilotN < this.MIN_USABLE_SAMPLES);
-    return { ok: true, pool: o.pool, cv: cv, how: how, source: source,
-             mean: isFinite(o.mean) ? o.mean : null, sd: isFinite(o.sd) ? o.sd : null,
-             pilotN: isFinite(o.pilotN) ? o.pilotN : null,
-             indicative: thin,
-             note: thin ? 'Fewer than ' + this.MIN_USABLE_SAMPLES + ' pilot samples: the SD is itself poorly estimated. Treat as indicative.' : '',
-             highVariability: cv > this.HIGH_CV,
-             lowVariability:  cv < this.LOW_CV };
+    var cv = o.sd / o.mean;
+    var from = (o.from || '').replace(/^\s+|\s+$/g, '');
+    return this.flags({
+      ok: true, pool: o.pool, route: 'own', cv: cv, mean: o.mean, sd: o.sd, published: false,
+      short: 'your own data' + (from ? ' (' + from + ')' : ''),
+      methods: 'CV ' + cv.toFixed(2) + ' from the project\'s own data (mean ' + o.mean +
+               ', SD ' + o.sd + (from ? '; ' + from : '') + ')',
+      note: '' });
+  },
+
+  priorManual: function (o) {
+    if (!(isFinite(o.cv) && o.cv > 0)) return { ok: false, reason: 'The CV must be above zero.' };
+    return this.flags({
+      ok: true, pool: o.pool, route: 'manual', cv: o.cv, published: false,
+      short: 'set by hand' + (o.from ? ', adjusted from ' + o.from : ''),
+      methods: 'CV ' + o.cv.toFixed(2) + ', set by hand' + (o.from ? ' (adjusted from ' + o.from + ')' : ''),
+      note: 'Set by hand. Write down why this value is reasonable for your site.' });
   },
 
   pools: function () { return ['Soil', 'Roots']; }
@@ -314,12 +369,10 @@ var BCStats = {
 
 var BCGeom = {
 
-  VERSION: '2026.1',
+  VERSION: '2026.2',
 
   SCALE_LADDER: [10, 20, 30, 50, 100, 250],  // never finer than Sentinel-2
   TARGET_PIXELS: 5000,
-  BUFFER_LADDER: [50, 25, 10, 5, 0],
-  MIN_AREA_RETAINED: 0.60,
 
   // Square packing is a theoretical ceiling. Placing plots at random with a
   // minimum separation stalls well below it.
@@ -389,35 +442,6 @@ var BCGeom = {
 
   capacity: function (areaM2, spacingM) { return Math.floor(areaM2 / (spacingM * spacingM)); },
 
-  practicalCapacity: function (areaM2, spacingM) {
-    return Math.floor(this.capacity(areaM2, spacingM) * this.FILL_LIMIT);
-  },
-
-  // --- Inward buffer (estimate; not applied by the UI) ---------------------------
-  // Client-side estimate assuming a compact shape.
-
-  retainedAfterBuffer: function (areaM2, bufferM) {
-    var side = Math.sqrt(areaM2) - 2 * bufferM;
-    return side <= 0 ? 0 : side * side;
-  },
-
-  chooseBuffer: function (areaM2, coresNeeded, spacingM) {
-    for (var i = 0; i < this.BUFFER_LADDER.length; i++) {
-      var b = this.BUFFER_LADDER[i];
-      var retained = this.retainedAfterBuffer(areaM2, b);
-      if (retained / areaM2 < this.MIN_AREA_RETAINED) continue;
-      if (this.practicalCapacity(retained, spacingM) < coresNeeded) continue;
-      return { ok: true, buffer: b, retainedM2: retained,
-               retainedFraction: retained / areaM2,
-               note: b === 0
-                 ? 'No edge buffer — the zone is too small to give any up.'
-                 : b + ' m edge buffer, keeping ' +
-                   Math.round(100 * retained / areaM2) + '% of the zone.' };
-    }
-    return { ok: false, buffer: 0, retainedM2: areaM2, retainedFraction: 1,
-             note: 'No buffer possible. This zone is barely larger than the plots it must hold.' };
-  },
-
   // --- Feasibility --------------------------------------------------------------
   // Run before any point generation. Every message names the fix.
   //   o.spacingM       minimum distance between plot centres
@@ -459,17 +483,16 @@ var BCGeom = {
       }
 
       var cores = s.cores || minPer;
-      var slots = Nh;
-      var fill  = slots > 0 ? cores / slots : Infinity;
+      var fill  = Nh > 0 ? cores / Nh : Infinity;
 
       if (fill > this.FILL_LIMIT) {
         problems.push(name + ' cannot hold ' + cores + ' plots kept ' + Math.round(spacing) +
-                      ' m apart. About ' + Math.floor(slots * this.FILL_LIMIT) +
+                      ' m apart. About ' + Math.floor(Nh * this.FILL_LIMIT) +
                       ' is the practical limit for this zone. Reduce the plot count, ' +
                       'enlarge the zone, or merge it.');
       } else if (fill > this.FILL_WARN) {
         warnings.push(name + ' will be densely sampled (' + cores + ' plots in about ' +
-                      slots + ' possible positions). Placement may take several attempts.');
+                      Nh + ' possible positions). Placement may take several attempts.');
       }
     }
 
@@ -493,13 +516,9 @@ var BCGeom = {
 // === do call Earth Engine, follow.
 // =================================================================================
 
-// --- Drawn-zone bookkeeping -------------------------------------------------------
-// A stratum may be made of SEVERAL polygons. Two things went wrong before:
-//   1. Only the first shape in the drawing layer was read (`geometries().get(0)`),
-//      so drawing three polygons and pressing "Add" kept one.
-//   2. Every polygon was kept as its own zone, so a second polygon of the same
-//      stratum overwrote the first one's geometry.
-// Here every shape is collected, and shapes that share a name are held together.
+// --- Zone bookkeeping -------------------------------------------------------------
+// A stratum may be made of SEVERAL polygons. Every drawn shape is collected, and
+// shapes that share a name are held together as one stratum.
 
 var BCZones = {
 
@@ -534,25 +553,92 @@ var BCZones = {
       for (j = 0; j < store.byName[nm].length; j++) out.push({ name: nm, geometry: store.byName[nm][j] });
     }
     return out;
+  },
+
+  // Land cover classes that are not sampled in a grassland survey start unticked.
+  NOT_SAMPLED: ['Water', 'Built area', 'Snow and ice', 'Urban', 'Permanent water', 'Ocean'],
+
+  // A frequencyHistogram comes back keyed by class value as text — '2', or '2.0'
+  // when the band is floating point. Parse either, attach names, sort largest first.
+  classesFromHistogram: function (hist, labels) {
+    var out = [], key;
+    for (key in hist) {
+      if (!hist.hasOwnProperty(key)) continue;
+      var code = Math.round(parseFloat(key));
+      if (!isFinite(code)) continue;
+      var name = labels[code] || ('Class ' + code);
+      out.push({ code: code, pixels: hist[key], name: name,
+                 tick: this.NOT_SAMPLED.indexOf(name) < 0 });
+    }
+    out.sort(function (a, b) { return b.pixels - a.pixels; });
+    return out;
+  },
+
+  // One colour per zone, in order, cycling if there are more zones than colours,
+  // so zone i is always drawn in colour i.
+  palette: function (colours, k) {
+    var out = [];
+    for (var i = 0; i < Math.max(1, k); i++) out.push(colours[i % colours.length]);
+    return out;
   }
 };
 
 
-// --- Layout geometry ----------------------------------------------------------
+// --- Layout and plot style ------------------------------------------------------
 
 var BCLayout = {
 
+  // WHERE the plots go.
   LAYOUTS: [
-    { id: 'random',    label: 'Random (stratified-random when there are zones)',
-      blurb: 'Plot centres scattered at random inside each zone. The default. Zones get their share of plots first, then locations are randomised within each.' },
-    { id: 'grid',      label: 'Even grid',
-      blurb: 'Plot centres on a regular lattice. Even coverage. Check the spacing does not line up with furrows, fence lines, pipeline corridors or treatment strips.' },
-    { id: 'composite', label: 'Composite samples',
-      blurb: 'Several subsample cores pooled into one lab sample. Fewer analyses. The sample size counts composites, not cores.' }
+    { id: 'random', label: 'Random (stratified-random when there are zones)',
+      blurb: 'Plot centres scattered at random inside each zone. The default. Zones get their ' +
+             'share of plots first, then locations are randomised within each.' },
+    { id: 'grid',   label: 'Even grid',
+      blurb: 'Plot centres on a regular grid with a random starting point. The spacing is ' +
+             'chosen so each zone gets its allocated number of plots inside its real shape. ' +
+             'A zone made of several polygons is one area to the grid, so a polygon smaller ' +
+             'than a grid cell may get none. Check the grid does not line up with furrows, ' +
+             'fence lines, pipeline corridors or treatment strips.' }
   ],
 
+  // WHAT KIND of plot each point is. Labelled on every exported point and on the map.
+  // Definitions follow Part 2, Step 5B and Part 5, Step 3.
+  STYLES: [
+    { id: 'paired',    code: 'P', label: 'Paired — permanent plot, re-measured over time',
+      short: 'paired (permanent)',
+      rule: 'Permanent: mark the plot; take soil and root cores OUTSIDE it at a recorded offset',
+      blurb: 'The same plot is measured again at the next visit, so the two visits pair up ' +
+             '(Part 5, Step 3). Mark it so it can be found again. Soil cores, root cores and ' +
+             'clipping must be taken at a recorded offset OUTSIDE the vegetation plot (Part 2, ' +
+             'Step 5C). The sample size here is for the baseline stock.' },
+    { id: 'unpaired',  code: 'U', label: 'Unpaired — single-use plot, measured once',
+      short: 'unpaired (single-use)',
+      rule: 'Single use: measure vegetation first, then core inside the plot',
+      blurb: 'Measured once. The soil core may be taken inside the plot after the vegetation ' +
+             'is measured. A later visit would sample new, independent locations.' },
+    { id: 'composite', code: 'C', label: 'Composite — several cores pooled into one sample',
+      short: 'composite',
+      rule: 'Composite: pool every subsample core of this composite into one bag',
+      blurb: 'Subsample cores around each centre are pooled into one lab sample. The sample ' +
+             'size counts composites, not cores. Measured once: pooling removes the within-plot ' +
+             'information a re-measured site needs (Part 5), so do not composite a site that ' +
+             'may be monitored.' }
+  ],
+
+  style: function (id) {
+    for (var i = 0; i < this.STYLES.length; i++) { if (this.STYLES[i].id === id) return this.STYLES[i]; }
+    return null;
+  },
+
+  // P_007, U_012, C_003 — the style is readable from the plot label on the stake.
+  plotId: function (styleId, n) {
+    var s = this.style(styleId), num = String(n);
+    while (num.length < 3) num = '0' + num;
+    return (s ? s.code : 'X') + '_' + num;
+  },
+
   // --- local metric frame -------------------------------------------------------
-  // Coordinates near a small site are converted to metres about a centroid, the
+  // Coordinates near a small site are converted to metres about a centre, the
   // geometry is done flat, then converted back. Error over a few kilometres is
   // far below the precision anything here needs.
 
@@ -566,12 +652,6 @@ var BCLayout = {
   toLonLat: function (x, y, c) {
     return { lon: c.lon + x / (this.M_PER_DEG_LAT * Math.cos(c.lat * Math.PI / 180)),
              lat: c.lat + y / this.M_PER_DEG_LAT };
-  },
-
-  centroidOf: function (ring) {
-    var sx = 0, sy = 0;
-    for (var i = 0; i < ring.length; i++) { sx += ring[i][0]; sy += ring[i][1]; }
-    return { lon: sx / ring.length, lat: sy / ring.length };
   },
 
   metresBetween: function (a, b) {
@@ -621,7 +701,7 @@ var BCLayout = {
   },
 
   // k distinct indices from 0..n-1, chosen at random (Fisher-Yates), sorted.
-  // Used for the random root subset and for trimming an over-full grid.
+  // Used for the random root subset and for trimming a grid by a point or two.
   pickIndices: function (n, k, seed) {
     var idx = [], i, rand = this.rng(seed);
     for (i = 0; i < n; i++) idx.push(i);
@@ -632,36 +712,118 @@ var BCLayout = {
   },
 
   // --- even grid ----------------------------------------------------------------
+  // The earlier grid took its spacing from the zone's AREA but laid it over the
+  // zone's BOUNDING BOX. In an irregular or multi-part zone the number of grid
+  // points that land inside the real shape rarely matched the allocation; the
+  // surplus was then trimmed at random, which left holes. Now:
+  //   1. one random start is drawn, as a fraction of a grid cell;
+  //   2. grids at a ladder of cell sizes around sqrt(area / n) are built from it,
+  //      each as a square cell and as cells up to 15% longer one way than the other;
+  //   3. Earth Engine counts how many points of each grid fall inside the real zone;
+  //   4. chooseGrid() takes a grid that puts exactly n inside (squarest, then
+  //      widest), or else the one closest above n (the extra one to three dropped
+  //      at random).
+  // The near-square cells matter: with square cells alone the count jumps a whole
+  // row at a time as the spacing changes, and exactly n is often out of reach.
+  // A uniform random start over a whole cell gives every location the same chance
+  // of being sampled, which is what makes a systematic sample unbiased; that holds
+  // for rectangular cells too.
 
-  lattice: function (ring, wanted, areaM2, seed) {
-    var c = this.centroidOf(ring), i, j;
-    var spacing = Math.sqrt(areaM2 / wanted);
+  GRID_RATIO_LO: 0.60,
+  GRID_RATIO_HI: 1.60,
+  GRID_STEPS: 48,
+  GRID_ASPECTS: [1, 1.07, 1 / 1.07, 1.15, 1 / 1.15],   // cell width / cell height
+  MAX_CANDIDATES: 30000,   // points sent to Earth Engine in one request
 
-    var xs = [], ys = [];
+  boxFrame: function (ring) {
+    var minLon = Infinity, maxLon = -Infinity, minLat = Infinity, maxLat = -Infinity, i;
     for (i = 0; i < ring.length; i++) {
-      var p = this.toLocal(ring[i][0], ring[i][1], c);
-      xs.push(p.x); ys.push(p.y);
+      minLon = Math.min(minLon, ring[i][0]); maxLon = Math.max(maxLon, ring[i][0]);
+      minLat = Math.min(minLat, ring[i][1]); maxLat = Math.max(maxLat, ring[i][1]);
     }
-    var minX = Math.min.apply(null, xs), maxX = Math.max.apply(null, xs);
-    var minY = Math.min.apply(null, ys), maxY = Math.max.apply(null, ys);
+    var c  = { lon: (minLon + maxLon) / 2, lat: (minLat + maxLat) / 2 };
+    var sw = this.toLocal(minLon, minLat, c), ne = this.toLocal(maxLon, maxLat, c);
+    return { c: c, minX: sw.x, minY: sw.y, maxX: ne.x, maxY: ne.y };
+  },
 
-    // Centre the lattice in the bounding box and jitter by less than half a step,
-    // so a large site needing few plots cannot step past the box and return nothing.
-    var width = maxX - minX, height = maxY - minY;
-    var cols = Math.max(1, Math.floor(width / spacing) + 1);
-    var rows = Math.max(1, Math.floor(height / spacing) + 1);
-
-    var rand = this.rng(seed);
-    var startX = minX + (width  - (cols - 1) * spacing) / 2 + (rand() - 0.5) * spacing * 0.4;
-    var startY = minY + (height - (rows - 1) * spacing) / 2 + (rand() - 0.5) * spacing * 0.4;
-
-    var out = [];
-    for (i = 0; i < cols; i++) {
-      for (j = 0; j < rows; j++) {
-        out.push(this.toLonLat(startX + i * spacing, startY + j * spacing, c));
+  // Every grid point inside the box, for cells sx by sy and a start of (ux, uy) cells.
+  latticeAt: function (frame, sx, sy, ux, uy) {
+    var out = [], i, j, x, y;
+    for (i = 0; (x = frame.minX + (ux + i) * sx) <= frame.maxX; i++) {
+      for (j = 0; (y = frame.minY + (uy + j) * sy) <= frame.maxY; j++) {
+        out.push(this.toLonLat(x, y, frame.c));
       }
     }
-    return { points: out, spacingM: spacing, cols: cols, rows: rows };
+    return out;
+  },
+
+  gridRatio: function (k, K) {
+    return this.GRID_RATIO_LO *
+           Math.pow(this.GRID_RATIO_HI / this.GRID_RATIO_LO, K === 1 ? 0 : k / (K - 1));
+  },
+
+  // Candidate grids for one zone. Returns every candidate point as [lon, lat, k],
+  // where k indexes grids[k] = { sx, sy, aspect, cellM2 }. A grid whose shorter
+  // side is below minSpacingM is skipped, so no candidate can put two plots closer
+  // than the plot footprint allows.
+  gridCandidates: function (ring, wanted, areaM2, seed, minSpacingM) {
+    var f = this.boxFrame(ring), s0 = Math.sqrt(areaM2 / wanted);
+    var rand = this.rng(seed), ux = rand(), uy = rand();
+    var W = f.maxX - f.minX, H = f.maxY - f.minY;
+    var A = this.GRID_ASPECTS, K = this.GRID_STEPS, k, a, i, est = 0;
+
+    for (k = 0; k < K; k++) {
+      var se = s0 * this.gridRatio(k, K);
+      est += A.length * (W / se + 1) * (H / se + 1);
+    }
+    if (est > this.MAX_CANDIDATES) K = Math.max(8, Math.floor(K * this.MAX_CANDIDATES / est));
+
+    var triples = [], grids = [];
+    for (k = 0; k < K; k++) {
+      var s = s0 * this.gridRatio(k, K);
+      for (a = 0; a < A.length; a++) {
+        var g = { sx: s * Math.sqrt(A[a]), sy: s / Math.sqrt(A[a]), aspect: A[a], cellM2: s * s };
+        var id = grids.length;
+        grids.push(g);
+        if (Math.min(g.sx, g.sy) < minSpacingM) continue;
+        var pts = this.latticeAt(f, g.sx, g.sy, ux, uy);
+        for (i = 0; i < pts.length; i++) {
+          triples.push([Math.round(pts[i].lon * 1e7) / 1e7, Math.round(pts[i].lat * 1e7) / 1e7, id]);
+        }
+      }
+    }
+    return { triples: triples, grids: grids, s0: s0, start: [ux, uy], steps: K };
+  },
+
+  // counts[k] = candidate points of grid k that fell inside the zone.
+  // Preference within a rule: the squarest cell, then the widest.
+  chooseGrid: function (counts, grids, wanted) {
+    function better(k, b) {
+      var dk = Math.abs(Math.log(grids[k].aspect)), db = Math.abs(Math.log(grids[b].aspect));
+      if (dk !== db) return dk < db;
+      return grids[k].cellM2 > grids[b].cellM2;
+    }
+    var best = null, k;
+    for (k = 0; k < counts.length; k++) {            // exactly n
+      if (counts[k] === wanted && (!best || better(k, best.k))) {
+        best = { k: k, count: counts[k], kind: 'exact' };
+      }
+    }
+    if (best) return best;
+    for (k = 0; k < counts.length; k++) {            // else the fewest above n
+      if (counts[k] > wanted && (!best || counts[k] < best.count ||
+          (counts[k] === best.count && better(k, best.k)))) {
+        best = { k: k, count: counts[k], kind: 'over' };
+      }
+    }
+    if (best) return best;
+    for (k = 0; k < counts.length; k++) {            // else the most below n
+      if (counts[k] > 0 && (!best || counts[k] > best.count ||
+          (counts[k] === best.count && better(k, best.k)))) {
+        best = { k: k, count: counts[k], kind: 'under' };
+      }
+    }
+    return best;                                      // null: nothing fell inside
   },
 
   // --- composite subsamples -----------------------------------------------------
@@ -704,16 +866,52 @@ var BCTest = {
     tol = (tol === undefined) ? 1e-6 : tol;
     var ok = isFinite(got) && Math.abs(got - want) <= tol;
     ok ? this.passed++ : this.failed++;
-    this.say('  ' + (ok ? 'PASS  ' : 'FAIL  ') + this.pad(label, 40) +
+    this.say('  ' + (ok ? 'PASS  ' : 'FAIL  ') + this.pad(label, 44) +
              (ok ? '' : '  got ' + got + ', want ' + want));
     return ok;
   },
   eq: function (label, got, want) {
     var ok = (got === want);
     ok ? this.passed++ : this.failed++;
-    this.say('  ' + (ok ? 'PASS  ' : 'FAIL  ') + this.pad(label, 40) +
+    this.say('  ' + (ok ? 'PASS  ' : 'FAIL  ') + this.pad(label, 44) +
              (ok ? '' : '  got ' + got + ', want ' + want));
     return ok;
+  },
+
+  // Point-in-polygon for the tests only (Earth Engine does this in the app).
+  // zone: [ring, ring, ...], each ring [[lon, lat], ...] — a multi-part zone.
+  inside: function (zone, lon, lat) {
+    for (var r = 0; r < zone.length; r++) {
+      var ring = zone[r], c = false, i, j;
+      for (i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+        var xi = ring[i][0], yi = ring[i][1], xj = ring[j][0], yj = ring[j][1];
+        if (((yi > lat) !== (yj > lat)) && (lon < (xj - xi) * (lat - yi) / (yj - yi) + xi)) c = !c;
+      }
+      if (c) return r;
+    }
+    return -1;
+  },
+
+  // Runs the grid selection end to end against a test zone, as BCPlace does.
+  gridOn: function (zone, areaM2, wanted, seed, minSpacing) {
+    var all = [], r, i;
+    for (r = 0; r < zone.length; r++) for (i = 0; i < zone[r].length; i++) all.push(zone[r][i]);
+    var g = BCLayout.gridCandidates(all, wanted, areaM2, seed, minSpacing);
+    var counts = [], byK = {}, part = {};
+    for (i = 0; i < g.grids.length; i++) counts.push(0);
+    for (i = 0; i < g.triples.length; i++) {
+      var t = g.triples[i], p = this.inside(zone, t[0], t[1]);
+      if (p < 0) continue;
+      counts[t[2]]++;
+      (byK[t[2]] = byK[t[2]] || []).push({ lon: t[0], lat: t[1], part: p });
+    }
+    var pick = BCLayout.chooseGrid(counts, g.grids, wanted);
+    var pts = pick ? byK[pick.k] : [];
+    if (pick && pick.count > wanted) {
+      pts = BCLayout.pickIndices(pts.length, wanted, seed).map(function (k) { return pts[k]; });
+    }
+    for (i = 0; i < pts.length; i++) part[pts[i].part] = (part[pts[i].part] || 0) + 1;
+    return { pick: pick, points: pts, perPart: part, grid: pick ? g.grids[pick.k] : null, g: g };
   },
 
   // ---- 3.1 inverse normal ------------------------------------------------------
@@ -775,8 +973,8 @@ var BCTest = {
     var r30  = BCStats.sampleSize({ cv: 0.70, marginOfError: 0.30, confidence: 0.90 }).n;
     var r40  = BCStats.sampleSize({ cv: 0.70, marginOfError: 0.40, confidence: 0.90 }).n;
     this.eq('same +/-20% target: field count', Math.max(soil, rEq), 36);
-    this.eq('different targets +/-20 / +/-40: ', Math.max(soil, r40), 11);
-    this.eq('tighter root target +/-30%: ',      Math.max(soil, r30), 17);
+    this.eq('different targets +/-20 / +/-40', Math.max(soil, r40), 11);
+    this.eq('tighter root target +/-30%',      Math.max(soil, r30), 17);
     this.say('  Roots are washed from the same cores, so plot centres = the larger of the two.');
   },
 
@@ -804,7 +1002,6 @@ var BCTest = {
   // ---- 3.6 achieved precision --------------------------------------------------
   testAchieved: function () {
     this.head('3.6  Achieved precision (Appendix A8), t on n-1 df');
-    // n 22, mean 21.4, SD 12.8, 90%: t(0.95, 21) = 1.720743
     var a = BCStats.achievedPrecision({ n: 22, sampleMean: 21.4, sampleSd: 12.8,
                                         confidence: 0.90, target: 0.20 });
     this.near('standard error',           a.se,  12.8 / Math.sqrt(22), 1e-9);
@@ -814,162 +1011,226 @@ var BCTest = {
 
   // ---- 3.7 priors --------------------------------------------------------------
   testPriors: function () {
-    this.head('3.7  Priors: nothing is assumed');
-    var none = BCStats.priorFromInputs({ pool: 'Soil', source: 'pilot' });
-    this.eq('no numbers -> refused', none.ok, false);
+    this.head('3.7  Priors: published start, own data, or set by hand');
 
-    var noSrc = BCStats.priorFromInputs({ pool: 'Soil', mean: 10, sd: 3 });
-    this.eq('numbers but no source -> refused', noSrc.ok, false);
+    var soil = BCStats.publishedPrior('Soil');
+    this.near('soil starts at Sothe et al. CV 0.76', soil.cv, 0.76);
+    this.near('...which is 10 / 13.2 rounded up',   Math.ceil(100 * 10 / 13.2) / 100, soil.cv);
+    this.eq  ('...and is marked published',          soil.published, true);
+    var nSoil = BCStats.sampleSize({ cv: soil.cv, marginOfError: 0.20, confidence: 0.90 });
+    this.eq  ('Canada-wide soil prior, +/-20%, 90%: n', nSoil.n, 41);
+    this.say('  (a large, cautious campaign: the national spread overstates one site)');
 
-    var p = BCStats.priorFromInputs({ pool: 'Soil', mean: 10, sd: 3, source: 'Pilot, 8 cores' });
-    this.near('CV from mean and SD', p.cv, 0.3);
+    var roots = BCStats.publishedPrior('Roots');
+    this.near('roots start at the illustrative CV 0.70', roots.cv, 0.70);
+    this.eq  ('...which is marked NOT published',       roots.published, false);
 
-    var both = BCStats.priorFromInputs({ pool: 'Soil', mean: 10, sd: 3, cv: 0.5, source: 'x' });
-    this.near('a CV entered directly wins', both.cv, 0.5);
+    var own = BCStats.priorFromMeanSd({ pool: 'Soil', mean: 10, sd: 3, from: 'pilot, 8 cores' });
+    this.near('own mean 10, SD 3 -> CV 0.30', own.cv, 0.3);
+    this.eq  ('own data carries its note', own.short, 'your own data (pilot, 8 cores)');
+    this.eq  ('own data needs an SD above zero',
+              BCStats.priorFromMeanSd({ pool: 'Soil', mean: 10, sd: 0 }).ok, false);
+    this.eq  ('own data needs a mean above zero',
+              BCStats.priorFromMeanSd({ pool: 'Soil', mean: 0, sd: 3 }).ok, false);
 
-    var thin = BCStats.priorFromInputs({ pool: 'Roots', cv: 0.7, source: 'pilot', pilotN: 3 });
-    this.eq('thin pilot flagged indicative', thin.indicative, true);
+    var hand = BCStats.priorManual({ pool: 'Soil', cv: 0.35, from: soil.short });
+    this.near('slider sets the CV', hand.cv, 0.35);
+    this.eq  ('...and records where it started', hand.short,
+              'set by hand, adjusted from Sothe et al. (2022), Canada-wide');
     this.eq('CV 0.9 flagged as high variability',
-            BCStats.priorFromInputs({ pool: 'Roots', cv: 0.9, source: 's' }).highVariability, true);
+            BCStats.priorManual({ pool: 'Roots', cv: 0.9 }).highVariability, true);
     this.eq('CV 0.1 flagged as unusually low',
-            BCStats.priorFromInputs({ pool: 'Soil', cv: 0.1, source: 's' }).lowVariability, true);
+            BCStats.priorManual({ pool: 'Soil', cv: 0.1 }).lowVariability, true);
   },
 
-  // ---- 3.8 multi-polygon strata ------------------------------------------------
+  // ---- 3.8 zones ---------------------------------------------------------------
   testZones: function () {
-    this.head('3.8  Drawn zones: several polygons per stratum (the reported bug)');
+    this.head('3.8  Zones: several polygons per stratum, and land cover classes');
 
-    // A stand-in for the drawing layer's list: length() and get(i).
     function fakeList(items) { return { length: function () { return items.length; },
                                         get: function (i) { return items[i]; } }; }
 
-    var draft = fakeList(['polyA1', 'polyA2', 'polyA3']);
-    var got = BCZones.collectAll(draft);
-    this.eq('three shapes drawn -> three collected', got.length, 3);
-    this.say('  (the old code read geometries().get(0) only, and would have kept 1)');
-
     var store = BCZones.emptyStore();
-    BCZones.add(store, 'Restored 2015', got);
-    BCZones.add(store, 'Unrestored', BCZones.collectAll(fakeList(['polyB1', 'polyB2'])));
-    this.eq('two strata', store.order.length, 2);
-    this.eq('restored keeps all 3 polygons', store.byName['Restored 2015'].length, 3);
-    this.eq('unrestored keeps both polygons', store.byName['Unrestored'].length, 2);
-
-    BCZones.add(store, 'Restored 2015', ['polyA4']);   // same name again, later
+    BCZones.add(store, 'Restored 2015', BCZones.collectAll(fakeList(['A1', 'A2', 'A3'])));
+    BCZones.add(store, 'Unrestored', BCZones.collectAll(fakeList(['B1', 'B2'])));
+    this.eq('three shapes drawn -> three kept', store.byName['Restored 2015'].length, 3);
+    BCZones.add(store, 'Restored 2015', ['A4']);
     this.eq('same name later ADDS, not replaces', store.byName['Restored 2015'].length, 4);
     this.eq('still two strata', store.order.length, 2);
-    this.eq('5 + 1 polygons in total', BCZones.polygonCount(store), 6);
+    this.eq('flatten keeps every polygon', BCZones.flatten(store).length, 6);
 
-    var flat = BCZones.flatten(store);
-    this.eq('flatten keeps every polygon', flat.length, 6);
-    this.eq('flatten keeps its stratum name', flat[3].name, 'Restored 2015');
+    var dw = BCEarth.LANDCOVER.dynamic.labels;
+    var cls = BCZones.classesFromHistogram({ '2': 800, '4.0': 300, '8': 50, '0': 20 }, dw);
+    this.eq('histogram keys parsed, incl. "4.0"', cls.length, 4);
+    this.eq('largest class first', cls[0].name, 'Grass');
+    this.eq('"4.0" read as Crops', cls[1].name, 'Crops');
+    this.eq('Snow and ice starts unticked', cls[2].tick, false);
+    this.eq('Water starts unticked', cls[3].tick, false);
+    this.eq('Grass starts ticked', cls[0].tick, true);
+
+    var pal = BCZones.palette(['a', 'b', 'c'], 5);
+    this.eq('palette has one colour per zone', pal.length, 5);
+    this.eq('...and cycles in order', pal[3], 'a');
   },
 
-  // ---- 3.9 scale, options, buffer, feasibility ---------------------------------
-  testGeometry: function () {
-    this.head('3.9  Analysis scale and stratification options');
-    var sites = [[50000, '5 ha'], [500000, '50 ha'], [5e6, '500 ha'], [5e7, '5,000 ha'], [5e9, '500,000 ha']];
-    for (var i = 0; i < sites.length; i++) {
-      var r = BCGeom.analysisScale(sites[i][0]);
-      this.say('    ' + this.pad(sites[i][1], 12) + ' -> ' + this.pad(r.scale, 4, true) +
-               ' m, ' + this.pad(r.pixels, 8, true) + ' px' + (r.coarse ? '   [coarse]' : ''));
+  // ---- 3.9 plot styles ---------------------------------------------------------
+  testStyles: function () {
+    this.head('3.9  Plot styles are labelled');
+    this.eq('three styles', BCLayout.STYLES.length, 3);
+    this.eq('paired plot id',    BCLayout.plotId('paired', 7),     'P_007');
+    this.eq('unpaired plot id',  BCLayout.plotId('unpaired', 12),  'U_012');
+    this.eq('composite plot id', BCLayout.plotId('composite', 3),  'C_003');
+    var codes = {}, dup = 0, i;
+    for (i = 0; i < BCLayout.STYLES.length; i++) {
+      if (codes[BCLayout.STYLES[i].code]) dup++;
+      codes[BCLayout.STYLES[i].code] = true;
     }
+    this.eq('style codes are distinct', dup, 0);
+    this.eq('paired rule says OUTSIDE the plot',
+            BCLayout.style('paired').rule.indexOf('OUTSIDE') >= 0, true);
+  },
+
+  // ---- 3.10 scale, options, feasibility ----------------------------------------
+  testGeometry: function () {
+    this.head('3.10  Analysis scale, stratification options, feasibility');
     this.eq('5 ha site uses 10 m',            BCGeom.analysisScale(50000).scale, 10);
     this.eq('500,000 ha site capped at 250 m', BCGeom.analysisScale(5e9).scale, 250);
 
     var opts = BCGeom.stratificationOptions(50000);
     function byId(list, id) { for (var k = 0; k < list.length; k++) { if (list[k].id === id) return list[k]; } }
     this.eq('Copernicus 100 m hidden at 5 ha',  byId(opts, 'copernicus').available, false);
-    this.eq('Drawing always offered',           byId(opts, 'draw').available, true);
+    this.eq('Dynamic World offered at 5 ha',    byId(opts, 'dynamic').available, true);
     this.eq('Copernicus returns at 500 ha',
             byId(BCGeom.stratificationOptions(5e6), 'copernicus').available, true);
 
-    this.head('3.10  Spacing, buffer and feasibility');
     this.near('25 m2 plot -> 5 m spacing',   BCGeom.minSpacing(25), 5);
     this.near('400 m2 plot -> 20 m spacing', BCGeom.minSpacing(400), 20);
     this.near('composite radius 5 m dominates a 25 m2 plot', BCGeom.minSpacing(25, 5), 10);
-    this.near('a 400 m2 plot dominates radius 5 m',           BCGeom.minSpacing(400, 5), 20);
-
-    var b = BCGeom.chooseBuffer(30000, 6, 5);
-    this.say('    3 ha zone, 6 plots at 5 m: ' + b.note);
 
     var strata = [{ name: 'Restored', areaM2: 30000, cores: 6 }, { name: 'Unrestored', areaM2: 20000, cores: 4 }];
-    var f = BCGeom.feasibility({ spacingM: 5, minPerStratum: 3, strata: strata });
-    this.eq('two-zone design is feasible', f.ok, true);
-
-    var sliver = BCGeom.feasibility({ spacingM: 5, minPerStratum: 3,
-                                      strata: [{ name: 'Sliver', areaM2: 60, cores: 3 }] });
-    this.eq('0.006 ha zone rejected', sliver.ok, false);
-
-    var packed = BCGeom.feasibility({ spacingM: 20, minPerStratum: 3,
-                                      strata: [{ name: 'Packed', areaM2: 8000, cores: 70 }] });
-    this.eq('70 plots at 20 m in 0.8 ha rejected', packed.ok, false);
-
-    var tiny = BCGeom.feasibility({ spacingM: 5, minPerStratum: 3, areaM2: 10, cores: 3 });
-    this.eq('site smaller than one plot rejected', tiny.ok, false);
+    this.eq('two-zone design is feasible',
+            BCGeom.feasibility({ spacingM: 5, minPerStratum: 3, strata: strata }).ok, true);
+    this.eq('0.006 ha zone rejected',
+            BCGeom.feasibility({ spacingM: 5, minPerStratum: 3,
+                                 strata: [{ name: 'Sliver', areaM2: 60, cores: 3 }] }).ok, false);
+    this.eq('70 plots at 20 m in 0.8 ha rejected',
+            BCGeom.feasibility({ spacingM: 20, minPerStratum: 3,
+                                 strata: [{ name: 'Packed', areaM2: 8000, cores: 70 }] }).ok, false);
   },
 
-  // ---- 3.11 layout geometry ----------------------------------------------------
-  testLayout: function () {
-    this.head('3.11  Layout geometry');
+  // ---- 3.11 the even grid ------------------------------------------------------
+  testGrid: function () {
+    this.head('3.11  Even grid fitted to the real zone shape');
+    var i;
 
-    var square = [[-123.09153,49.00399],[-123.08847,49.00399],
-                  [-123.08847,49.00600],[-123.09153,49.00600],[-123.09153,49.00399]];
-    var c = BCLayout.centroidOf(square);
-    var loc  = BCLayout.toLocal(-123.0900, 49.0050, c);
+    // metres -> degrees about 49 N, to build test shapes
+    var c = { lon: -97.0, lat: 49.0 };
+    function sq(x0, y0, x1, y1) {
+      var a = BCLayout.toLonLat(x0, y0, c), b = BCLayout.toLonLat(x1, y1, c);
+      return [[a.lon, a.lat], [b.lon, a.lat], [b.lon, b.lat], [a.lon, b.lat], [a.lon, a.lat]];
+    }
+
+    // An L-shaped zone (the case the bounding-box grid got wrong): 4 ha in a 6.25 ha box
+    var L = [[[0, 0], [250, 0], [250, 100], [100, 100], [100, 250], [0, 250], [0, 0]]
+             .map(function (p) { var q = BCLayout.toLonLat(p[0], p[1], c); return [q.lon, q.lat]; })];
+    var bad = 0, seed;
+    for (seed = 1; seed <= 20; seed++) {
+      if (this.gridOn(L, 40000, 12, seed, 5).points.length !== 12) bad++;
+    }
+    this.eq('L-shape: 12 plots asked, 12 placed (20 seeds)', bad, 0);
+    var one = this.gridOn(L, 40000, 12, 42, 5);
+    this.say('    seed 42: cells ' + one.grid.sx.toFixed(1) + ' x ' + one.grid.sy.toFixed(1) +
+             ' m, match ' + one.pick.kind + ', ' + one.g.triples.length + ' candidates sent');
+    this.eq('grid points keep the grid spacing',
+            BCLayout.minSeparation(one.points) >= Math.min(one.grid.sx, one.grid.sy) - 0.5, true);
+
+    // How often exactly n lands inside, and the most ever dropped, over 100 seeds
+    var exact = 0, worst = 0;
+    for (seed = 1; seed <= 100; seed++) {
+      var rr = this.gridOn(L, 40000, 30, seed, 5);
+      if (rr.pick.kind === 'exact') exact++;
+      worst = Math.max(worst, rr.pick.count - 30);
+    }
+    this.say('    L-shape, 30 plots, 100 seeds: exact ' + exact + ', most dropped ' + worst);
+    this.eq('L-shape, 30 plots: exact in most seeds', exact >= 60, true);
+    this.eq('...and never more than 3 dropped', worst <= 3, true);
+
+    // A zone drawn as two separate polygons, 3 ha and 1 ha, 400 m apart
+    var two = [sq(0, 0, 200, 150), sq(600, 0, 700, 100)];
+    var shares = 0, placedAll = 0;
+    for (seed = 1; seed <= 20; seed++) {
+      var t = this.gridOn(two, 40000, 16, seed, 5);
+      if (t.points.length === 16) placedAll++;
+      if ((t.perPart[0] || 0) >= 10 && (t.perPart[1] || 0) >= 2) shares++;
+    }
+    this.eq('two-part zone: all 16 placed (20 seeds)', placedAll, 20);
+    this.eq('...shared roughly 3:1 by area (20 seeds)', shares, 20);
+    var t42 = this.gridOn(two, 40000, 16, 42, 5);
+    this.say('    seed 42: ' + (t42.perPart[0] || 0) + ' in the 3 ha part, ' +
+             (t42.perPart[1] || 0) + ' in the 1 ha part');
+
+    // Plot footprint is respected: no candidate grid finer than the spacing floor
+    var tight = BCLayout.gridCandidates(L[0], 12, 40000, 42, 60);
+    var finer = 0;
+    for (i = 0; i < tight.triples.length; i++) {
+      var tg = tight.grids[tight.triples[i][2]];
+      if (Math.min(tg.sx, tg.sy) < 60) finer++;
+    }
+    this.eq('no candidate grid below the plot spacing', finer, 0);
+
+    // Selection rules
+    function G(cell, aspect) { return { cellM2: cell, aspect: aspect, sx: 1, sy: 1 }; }
+    var gs = [G(100, 1), G(121, 1), G(144, 1.15), G(144, 1), G(169, 1)];
+    this.eq('exact match wins: squarest, then widest',
+            BCLayout.chooseGrid([15, 12, 12, 12, 9], gs, 12).k, 3);
+    this.eq('else the fewest above',
+            BCLayout.chooseGrid([15, 13, 11, 11, 9], gs, 12).k, 1);
+    this.eq('else the most below',
+            BCLayout.chooseGrid([10, 9, 0, 0, 0], gs, 12).kind, 'under');
+    this.eq('nothing inside -> null', BCLayout.chooseGrid([0, 0, 0, 0, 0], gs, 12), null);
+
+    // Reproducibility and request size
+    this.eq('same seed, same grid',
+            JSON.stringify(this.gridOn(L, 40000, 12, 42, 5).points) ===
+            JSON.stringify(this.gridOn(L, 40000, 12, 42, 5).points), true);
+    this.eq('different seed, different grid',
+            JSON.stringify(this.gridOn(L, 40000, 12, 42, 5).points) !==
+            JSON.stringify(this.gridOn(L, 40000, 12, 43, 5).points), true);
+    this.eq('candidate count stays near the request cap',
+            this.gridOn(L, 40000, 80, 42, 5).g.triples.length <= BCLayout.MAX_CANDIDATES * 1.2, true);
+  },
+
+  // ---- 3.12 other layout geometry ----------------------------------------------
+  testLayout: function () {
+    this.head('3.12  Spacing, subsets and composites');
+    var c = { lon: -97.0, lat: 49.0 }, i;
+    var loc  = BCLayout.toLocal(-96.999, 49.0005, c);
     var back = BCLayout.toLonLat(loc.x, loc.y, c);
     this.eq('metric frame round-trips',
-            BCLayout.metresBetween({ lon: -123.0900, lat: 49.0050 }, back) < 0.01, true);
+            BCLayout.metresBetween({ lon: -96.999, lat: 49.0005 }, back) < 0.01, true);
 
-    var rnd = BCLayout.rng(7), cand = [], i;
+    var rnd = BCLayout.rng(7), cand = [];
     for (i = 0; i < 3000; i++) cand.push(BCLayout.toLonLat((rnd() - 0.5) * 60, (rnd() - 0.5) * 60, c));
-    var kept   = BCLayout.thin(cand, 10, 22);
-    var before = BCLayout.minSeparation(cand.slice(0, 22));
-    var after  = BCLayout.minSeparation(kept);
-    this.eq('all 22 plots placed', kept.length, 22);
-    this.eq('minimum spacing respected', after >= 10, true);
-    this.eq('thinning changed the result', before < 10, true);
+    var kept = BCLayout.thin(cand, 10, 22);
+    this.eq('all 22 random plots placed', kept.length, 22);
+    this.eq('minimum spacing respected', BCLayout.minSeparation(kept) >= 10, true);
 
-    var g = BCLayout.lattice(square, 22, 50000, CONFIG.SEED);
-    this.near('grid spacing = sqrt(area/n)', g.spacingM, Math.sqrt(50000 / 22), 0.01);
-    this.eq('grid offers at least the plots asked for', g.points.length >= 22, true);
-
-    var big = [[-123.12, 48.98], [-123.06, 48.98], [-123.06, 49.03],
-               [-123.12, 49.03], [-123.12, 48.98]];
-    var empty = 0, sd;
-    for (sd = 1; sd <= 40; sd++) { if (BCLayout.lattice(big, 1, 11480000, sd).points.length < 1) empty++; }
-    this.eq('a sparse lattice is never empty (40 seeds)', empty, 0);
-
-    // random subset: the root subsample and the grid trim
     var pick = BCLayout.pickIndices(20, 8, 42);
-    this.eq('subset has the size asked for', pick.length, 8);
     var seen = {}, dupes = 0;
     for (i = 0; i < pick.length; i++) { if (seen[pick[i]]) dupes++; seen[pick[i]] = true; }
-    this.eq('subset has no repeats', dupes, 0);
-    this.eq('subset reproduces from the seed',
+    this.eq('random subset: right size, no repeats', pick.length === 8 && dupes === 0, true);
+    this.eq('random subset reproduces from the seed',
             JSON.stringify(BCLayout.pickIndices(20, 8, 42)) === JSON.stringify(pick), true);
-    this.eq('a different seed gives a different subset',
-            JSON.stringify(BCLayout.pickIndices(20, 8, 43)) !== JSON.stringify(pick), true);
-    this.eq('asking for more than exist returns all', BCLayout.pickIndices(5, 9, 1).length, 5);
 
-    // composite
-    var centre = { lon: -123.09, lat: 49.005 };
-    var subs = BCLayout.compositeSubsamples(centre, 5, 5, CONFIG.SEED);
+    var subs = BCLayout.compositeSubsamples(c, 5, 5, CONFIG.SEED);
     var far = 0, near = Infinity;
     for (i = 0; i < subs.length; i++) {
-      var d = BCLayout.metresBetween(centre, subs[i]);
+      var d = BCLayout.metresBetween(c, subs[i]);
       far = Math.max(far, d); near = Math.min(near, d);
     }
     this.eq('5 subsamples generated', subs.length, 5);
     this.eq('subsamples stay inside the radius', far <= 5.01, true);
     this.eq('subsamples keep off the centre point', near >= 2.49, true);
-
-    this.eq('same seed reproduces the grid',
-      JSON.stringify(BCLayout.lattice(square, 22, 50000, 42)) ===
-      JSON.stringify(BCLayout.lattice(square, 22, 50000, 42)), true);
-    this.eq('a different seed does not',
-      JSON.stringify(BCLayout.lattice(square, 22, 50000, 42)) !==
-      JSON.stringify(BCLayout.lattice(square, 22, 50000, 43)), true);
   },
 
   // ---- runner ------------------------------------------------------------------
@@ -988,7 +1249,9 @@ var BCTest = {
     this.testAchieved();
     this.testPriors();
     this.testZones();
+    this.testStyles();
     this.testGeometry();
+    this.testGrid();
     this.testLayout();
 
     this.say('');
@@ -1043,47 +1306,82 @@ var BCEarth = {
     copernicus: {
       image: 'COPERNICUS/Landcover/100m/Proba-V-C3/Global/2019',
       band: 'discrete_classification', scale: 100,
-      labels: { 20: 'Shrubland', 30: 'Herbaceous vegetation', 50: 'Urban', 60: 'Bare or sparse',
-                80: 'Permanent water', 90: 'Herbaceous wetland', 200: 'Ocean' }
+      labels: { 20: 'Shrubland', 30: 'Herbaceous vegetation', 40: 'Cultivated',
+                50: 'Urban', 60: 'Bare or sparse', 80: 'Permanent water',
+                90: 'Herbaceous wetland', 111: 'Closed forest, evergreen needleleaf',
+                114: 'Closed forest, deciduous broadleaf', 115: 'Closed forest, mixed',
+                116: 'Closed forest, other', 121: 'Open forest, evergreen needleleaf',
+                124: 'Open forest, deciduous broadleaf', 125: 'Open forest, mixed',
+                126: 'Open forest, other', 200: 'Ocean' }
     }
   },
 
-  landcoverImage: function (aoi, cfg) {
-    return cfg.collection
-      ? ee.ImageCollection(cfg.collection).filterBounds(aoi)
-          .filterDate('2022-01-01', '2023-01-01').select(cfg.band).mode()
-      : ee.Image(cfg.image).select(cfg.band);
+  // What the land cover layer is, in words, for the methods paragraph.
+  landcoverDescription: function (sourceId) {
+    if (sourceId === 'dynamic') {
+      return 'Dynamic World land cover (most frequent class, ' + CONFIG.DW_YEAR + '-' +
+             CONFIG.DW_SEASON[0] + ' to ' + CONFIG.DW_YEAR + '-' + CONFIG.DW_SEASON[1] + ', 10 m)';
+    }
+    if (sourceId === 'copernicus') return 'Copernicus Global Land Cover (2019, 100 m)';
+    return '';
   },
 
-  landcoverClasses: function (aoi, sourceId, callback) {
+  // Returns { image: integer band 'class', count: number of source images }.
+  // Dynamic World: the most frequent label over the GROWING SEASON of one year.
+  // The earlier version took the mode over a whole calendar year, which for a
+  // Canadian site is dominated by winter scenes labelled 'Snow and ice'.
+  landcoverImage: function (aoi, sourceId) {
+    var cfg = this.LANDCOVER[sourceId];
+    if (cfg.collection) {
+      var y = CONFIG.DW_YEAR;
+      var col = ee.ImageCollection(cfg.collection).filterBounds(aoi)
+        .filterDate(y + '-' + CONFIG.DW_SEASON[0], y + '-' + CONFIG.DW_SEASON[1])
+        .select(cfg.band);
+      // round() then toInt(): class values must be exact integers for the
+      // histogram keys, remap() and the grouped area sum to line up.
+      return { image: col.mode().round().toInt().rename('class'), count: col.size() };
+    }
+    return { image: ee.Image(cfg.image).select(cfg.band).toInt().rename('class'),
+             count: ee.Number(1) };
+  },
+
+  // scale: the analysis scale for this site. Never finer than the layer's own
+  // resolution, so a large site does not ask for a 10 m histogram of thousands of
+  // hectares and time out.
+  landcoverClasses: function (aoi, sourceId, scale, callback) {
     var cfg = this.LANDCOVER[sourceId];
     if (!cfg) { callback(null, 'Unknown land cover source: ' + sourceId); return; }
 
-    var img = this.landcoverImage(aoi, cfg);
-    img.rename('class').clip(aoi).reduceRegion({
-      reducer: ee.Reducer.frequencyHistogram(), geometry: aoi,
-      scale: cfg.scale, maxPixels: this.MAX_PIXELS, tileScale: this.TILE_SCALE
-    }).evaluate(function (res, err) {
-      if (err || !res || !res['class']) {
-        callback(null, err || 'No land cover classes found inside this boundary.');
+    var self = this, lc = this.landcoverImage(aoi, sourceId);
+    var useScale = Math.max(cfg.scale, scale || 0);
+
+    // Count the scenes first: the mode of an empty collection has no bands, and
+    // Earth Engine would report that as an unhelpful band-name error.
+    lc.count.evaluate(function (nImages, e0) {
+      if (e0) { callback(null, 'Earth Engine could not read the land cover map: ' + e0); return; }
+      if (!nImages) {
+        callback(null, 'No Dynamic World images cover this site between ' +
+                       CONFIG.DW_SEASON[0] + ' and ' + CONFIG.DW_SEASON[1] + ' of ' +
+                       CONFIG.DW_YEAR + '. Try another stratification method.');
         return;
       }
-      var out = [], code;
-      for (code in res['class']) {
-        if (res['class'].hasOwnProperty(code)) {
-          out.push({ code: parseInt(code, 10), pixels: res['class'][code],
-                     name: cfg.labels[code] || ('Class ' + code) });
+      lc.image.clip(aoi).reduceRegion({
+        reducer: ee.Reducer.frequencyHistogram(), geometry: aoi,
+        scale: useScale, maxPixels: self.MAX_PIXELS, tileScale: self.TILE_SCALE
+      }).evaluate(function (res, err) {
+        if (err) { callback(null, 'Earth Engine could not read the land cover map: ' + err); return; }
+        var classes = BCZones.classesFromHistogram((res && res['class']) || {}, cfg.labels);
+        if (classes.length === 0) {
+          callback(null, 'No land cover classes found inside this boundary.');
+          return;
         }
-      }
-      out.sort(function (a, b) { return b.pixels - a.pixels; });
-      callback({ classes: out, image: img, scale: cfg.scale }, null);
+        callback({ classes: classes, images: nImages, scale: useScale }, null);
+      });
     });
   },
 
   landcoverStrata: function (aoi, sourceId, selected, renames) {
-    var cfg = this.LANDCOVER[sourceId];
-    var img = this.landcoverImage(aoi, cfg);
-
+    var lc = this.landcoverImage(aoi, sourceId);
     var from = [], to = [], zones = [], i;
     for (i = 0; i < selected.length; i++) {
       from.push(selected[i].code);
@@ -1091,10 +1389,8 @@ var BCEarth = {
       zones.push({ code: i, sourceCode: selected[i].code,
                    name: (renames && renames[selected[i].code]) || selected[i].name });
     }
-
-    var remapped = img.rename('c').remap(from, to, -999);
-    return { image: remapped.updateMask(remapped.neq(-999)).rename('zone').clip(aoi),
-             zones: zones };
+    // With no default value, remap() masks every class that was not ticked.
+    return { image: lc.image.remap(from, to).rename('zone').toInt().clip(aoi), zones: zones };
   },
 
   // --- Stratification: unsupervised grouping ------------------------------------
@@ -1154,7 +1450,7 @@ var BCEarth = {
       var clusterer = ee.Clusterer.wekaKMeans({ nClusters: k, seed: CONFIG.SEED }).train(sample);
       var zones = [];
       for (var i = 0; i < k; i++) zones.push({ code: i, sourceCode: i, name: 'Zone ' + (i + 1) });
-      callback({ image: img.cluster(clusterer).rename('zone').clip(aoi),
+      callback({ image: img.cluster(clusterer).rename('zone').toInt().clip(aoi),
                  zones: zones, trainingPixels: n, scale: scale }, null);
     });
   },
@@ -1162,7 +1458,7 @@ var BCEarth = {
   // --- Zone areas (raster zones) ------------------------------------------------
 
   zoneAreas: function (zoneImage, zones, aoi, scale, callback) {
-    ee.Image.pixelArea().addBands(zoneImage.rename('zone')).reduceRegion({
+    ee.Image.pixelArea().addBands(zoneImage.rename('zone').toInt()).reduceRegion({
       reducer: ee.Reducer.sum().group({ groupField: 1, groupName: 'zone' }),
       geometry: aoi, scale: scale, maxPixels: this.MAX_PIXELS, tileScale: this.TILE_SCALE
     }).evaluate(function (res, err) {
@@ -1182,13 +1478,9 @@ var BCEarth = {
   },
 
   // --- Vector zones: drawn or uploaded, ONE OR MANY POLYGONS PER ZONE -------------
-  // `features` is a list (or collection) of ee.Feature, each carrying a `zone`
-  // name. All polygons that share a name are dissolved into ONE geometry per zone,
-  // and the area is measured on that dissolved geometry, so:
-  //   * no polygon is dropped,
-  //   * a zone's area is the sum of all its polygons,
-  //   * two overlapping polygons of the SAME zone are not counted twice.
-  // (Polygons of DIFFERENT zones that overlap each other are not detected here.)
+  // All polygons that share a name are dissolved into ONE geometry per zone, and
+  // the area is measured on that dissolved geometry, so no polygon is dropped and
+  // overlapping polygons of the SAME zone are not counted twice.
 
   zonesFromFeatures: function (features, callback) {
     var err_ = this.MAX_ERROR;
@@ -1258,13 +1550,9 @@ var BCEarth = {
 // === SECTION 6B — PLACEMENT (Earth Engine wrappers) ==============================
 // ===
 // === COMPOSITE SAMPLES. The sample size n counts independent SAMPLES, i.e. lab
-// === analyses. With the composite layout each such sample is one composite: k
-// === subsample cores taken around a plot centre and pooled. So n composites are
+// === analyses. With the composite style each such sample is one composite: k
+// === subsample cores taken around a centre and pooled. So n composites are
 // === placed, and the field team takes n x k cores. n is NOT divided by k.
-// === The prior CV must describe variability between composites; a CV taken from
-// === single cores overstates it, which errs on the side of more samples.
-// === Compositing removes within-composite variation (Appendix A10): only choose
-// === it if that is acceptable for any later monitoring.
 // =================================================================================
 
 var BCPlace = {
@@ -1278,14 +1566,14 @@ var BCPlace = {
     return coords.map(function (p) { return { lon: p[0], lat: p[1] }; });
   },
 
-  // o: { geometry, areaM2, cores, layout, spacingM, zoneIndex,
+  // o: { geometry, areaM2, cores, layout, style, spacingM, zoneIndex,
   //      subsamples, compositeRadiusM }
   place: function (o, callback) {
     var self = this, R = o.compositeRadiusM;
 
     // Composite subsamples must stay inside the zone, so centres are placed in
     // the zone pulled in by the composite radius.
-    if (o.layout === 'composite') {
+    if (o.style === 'composite') {
       var shrunk = o.geometry.buffer(-R, BCEarth.MAX_ERROR);
       shrunk.area(BCEarth.MAX_ERROR).evaluate(function (a, err) {
         if (err || !(a > 0)) {
@@ -1301,73 +1589,97 @@ var BCPlace = {
   },
 
   run: function (o, region, regionAreaM2, callback) {
-    var self = this, spacing = o.spacingM, seed = CONFIG.SEED + (o.zoneIndex || 0);
+    var seed = CONFIG.SEED + (o.zoneIndex || 0);
 
+    // Common finish: composite subsamples around each centre, whichever layout.
+    function finish(result) {
+      if (o.style === 'composite') {
+        var all = [], i, j;
+        for (i = 0; i < result.points.length; i++) {
+          var subs = BCLayout.compositeSubsamples(result.points[i], o.subsamples,
+                                                  o.compositeRadiusM, seed + i);
+          for (j = 0; j < subs.length; j++) {
+            all.push({ lon: subs[j].lon, lat: subs[j].lat, centre: i, subsample: j + 1 });
+          }
+        }
+        result.subsamples = all;
+      }
+      result.seed = seed;
+      result.minSeparationM = BCLayout.minSeparation(result.points);
+      callback(result, null);
+    }
+
+    if (o.layout === 'grid') { this.grid(o, region, regionAreaM2, seed, finish, callback); return; }
+    this.random(o, region, seed, finish, callback);
+  },
+
+  // ---- random ------------------------------------------------------------------
+  random: function (o, region, seed, finish, callback) {
+    var self = this, over = Math.min(o.cores * this.OVERSAMPLE, 3000);
+    ee.FeatureCollection.randomPoints({
+      region: region, points: over, seed: seed, maxError: BCEarth.MAX_ERROR
+    }).geometry().coordinates().evaluate(function (raw, err) {
+      var cand = self.asPoints(raw);
+      if (err || cand.length === 0) { callback(null, err || 'Could not place points inside this zone.'); return; }
+      var kept = BCLayout.thin(cand, o.spacingM, o.cores);
+      finish({ points: kept, layout: 'random', requested: o.cores, placed: kept.length,
+               shortfall: kept.length < o.cores
+                 ? 'Only ' + kept.length + ' of ' + o.cores + ' plots fit while staying ' +
+                   Math.round(o.spacingM) + ' m apart. The zone is close to full.' : null });
+    });
+  },
+
+  // ---- even grid, fitted to the zone's real shape (see BCLayout.gridCandidates) --
+  grid: function (o, region, regionAreaM2, seed, finish, callback) {
     region.bounds(BCEarth.MAX_ERROR).coordinates().evaluate(function (ring, err) {
       if (err || !ring || !ring[0]) { callback(null, err || 'Could not read that zone.'); return; }
 
-      // ---- even grid -----------------------------------------------------------
-      if (o.layout === 'grid') {
-        var built = BCLayout.lattice(ring[0], o.cores, regionAreaM2, seed);
-        var fc = ee.FeatureCollection(built.points.map(function (p) {
-          return ee.Feature(ee.Geometry.Point([p.lon, p.lat]));
-        })).filterBounds(region);
-
-        fc.geometry().coordinates().evaluate(function (inside, e2) {
-          var cand = self.asPoints(inside);
-          if (e2 || cand.length === 0) {
-            callback(null, e2 || 'No grid positions fell inside this zone. Try the random layout.');
-            return;
-          }
-          var kept = BCLayout.thin(cand, spacing, cand.length);
-          var shortfall = null;
-          if (kept.length > o.cores) {
-            // Trim at random, not from one end of the lattice, which would leave
-            // one side of the zone unsampled.
-            var keep = BCLayout.pickIndices(kept.length, o.cores, seed);
-            kept = keep.map(function (i) { return kept[i]; });
-          } else if (kept.length < o.cores) {
-            shortfall = 'Only ' + kept.length + ' of ' + o.cores + ' grid positions fit inside ' +
-                        'this zone at ' + Math.round(spacing) + ' m spacing. Try the random layout.';
-          }
-          callback({ points: kept, layout: 'grid', requested: o.cores, placed: kept.length,
-                     shortfall: shortfall, seed: seed,
-                     minSeparationM: BCLayout.minSeparation(kept) }, null);
-        });
+      var g = BCLayout.gridCandidates(ring[0], o.cores, regionAreaM2, seed, o.spacingM);
+      if (g.triples.length === 0) {
+        callback(null, 'This zone is too small for a grid with plots ' + Math.round(o.spacingM) +
+                       ' m apart. Try the random layout.');
         return;
       }
 
-      // ---- random, and composite centres ---------------------------------------
-      var over = Math.min(o.cores * self.OVERSAMPLE, 3000);
+      // One request: every candidate point, tagged with its grid, kept if inside.
+      var inside = ee.FeatureCollection(ee.List(g.triples).map(function (t) {
+        t = ee.List(t);
+        return ee.Feature(ee.Geometry.Point(t.slice(0, 2)),
+                          { k: t.get(2), lon: t.get(0), lat: t.get(1) });
+      })).filterBounds(region);
 
-      ee.FeatureCollection.randomPoints({
-        region: region, points: over, seed: seed, maxError: BCEarth.MAX_ERROR
-      }).geometry().coordinates().evaluate(function (raw, e3) {
-        var cand = self.asPoints(raw);
-        if (e3 || cand.length === 0) {
-          callback(null, e3 || 'Could not place points inside this zone.');
+      ee.Dictionary({ k: inside.aggregate_array('k'),
+                      lon: inside.aggregate_array('lon'),
+                      lat: inside.aggregate_array('lat') }).evaluate(function (r, e2) {
+        if (e2 || !r) { callback(null, e2 || 'Could not test the grid against this zone.'); return; }
+
+        var counts = [], byK = {}, i;
+        for (i = 0; i < g.grids.length; i++) counts.push(0);
+        for (i = 0; i < r.k.length; i++) {
+          counts[r.k[i]]++;
+          (byK[r.k[i]] = byK[r.k[i]] || []).push({ lon: r.lon[i], lat: r.lat[i] });
+        }
+
+        var pick = BCLayout.chooseGrid(counts, g.grids, o.cores);
+        if (!pick) {
+          callback(null, 'No grid position fell inside this zone. Try the random layout.');
           return;
         }
-        var kept = BCLayout.thin(cand, spacing, o.cores);
-        var result = { points: kept, layout: o.layout, requested: o.cores, placed: kept.length,
-                       seed: seed, minSeparationM: BCLayout.minSeparation(kept) };
-
-        if (kept.length < o.cores) {
-          result.shortfall = 'Only ' + kept.length + ' of ' + o.cores + ' plots fit while staying ' +
-                             Math.round(spacing) + ' m apart. The zone is close to full.';
+        var pts = byK[pick.k], note = null, shortfall = null;
+        if (pick.count > o.cores) {
+          var keep = BCLayout.pickIndices(pts.length, o.cores, seed);
+          pts = keep.map(function (j) { return pts[j]; });
+          note = 'The closest grid put ' + pick.count + ' positions in this zone; ' +
+                 (pick.count - o.cores) + ' dropped at random.';
+        } else if (pick.count < o.cores) {
+          shortfall = 'Only ' + pick.count + ' of ' + o.cores + ' grid positions fit inside this ' +
+                      'zone with plots at least ' + Math.round(o.spacingM) + ' m apart. ' +
+                      'Try the random layout.';
         }
-
-        if (o.layout === 'composite') {
-          var all = [], i, j;
-          for (i = 0; i < kept.length; i++) {
-            var subs = BCLayout.compositeSubsamples(kept[i], o.subsamples, o.compositeRadiusM, seed + i);
-            for (j = 0; j < subs.length; j++) {
-              all.push({ lon: subs[j].lon, lat: subs[j].lat, centre: i, subsample: j + 1 });
-            }
-          }
-          result.subsamples = all;
-        }
-        callback(result, null);
+        var cell = g.grids[pick.k];
+        finish({ points: pts, layout: 'grid', requested: o.cores, placed: pts.length,
+                 gridCell: Math.round(cell.sx) + ' × ' + Math.round(cell.sy) + ' m',
+                 note: note, shortfall: shortfall });
       });
     });
   }
@@ -1392,6 +1704,7 @@ var UI = {
   HINT:    { fontSize: '11px', color: '#7A8B90', margin: '0 8px 6px 8px' },
   RESULT:  { fontSize: '20px', fontWeight: 'bold', color: '#2F5D2B', margin: '6px 8px' },
   NOTE:    { fontSize: '12px', color: '#26343A', margin: '2px 8px' },
+  POOL:    { fontSize: '13px', fontWeight: 'bold', color: '#26343A', margin: '8px 8px 2px 8px' },
   WARN:    { fontSize: '12px', color: '#B26A00', margin: '4px 8px' },
   ERROR:   { fontSize: '12px', color: '#B3261E', margin: '4px 8px' },
   OK:      { fontSize: '12px', color: '#3F7D3A', margin: '4px 8px' },
@@ -1399,21 +1712,26 @@ var UI = {
   PANEL:   { width: '430px', border: '1px solid #D8E2E5' },
   BTN:     { stretch: 'horizontal', margin: '8px' },
   WIDE:    { stretch: 'horizontal', margin: '0 8px 4px 8px' },
-  ZONE_COLOURS: ['#3F7D3A', '#C8763C', '#4C6E8C', '#8C5B8C', '#A8843C', '#5B8C8C']
+  ZONE_COLOURS: ['3F7D3A', 'C8763C', '4C6E8C', '8C5B8C', 'A8843C', '5B8C8C'],
+  // One colour per plot style, chosen to stand out on satellite imagery.
+  STYLE_COLOURS: { paired: '00E5FF', unpaired: 'FFD400', composite: 'FF6D00',
+                   subsample: 'FFFFFF', roots: 'FF3DF5' },
+  PLOT_LAYER_PREFIX: 'Plots · '
 };
 
 var State = {
   aoi: null, areaM2: null, scale: null,
-  priors: null,
-  zoneMode: 'none', zoneImage: null, zones: null, zoneAreas: null,
+  priors: { Soil: BCStats.publishedPrior('Soil'), Roots: BCStats.publishedPrior('Roots') },
+  zoneMode: 'none', zoneImage: null, zones: null, zoneAreas: null, zoneSource: '',
   zoneKeep: {}, zoneGeoms: null, zoneCollection: null,
   drawn: BCZones.emptyStore(), draft: null, classWidgets: [],
-  design: null, layout: 'random',
+  design: null, layout: 'random', style: 'composite',
   placed: null, features: null,
 
   reset: function () {
     this.aoi = null; this.areaM2 = null; this.scale = null;
-    this.priors = null; this.zoneMode = 'none'; this.zoneImage = null;
+    this.priors = { Soil: BCStats.publishedPrior('Soil'), Roots: BCStats.publishedPrior('Roots') };
+    this.zoneMode = 'none'; this.zoneImage = null; this.zoneSource = '';
     this.zones = null; this.zoneAreas = null; this.zoneKeep = {};
     this.zoneGeoms = null; this.zoneCollection = null;
     this.drawn = BCZones.emptyStore(); this.draft = null; this.classWidgets = [];
@@ -1435,9 +1753,24 @@ function plotFootprintM2() { return CONFIG.FOOTPRINTS[footprintSelect.getValue()
 function compositeRadius() { return radiusBox.getValue(); }
 function currentSpacing() {
   return BCGeom.minSpacing(plotFootprintM2(),
-                           State.layout === 'composite' ? compositeRadius() : 0);
+                           State.style === 'composite' ? compositeRadius() : 0);
 }
 function numberOf(box) { var v = parseFloat(box.getValue()); return isNaN(v) ? NaN : v; }
+function capitalise(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+function legendRow(colour, text) {
+  return ui.Panel([
+    ui.Label('', { backgroundColor: '#' + colour, padding: '7px', margin: '4px 6px 0 8px',
+                   border: '1px solid #26343A' }),
+    ui.Label(text, { fontSize: '12px', margin: '3px 0' })
+  ], ui.Panel.Layout.flow('horizontal'));
+}
+function removePlotLayers() {
+  var layers = map.layers(), i;
+  for (i = layers.length() - 1; i >= 0; i--) {
+    var name = layers.get(i).getName() || '';
+    if (name.indexOf(UI.PLOT_LAYER_PREFIX) === 0) layers.remove(layers.get(i));
+  }
+}
 
 panel.add(label('Grassland Sampling Design', UI.TITLE));
 panel.add(label('Turn a boundary and a precision target into a list of plot locations. ' +
@@ -1523,36 +1856,53 @@ var footprintSelect = ui.Select({
 panel.add(label('Nested plot: sets how far apart plot centres must be.', UI.HINT));
 panel.add(footprintSelect);
 
-var rootsBox = ui.Checkbox({ label: 'Include roots (washed from the same cores)', value: true,
-                             style: { margin: '4px 8px' },
-                             onChange: function (v) { rootPriorRow.style().set('shown', v); State.placed = null; recompute(); } });
-panel.add(rootsBox);
+panel.add(label('How variable is each pool? Each starts from a stated value. Replace it with ' +
+                'your own mean and SD, or move the CV slider, whenever you have a better number.',
+                UI.ASK));
 
-panel.add(label('How variable is each pool? There is no default. Use a pilot survey if you can, a ' +
-                'published grassland with a comparable history, depth and method, or a soil map for ' +
-                'scoping only. Enter a CV, or a mean and SD, AND say where it came from.', UI.ASK));
-
-function priorBlock(title) {
-  var b = {
-    mean: ui.Textbox({ placeholder: 'Mean (any unit)', style: UI.WIDE }),
-    sd:   ui.Textbox({ placeholder: 'Standard deviation between samples (same unit)', style: UI.WIDE }),
-    cv:   ui.Textbox({ placeholder: 'OR a CV directly (overrides mean and SD)', style: UI.WIDE }),
-    src:  ui.Textbox({ placeholder: 'Source: pilot / published study / soil map', style: UI.WIDE }),
-    n:    ui.Textbox({ placeholder: 'Pilot samples behind it (optional)', style: UI.WIDE })
-  };
-  b.panel = ui.Panel([label(title, UI.NOTE), b.mean, b.sd, b.cv, b.src, b.n]);
+// One block of prior controls per pool: where the value comes from, own numbers,
+// and a CV slider that always shows the value in use.
+function priorControls(pool, title) {
+  var pub = BCStats.PUBLISHED_PRIORS[pool];
+  var b = { pool: pool };
+  b.route = ui.Select({
+    items: [{ label: pool === 'Soil' ? 'Published, Canada-wide — Sothe et al. (2022)'
+                                     : 'Workshop illustrative value (no published Canada-wide value)',
+              value: 'published' },
+            { label: 'My own mean and SD', value: 'own' },
+            { label: 'Set the CV myself with the slider', value: 'manual' }],
+    value: 'published', style: UI.WIDE,
+    onChange: function (v) { priorRouteChanged(b, v); }
+  });
+  b.mean = ui.Textbox({ placeholder: 'Mean (any unit)', style: UI.WIDE,
+                        onChange: function () { priorOwnChanged(b); } });
+  b.sd   = ui.Textbox({ placeholder: 'Standard deviation between samples (same unit)', style: UI.WIDE,
+                        onChange: function () { priorOwnChanged(b); } });
+  b.from = ui.Textbox({ placeholder: 'Where are these from? (optional, e.g. 2025 pilot, 8 cores)',
+                        style: UI.WIDE, onChange: function () { priorOwnChanged(b); } });
+  b.ownRow = ui.Panel([b.mean, b.sd, b.from], null, { shown: false });
+  b.slider = ui.Slider({ min: BCStats.CV_MIN, max: BCStats.CV_MAX, value: pub.cv, step: 0.01,
+                         style: UI.WIDE, onChange: function (v) { priorSliderMoved(b, v); } });
+  b.msg = ui.Panel();
+  b.panel = ui.Panel([label(title, UI.POOL), b.route, b.ownRow,
+                      label('CV — how much this pool varies between samples:', UI.HINT),
+                      b.slider, b.msg]);
   return b;
 }
-var soilPrior = priorBlock('Soil carbon prior');
-var rootPrior = priorBlock('Root biomass prior');
-var rootPriorRow = ui.Panel([rootPrior.panel], null, { shown: true });
-var priorOut = ui.Panel();
 
-panel.add(soilPrior.panel); panel.add(rootPriorRow);
-panel.add(label('Use the same depth basis and sampling unit you will report. A prior from ' +
-                '0–30 cm cores does not describe a full-profile stock.', UI.HINT));
-panel.add(ui.Button({ label: 'Use these priors', style: UI.BTN, onClick: applyPriors }));
-panel.add(priorOut);
+var soilPrior = priorControls('Soil',  'Soil carbon');
+var rootPrior = priorControls('Roots', 'Root biomass');
+
+var rootsBox = ui.Checkbox({
+  label: 'Include roots (washed from the same cores)', value: true, style: { margin: '4px 8px' },
+  onChange: function (v) { rootPrior.panel.style().set('shown', v); State.placed = null; recompute(); }
+});
+
+panel.add(soilPrior.panel);
+panel.add(rootsBox);
+panel.add(rootPrior.panel);
+panel.add(label('Use a prior measured on the same depth basis and sampling unit you will report. ' +
+                'The Canada-wide soil value is for 0–30 cm.', UI.HINT));
 
 // --- STEP 4 · precision ---------------------------------------------------------
 
@@ -1595,39 +1945,55 @@ panel.add(label('Operational minimum (the series-wide rule is still to be confir
 panel.add(minSelect);
 panel.add(designOut); panel.add(mathToggle); panel.add(mathPanel);
 
-// --- STEP 5 · layout ------------------------------------------------------------
+// --- STEP 5 · plot style and layout ---------------------------------------------
 
-panel.add(label('Step 5 · Where do the plots go?', UI.STEP));
+panel.add(label('Step 5 · What kind of plots, and where do they go?', UI.STEP));
 
+function blurbOf(list, id) {
+  for (var i = 0; i < list.length; i++) { if (list[i].id === id) return list[i].blurb; }
+  return '';
+}
+
+panel.add(label('Plot style — labelled on every point and in the export:', UI.HINT));
+var styleSelect = ui.Select({
+  items: BCLayout.STYLES.map(function (s) { return { label: s.label, value: s.id }; }),
+  value: State.style, style: UI.WIDE,
+  onChange: function (v) {
+    State.style = v; State.placed = null;
+    compositeRow.style().set('shown', v === 'composite');
+    styleHint.setValue(blurbOf(BCLayout.STYLES, v));
+    recompute();
+  }
+});
+var styleHint = label(blurbOf(BCLayout.STYLES, State.style), UI.HINT);
+
+var subsampleBox = ui.Slider({ min: 3, max: 10, value: CONFIG.COMPOSITE_SUBSAMPLES, step: 1, style: UI.WIDE,
+                               onChange: function () { if (State.style === 'composite') recompute(); } });
+var radiusBox    = ui.Slider({ min: 2, max: 20, value: CONFIG.COMPOSITE_RADIUS_M, step: 1, style: UI.WIDE,
+                               onChange: function () { if (State.style === 'composite') recompute(); } });
+var compositeRow = ui.Panel([
+  label('Subsample cores pooled into each composite:', UI.HINT), subsampleBox,
+  label('Composite radius, metres (subsamples fall within this of the centre):', UI.HINT), radiusBox,
+  label('The number of composites comes from Step 4. A prior measured on single cores ' +
+        'overstates the variation between composites, which errs toward more samples.', UI.HINT)
+], null, { shown: State.style === 'composite' });
+
+panel.add(styleSelect); panel.add(styleHint); panel.add(compositeRow);
+
+panel.add(label('Layout — where the plot centres go:', UI.HINT));
 var layoutSelect = ui.Select({
   items: BCLayout.LAYOUTS.map(function (l) { return { label: l.label, value: l.id }; }),
   value: 'random', style: UI.WIDE,
   onChange: function (v) {
     State.layout = v; State.placed = null;
-    compositeRow.style().set('shown', v === 'composite');
-    var blurb = '';
-    for (var i = 0; i < BCLayout.LAYOUTS.length; i++) {
-      if (BCLayout.LAYOUTS[i].id === v) blurb = BCLayout.LAYOUTS[i].blurb;
-    }
-    layoutHint.setValue(blurb);
+    layoutHint.setValue(blurbOf(BCLayout.LAYOUTS, v));
     recompute();
   }
 });
-var layoutHint  = label(BCLayout.LAYOUTS[0].blurb, UI.HINT);
-var subsampleBox = ui.Slider({ min: 3, max: 10, value: CONFIG.COMPOSITE_SUBSAMPLES, step: 1, style: UI.WIDE,
-                                onChange: function () { if (State.layout === 'composite') recompute(); } });
-var radiusBox    = ui.Slider({ min: 2, max: 20, value: CONFIG.COMPOSITE_RADIUS_M, step: 1, style: UI.WIDE,
-                               onChange: function () { if (State.layout === 'composite') recompute(); } });
-var compositeRow = ui.Panel([
-  label('Subsample cores pooled into each composite:', UI.HINT), subsampleBox,
-  label('Composite radius, metres (subsamples fall within this of the centre):', UI.HINT), radiusBox,
-  label('The number of composites comes from Step 4. Each is made of the cores above. ' +
-        'Use a prior that describes variability between composites.', UI.HINT)
-], null, { shown: false });
+var layoutHint = label(BCLayout.LAYOUTS[0].blurb, UI.HINT);
 var placeOut = ui.Panel();
 
 panel.add(layoutSelect); panel.add(layoutHint);
-panel.add(compositeRow);
 panel.add(ui.Button({ label: 'Place the plots', style: UI.BTN, onClick: placeCores }));
 panel.add(placeOut);
 
@@ -1650,6 +2016,7 @@ panel.add(label('Workshop materials', UI.STEP));
 [['Planning guide (Part 2)', 'planningGuide'],
  ['Sample allocation workbook', 'calculator'],
  ['The maths behind this (Appendix A)', 'appendixA'],
+ ['Paired plots and monitoring (Part 5)', 'monitoring'],
  ['Vegetation field guide', 'vegGuide'],
  ['Tree field guide (trees taller than 2 m)', 'treesGuide'],
  ['Soil field guide', 'soilGuide'],
@@ -1665,9 +2032,10 @@ panel.add(ui.Button({
   label: 'Start over', style: { stretch: 'horizontal', margin: '16px 8px' },
   onClick: function () {
     State.reset(); map.layers().reset(); map.drawingTools().clear();
-    [areaOut, priorOut, zoneOut, zoneChoices, designOut, mathPanel, placeOut, exportOut,
+    [areaOut, zoneOut, zoneChoices, designOut, mathPanel, placeOut, exportOut,
      methodsOut, drawnList, classRow].forEach(clearPanel);
     zoneSelect.items().reset(['Measure the site first']);
+    resetPriorControls();
   }
 }));
 
@@ -1732,37 +2100,73 @@ function measureSite() {
 
 // --- priors ---------------------------------------------------------------------
 
-function readPrior(b, pool) {
-  return BCStats.priorFromInputs({
-    pool: pool, mean: numberOf(b.mean), sd: numberOf(b.sd), cv: numberOf(b.cv),
-    source: b.src.getValue(), pilotN: numberOf(b.n) });
+function priorShow(b) {
+  clearPanel(b.msg);
+  var p = State.priors[b.pool];
+  if (!p) {
+    b.msg.add(label('Enter a mean and a standard deviation above zero (press Enter after each).', UI.HINT));
+    return;
+  }
+  b.msg.add(label('Using CV ' + p.cv.toFixed(2) + ' — ' + p.short + '.', UI.OK));
+  if (p.note) b.msg.add(label(p.note, p.route === 'published' && !p.published ? UI.WARN : UI.HINT));
+  if (p.lowVariability) {
+    b.msg.add(label('That is unusually even for field data. Check the SD is between samples, ' +
+                    'not a standard error.', UI.WARN));
+  }
+  if (p.highVariability) {
+    b.msg.add(label('This pool varies a lot between samples, so the campaign will be ' +
+                    'unusually large. A short pilot would likely save effort.', UI.WARN));
+  }
 }
 
-function applyPriors() {
-  clearPanel(priorOut);
-  var soil = readPrior(soilPrior, 'Soil'), root = null, ok = true;
-  if (!soil.ok) { priorOut.add(label('Soil: ' + soil.reason, UI.ERROR)); ok = false; }
-  if (rootsBox.getValue()) {
-    root = readPrior(rootPrior, 'Roots');
-    if (!root.ok) { priorOut.add(label('Roots: ' + root.reason, UI.ERROR)); ok = false; }
-  }
-  if (!ok) { State.priors = null; recompute(); return; }
+function priorChanged(b) { priorShow(b); State.placed = null; recompute(); }
 
-  State.priors = { Soil: soil, Roots: root };
-  [soil, root].forEach(function (p) {
-    if (!p) return;
-    priorOut.add(label(p.pool + ': CV ' + p.cv.toFixed(2) + ' (' + p.how + '). Source: ' + p.source + '.', UI.OK));
-    if (p.note) priorOut.add(label(p.pool + ': ' + p.note, UI.WARN));
-    if (p.lowVariability) {
-      priorOut.add(label(p.pool + ': that is unusually even for field data. Check the SD is between ' +
-                         'samples, not a standard error.', UI.WARN));
-    }
-    if (p.highVariability) {
-      priorOut.add(label(p.pool + ': carbon varies a lot between samples here, so the campaign will be ' +
-                         'unusually large. A short pilot would likely save effort.', UI.WARN));
-    }
+function priorRouteChanged(b, route) {
+  b.ownRow.style().set('shown', route === 'own');
+  if (route === 'published') {
+    State.priors[b.pool] = BCStats.publishedPrior(b.pool);
+    b.slider.setValue(State.priors[b.pool].cv, false);
+  } else if (route === 'own') {
+    State.priors[b.pool] = null;           // until both numbers are in
+    priorOwnChanged(b);
+    return;
+  } else {
+    var prev = State.priors[b.pool];
+    var from = prev ? (prev.route === 'manual' ? prev.fromLabel : prev.short) : '';
+    State.priors[b.pool] = BCStats.priorManual({ pool: b.pool, cv: b.slider.getValue(), from: from });
+    State.priors[b.pool].fromLabel = from;
+  }
+  priorChanged(b);
+}
+
+function priorOwnChanged(b) {
+  if (b.route.getValue() !== 'own') return;
+  var p = BCStats.priorFromMeanSd({ pool: b.pool, mean: numberOf(b.mean), sd: numberOf(b.sd),
+                                    from: b.from.getValue() });
+  State.priors[b.pool] = p.ok ? p : null;
+  if (p.ok) b.slider.setValue(p.cv, false);
+  priorChanged(b);
+}
+
+function priorSliderMoved(b, v) {
+  var prev = State.priors[b.pool];
+  // Record where the slider started from: whatever was in use before the first nudge.
+  var from = prev ? (prev.route === 'manual' ? prev.fromLabel : prev.short) : '';
+  State.priors[b.pool] = BCStats.priorManual({ pool: b.pool, cv: v, from: from });
+  State.priors[b.pool].fromLabel = from;
+  b.route.setValue('manual', false);
+  b.ownRow.style().set('shown', false);
+  priorChanged(b);
+}
+
+function resetPriorControls() {
+  [soilPrior, rootPrior].forEach(function (b) {
+    b.route.setValue('published', false);
+    b.ownRow.style().set('shown', false);
+    b.mean.setValue('', false); b.sd.setValue('', false); b.from.setValue('', false);
+    b.slider.setValue(BCStats.PUBLISHED_PRIORS[b.pool].cv, false);
+    priorShow(b);
   });
-  recompute();
 }
 
 // --- zones ----------------------------------------------------------------------
@@ -1811,8 +2215,7 @@ function addDrawnZone() {
   if (!name) { zoneOut.add(label('Give the zone a name first.', UI.ERROR)); return; }
 
   var draft = zoneDraft();
-  // Every shape in the layer, not just the first one.
-  var shapes = BCZones.collectAll(draft.geometries());
+  var shapes = BCZones.collectAll(draft.geometries());   // every shape, not just the first
   if (shapes.length === 0) {
     zoneOut.add(label('Nothing drawn yet. Press "Start drawing this zone" first.', UI.ERROR));
     return;
@@ -1860,16 +2263,21 @@ function loadLandcoverClasses() {
   if (!State.aoi) { classRow.add(label('Measure the site first.', UI.ERROR)); return; }
   classRow.add(label('Reading the land cover map…', UI.NOTE));
 
-  BCEarth.landcoverClasses(State.aoi, State.zoneMode, function (r, err) {
+  var mode = State.zoneMode;
+  BCEarth.landcoverClasses(State.aoi, mode, State.scale, function (r, err) {
+    if (State.zoneMode !== mode) return;       // the user has since picked another method
     clearPanel(classRow);
     if (err) { classRow.add(label(err, UI.ERROR)); return; }
 
     State.classWidgets = [];
-    classRow.add(label('Found ' + r.classes.length + ' cover types inside your site. ' +
-                       'Tick the ones to keep as zones, and rename them if you like.', UI.HINT));
+    classRow.add(label('Found ' + r.classes.length + ' cover types inside your site, from ' +
+                       BCEarth.landcoverDescription(mode) +
+                       (mode === 'dynamic' ? ', ' + r.images + ' scenes' : '') + '. ' +
+                       'Tick the ones to keep as zones, and rename them if you like. Classes you ' +
+                       'would not sample start unticked.', UI.HINT));
     for (var i = 0; i < r.classes.length; i++) {
       var cls = r.classes[i];
-      var box = ui.Checkbox({ label: cls.name + '  (' + cls.pixels + ' px)', value: true,
+      var box = ui.Checkbox({ label: cls.name + '  (' + cls.pixels + ' px)', value: cls.tick,
                               style: { margin: '2px 8px' } });
       var ren = ui.Textbox({ placeholder: 'Rename (optional)',
                              style: { stretch: 'horizontal', margin: '0 8px 4px 8px' } });
@@ -1887,6 +2295,7 @@ function buildZones() {
     zoneOut.add(label('Measure the site first.', UI.ERROR)); return;
   }
   State.zoneGeoms = null; State.zoneCollection = null; State.placed = null;
+  State.zoneSource = '';
 
   if (State.zoneMode === 'none') {
     State.zones = null; State.zoneAreas = null; State.zoneImage = null;
@@ -1906,6 +2315,7 @@ function buildZones() {
     BCEarth.zonesFromFeatures(feats, function (r, err) {
       clearPanel(zoneOut);
       if (err) { zoneOut.add(label(err, UI.ERROR)); return; }
+      State.zoneSource = 'drawn by hand';
       useVectorZones(r);
     });
     return;
@@ -1923,6 +2333,7 @@ function buildZones() {
       if (err) { zoneOut.add(label(err, UI.ERROR)); return; }
       map.addLayer(r.collection.style({ color: 'C8763C', fillColor: 'C8763C55', width: 2 }),
                    {}, 'Zones');
+      State.zoneSource = 'from uploaded boundaries (' + asset + ')';
       useVectorZones(r);
     });
     return;
@@ -1938,16 +2349,20 @@ function buildZones() {
       }
     }
     if (picked.length === 0) {
-      zoneOut.add(label('Tick at least one cover type to use as a zone.', UI.ERROR)); return;
+      zoneOut.add(label('Tick at least one cover type to use as a zone. (If the list is empty, ' +
+                        'wait for the land cover map to finish reading.)', UI.ERROR));
+      return;
     }
     var built = BCEarth.landcoverStrata(State.aoi, State.zoneMode, picked, renames);
     State.zoneImage = built.image;
+    State.zoneSource = 'from ' + BCEarth.landcoverDescription(State.zoneMode);
     map.addLayer(built.image, { min: 0, max: Math.max(1, built.zones.length - 1),
-                                palette: UI.ZONE_COLOURS }, 'Zones');
+                                palette: BCZones.palette(UI.ZONE_COLOURS, built.zones.length) },
+                 'Zones');
     zoneOut.add(label('Measuring each cover type…', UI.NOTE));
     BCEarth.zoneAreas(built.image, built.zones, State.aoi, State.scale, function (z, err) {
       clearPanel(zoneOut);
-      if (err) { zoneOut.add(label(err, UI.ERROR)); return; }
+      if (err) { zoneOut.add(label('Could not measure the cover types: ' + err, UI.ERROR)); return; }
       finishZones(z.zones);
     });
     return;
@@ -1960,8 +2375,11 @@ function buildZones() {
       clearPanel(zoneOut);
       if (err) { zoneOut.add(label(err, UI.ERROR)); return; }
       State.zoneImage = c.image;
-      map.addLayer(c.image, { min: 0, max: c.zones.length - 1, palette: UI.ZONE_COLOURS },
-                   'Zones');
+      State.zoneSource = 'by k-means grouping of ' +
+        (State.zoneMode === 'embeddings' ? 'Satellite Embeddings (' + BCEarth.EMBEDDING_YEAR + ', 10 m)'
+                                         : 'Sentinel-2 and elevation (30 m)');
+      map.addLayer(c.image, { min: 0, max: c.zones.length - 1,
+                              palette: BCZones.palette(UI.ZONE_COLOURS, c.zones.length) }, 'Zones');
       BCEarth.zoneAreas(c.image, c.zones, State.aoi, State.scale, function (z, e2) {
         if (e2) { zoneOut.add(label(e2, UI.ERROR)); return; }
         finishZones(z.zones);
@@ -1989,8 +2407,8 @@ function finishZones(zones) {
   for (i = 0; i < zones.length; i++) sum += zones[i].areaM2;
   if (sum / State.areaM2 < 0.95) {
     zoneOut.add(label('Zones cover ' + Math.round(100 * sum / State.areaM2) +
-                      '% of the boundary. The rest was not classified and will not ' +
-                      'be sampled.', UI.WARN));
+                      '% of the boundary. The rest was not classified (or not ticked) and will ' +
+                      'not be sampled.', UI.WARN));
   } else if (sum / State.areaM2 > 1.05) {
     zoneOut.add(label('Zones add up to ' + Math.round(100 * sum / State.areaM2) +
                       '% of the boundary. Some zones overlap each other or extend outside ' +
@@ -2045,14 +2463,15 @@ function recompute() {
   if (!State.areaM2) return;
 
   var withRoots = rootsBox.getValue();
-  if (!State.priors || !State.priors.Soil || (withRoots && !State.priors.Roots)) {
-    designOut.add(label('Enter the prior for each pool and its source in Step 3, then press ' +
-                        '"Use these priors". Nothing is calculated without one.', UI.HINT));
+  if (!State.priors.Soil || (withRoots && !State.priors.Roots)) {
+    designOut.add(label('Finish the prior in Step 3: enter a mean and SD above zero, or pick ' +
+                        'another source.', UI.HINT));
     return;
   }
 
   var conf = confSelect.getValue(), minPer = minSelect.getValue();
   var Es = soilMoe.getValue(), Er = rootMoe.getValue(), i;
+  var style = BCLayout.style(State.style);
 
   var kept = keptZones();
   if (kept && kept.length === 0) {
@@ -2076,7 +2495,7 @@ function recompute() {
   // Roots come out of the same cores, so each zone needs the larger of the two.
   var design = { strata: [], soil: soilN, root: rootN, minPer: minPer, confidence: conf,
                  marginSoil: Es, marginRoot: withRoots ? Er : null,
-                 composite: State.layout === 'composite',
+                 style: State.style, composite: State.style === 'composite',
                  subsamples: subsampleBox.getValue(), radiusM: compositeRadius(),
                  spacingM: currentSpacing(), plotM2: plotFootprintM2() };
   var centres = 0, soilTotal = 0, rootTotal = 0;
@@ -2088,11 +2507,11 @@ function recompute() {
                          flooredToMinimum: sc.flooredToMinimum || (rc ? rc.flooredToMinimum : false) });
     centres += c; soilTotal += sc.cores; rootTotal += rc ? rc.cores : 0;
   }
-  design.centres = centres; design.soilSamples = centres; design.rootSamples = rootTotal;
+  design.centres = centres; design.rootSamples = rootTotal;
   State.design = design;
 
   // --- what to show: each unit on its own line, never one merged "count" ---------
-  var unit = design.composite ? 'composite samples' : 'plot centres';
+  var unit = design.composite ? 'composite samples' : style.short + ' plots';
   designOut.add(label(centres + ' ' + unit, UI.RESULT));
   designOut.add(label('to know each pool\'s mean within its target, ' + Math.round(conf * 100) +
                       '% of the time.', UI.NOTE));
@@ -2107,6 +2526,16 @@ function recompute() {
     designOut.add(label('Roots will be washed from a RANDOM subset of ' + rootTotal + ' of the ' + centres +
                         ' samples. The tool marks that subset in the export; pick it before looking at the cores.',
                         UI.HINT));
+  }
+  if (State.priors.Soil.route === 'published' || (withRoots && State.priors.Roots.route === 'published')) {
+    designOut.add(label('Sized from the starting values in Step 3. Replace them with your own data ' +
+                        'where you have it. The Canada-wide soil value in particular makes this a ' +
+                        'cautious, larger campaign.', UI.WARN));
+  }
+  if (design.style === 'paired') {
+    designOut.add(label('Paired plots: this is the count for the baseline stock. Pairing pays off ' +
+                        'at the re-visit, where it cuts the plots needed to detect a change ' +
+                        '(Part 5, Step 3).', UI.HINT));
   }
   if (centres < BCStats.MIN_USABLE_SAMPLES) {
     designOut.add(label('Only ' + centres + ' samples in total. With so few the standard deviation is ' +
@@ -2177,7 +2606,7 @@ function placeCores() {
     return;
   }
 
-  var common = { layout: State.layout, spacingM: d.spacingM,
+  var common = { layout: State.layout, style: State.style, spacingM: d.spacingM,
                  subsamples: d.subsamples, compositeRadiusM: d.radiusM };
   var kept = keptZones();
   var results = [], idx = 0;
@@ -2223,7 +2652,8 @@ function withZoneGeometry(zoneRecord, fallback, callback) {
 
 function finishPlacement(results) {
   clearPanel(placeOut);
-  var d = State.design, rows = [], totalPlaced = 0, worst = Infinity, counter = 0, i, j;
+  var d = State.design, style = BCLayout.style(d.style);
+  var rows = [], totalPlaced = 0, worst = Infinity, counter = 0, i, j;
 
   for (i = 0; i < results.length; i++) {
     var r = results[i];
@@ -2233,7 +2663,7 @@ function finishPlacement(results) {
       placeOut.add(label(r.zone + ': no positions were produced.', UI.ERROR)); continue;
     }
 
-    // which centres are washed for roots: a seeded random subset, chosen now, before
+    // which plots are washed for roots: a seeded random subset, chosen now, before
     // anyone looks at a core
     var rootIdx = {};
     BCLayout.pickIndices(res.points.length, Math.min(st.rootSamples, res.points.length),
@@ -2241,27 +2671,40 @@ function finishPlacement(results) {
 
     for (j = 0; j < res.points.length; j++) {
       counter += 1;
-      var pid = 'P_' + (counter < 10 ? '00' : (counter < 100 ? '0' : '')) + counter;
+      var pid = BCLayout.plotId(d.style, counter);
+      // Field names are 10 characters or fewer, so a shapefile export keeps them whole.
       rows.push({ lon: res.points[j].lon, lat: res.points[j].lat, plot_id: pid,
+                  plot_style: d.style,
                   point_type: d.composite ? 'composite_centre' : 'plot_centre',
+                  core_rule: style.rule + (d.composite ? ' (' + d.subsamples + ' cores)' : ''),
                   zone: r.zone, layout: res.layout, seed: res.seed,
-                  composite_id: d.composite ? pid : '', subsample: 0,
-                  root_sample: rootIdx[j] ? 1 : 0, plot_m2: d.plotM2, spacing_m: d.spacingM });
+                  comp_id: d.composite ? pid : '', subsample: 0,
+                  root_wash: rootIdx[j] ? 1 : 0, plot_m2: d.plotM2,
+                  spacing_m: Math.round(d.spacingM * 10) / 10 });
       if (res.subsamples) {
         for (var s = 0; s < res.subsamples.length; s++) {
           var sub = res.subsamples[s];
           if (sub.centre !== j) continue;
           rows.push({ lon: sub.lon, lat: sub.lat, plot_id: pid + '_S' + sub.subsample,
-                      point_type: 'composite_subsample', zone: r.zone, layout: res.layout,
-                      seed: res.seed, composite_id: pid, subsample: sub.subsample,
-                      root_sample: rootIdx[j] ? 1 : 0, plot_m2: d.plotM2, spacing_m: d.spacingM });
+                      plot_style: d.style, point_type: 'composite_subsample',
+                      core_rule: 'Subsample ' + sub.subsample + ' of ' + d.subsamples + ' for ' + pid,
+                      zone: r.zone, layout: res.layout, seed: res.seed,
+                      comp_id: pid, subsample: sub.subsample,
+                      root_wash: rootIdx[j] ? 1 : 0, plot_m2: d.plotM2,
+                      spacing_m: Math.round(d.spacingM * 10) / 10 });
         }
       }
     }
     totalPlaced += res.placed;
     if (res.minSeparationM < worst) worst = res.minSeparationM;
 
-    if (results.length > 1) placeOut.add(label(r.zone + ': ' + res.placed + ' placed', UI.NOTE));
+    if (results.length > 1) {
+      placeOut.add(label(r.zone + ': ' + res.placed + ' placed' +
+                         (res.gridCell ? ' on a ' + res.gridCell + ' grid' : ''), UI.NOTE));
+    } else if (res.gridCell) {
+      placeOut.add(label('Grid cells ' + res.gridCell + '.', UI.NOTE));
+    }
+    if (res.note) placeOut.add(label(r.zone + ': ' + res.note, UI.HINT));
     if (res.shortfall) placeOut.add(label(r.zone + ': ' + res.shortfall, UI.WARN));
   }
 
@@ -2269,15 +2712,36 @@ function finishPlacement(results) {
 
   State.features = ee.FeatureCollection(rows.map(function (p) {
     var props = {};
-    for (var k in p) { if (p.hasOwnProperty(k) && k !== 'lon' && k !== 'lat') props[k] = p[k]; }
-    props.lon = p.lon; props.lat = p.lat;
+    for (var k in p) { if (p.hasOwnProperty(k)) props[k] = p[k]; }
     return ee.Feature(ee.Geometry.Point([p.lon, p.lat]), props);
   }));
-  State.placed = { placed: totalPlaced, layout: State.layout, minSeparationM: worst };
+  State.placed = { placed: totalPlaced, layout: State.layout, style: d.style, minSeparationM: worst };
 
-  map.addLayer(State.features, { color: 'FFCC00' }, 'Plot locations');
-  placeOut.add(label(totalPlaced + (d.composite ? ' composite centres' : ' plots') + ' placed' +
-                     (d.composite ? ', with ' + (rows.length - totalPlaced) + ' subsample cores' : '') + '.', UI.OK));
+  // The map carries the labels too: one layer per point type, named for its style.
+  removePlotLayers();
+  var fc = State.features, P = UI.PLOT_LAYER_PREFIX, C = UI.STYLE_COLOURS;
+  var centreName = d.composite ? 'Composite centres' : capitalise(style.short) + ' plots';
+  if (d.composite) {
+    map.addLayer(fc.filter(ee.Filter.eq('point_type', 'composite_subsample'))
+                   .style({ color: C.subsample, pointSize: 2 }), {}, P + 'Composite subsample cores');
+  }
+  map.addLayer(fc.filter(ee.Filter.neq('point_type', 'composite_subsample'))
+                 .style({ color: C[d.style], pointSize: 5 }), {}, P + centreName);
+  if (d.root) {
+    map.addLayer(fc.filter(ee.Filter.and(ee.Filter.eq('root_wash', 1),
+                                         ee.Filter.neq('point_type', 'composite_subsample')))
+                   .style({ color: C.roots, pointSize: 9, pointShape: 'circle',
+                            fillColor: '00000000', width: 2 }), {}, P + 'Roots washed here');
+  }
+
+  placeOut.add(label(totalPlaced + ' ' + (d.composite ? 'composite centres' : style.short + ' plots') +
+                     ' placed' + (d.composite ? ', with ' + (rows.length - totalPlaced) +
+                                  ' subsample cores' : '') + '.', UI.OK));
+  placeOut.add(legendRow(C[d.style], d.composite ? 'Composite centre (C_001, C_002, …)'
+                                                 : capitalise(style.short) + ' plot (' + style.code + '_001, …)'));
+  if (d.composite) placeOut.add(legendRow(C.subsample, 'Subsample core (C_001_S1, C_001_S2, …)'));
+  if (d.root) placeOut.add(legendRow(C.roots, 'Ring: roots washed from this sample'));
+  placeOut.add(label(style.rule + '.', UI.HINT));
   placeOut.add(label('Closest pair ' + worst.toFixed(0) + ' m apart; no two plots overlap. ' +
                      'Seed ' + CONFIG.SEED + ' (+ zone number) reproduces this design.', UI.HINT));
   writeMethods();
@@ -2288,31 +2752,38 @@ function writeMethods() {
   var d = State.design;
   if (!d || !State.placed) return;
 
-  var layoutName = '';
-  for (var i = 0; i < BCLayout.LAYOUTS.length; i++) {
-    if (BCLayout.LAYOUTS[i].id === State.layout) layoutName = BCLayout.LAYOUTS[i].label.split(' (')[0].toLowerCase();
-  }
+  var layoutName = State.layout === 'grid' ? 'systematic grid (random start)' : 'random';
+  var style = BCLayout.style(d.style);
   var zoned = d.strata.length > 1 || d.strata[0].name !== 'Whole site';
   var pri = State.priors;
   var area = 0; d.strata.forEach(function (s) { area += s.areaM2; });
 
+  var styleText = {
+    paired:    'Plots are permanent (paired) plots, marked for re-measurement; soil and root cores ' +
+               'are to be taken at recorded offsets outside the vegetation plot. ',
+    unpaired:  'Plots are single-use (unpaired) plots, measured once; cores are taken inside the ' +
+               'plot after the vegetation is measured. ',
+    composite: 'Each sample is a composite of ' + d.subsamples + ' subsample cores taken within ' +
+               d.radiusM + ' m of its centre and pooled for analysis; the sample size counts composites. '
+  }[d.style];
+
   var text =
-    (d.composite ? 'Composite samples (n = ' : 'Plot centres (n = ') + State.placed.placed + ') were located across ' +
+    (d.composite ? 'Composite samples (n = ' : capitalise(style.short) + ' plots (n = ') +
+    State.placed.placed + ') were located across ' +
     (area / 10000).toFixed(1) + ' ha of grassland using a ' + layoutName + ' layout' +
-    (zoned ? ', with plots shared among ' + d.strata.length + ' zones in proportion to area and at least ' +
-             d.minPer + ' per zone' : '') + '. ' +
+    (zoned ? ', with plots shared among ' + d.strata.length + ' zones ' +
+             (State.zoneSource ? '(' + State.zoneSource + ') ' : '') +
+             'in proportion to area and at least ' + d.minPer + ' per zone' : '') + '. ' +
+    styleText +
     'Sample size was calculated separately for soil (relative margin of error ' + Math.round(d.marginSoil * 100) +
-    '%, CV ' + pri.Soil.cv.toFixed(2) + '; ' + pri.Soil.source + ')' +
-    (d.root ? ' and roots (' + Math.round(d.marginRoot * 100) + '%, CV ' + pri.Roots.cv.toFixed(2) + '; ' +
-              pri.Roots.source + ')' : '') +
+    '%; ' + pri.Soil.methods + ')' +
+    (d.root ? ' and roots (' + Math.round(d.marginRoot * 100) + '%; ' + pri.Roots.methods + ')' : '') +
     ' at ' + Math.round(d.confidence * 100) + '% confidence, as n = (z·CV/E)² and then iterated with ' +
     'Student\'s t on n−1 degrees of freedom until stable, without a finite-population correction. ' +
     'Roots, which are washed from the same cores, ' +
     (d.root ? (d.rootSamples < d.centres
                  ? 'were analysed for a random subset of ' + d.rootSamples + ' samples. ' : 'were analysed for every sample. ')
             : 'were not measured. ') +
-    (d.composite ? 'Each composite pools ' + d.subsamples + ' subsample cores taken within ' + d.radiusM +
-                   ' m of its centre; the sample size counts composites. ' : '') +
     'Plot centres were placed at least ' + Math.round(d.spacingM) + ' m apart using random seed ' + CONFIG.SEED +
     '. Achieved precision should be recalculated from the collected samples, with Student\'s t, ' +
     'before the estimate is reported.';
@@ -2325,13 +2796,18 @@ function exportCores() {
   if (!State.features) { exportOut.add(label('Place the plots first.', UI.ERROR)); return; }
   var fmt = formatSelect.getValue();
   var url = State.features.getDownloadURL({
-    format: fmt, filename: 'grassland_carbon_plots_' + (new Date()).getTime() });
+    format: fmt, filename: 'grassland_carbon_plots_' + State.design.style + '_' + (new Date()).getTime() });
   var l = ui.Label('Download ' + fmt, UI.LINK);
   l.setUrl(url);
   exportOut.add(l);
-  exportOut.add(label('Includes plot_id, point_type, zone, layout, seed, root_sample (1 = wash the roots), ' +
-                      'composite_id, subsample, plot size, spacing and coordinates.', UI.HINT));
+  exportOut.add(label('Every point carries: plot_id (P_ paired, U_ unpaired, C_ composite), plot_style, ' +
+                      'point_type, core_rule (what to do there), zone, layout, seed, comp_id, subsample, ' +
+                      'root_wash (1 = wash the roots), plot_m2, spacing_m, lon and lat.', UI.HINT));
 }
+
+// Show the starting priors once the interface exists.
+priorShow(soilPrior);
+priorShow(rootPrior);
 
 
 if (typeof module !== 'undefined') {
