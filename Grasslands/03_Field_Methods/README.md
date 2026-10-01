@@ -6,55 +6,44 @@
 
 # Part 3 — Field Methods
 
-*Set up the plot, measure vegetation, collect soil, and keep every sample traceable.*
+*Setting up plots, measuring vegetation, and collecting soil samples.*
 
 [← 2 — Project Planning](../02_Project_Planning/) · [Back to main guide](../README.md) · Next: [4 — Data Interpretation →](../04_Data_Interpretation/)
 
 ---
 
-**Quick links:** [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Non-Peat Soils Field Guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Datasheets](datasheets/) · [Skill checklists](checklists/)
+**Quick links:** [Vegetation Field Guide](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) · [Non-Peat Soils Field Guide](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) · [Datasheets](datasheets/) · [Workshop skills checklists](checklists/)
 
 ## Overview
 
-This section follows the field day in the order the work should happen.
+The field methods here are presented in order to complete while in the field.
 
-| # | Stage | Main record |
+| # | Steps | What this step accomplishes |
 |---:|---|---|
+(For claude add in (pre-field preperation - checks equipment and field plan)
 | 1 | [Set up the plot](#1-set-up-the-plot) | Plot & Site Log |
 | 2 | [Measure vegetation](#2-measure-vegetation) | Vegetation Data |
 | 3 | [Collect soil](#3-collect-soil) | Soil Data |
 | 4 | [Label, cool, and reconcile samples](#4-label-cool-and-reconcile-samples) | Sample/Cooler Inventory |
-| 5 | [Process roots only under an approved SOP](#5-supplemental-root-record) | Supplemental Root Record |
 
-> [!IMPORTANT]
-> Complete vegetation measurements before clipping or soil sampling disturbs the plot. In permanent plots, place destructive sampling outside the area that will be measured again.
-
-### Method basis
+(Note to claude - root seperation should be in the labratory section, not field)
 
 The vegetation and soil methods on this page are based on:
 
 - [*Measuring Carbon in Vegetation (Non-Tree)*](../../_Shared/Vegetation-FINAL-Eng-2026.pdf) (WWF-Canada, 2024)
 - [*Measuring Carbon in Non-Peat Soils*](../../_Shared/Non-peat-FINAL-Eng-2026.pdf) (WWF-Canada, 2024)
 
-Root separation is **not covered by either guide**. It remains a development method and must not be used until the project has a specialist-reviewed laboratory SOP.
-
 ---
 
-## Field order
+## Part 1 - Before going out into the field, check:
 
-```text
-1. Confirm the site and plot ID
-2. Complete the undisturbed 14-photo series
-3. Lay out the vegetation plots
-4. Measure medium vegetation
-5. Photograph and clip the small plot
-6. Collect soil using the selected method
-7. Label, cool, and reconcile every sample
-8. Process roots only under an approved SOP
-```
+1. Confirm the site and plot ID coordinates are loaded into a gps
+2. 4. Confirm which plots are permanent vs single-use
+3. Lay out the required equipment
+4. Have a cooler, fridge or freezer to store samples
 
-<img src="images/field_workflow_order.svg" alt="Field sequence from plot setup through vegetation, soil sampling, and sample handoff" width="100%">
-
+A quick reminder on setting up plots:
+(Note the clause the images are blurry, turn this into a 2 by 2 table with images smaller on teh left and the text of the right
 ### Permanent and single-use plots
 
 <table>
@@ -80,11 +69,13 @@ Protect the area that will be remeasured. Record the bearing and distance from t
 </tr>
 </table>
 
+for claude - Add in "Nested or integrated plot design" from the project planning as well
 ---
 
-## Equipment
+## Prepare the Equipment
 
-Prepare the equipment for the collection method selected in Part 2. Confirm containers, storage temperature, holding time, minimum sample mass, and labelling requirements with the laboratory before fieldwork.
+Prepare the equipment for each respective carbon pool:
+(Note for claude - add the list beside the image, make the image a little bit smaller -
 
 ### Plot and vegetation equipment
 
@@ -102,6 +93,7 @@ Prepare the equipment for the collection method selected in Part 2. Confirm cont
 <img src="https://github.com/user-attachments/assets/3471fdd1-98cb-4c51-98a4-dd1b6863003c" alt="Equipment used to set up vegetation plots and measure vegetation" width="70%">
 
 ### Soil equipment
+(Claude - same here, reformat same as vegetation above)
 
 | Plot setup | Soil core | Soil pit | Shallow soil |
 |---|---|---|---|
@@ -117,27 +109,18 @@ Prepare the equipment for the collection method selected in Part 2. Confirm cont
 
 | Check | Confirm |
 |---|---|
-| **Design** | Plot coordinates, alternates, plot status, offsets, and selected soil method are recorded. |
+| **Design** | Plot coordinates, selected carbon pools, plot type|
 | **Identifiers** | Plot, core, layer, bag, and container IDs are unique and match the datasheets. |
-| **Laboratory** | Containers, storage, minimum mass, holding time, and submission requirements are confirmed. |
 | **Safety** | Access, weather, fire, livestock, wildlife, first aid, communications, and emergency procedures are reviewed. |
-| **Cold chain** | Coolers are labelled, cold, and large enough for the planned samples. |
 
 ---
 
-## Timing
+## Part 2 - In the field:
 
-Vegetation sampling must match the biological stage defined in the sampling plan. Above-ground biomass is often measured near peak growing-season biomass, but the correct timing depends on the ecosystem and monitoring objective.
+## step 1. Set up the plot
 
-Record the sampling date and phenological stage on every vegetation datasheet.
+### Lay out the plots
 
----
-
-## 1. Set up the plot
-
-### Lay out the nested plots
-
-Plot locations should be selected before the field visit using the sampling design from Part 2. Do not move a point simply because another location looks more convenient or representative.
 
 <img src="https://github.com/user-attachments/assets/b20de7ee-863c-4f44-b20b-bf1e79e31d77" alt="Nested plot design for trees, medium vegetation, small vegetation, and soil" width="65%">
 
