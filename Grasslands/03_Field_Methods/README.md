@@ -170,9 +170,31 @@ Record the photo IDs on the Plot & Site Log. The before-and-after small-plot pho
 
 ---
 
-## 2. Measure vegetation
+## Measuring Vegetation for Carbon stocks
 
-Measure from least destructive to most destructive: medium vegetation first, then the small clipped plot.
+Youa re your team and decide what order to measure in, but keep in mind if you are disturbing plots that have not been measured yet. For example, if you are collecting ground samples from snmall plots, make sure to mark this areas so no-one accidentally steps on them:
+
+Here we present a reconded order based on what is most liekly to aviod distrubing plots before samplign or measuring occurs:
+
+### Small plot — clip and weigh
+
+<img src="https://github.com/user-attachments/assets/b19da7a2-9b28-487e-8fb2-26de558bad13" alt="A one-by-one metre small vegetation plot" width="45%">
+
+1. Place the **1 × 1 m plot** at its assigned location.
+2. Photograph the full plot from directly above and record the photo ID.
+3. Mark a **0.25 m² harvest area** within it using either:
+   - a 0.5 × 0.5 m frame; or
+   - a circle with a 0.28 m radius.
+4. Clip every plant in the harvest area **3 cm above ground**.
+5. Place every unique species in its own labelled bag.
+6. Label each bag with the plot ID, species, date, and sample ID.
+7. Record any loss, contamination, or departure from the method.
+8. Dry samples in the laboratory at 50–80°C for 48–72 hours, then record dry mass.
+
+<img src="https://github.com/user-attachments/assets/8a4ff1e0-5ef1-4ac8-b9a2-bfa2f2a81e5d" alt="Clipping vegetation three centimetres above the ground within the harvest area" width="55%">
+
+> [!IMPORTANT]
+> The 0.25 m² frame is the harvest area inside the 1 × 1 m small plot. It is not a replacement for the full plot.
 
 ### Medium plot — plants 0.5–2 m
 
@@ -213,35 +235,19 @@ Species identification may use a regional key, a verified identification applica
 
 <img src="https://github.com/user-attachments/assets/e29ba3fa-d7fb-4ed8-a76d-d88082b9e92f" alt="Example of a dichotomous plant identification key" width="70%">
 
-### Small plot — clip and weigh
-
-<img src="https://github.com/user-attachments/assets/b19da7a2-9b28-487e-8fb2-26de558bad13" alt="A one-by-one metre small vegetation plot" width="45%">
-
-1. Place the **1 × 1 m plot** at its assigned location.
-2. Photograph the full plot from directly above and record the photo ID.
-3. Mark a **0.25 m² harvest area** within it using either:
-   - a 0.5 × 0.5 m frame; or
-   - a circle with a 0.28 m radius.
-4. Clip every plant in the harvest area **3 cm above ground**.
-5. Place every unique species in its own labelled bag.
-6. Label each bag with the plot ID, species, date, and sample ID.
-7. Record any loss, contamination, or departure from the method.
-8. Dry samples in the laboratory at 50–80°C for 48–72 hours, then record dry mass.
-
-<img src="https://github.com/user-attachments/assets/8a4ff1e0-5ef1-4ac8-b9a2-bfa2f2a81e5d" alt="Clipping vegetation three centimetres above the ground within the harvest area" width="55%">
-
-> [!IMPORTANT]
-> The 0.25 m² frame is the harvest area inside the 1 × 1 m small plot. It is not a replacement for the full plot.
 
 ### Trees taller than 2 m
 
 Use the [Forests tree protocol](../../Forests/03_Field_Methods/3A_Trees.md). Do not record large-tree measurements on the non-tree vegetation table.
 
+
+Vegetation datasheet image - <img width="364" height="191" alt="image" src="https://github.com/user-attachments/assets/e8728e9e-1e8d-4d41-aa82-8f9f79d826e7" />
+
 ---
 
-## 3. Collect soil
+## 3. Collecting soil samples
 
-Use the collection method selected in the sampling plan. If field conditions require a different method, record the reason and do not combine results silently.
+Soil is typically collected after vegetation sampling to aviod any distrubances. Alternatively, soil samples are collected outside of vegetaion plots to aviod any distrubance within the plot boundaries:
 
 | Method | Use when | Key volume record |
 |---|---|---|
@@ -253,9 +259,7 @@ Use the collection method selected in the sampling plan. If field conditions req
 
 Sampling depth is site-specific. Estimate it with a soil probe before sampling and follow the reporting depth selected in Part 2.
 
-Common reporting depths such as 30 cm, 50 cm, 1 m, or 2 m are **reporting boundaries**, not fixed field increments. Record the actual depth reached and the reason for any refusal.
-
-### Method A — intact soil core
+### Method A — Undistrubed/Intact Soil Core
 
 <table>
 <tr>
@@ -268,6 +272,10 @@ Common reporting depths such as 30 cm, 50 cm, 1 m, or 2 m are **reporting bounda
 </tr>
 </table>
 
+Image of the soil datasheet:
+<img width="366" height="218" alt="image" src="https://github.com/user-attachments/assets/e2b0ea33-933a-4a73-a9ff-6664494b192d" />
+
+
 1. Lay a clean tarp beside the sampling point and prepare the corer, sleeve, caps, labels, and cooler.
 2. Estimate soil depth with a probe.
 3. Gently push the corer into the soil while keeping it straight.
@@ -278,9 +286,6 @@ Common reporting depths such as 30 cm, 50 cm, 1 m, or 2 m are **reporting bounda
 8. Mark top and bottom, fit labelled end caps, and tape the sleeve closed.
 9. Measure the **depth of the hole** and the **length of the recovered core**.
 10. Label the core and place it in the cooler.
-
-> [!IMPORTANT]
-> Keep the core intact for laboratory processing. The WWF guide sections the core by soil layer in the laboratory, not in the field.
 
 ### Method B — soil pit
 
@@ -348,32 +353,6 @@ Before leaving the site:
 
 ---
 
-## 5. Supplemental root record
-
-> [!WARNING]
-> Root separation is not part of the attached WWF vegetation or non-peat soil guides. Do not use this section until the project has an approved, tested, laboratory-reviewed SOP.
-
-The SOP must define:
-
-- the root-processing subsample;
-- washing or disaggregation;
-- every sieve mesh size;
-- fine-root loss;
-- root diameter classes;
-- live/dead or total-root rules;
-- drying temperature and constant-mass criterion;
-- ash correction, if used;
-- QA/QC and mass balance; and
-- whether soil and root carbon overlap.
-
-Do not remove roots from material used to establish intact bulk density unless a validated mass-balance method accounts for the change.
-
-If roots are present in the deepest recovered interval, report the result as **truncated at the sampled depth**.
-
-<img src="images/root_processing_workflow.svg" alt="Draft root-processing workflow requiring specialist and laboratory review" width="100%">
-
----
-
 ## Field records
 
 - [Grassland field data sheet](https://docs.google.com/document/d/1nXFCqNxG-r8lc7KogAFi5qWtFh93pyoVcG5LAm7Omds/edit)
@@ -388,21 +367,6 @@ The field data sheet contains:
 4. Vegetation Data — complete this section before soil sampling
 5. Sample/Cooler Inventory
 
----
-
-## Safety
-
-Complete a site-specific risk assessment. At minimum, address:
-
-- heat, sun, smoke, storms, and dehydration;
-- fire restrictions and dry vegetation;
-- livestock, wildlife, ticks, and snakes where present;
-- sharp tools, heavy equipment, pinch points, and unstable soil pits;
-- communications, lone work, emergency access, and first aid;
-- vehicles, gates, fences, and public-road hazards; and
-- cleaning equipment between properties.
-
-> 🧩 **[PLACEHOLDER — SAFETY FILE]** Add the operating organization's field risk assessment, emergency contacts, and tailgate checklist.
 
 ---
 
@@ -411,7 +375,7 @@ Complete a site-specific risk assessment. At minimum, address:
 ```text
 ☐ Correct plot and identifiers confirmed
 ☐ Plot coordinates, elevation, accuracy, dimensions, and slopes recorded
-☐ Undisturbed 14-photo series complete
+☐ Undisturbed 14-photo series complete and photo ID recorded
 ☐ Medium vegetation measured before clipping or soil sampling
 ☐ Full 1 × 1 m small plot photographed
 ☐ 0.25 m² harvest area clipped 3 cm above ground
@@ -420,9 +384,6 @@ Complete a site-specific risk assessment. At minimum, address:
 ☐ Intact core capped, taped, oriented, labelled, and cooled
 ☐ Pit or shallow-soil records complete where used
 ☐ Every sample and container ID matches the datasheet
-☐ Deviations, loss, refusal, and disturbance recorded
-☐ Cooler inventory reconciled
-☐ Site left safe
 ```
 
 ---
@@ -438,10 +399,6 @@ Complete a site-specific risk assessment. At minimum, address:
 | `datasheets/Grassland-Sample-Inventory-and-Chain-of-Custody.docx` | Review against the revised sample identifiers. |
 | `Root-Separation-SOP.md` | Required before root methods are taught or used. |
 | `Safety/Grassland-Field-Risk-Assessment.pdf` | Must come from the operating organization. |
-
-> [!NOTE]
-> Before publishing, move the GitHub-hosted image attachments into the repository's `images/` folder and confirm permission and attribution for any material reproduced from the WWF guides.
-
 ---
 
 [← 2 — Project Planning](../02_Project_Planning/) · [Back to main guide](../README.md) · Next: [4 — Data Interpretation →](../04_Data_Interpretation/)
