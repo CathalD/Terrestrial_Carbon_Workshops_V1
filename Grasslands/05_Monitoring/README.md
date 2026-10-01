@@ -10,42 +10,26 @@
 
 # Part 5 — Monitoring and Change Detection *(optional)*
 
-*Measuring the same place twice. What it takes to say a carbon stock has changed — and what to
-measure instead when it will take forty years.*
+What it takes to say a carbon stock has changed or is expected to change*
 
-**Quick links:** [Part 2 §5D — permanent plots](../02_Project_Planning/README.md#5b--decide-between-permanent-and-single-use-plots) · [Appendix A10 — pool variability](../02_Project_Planning/README.md#a10--why-roots-may-need-more-samples) · [Grassland Carbon Calculator](../04_Data_Interpretation/calculators/)
+**Quick links:** [Part 2 5D — permanent plots](../02_Project_Planning/README.md#5b--decide-between-permanent-and-single-use-plots) · [Appendix A10 — pool variability](../02_Project_Planning/README.md#a10--why-roots-may-need-more-samples) · [Grassland Carbon Calculator](../04_Data_Interpretation/calculators/)
 
 ---
 
-## What this adds, and what it doesn't
+## What is monitoring
 
-Parts 1–4 give you a **stock**: how much carbon is here now, with an honest interval. That is a
-complete answer to *"how much carbon does this grassland hold?"*
+Monitoring is the process of measurement over time. Through this, you are keeping track of indicators that provide information on the structure and function of the ecosystems you are monitoring. This can be used to answer "dynamic questions" more complex than single variable at 1 time point can achieve.
 
-It is not an answer to **"is it going up?"** — and for most of the partners this workshop is
-written for, that is the actual question. Restoration is meant to build carbon. Grazing management
+Up until now, we have concerned ourselves with measuring **stocks**, which are how much carbon is here now. That is a
+complete answer to *"how much carbon does this grassland hold?"* and serves as the starting point for monitoring.
+
+Stocks answer the questions "Where are we now?" They do not neccearily answer where are we going? **"is it going up?"**
+
+Restoration is meant to build carbon. Grazing management
 is meant to protect it. Fire management is meant to maintain the system that holds it. Every one of
 those is a claim about **change**, and change is a substantially harder measurement than a stock.
 
-**This supplement is about that gap, and it is deliberately unflattering.** The honest finding is
-that a soil carbon stock is one of the *slowest-responding* things you could choose to monitor, and
-that most monitoring programmes are designed to detect a change they have no statistical chance of
-seeing. The way out is not a better estimator. It is knowing that before you commit, and choosing
-the design — and sometimes the variable — accordingly.
-
-| | |
-|---|---|
-| **Comes after** | [Part 4](../04_Data_Interpretation/) — you need a stock with an interval before you can have a *change* in one |
-| **Reaches back into** | [Part 2 §5D](../02_Project_Planning/README.md#5b--decide-between-permanent-and-single-use-plots) and [Part 3](../03_Field_Methods/#3-collect-soil) — permanent plots and bulk density are decided there, and cannot be retrofitted |
-| **Parallel to** | [Forests Part 5 — LiDAR](../../Forests/05_LiDAR_Supplement/) and [Wetlands Part 5 — Chronology](../../Wetlands/05_Chronology_Supplement/), the other two optional supplements in this series |
-
-> [!IMPORTANT]
-> **Read this before you finalise Part 2, not after your second visit.**
->
-> Almost everything in this supplement is a *design* decision. Permanent markers, plot numbers,
-> bulk density at every visit, archived samples, deeper cores — none of them can be added to a
-> baseline that has already been collected. A campaign designed for a one-off stock is very often
-> unusable as a monitoring baseline, and nothing in the analysis can repair it.
+**This supplement is about that gap** 
 
 ---
 
@@ -59,28 +43,24 @@ the design — and sometimes the variable — accordingly.
 | 4 | **[Equivalent soil mass](#step-4--equivalent-soil-mass)** | *Why did my carbon "change" when nothing happened?* |
 | 5 | **[Fix everything you can between visits](#step-5--fix-everything-you-can-between-visits)** | *What has to stay the same?* |
 | 6 | **[Soil-health indicators and carbon stocks](#step-6--soil-health-indicators-and-carbon-stocks)** | *Should I be measuring something else instead?* |
-| 7 | **[Restoration and fire](#step-7--restoration-and-fire)** | *How do I design for the two cases I actually have?* |
+| 7 | **[Restoration and fire](#step-7--restoration-and-fire)** | *How do I design for my specific project?* |
 
 ---
 
 ## Step 1 — Why change is harder than a stock
 
-### The arithmetic is trivial; the uncertainty is not
+### The difference between two numbers is complicated by their uncertainty
 
-Subtracting two stocks is easy. The problem is that you are subtracting **two uncertain numbers**,
-and the uncertainty of a difference is *larger* than the uncertainty of either one:
+Subtracting two stocks is easy. The problem is that you are subtracting **two numbers and their uncertainties**,
 
 $$SE_{\text{difference}} = \sqrt{SE_1^2 + SE_2^2}$$
 
-Two stocks each known to ±10% give a **difference** known to roughly ±14% *of the same stock* — but
+
+For example, two carbon stocks each known to ±10% give a **difference** known to roughly ±14% *of the same stock* — but
 the change you are looking for might be 5% of the stock. The interval on the difference is then
 three times the thing you are trying to measure.
 
-### What this looks like in the worked example
-
-[Part 4](../04_Data_Interpretation/README.md#what-the-worked-example-reports) ends on this case, and
-it is worth restating because it is the whole problem in one line. Two sites, three plots each,
-soil carbon to 30 cm:
+(For claude change all of the example to restoration age classes, from not restored, 5 years, 10 years, 15, 20 and natural)
 
 | Site | *n* | Soil C to 30 cm (kg C/m²) | SD |
 |---|---|---|---|
@@ -97,7 +77,7 @@ And the result is **not detectable**:
 | 90% confidence interval | **−1.33 to +2.95 kg C/m²** |
 | Verdict | **spans zero** — this design cannot distinguish it from no difference |
 
-### The three sample sizes, and why you must say which one you mean
+### Sample size from project planning now becomes "Minimal Detectable Difference"
 
 Ask "how many plots would I have needed?" and you get three different answers depending on the
 criterion. **They differ by more than a factor of two, and the smallest one is the one people
@@ -109,36 +89,24 @@ quote.**
 | **80% power** at 90% confidence | You would detect it 4 times in 5 | **30** |
 | **90% power** at 90% confidence | You would detect it 9 times in 10 | **41** |
 
-> [!WARNING]
 > **The 14 is a coin flip.** "The interval half-width equals the difference" is the same as saying
-> your study has **50% power** — design to it and you are as likely to miss a real effect as find
-> it. [Part 4](../04_Data_Interpretation/README.md#what-the-worked-example-reports) quotes 14
-> because that is the figure the calculator's achieved-precision logic implies; **this supplement is
-> where the honest number lives, and it is 30.**
+> your study has **50% power**
 >
 > Whenever anyone hands you a monitoring sample size, ask what power it assumes. If the answer is
 > "we sized it so the confidence interval would be smaller than the expected change", the answer is
 > 50%.
-
-*All figures above: pooled two-sample $t$, α = 0.10 two-sided, computed with the same
-$t$-inverse used throughout [Part 2](../02_Project_Planning/README.md#a9--normal-planning-and-small-sample-intervals).*
-
 ---
 
 ## Step 2 — Minimum detectable difference
 
 **Turn the sample-size question around.** Instead of asking how many plots you need for a change you
 are guessing at, ask: *given the plots I can afford, what is the smallest change I could detect?*
-That is the **minimum detectable difference (MDD)**, and it is the single most useful number in
-monitoring design because it is the one you can compute before spending anything.
+That is the **minimum detectable difference (MDD)**
 
 For two independent samples of $n$ plots, at confidence $1-\alpha$ and power $1-\beta$:
 
 $$MDD = (t_{\alpha/2,\,df} + t_{\beta,\,df})\; \cdot\; CV \cdot \sqrt{\tfrac{2}{n}} \;\times\; \bar{x}$$
 
-Same machinery as [A2](../02_Project_Planning/README.md#a2--working-backwards-from-precision-to-sample-size),
-with two changes: the $\sqrt{2}$ because it is a difference, and the **second $t$ term**, which is
-the power. Drop it and you have silently designed a 50%-power study.
 
 > [!NOTE]
 > **This is the standard framing, not a local invention.** Bilotto et al. (2024) size a pasture
@@ -157,16 +125,8 @@ the power. Drop it and you have silently designed a 50%-power study.
 | 20% | **29** |
 | 30% | **14** |
 
-*α = 0.10 two-sided, power 80%. CV 0.30 is the middle of the soil range from
-[A10](../02_Project_Planning/README.md#a10--why-roots-may-need-more-samples).*
 
-> [!NOTE]
-> **Read the top row again.** Detecting a 5% change in soil carbon with independent plots takes
-> **446 plots at each visit**. That is not a budget problem to be negotiated down — it is the method
-> telling you this is the wrong design for that question. [Step 3](#step-3--paired-plots-and-what-they-really-buy)
-> is the first fix and [Step 6](#step-6--soil-health-indicators-and-carbon-stocks) is the second.
-
-### And now the number that should decide your programme
+### So how many samples should I collect and when?
 
 MDD is a percentage. **Whether you will ever see it depends on how fast carbon actually
 accumulates**, so convert it into a waiting time. Using the worked example's grazed prairie
@@ -183,14 +143,11 @@ accumulates**, so convert it into a waiting time. Using the worked example's gra
 
 *Paired design, CV 0.30, plot correlation ρ = 0.80, α = 0.10, power 80%.*
 
-> 📚 **[REFERENCE NEEDED]** — the accrual rates (0.3 / 0.5 / 1.0 t C/ha/yr) are **scenarios chosen
-> to bracket a plausible range, not measured Canadian values.** A defensible rate for prairie
-> restoration or grazing management in your region is one of the most valuable numbers a partner
-> could contribute, because it converts directly into the middle column. See [`TODO.md`](../TODO.md).
 
 **Ten permanent plots, on a realistic accrual rate, is a fifty-year programme.** This is not a
 pessimistic reading; it is what the variance arithmetic says. Three consequences follow, and a
 monitoring plan should state which one it has chosen:
+
 
 1. **Accept the timescale.** Establish the baseline properly, archive everything, and plan the
    re-visit for a decade or more out. This is a legitimate and valuable choice — a well-marked,
