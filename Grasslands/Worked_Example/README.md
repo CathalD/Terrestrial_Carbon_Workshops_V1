@@ -136,7 +136,7 @@ Across all 68 root fractions, correcting for adhering mineral soil took root mas
 
 **Ten per cent of the root pool was dirt.** Skip that step and every root number in the workshop is
 biased high by about that much, in one direction, invisibly. It is one of the
-things the [root-processing SOP must define](../03_Field_Methods/#5-supplemental-root-record) in Part 3,
+things the [root-processing SOP must define](../04_Data_Interpretation/#13-the-root-chain--and-this-one-is-yours-to-get-right) in Part 4,
 and it is the one most often left out.
 
 ### 3 · Fine roots are the pool, so the sieve mesh decides the answer

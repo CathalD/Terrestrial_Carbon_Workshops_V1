@@ -70,7 +70,7 @@ Once the workbook is complete and checked, those inputs can be converted into ca
 | Header or field group | What it describes | Where it is introduced | When it is filled |
 |---|---|---|---|
 | `Plot ID`, `Core ID` | The identifiers linking the soil sample to the site and plot records. | [Part 2 — Project Planning](02_Project_Planning/) and [Part 3 — Field Methods](03_Field_Methods/) | Assigned before fieldwork; confirmed in the field. |
-| Stratum/site fields | The mapped area and comparison group represented by the sample. | [Part 2 — Project Planning](02_Project_Planning/#step-2--stratify-your-site) | Planning and plot setup. |
+| Stratum/site fields | The mapped area and comparison group represented by the sample. | [Part 2 — Project Planning](02_Project_Planning/#step-2--stratify-your-study-area-optional) | Planning and plot setup. |
 | Top and bottom depth | The depth interval represented by the sample. | [Part 3 — Field Methods](03_Field_Methods/#4-label-cool-and-reconcile-samples) | Field sectioning. |
 | Corer/Bulk density ring dimensions | The measurements defining sampled volume. | [Part 3 — Field Methods](03_Field_Methods/#3-collect-soil) | Equipment setup and field collection. |
 | Hole depth | How far the sampler entered and how much material was recovered. | [Part 3 — Field Methods](03_Field_Methods/#3-collect-soil) | Field collection. |
@@ -91,7 +91,7 @@ Once the workbook is complete and checked, those inputs can be converted into ca
 |---|---|---|---|
 | `Plot ID` | The identifier joining vegetation to the plot location. | [Part 2 — Project Planning](02_Project_Planning/) | Assigned before fieldwork; confirmed in the field. |
 | Plot type and area | The small, medium, or large plot used for the measurement. | [Part 3 — Field Methods](03_Field_Methods/#2-measure-vegetation) | Field layout. |
-| Vegetation pool/fraction | Shoots, standing dead material, shrubs, or trees, under the selected protocol. | [Part 2 — Project Planning](02_Project_Planning/#step-3--choose-measurements-and-configure-the-nested-plot) | Planned before fieldwork; confirmed in the field. |
+| Vegetation pool/fraction | Shoots, standing dead material, shrubs, or trees, under the selected protocol. | [Part 2 — Project Planning](02_Project_Planning/#step-3--select-the-carbon-pools-and-plot-designs) | Planned before fieldwork; confirmed in the field. |
 | Species/group | The species name. | [Part 3 — Field Methods](03_Field_Methods/#2-measure-vegetation) | Field measurement and sorting. |
 | Field measurement | Dry mass, stem diameter, crown dimensions, DBH, height. | [Part 3 — Field Methods](03_Field_Methods/#2-measure-vegetation) | Field and laboratory. |
 | Date and phenological stage | When the plant was measured. | [Part 3 — Field Methods](03_Field_Methods/#2-measure-vegetation) | Field visit. |

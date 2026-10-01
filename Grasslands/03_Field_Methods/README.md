@@ -20,13 +20,14 @@ The field methods here are presented in order to complete while in the field.
 
 | # | Steps | What this step accomplishes |
 |---:|---|---|
-(For claude add in (pre-field preperation - checks equipment and field plan)
+| 0 | [Before the field](#0-before-the-field) | Equipment and field plan checked |
 | 1 | [Set up the plot](#1-set-up-the-plot) | Plot & Site Log |
 | 2 | [Measure vegetation](#2-measure-vegetation) | Vegetation Data |
 | 3 | [Collect soil](#3-collect-soil) | Soil Data |
 | 4 | [Label, cool, and reconcile samples](#4-label-cool-and-reconcile-samples) | Sample/Cooler Inventory |
 
-(Note to claude - root seperation should be in the labratory section, not field)
+> [!NOTE]
+> Roots are **collected** in the field, inside the soil cores. Separating, washing and drying them is laboratory work, covered in [Part 4 — From the field to the lab](../04_Data_Interpretation/#13-the-root-chain--and-this-one-is-yours-to-get-right).
 
 The vegetation and soil methods on this page are based on:
 
@@ -35,49 +36,83 @@ The vegetation and soil methods on this page are based on:
 
 ---
 
-## Part 1 - Before going out into the field, check:
+## 0. Before the field
 
-1. Confirm the site and plot ID coordinates are loaded into a gps
-2. 4. Confirm which plots are permanent vs single-use
+Before going out, check:
+
+1. Confirm the site and plot ID coordinates are loaded into a GPS
+2. Confirm which plots are permanent vs single-use
 3. Lay out the required equipment
 4. Have a cooler, fridge or freezer to store samples
 
 A quick reminder on setting up plots:
-(Note the clause the images are blurry, turn this into a 2 by 2 table with images smaller on teh left and the text of the right
 ### Permanent and single-use plots
 
 <table>
 <tr>
-<td width="50%">
+<td width="35%">
+
+<img src="https://github.com/user-attachments/assets/1f564d1e-42a0-4759-8dda-03a53f368f5d" alt="Single-use plot arrangement" width="100%">
+
+</td>
+<td width="65%">
 
 **Single-use plot**
 
 Complete all non-destructive measurements first. Destructive sampling may then occur in the documented sampling area.
 
-<img src="https://github.com/user-attachments/assets/1f564d1e-42a0-4759-8dda-03a53f368f5d" alt="Single-use plot arrangement" width="100%">
+</td>
+</tr>
+<tr>
+<td width="35%">
+
+<img src="https://github.com/user-attachments/assets/5a780146-c177-4c7e-9c9c-1f23a3dcb504" alt="Permanent plot arrangement" width="100%">
 
 </td>
-<td width="50%">
+<td width="65%">
 
 **Permanent plot**
 
 Protect the area that will be remeasured. Record the bearing and distance from the permanent marker to every clipping or soil-sampling location.
 
-<img src="https://github.com/user-attachments/assets/5a780146-c177-4c7e-9c9c-1f23a3dcb504" alt="Permanent plot arrangement" width="100%">
+</td>
+</tr>
+</table>
+
+### Nested (integrated) plot design
+
+<table>
+<tr>
+<td width="35%">
+
+<img width="100%" alt="Integrated plot design: a large plot for trees over 2 m, a medium plot for vegetation 0.5 to 2 m and soil samples, and a small plot for vegetation under 0.5 m, all sharing one centre" src="https://github.com/user-attachments/assets/1b4e5d25-f163-4cef-be8d-84bdac72dd72" />
+
+</td>
+<td width="65%">
+
+All plots share one centre mark, so every measurement ties to the same location:
+
+- **Large plot** (where trees occur): 400 m², for trees taller than 2 m.
+- **Medium plot:** shrubs and vegetation 0.5–2 m; 25 m² by default, 16–100 m² allowed.
+- **Small plot:** ground vegetation below 0.5 m; a 0.25 m² quadrat, up to 1 m².
+- **Soil/root sampling point:** a recorded point or offset.
+
+See [Part 2, Step 3](../02_Project_Planning/#build-the-nested-plot) for how the sizes were chosen.
 
 </td>
 </tr>
 </table>
 
-for claude - Add in "Nested or integrated plot design" from the project planning as well
 ---
 
 ## Prepare the Equipment
 
 Prepare the equipment for each respective carbon pool:
-(Note for claude - add the list beside the image, make the image a little bit smaller -
-
 ### Plot and vegetation equipment
+
+<table>
+<tr>
+<td width="62%">
 
 | Plot setup | Medium vegetation | Small vegetation |
 |---|---|---|
@@ -90,10 +125,20 @@ Prepare the equipment for each respective carbon pool:
 | Altimeter |  |  |
 | Resealable bags and marker |  |  |
 
-<img src="https://github.com/user-attachments/assets/3471fdd1-98cb-4c51-98a4-dd1b6863003c" alt="Equipment used to set up vegetation plots and measure vegetation" width="70%">
+</td>
+<td width="38%">
+
+<img src="https://github.com/user-attachments/assets/3471fdd1-98cb-4c51-98a4-dd1b6863003c" alt="Equipment used to set up vegetation plots and measure vegetation" width="100%">
+
+</td>
+</tr>
+</table>
 
 ### Soil equipment
-(Claude - same here, reformat same as vegetation above)
+
+<table>
+<tr>
+<td width="62%">
 
 | Plot setup | Soil core | Soil pit | Shallow soil |
 |---|---|---|---|
@@ -103,7 +148,14 @@ Prepare the equipment for each respective carbon pool:
 | Camera and notebook | Measuring tape | Permanent marker | Permanent marker |
 | Markers, tarp and bags | Packing materials and cooler | Cooler | Cooler |
 
-<img src="https://github.com/user-attachments/assets/0de6e3e9-8cbf-4812-ac9e-f69ed459b09d" alt="Equipment used for non-peat soil sampling" width="80%">
+</td>
+<td width="38%">
+
+<img src="https://github.com/user-attachments/assets/0de6e3e9-8cbf-4812-ac9e-f69ed459b09d" alt="Equipment used for non-peat soil sampling" width="100%">
+
+</td>
+</tr>
+</table>
 
 ### Before leaving for the field
 
@@ -115,11 +167,11 @@ Prepare the equipment for each respective carbon pool:
 
 ---
 
-## Part 2 - In the field:
+## In the field
 
-## step 1. Set up the plot
+## 1. Set up the plot
 
-Once you arrive at your GPs point - You can begin to fill out the information on the top of the field data sheet:
+Once you arrive at your GPS point, you can begin to fill out the information on the top of the field data sheet:
 
 1. Navigate to the assigned plot centre.
 2. Record latitude, longitude, elevation, GPS accuracy, date, and plot ID.
@@ -132,7 +184,7 @@ Once you arrive at your GPs point - You can begin to fill out the information on
 
 At the same time, your team can begin to set-up the different plot types:
 
-Using a measuring tape and a coompass, mearuing out the boundary of your plots - You can use flags to mark the boundary on the group, flagging tape to mark trees that are on teh edge of the boudnary:
+Using a measuring tape and a compass, measure out the boundary of your plots. Use flags to mark the boundary on the ground, and flagging tape to mark trees on the edge of the boundary:
 
 <img src="https://github.com/user-attachments/assets/b20de7ee-863c-4f44-b20b-bf1e79e31d77" alt="Nested plot design for trees, medium vegetation, small vegetation, and soil" width="65%">
 
@@ -170,11 +222,11 @@ Record the photo IDs on the Plot & Site Log. The before-and-after small-plot pho
 
 ---
 
-## Measuring Vegetation for Carbon stocks
+## 2. Measure vegetation
 
-Youa re your team and decide what order to measure in, but keep in mind if you are disturbing plots that have not been measured yet. For example, if you are collecting ground samples from snmall plots, make sure to mark this areas so no-one accidentally steps on them:
+You and your team decide what order to measure in, but keep in mind whether you are disturbing plots that have not been measured yet. For example, if you are collecting ground samples from small plots, mark those areas so no one accidentally steps on them.
 
-Here we present a reconded order based on what is most liekly to aviod distrubing plots before samplign or measuring occurs:
+Here is a recommended order, based on what is least likely to disturb plots before sampling or measuring:
 
 ### Small plot — clip and weigh
 
@@ -245,9 +297,9 @@ Vegetation datasheet image - <img width="364" height="191" alt="image" src="http
 
 ---
 
-## 3. Collecting soil samples
+## 3. Collect soil
 
-Soil is typically collected after vegetation sampling to aviod any distrubances. Alternatively, soil samples are collected outside of vegetaion plots to aviod any distrubance within the plot boundaries:
+Soil is typically collected after vegetation sampling to avoid disturbance. Alternatively, soil samples are collected outside the vegetation plots to avoid any disturbance within the plot boundaries:
 
 | Method | Use when | Key volume record |
 |---|---|---|
@@ -259,7 +311,7 @@ Soil is typically collected after vegetation sampling to aviod any distrubances.
 
 Sampling depth is site-specific. Estimate it with a soil probe before sampling and follow the reporting depth selected in Part 2.
 
-### Method A — Undistrubed/Intact Soil Core
+### Method A — Undisturbed (intact) soil core
 
 <table>
 <tr>
@@ -286,6 +338,8 @@ Image of the soil datasheet:
 8. Mark top and bottom, fit labelled end caps, and tape the sleeve closed.
 9. Measure the **depth of the hole** and the **length of the recovered core**.
 10. Label the core and place it in the cooler.
+
+Roots stay in the core. They are separated from the soil in the laboratory ([Part 4](../04_Data_Interpretation/#13-the-root-chain--and-this-one-is-yours-to-get-right)), not in the field.
 
 ### Method B — soil pit
 
@@ -395,9 +449,9 @@ The field data sheet contains:
 | `images/banner_field_methods.svg` | Keep the existing workshop banner. |
 | `images/field_workflow_order.svg` | Update to the eight-step field sequence. |
 | `images/permanent_vs_single_use_field.svg` | Keep or update using the two field layouts above. |
-| `images/root_processing_workflow.svg` | Keep, but label **Draft — approved SOP required**. |
+| `images/root_processing_workflow.svg` | Moves to [Part 4](../04_Data_Interpretation/#13-the-root-chain--and-this-one-is-yours-to-get-right) with root separation. Label **Draft — approved SOP required**. |
 | `datasheets/Grassland-Sample-Inventory-and-Chain-of-Custody.docx` | Review against the revised sample identifiers. |
-| `Root-Separation-SOP.md` | Required before root methods are taught or used. |
+| `Root-Separation-SOP.md` | Laboratory SOP, belongs with [Part 4](../04_Data_Interpretation/#13-the-root-chain--and-this-one-is-yours-to-get-right). Required before root methods are taught or used. |
 | `Safety/Grassland-Field-Risk-Assessment.pdf` | Must come from the operating organization. |
 ---
 

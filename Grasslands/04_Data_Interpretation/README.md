@@ -62,8 +62,8 @@ Standard, and identical to [Forests](../../Forests/04_Data_Interpretation/):
 
 ### 1.3 The root chain — and this one is yours to get right
 
-No WWF guide covers it, so the procedure in
-[Part 3](../03_Field_Methods/#5-supplemental-root-record) is the reference. The four
+No WWF guide covers it, so this section is the reference. [Part 3](../03_Field_Methods/#3-collect-soil)
+only collects the roots, inside the soil cores; separation happens here, in the lab. The four
 steps that change the number:
 
 | Step | Get it wrong and… |

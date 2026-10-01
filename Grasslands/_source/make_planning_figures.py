@@ -172,34 +172,74 @@ def step2():
 # step3_carbon_pools.svg
 # ═══════════════════════════════════════════════════════════════════════════
 def step3():
-    b, g = ['<g transform="translate(-6,-44)">'], 186     # ground line
-    b.append(f'<line x1="24" y1="{g}" x2="500" y2="{g}" stroke="{LINE}" stroke-width="2"/>')
-    # tree
-    b.append(f'<line x1="92" y1="{g}" x2="92" y2="{g-74}" stroke="{C4}" stroke-width="4"/>')
-    b.append(f'<ellipse cx="92" cy="{g-88}" rx="40" ry="26" fill="{C3}" opacity="0.35"/>')
-    b.append(txt(92, g - 122, "tree", 11.5, INK, anchor="middle"))
-    # shrub
-    b.append(f'<path d="M210 {g} q-4 -32 14 -40 q22 4 16 40 z" fill="{C3}" opacity="0.45"/>')
-    b.append(txt(220, g - 50, "shrub", 11.5, INK, anchor="middle"))
-    # sward + quadrat
+    """Pools, with roots under every plant and a rough stock beside every pool.
+
+    Stocks are ROUGH, in kg C per m2, chosen to give a sense of scale only:
+      trees, tree roots   Sothe et al. (2022): Canadian forest means, above-ground 4.1,
+                          roots 1.3 (forest averages; scattered savannah trees hold less)
+      ground vegetation   Bremer (2008) via Bork & Badiou (2017): Canadian temperate
+      and its roots       grassland plants + litter hold 3-12 t C/ha (0.3-1.2 kg C/m2),
+                          split with the report's "up to 85%+" root allocation
+      soil, 0-30 cm       Bhatti et al. (2002) via Bork & Badiou (2017): 84-110 t C/ha
+      shrubs              no per-area value: Flade et al. (2020) give per-plant equations
+    The page text under the figure carries the citations.
+    """
+    b, g = [], 176                                       # ground line
+    R = "#8a6a4a"                                         # roots
+    def bubble(x, y, w, lines, anchor_x=None):
+        h = 14 + 13 * (len(lines) - 1)
+        out = [f'<rect x="{x}" y="{y}" width="{w}" height="{h + 6}" rx="7" fill="none" '
+               f'stroke="{INK}" stroke-width="1"/>']
+        for i, (t, bold) in enumerate(lines):
+            out.append(txt(x + w / 2, y + 15 + 13 * i, t, 10.5 if i == 0 else 10,
+                           INK if i == 0 else FAINT, anchor="middle",
+                           weight="bold" if bold else "normal"))
+        return "\n".join(out)
+    def roots(x, depth, spread, n, width=1.6):
+        out = []
+        for i in range(n):
+            dx = spread * (2 * i / max(1, n - 1) - 1)
+            out.append(f'<path d="M{x} {g} q{dx * 0.3:.1f} {depth * 0.5:.1f} {dx:.1f} {depth:.1f}" '
+                       f'stroke="{R}" stroke-width="{width}" fill="none" opacity="0.8"/>')
+        return "\n".join(out)
+
+    b.append(f'<line x1="20" y1="{g}" x2="630" y2="{g}" stroke="{LINE}" stroke-width="2"/>')
+    # tree, deep roots
+    b.append(f'<line x1="90" y1="{g}" x2="90" y2="{g-74}" stroke="{C4}" stroke-width="4"/>')
+    b.append(f'<ellipse cx="90" cy="{g-88}" rx="40" ry="26" fill="{C3}" opacity="0.35"/>')
+    b.append(roots(90, 92, 42, 7, 2.2))
+    b.append(bubble(40, 14, 100, [("Tree", True), ("≈ 4.1", False)]))
+    b.append(bubble(40, g + 100, 100, [("Tree roots", True), ("≈ 1.3", False)]))
+    # shrub, medium roots
+    b.append(f'<path d="M222 {g} q-4 -32 14 -40 q22 4 16 40 z" fill="{C3}" opacity="0.45"/>')
+    b.append(roots(232, 58, 26, 6, 1.6))
+    b.append(bubble(182, 82, 100, [("Shrub", True), ("no value yet", False)]))
+    b.append(bubble(182, g + 70, 100, [("Shrub roots", True), ("no value yet", False)]))
+    # sward + quadrat, dense fine roots
     for i in range(16):
-        x = 300 + i * 7
+        x = 318 + i * 7
         b.append(f'<path d="M{x} {g} q2 -12 5 -18" stroke="{C3}" stroke-width="1.6" fill="none" opacity="0.8"/>')
-    b.append(f'<rect x="296" y="{g-30}" width="120" height="30" fill="none" stroke="{C2}" '
+        b.append(f'<path d="M{x+2} {g} q{(-1)**i * 2} 20 {(-1)**i * 3} {34 + (i % 4) * 6}" '
+                 f'stroke="{R}" stroke-width="1" fill="none" opacity="0.7"/>')
+    b.append(f'<rect x="314" y="{g-30}" width="120" height="30" fill="none" stroke="{C2}" '
              f'stroke-width="2" stroke-dasharray="5 3"/>')
-    b.append(txt(356, g - 40, "ground vegetation", 11.5, INK, anchor="middle"))
+    b.append(bubble(314, 104, 120, [("Ground vegetation", True), ("≈ 0.05–0.2", False)]))
+    b.append(bubble(314, g + 64, 120, [("Grass roots", True), ("≈ 0.25–1.0", False)]))
     # core
-    cx = 460
+    cx = 500
     b.append(f'<rect x="{cx}" y="{g}" width="30" height="128" fill="{C1}" opacity="0.16" stroke="{C1}" stroke-width="2"/>')
     for d, lab in [(0, "0–10"), (26, "10–20"), (52, "20–30"), (78, "30–60"), (104, "60–100")]:
         b.append(f'<line x1="{cx}" y1="{g+d}" x2="{cx+30}" y2="{g+d}" stroke="{C1}" stroke-width="1.2"/>')
         b.append(txt(cx + 38, g + d + 17, f"{lab} cm", 10.5, FAINT))
-    b.append(txt(cx + 15, g - 12, "soil core", 11.5, INK, anchor="middle"))
-    b.append("</g>")
+    b.append(bubble(466, 104, 112, [("Soil, 0–30 cm", True), ("≈ 8–11", False)]))
+    b.append(txt(20, 346, "Rough stocks in kg C per m². Sources under the figure.", 10.5, FAINT))
     write("step3_carbon_pools.svg", svg(
-        560, 280, "Carbon pools",
-        "A grassland cross-section with a tree, a shrub, ground vegetation inside a small "
-        "quadrat, and a soil core divided into depth increments from 0 to 100 centimetres.",
+        640, 356, "Carbon pools",
+        "A grassland cross-section with a tree, a shrub and ground vegetation inside a small "
+        "quadrat, each with roots, and a soil core divided into depth increments from 0 to 100 "
+        "centimetres. Rough stocks in kilograms of carbon per square metre: tree about 4.1, tree "
+        "roots about 1.3, shrub and shrub roots no value yet, ground vegetation about 0.05 to 0.2, "
+        "grass roots about 0.25 to 1.0, soil 0 to 30 centimetres about 8 to 11.",
         "\n".join(b)))
 
 

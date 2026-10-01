@@ -196,7 +196,7 @@ monitoring plan should state which one it has chosen:
    re-visit for a decade or more out. This is a legitimate and valuable choice — a well-marked,
    well-documented baseline is a gift to whoever measures next, and it is the only way the long
    answer ever gets known.
-2. **Buy the plots.** More plots, or [stratify harder](../02_Project_Planning/README.md#step-2--stratify-your-site)
+2. **Buy the plots.** More plots, or [stratify harder](../02_Project_Planning/README.md#step-2--stratify-your-study-area-optional)
    so that within-stratum CV falls. Halving the CV quarters the plot count.
 3. **Change the variable.** Monitor something that responds in years rather than decades, and treat
    the carbon stock as a periodic baseline rather than the monitoring signal.
@@ -285,7 +285,7 @@ Detecting a **20% change**, power 80%:
 
 > [!IMPORTANT]
 > **Do not promise root-biomass change detection.** Measure roots for the stock — that is what
-> [Part 3A Stage 4](../03_Field_Methods/#5-supplemental-root-record) is for, and it is a
+> [Part 4, Step 1.3](../04_Data_Interpretation/#13-the-root-chain--and-this-one-is-yours-to-get-right) is for, and it is a
 > genuine measurement of a real pool. But at any realistic plot count, **root biomass change is not
 > detectable**, and a monitoring plan that claims otherwise will fail at the second visit.
 >
@@ -377,7 +377,7 @@ In the compaction case above, 348.4 kg/m² was reached at **27.78 cm**. In the l
 >
 > Which is the same instruction the workshop gives for a different reason —
 > [sample the full soil profile](../README.md#measuring-soil-organic-carbon), set as the default in
-> [Part 2 Step 3](../02_Project_Planning/README.md#decide-your-sampling-depth-now-not-later).
+> [Part 2 Step 3](../02_Project_Planning/README.md#step-3--select-the-carbon-pools-and-plot-designs).
 > Deeper cores serve the stock *and* make the monitoring possible.
 
 ### What the workbook does and does not do
@@ -414,7 +414,7 @@ you do not have to.**
 | **Depth increments** | Harmonising mismatched increments afterwards costs precision you did not have to spend |
 | **Corer and diameter** | Different diameters have different compaction behaviour and different root-recovery efficiency |
 | **Root sieve mesh** | A finer mesh recovers more roots. Change it and you have measured a different pool. `ROOT_SIEVE_MM` is on the `7. Settings` tab so it travels with the data |
-| **Whether roots were removed before soil C** | The [root/soil overlap rule](../03_Field_Methods/#5-supplemental-root-record). Flip it between visits and the two stocks are not the same quantity |
+| **Whether roots were removed before soil C** | The [root/soil overlap rule](../04_Data_Interpretation/#the-double-counting-trap). Flip it between visits and the two stocks are not the same quantity |
 | **Lab and method** | Different labs, different calibrations. LOI and CHN are not interchangeable, and neither are two labs' LOI |
 | **Drying temperatures** | 60–70 °C for roots, 105 °C for bulk density, both times |
 
@@ -535,7 +535,7 @@ subtracts out.
 | **A control that is genuinely comparable** | Same soil type, same landscape position, same climate. A control on a different soil is not a control |
 | **Both baselined** | A control established after the fact cannot be differenced |
 | **More plots again** | A difference of differences has four uncertain numbers in it. Size it on the difference you expect *between* the two changes |
-| **Stratify on what you cannot match** | [Part 2 Step 2](../02_Project_Planning/README.md#step-2--stratify-your-site) |
+| **Stratify on what you cannot match** | [Part 2 Step 2](../02_Project_Planning/README.md#step-2--stratify-your-study-area-optional) |
 
 ### Fire: the soil is the wrong place to look first
 
@@ -555,7 +555,7 @@ balance, woody encroachment, tree cover — counting stems over 2 m through the
 and the soil-health indicators from [Step 6](#step-6--soil-health-indicators-and-carbon-stocks).
 These respond on the timescale fire management actually operates on. **Record fire history at every
 visit regardless** — it is a stratification variable
-([Part 2](../02_Project_Planning/README.md#savannah-and-parkland-fire-may-define-a-stratum)) and
+([Part 2](../02_Project_Planning/README.md#step-2--stratify-your-study-area-optional)) and
 the interpretive context for everything else.
 
 ---
