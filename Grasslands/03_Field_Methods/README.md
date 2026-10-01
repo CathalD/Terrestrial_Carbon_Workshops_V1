@@ -119,8 +119,20 @@ Prepare the equipment for each respective carbon pool:
 
 ## step 1. Set up the plot
 
-### Lay out the plots
+Once you arrive at your GPs point - You can begin to fill out the information on the top of the field data sheet:
 
+1. Navigate to the assigned plot centre.
+2. Record latitude, longitude, elevation, GPS accuracy, date, and plot ID.
+3. Mark the plot boundaries with tapes or flagging.
+4. Align the plot length north–south and width east–west where a compass is available
+5.  Record whether the plot is permanent or single-use.
+
+
+<img width="364" height="195" alt="image" src="https://github.com/user-attachments/assets/851bcfd4-9317-449a-a527-014f2739fe25" />
+
+At the same time, your team can begin to set-up the different plot types:
+
+Using a measuring tape and a coompass, mearuing out the boundary of your plots - You can use flags to mark the boundary on the group, flagging tape to mark trees that are on teh edge of the boudnary:
 
 <img src="https://github.com/user-attachments/assets/b20de7ee-863c-4f44-b20b-bf1e79e31d77" alt="Nested plot design for trees, medium vegetation, small vegetation, and soil" width="65%">
 
@@ -129,13 +141,6 @@ Prepare the equipment for each respective carbon pool:
 | **Large** | Trees taller than 2 m; use the Forests tree protocol. |
 | **Medium** | All individuals 0.5–2 m tall; typically 16–100 m². |
 | **Small** | Vegetation below 0.5 m in a 1 × 1 m plot. |
-
-1. Navigate to the assigned plot centre.
-2. Record latitude, longitude, elevation, GPS accuracy, date, and plot ID.
-3. Mark the plot boundaries with tapes or flagging.
-4. Align the plot length north–south and width east–west where a compass is available.
-5. For medium plots, record slope in both the north–south and east–west directions.
-6. Record whether the plot is permanent or single-use.
 
 ### Complete the plot log
 
